@@ -55,7 +55,9 @@ header {
     background: #651fff;
     border-bottom: 2px solid #1a237e;
 }
-
+header a {
+    padding-right: 30px;
+}
 footer{
     display: flex;
     flex-flow: column;
