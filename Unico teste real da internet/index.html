@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Descubra seu QI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="testeInternet">
+    <header>
+        <a href="/#!/index">TOP TESTES 2000</a>
+        <a href="/#!/ranking">RANKING DOS QI'S</a>
+    </header>
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+
+    <footer>
+        <article>
+            <section>
+                <h4 class="header-footer">Você acha que é mais esperto que o seu colega?</h4>
+                <p class="content-footer">Mostre pra ele do que é capaz com esse super teste incrivelmente preciso. Você nunca viu nada igual</p>
+            </section>
+            <section>
+                <h4 class="header-footer">Mais de décadas de estudo...</h4>
+                <p class="content-footer">Resultaram neste incrível teste. Complexibilidade comparada à engenharia espacial da NASA. 
+                   <br/> O maior trabalho científico desde o estudo da relatividade de Einstein.</p>
+            </section>
+        </article>
+        <section class="copyright">
+            All rights reserved Leonardo Alves and Guilherme Silva
+        </section>
+    </footer>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js'></script>
+
+    <script src='js/module.js'></script>
+    <script src='js/route.js'></script>
+
+    <script src='home/home.controller.js'></script>
+
+    <script src='quiz/quiz.controller.js'></script>
+    <script src='quiz/quiz.service.js'></script>
+
+    <script src='resultado/resultado.controller.js'></script>
+
+    <script src='ranking/ranking.controller.js'></script>
+
+
+</body>
+
+</html>

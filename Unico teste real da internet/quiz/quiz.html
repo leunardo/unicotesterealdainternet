@@ -1,0 +1,9 @@
+<button ng-if = "nPergunta > 0" ng-click="retrocederPergunta()">retornar</button>
+<ul>
+    <li>
+        {{questao.pergunta}}
+    </li>
+    <li ng-repeat="resposta in questao.respostas">
+       <button ng-click="avancarPergunta()">{{resposta.resposta}}</button> 
+    </li>
+</ul>

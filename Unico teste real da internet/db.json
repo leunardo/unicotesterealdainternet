@@ -1,0 +1,295 @@
+{
+  "perguntas": [
+    {
+      "id": 1,
+      "pergunta": "Se um pássaro de raça Clerisvaldo sempre será da família Jovisley, podemos afirmar que TODOS os pássaros Jovisley serão Clerisvaldos?",
+      "respostas": [
+        {
+          "id": 1,
+          "resposta": "Sim"
+        },
+        {
+          "id": 2,
+          "resposta": "Não"
+        },
+        {
+          "id": 3,
+          "resposta": "Como todo Jovisley representa um Clendeuspeno, todas as calopsitas serão pinguins"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "pergunta": "Tendo em conta que 1g de maconha faz a mãe do Pietro chorar 10L no banho, quantos Guaibas Pietro poderia ter enxido?",
+      "respostas": [
+        {
+          "id": 1,
+          "resposta": "Nenhum, Pietro não é degenerado"
+        },
+        {
+          "id": 2,
+          "resposta": "Um, Pietro é um degenerado consciente"
+        },
+        {
+          "id": 3,
+          "resposta": "DEPENDE, QUANTOS GUAIBAS CABEM EM CINCO EVERESTS?"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "pergunta": "Qual o nosso propósito?",
+      "respostas": [
+        {
+          "id": 1,
+          "resposta": "Louvar nosso grande deus Nicolas Cage todas as manhãs."
+        },
+        {
+          "id": 2,
+          "resposta": "Louvar nosso grande deus Nicolas Cage todas as tardes."
+        },
+        {
+          "id": 3,
+          "resposta": "Louvar nosso grande deus Nicolas Cage todas as noites."
+        },
+        {
+          "id": 4,
+          "resposta": "Nicolas Cage."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "pergunta": "Que horas Leonardo Alves dormiu, durante a criação desse quiz?",
+      "respostas": [
+        {
+          "id": 1,
+          "resposta": "23:59"
+        },
+        {
+          "id": 2,
+          "resposta": "22:36"
+        },
+        {
+          "id": 3,
+          "resposta": "23:17"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "pergunta": "?",
+      "respostas": [
+        {
+          "id": 1,
+          "resposta": "?"
+        },
+        {
+          "id": 2,
+          "resposta": "?"
+        },
+        {
+          "id": 3,
+          "resposta": "?"
+        }
+      ]
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "Nome": "Pietro",
+      "QI": 0
+    },
+    {
+      "id": 2,
+      "Nome": "Diogo Korok",
+      "QI": 146
+    },
+    {
+      "Nome": "Guilherme Pereira",
+      "QI": 248,
+      "id": 3
+    },
+    {
+      "Nome": "Leonardo Alves",
+      "QI": 183,
+      "id": 4
+    },
+    {
+      "Nome": "asd",
+      "QI": 74,
+      "id": 5
+    },
+    {
+      "Nome": "kkkk",
+      "QI": 200,
+      "id": 6
+    },
+    {
+      "Nome": "Leonardo Sevla",
+      "QI": 89,
+      "id": 7
+    },
+    {
+      "Nome": "Ferdinando Escoteiro",
+      "QI": 1,
+      "id": 8
+    },
+    {
+      "Nome": "Ibrahim Abu Shakr Al-Baghdadi",
+      "QI": 215,
+      "id": 9
+    },
+    {
+      "Nome": "Depressivo de Facebook Anônimo",
+      "QI": 287,
+      "id": 10
+    },
+    {
+      "Nome": "Fazedor de textão",
+      "QI": 109,
+      "id": 11
+    },
+    {
+      "Nome": "Caneca",
+      "QI": 99,
+      "id": 12
+    },
+    {
+      "Nome": "Carlos Henrique da Costa Mendes de Fonseca",
+      "QI": 173,
+      "id": 13
+    },
+    {
+      "Nome": "Nicolas Cage",
+      "QI": 198,
+      "id": 14
+    },
+    {
+      "Nome": "DK Drift Korok Diogo Kink Dragon Kavaleiro",
+      "QI": 46,
+      "id": 15
+    },
+    {
+      "Nome": "nardo",
+      "QI": 91,
+      "id": 16
+    },
+    {
+      "Nome": "poietro",
+      "QI": 211,
+      "id": 17
+    },
+    {
+      "Nome": ".",
+      "QI": 150,
+      "id": 18
+    },
+    {
+      "Nome": "odeio esse site",
+      "QI": 226,
+      "id": 19
+    },
+    {
+      "Nome": "aaaaa",
+      "QI": 183,
+      "id": 20
+    },
+    {
+      "Nome": "dqweqwe",
+      "QI": 203,
+      "id": 21
+    },
+    {
+      "Nome": "asedqwr0qweq",
+      "QI": 258,
+      "id": 22
+    },
+    {
+      "Nome": "o homem mais inteligente da terra",
+      "QI": 46,
+      "id": 23
+    },
+    {
+      "Nome": "o homem mais burro da terra",
+      "QI": 226,
+      "id": 24
+    },
+    {
+      "Nome": "Stephen Hawking",
+      "QI": 44,
+      "id": 25
+    },
+    {
+      "Nome": "Muhamad Ali",
+      "QI": 76,
+      "id": 26
+    },
+    {
+      "Nome": "Jair Messias Bolsonaro",
+      "QI": 10,
+      "id": 27
+    },
+    {
+      "Nome": "Luiz Inácio Lula Da Silva",
+      "QI": 37,
+      "id": 28
+    },
+    {
+      "Nome": "Dilma Rouseff",
+      "QI": 90,
+      "id": 29
+    },
+    {
+      "Nome": "Enéias",
+      "QI": 171,
+      "id": 30
+    },
+    {
+      "Nome": "Criador do Crocs",
+      "QI": 132,
+      "id": 31
+    },
+    {
+      "Nome": "Dono da CDG",
+      "QI": 151,
+      "id": 32
+    },
+    {
+      "Nome": "PIPOPOPOPOIPOOOPOPOOO",
+      "QI": 237,
+      "id": 33
+    },
+    {
+      "Nome": "Cachorro de raça Corgi",
+      "QI": 97,
+      "id": 34
+    },
+    {
+      "Nome": "Gato vira-lata",
+      "QI": 188,
+      "id": 35
+    },
+    {
+      "Nome": "O todo poderoso DEUS Adriano ADR",
+      "QI": 53,
+      "id": 36
+    },
+    {
+      "Nome": "ta cansei",
+      "QI": 65,
+      "id": 37
+    },
+    {
+      "Nome": "rita",
+      "QI": 186,
+      "id": 38
+    },
+    {
+      "Nome": "odeio o pooter",
+      "QI": 293,
+      "id": 39
+    }
+  ]
+}

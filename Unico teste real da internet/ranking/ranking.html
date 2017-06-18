@@ -1,0 +1,22 @@
+<h2 class="center-title">Ranking mais legitimo da Internet</h2>
+<div class="ranking-container">
+    <section>
+        <h3 class="center-title">Maiores 5 QI's</h3>
+        <ol class = "table">
+            <li class="justified-text" ng-repeat="usuario in top5">
+                <span>{{$index + 1}}. {{usuario.Nome}}</span>
+                <span class="valor">{{usuario.QI}}</span>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h3 class="center-title">Menores 5 QI's</h3>
+        <ol class = "table">
+            <li class="justified-text" ng-repeat="usuario in bot5 | orderBy:'QI'">
+                <span>{{$index + 1}}. {{usuario.Nome}}</span>
+                <span class="valor">{{usuario.QI}}</span>
+            </li>
+        </ol>
+
+    </section>
+</div>
