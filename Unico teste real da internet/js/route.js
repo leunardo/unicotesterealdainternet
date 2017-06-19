@@ -16,5 +16,9 @@ app.config(function ($routeProvider){
             controller: "rankingController",
             templateUrl: "ranking/ranking.html"
         })
+        .when("/criacaoPerguntas", {
+            controller: "criacaoPerguntasController",
+            templateUrl: "criacaoPerguntas/criacaoPerguntas.html"
+        })
         .otherwise({redirectTo: "/index"});
 });

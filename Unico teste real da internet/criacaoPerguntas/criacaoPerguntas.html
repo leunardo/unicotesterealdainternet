@@ -1,0 +1,13 @@
+<form novalidate ng-submit='criarPergunta()' name=perguntaForm>
+    Pergunta*:   <input type="text" required min = "1" id='pergunta' ng-model="pergunta">
+    <br>Resposta 1*:   <input type="text" required min = "1" ng-model="resposta[0].resposta">
+    <br>Resposta 2*:   <input type="text" required min = "1" ng-model="resposta[1].resposta">
+    <br>Resposta 3:    <input type="text" ng-model="resposta[2].resposta">
+    <br>Resposta 4:    <input type="text" ng-model="resposta[3].resposta">
+    <br>Resposta 5:    <input type="text" ng-model="resposta[4].resposta">
+    <br>PS: * quer dizer que é obrigatorio. <br>
+    <button type='submit'>Enviar pro banco</button>
+    <br> {{pergunta}}
+    <br> {{resposta}}
+    <br> {{oi}}
+</form>

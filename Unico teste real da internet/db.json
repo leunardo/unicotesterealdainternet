@@ -93,6 +93,36 @@
           "resposta": "?"
         }
       ]
+    },
+    {
+      "pergunta": "Qual dos cinco é menos similar aos outros quatro?",
+      "respostas": [
+        {
+          "resposta": "Rato"
+        },
+        {
+          "resposta": "Cobra"
+        },
+        {
+          "resposta": "Tartaruga"
+        },
+        {
+          "resposta": "Iguana"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "pergunta": "Quem é mais parecido com um quadrado?",
+      "respostas": [
+        {
+          "resposta": "O senhor triângulo"
+        },
+        {
+          "resposta": "O avô pentágono"
+        }
+      ],
+      "id": 7
     }
   ],
   "usuarios": [
@@ -300,6 +330,11 @@
       "Nome": "Guillherminho Alvvv",
       "QI": 147,
       "id": 41
+    },
+    {
+      "Nome": "asdasd",
+      "QI": 195,
+      "id": 42
     }
   ]
 }
