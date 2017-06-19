@@ -261,6 +261,48 @@
         }
       ],
       "id": 14
+    },
+    {
+      "pergunta": "Se 3 esta para 9, e 12 esta para 144. 40 esta para?",
+      "respostas": [
+        {
+          "resposta": "1600"
+        },
+        {
+          "resposta": "160"
+        },
+        {
+          "resposta": "16"
+        },
+        {
+          "resposta": "1,6"
+        },
+        {
+          "resposta": "16000"
+        }
+      ],
+      "id": 15
+    },
+    {
+      "pergunta": "batata é:",
+      "respostas": [
+        {
+          "resposta": "batata"
+        },
+        {
+          "resposta": "uma pessoa com sindrome de down"
+        },
+        {
+          "resposta": "leguminosa"
+        },
+        {
+          "resposta": "um feitiço do universo harry potter"
+        },
+        {
+          "resposta": "uma raça tolkeniana"
+        }
+      ],
+      "id": 16
     }
   ],
   "usuarios": [
@@ -473,6 +515,106 @@
       "Nome": "asdasd",
       "QI": 195,
       "id": 42
+    },
+    {
+      "Nome": "Korok",
+      "QI": 74,
+      "id": 43
+    },
+    {
+      "Nome": "42",
+      "QI": 139,
+      "id": 44
+    },
+    {
+      "Nome": "a",
+      "QI": 59,
+      "id": 45
+    },
+    {
+      "Nome": "boffcomecu",
+      "QI": 162,
+      "id": 46
+    },
+    {
+      "Nome": "blabo",
+      "QI": 170,
+      "id": 47
+    },
+    {
+      "Nome": "Carol",
+      "QI": 4,
+      "id": 48
+    },
+    {
+      "Nome": "Carlos",
+      "QI": 73,
+      "id": 49
+    },
+    {
+      "Nome": "meucuzinho",
+      "QI": 200,
+      "id": 50
+    },
+    {
+      "Nome": "kklkkj",
+      "QI": 22,
+      "id": 51
+    },
+    {
+      "Nome": "1312312312",
+      "QI": 79,
+      "id": 52
+    },
+    {
+      "Nome": "nheeeeeeeeeeeee",
+      "QI": 49,
+      "id": 53
+    },
+    {
+      "Nome": "qwerqweqwe",
+      "QI": 32,
+      "id": 54
+    },
+    {
+      "Nome": "gfdasdfs",
+      "QI": 190,
+      "id": 55
+    },
+    {
+      "Nome": "aaadas",
+      "QI": 164,
+      "id": 56
+    },
+    {
+      "Nome": "meupau",
+      "QI": 206,
+      "id": 57
+    },
+    {
+      "Nome": "korno",
+      "QI": 9,
+      "id": 58
+    },
+    {
+      "Nome": "korpo",
+      "QI": 204,
+      "id": 59
+    },
+    {
+      "Nome": "korco",
+      "QI": 89,
+      "id": 60
+    },
+    {
+      "Nome": "deus",
+      "QI": 86,
+      "id": 61
+    },
+    {
+      "Nome": "Bruno",
+      "QI": 216,
+      "id": 62
     }
   ]
 }
