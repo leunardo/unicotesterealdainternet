@@ -123,6 +123,144 @@
         }
       ],
       "id": 7
+    },
+    {
+      "pergunta": "Um piloto de formula 1 ultrapassa o 2º lugar, em que lugar ele fica?",
+      "respostas": [
+        {
+          "resposta": "Primeiro"
+        },
+        {
+          "resposta": "Segundo"
+        },
+        {
+          "resposta": "Terceiro"
+        },
+        {
+          "resposta": "Quarto"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "pergunta": "5 pessoas levam 8 dias para concluir o trabalho. Quantos dias levaria para 2 pessoas concluirem o trabalho?",
+      "respostas": [
+        {
+          "resposta": "15"
+        },
+        {
+          "resposta": "18"
+        },
+        {
+          "resposta": "20"
+        },
+        {
+          "resposta": "23"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "pergunta": "João vendeu 7 balas, isso representa 14% do seu total de balas, quantas baladas João tem?",
+      "respostas": [
+        {
+          "resposta": "46"
+        },
+        {
+          "resposta": "40"
+        },
+        {
+          "resposta": "54"
+        },
+        {
+          "resposta": "50"
+        },
+        {
+          "resposta": "48"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "pergunta": "Caneca esta para café assim como panela esta para:",
+      "respostas": [
+        {
+          "resposta": "Fogão"
+        },
+        {
+          "resposta": "Prato"
+        },
+        {
+          "resposta": "Colher"
+        },
+        {
+          "resposta": "Comida"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "pergunta": "Qual das seguintes opções é uma melhor comparação?  PEACH é para  HCAEP como 46251 é para:",
+      "respostas": [
+        {
+          "resposta": "25641"
+        },
+        {
+          "resposta": "26451"
+        },
+        {
+          "resposta": "12654"
+        },
+        {
+          "resposta": "51462"
+        },
+        {
+          "resposta": "15264"
+        }
+      ],
+      "id": 12
+    },
+    {
+      "pergunta": "Qual dos números não pertence á série seguinte? 2 - 3 - 6 - 7 - 8 -14 - 15 - 30",
+      "respostas": [
+        {
+          "resposta": "15"
+        },
+        {
+          "resposta": "3"
+        },
+        {
+          "resposta": "7"
+        },
+        {
+          "resposta": "8"
+        },
+        {
+          "resposta": "30"
+        }
+      ],
+      "id": 13
+    },
+    {
+      "pergunta": "O John precisa de 13 garrafas de água da loja. O John só pode carregar 3 ao mesmo tempo. Qual é o minimo de viagens que o John precisa de fazer á loja?",
+      "respostas": [
+        {
+          "resposta": "3"
+        },
+        {
+          "resposta": "4"
+        },
+        {
+          "resposta": "4 1/2"
+        },
+        {
+          "resposta": "5"
+        },
+        {
+          "resposta": "6"
+        }
+      ],
+      "id": 14
     }
   ],
   "usuarios": [
