@@ -1,6 +1,6 @@
 app.controller('criacaoPerguntasController', criacaoPerguntasController);
 
-function criacaoPerguntasController($scope, criacaoPerguntasService, $route){
+function criacaoPerguntasController($scope, criacaoPerguntasService){
     $scope.resposta = []
     $scope.oi = ".";
     $scope.criarPergunta = criarPergunta;
@@ -17,8 +17,10 @@ function criacaoPerguntasController($scope, criacaoPerguntasService, $route){
                 }
             }
             pergunta.respostas = $scope.resposta;
-            criacaoPerguntasService.criarPergunta(pergunta);
-            location.reload(true);
+            criacaoPerguntasService.criarPergunta(pergunta).then(r => {
+               $scope.pergunta = "";
+               $scope.resposta = [];
+            });
         }
     }
 }
