@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face{
+    font-family: 'Klavika';
+    src: url('fonts/Klavika/Klavika.otf')
+}
 .center-title {
     display: flex;
     justify-content: center;
@@ -10,34 +14,38 @@
 }
 
 .valor {
-    padding-left: 3px;
-    margin-left: 7px;
+    margin-left: 5px;
+    padding-left: 2px;
+    width: 12%;
+    text-align: right;
 }
 
 ol {
-    padding-left: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0;
 }
 
+ol .nome{
+    padding-top: 2px;
+    padding-bottom: 2px; 
+}
 .ranking-container {
     display: flex;
     justify-content: space-around;
 }
 .ranking-container ol{
-    max-width: 30vw;
+    width: 20vw;
 }
 * {
     box-sizing: border-box;
 }
 
-
 body {
     margin: 0;
-    background: #5c6bc0;
-    background: -moz-linear-gradient(45deg, #5c6bc0 0%, #c5cae9 100%);
-    background: -webkit-linear-gradient(45deg, #5c6bc0 0%, #c5cae9 100%);
-    background: linear-gradient(45deg, #5c6bc0 0%, #c5cae9 100%);
-    color: white;
-    font-family: 'Roboto', sans-serif;
+    background: #EDF0F5;
+    color: black;
+    font-family: 'Klavika';
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,12 +59,26 @@ a {
 }
 
 header {
+    display: flex; 
+    width: 100vw;
+    padding-top: 10px;
     padding-left: 10px;
-    background: #651fff;
-    border-bottom: 2px solid #1a237e;
+    background: #4d68a1;
+    background: -moz-linear-gradient(top, #4d68a1 0%, #3b5998 100%);
+    background: -webkit-linear-gradient(top, #4d68a1 0%,#3b5998 100%);
+    background: linear-gradient(to bottom, #4d68a1 0%,#3b5998 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998',GradientType=0 );
+    border-bottom: 1px solid #133783;
+    height: 5vh;
 }
 header a {
+    display: flex;
+    align-self: center;
+    padding: 5px;
     padding-right: 30px;
+}
+header .logo{
+    font-size: 2.3rem;
 }
 .questions{
     padding-top: 10vh;
@@ -124,13 +146,14 @@ footer{
     justify-content: space-between;
     position: relative;
     width: 100vw;
-    background: #651fff;
-    background: -moz-linear-gradient(top, #651fff 0%, #6200ea 100%);
-    background: -webkit-linear-gradient(top, #651fff 0%,#6200ea 100%);
-    background: linear-gradient(to bottom, #651fff 0%,#6200ea 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#651fff', endColorstr='#6200ea',GradientType=0 );
-    border-top: 2px solid #1a237e;
+    background: #4d68a1;
+    background: -moz-linear-gradient(top, #4d68a1 0%, #3b5998 100%);
+    background: -webkit-linear-gradient(top, #4d68a1 0%,#3b5998 100%);
+    background: linear-gradient(to bottom, #4d68a1 0%,#3b5998 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998',GradientType=0 );
+    border-top: 1px solid #133783;
     bottom: 0;
+    color: white;
     align-self: flex-end;
 }
 footer article{
@@ -141,7 +164,12 @@ footer article{
 footer .copyright {
     display: flex;
     text-decoration: underline;
-    background: #6200ea;
+    background: #3f5c9a;
+    background: -moz-linear-gradient(top, #3f5c9a 0%, #3e5b99 100%);
+    background: -webkit-linear-gradient(top, #3f5c9a 0%,#3e5b99 100%);
+    background: linear-gradient(to bottom, #3f5c9a 0%,#3e5b99 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f5c9a', endColorstr='#3e5b99',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f5c9a', endColorstr='#214896',GradientType=0 );
     justify-content: flex-start;
     font-style: italic;
 }
