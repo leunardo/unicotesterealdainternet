@@ -84,7 +84,17 @@ header .logo{
     padding-top: 10vh;
     display: flex;
     justify-content: center;
-    height: 60vh;
+    height: 70vh;
+}
+.insertPergunta{
+    text-align: start;
+    width: 50vw;
+    height: 20vh;
+}
+.insertResposta{
+    text-align: start;
+    width: 40vw;
+    height: 10vh;
 }
 .questions button {
   font-family: Arial;
@@ -101,10 +111,7 @@ header .logo{
   font-weight: bold;
 }
 .top-part{
-    background: #F6F7F9;
-    border: 2px #DFE0E4;
-    border-radius: 5px;
-    margin: 2px;
+    margin: 4px;
 }
 .caixa{
     padding: 7px;
@@ -122,20 +129,23 @@ header .logo{
   text-decoration: none;
 }
 .questions respostas{
-    margin: 50px 0 0 0;
+    max-height: 50%;
     display: flex;
     flex-direction: column;
 }
 .pergunta{
+    background: #F6F7F9;
+    border: 2px #DFE0E4;
+    border-radius: 5px;
     font-size: 1.3rem;
     text-align: center;
     color: #365CAB;
-    height: 100%;
     padding: 3px;
 }
 .top-part button{
     background: #4267B2;
     border: 1px solid #6a89c8;
+    margin-top: 10px;
     border-radius: 5px;
     font-size: 1.4rem;
     font-weight: bold;
