@@ -5,9 +5,9 @@ function rankingController ($scope, quizService) {
     
 
 
-    function sortMaiorQI (a, b) {
-        if (a.QI < b.QI) return 1;
-        else if (a.QI > b.QI) return -1;
+    function sortMaiorScore (a, b) {
+        if (a.Pontuacao < b.Pontuacao) return 1;
+        else if (a.Pontuacao > b.Pontuacao) return -1;
         return 0;
     }   
 
@@ -15,10 +15,9 @@ function rankingController ($scope, quizService) {
         quizService.getUsuario().then(
             response =>{
                 $scope.usuarios = response.data;
-                $scope.usuarios.sort(sortMaiorQI);
+                $scope.usuarios.sort(sortMaiorScore);
 
-                $scope.top5 = $scope.usuarios.slice(0,5);
-                $scope.bot5 = $scope.usuarios.slice(-5);
+                $scope.top10 = $scope.usuarios.slice(0,10);
             },
             fail => {
                 alert("Ops, não foi possivel pegar o rank.");
