@@ -69,7 +69,7 @@ header {
     background: linear-gradient(to bottom, #4d68a1 0%,#3b5998 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998',GradientType=0 );
     border-bottom: 1px solid #133783;
-    height: 10vh;
+    min-height: 10vh;
 }
 header a {
     display: flex;
@@ -169,7 +169,6 @@ footer{
     background: linear-gradient(to bottom, #4d68a1 0%,#3b5998 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998',GradientType=0 );
     border-top: 1px solid #133783;
-    bottom: 0;
     color: white;
     align-self: flex-end;
 }
@@ -232,8 +231,28 @@ footer article section{
         max-width: 90vw;
     }
 
+    .pergunta{
+        font-size: 0.8rem;
+    }
+    
+    .respostas button{
+        font-size: 0.6rem;
+    }
+
+    .top-part button{
+        font-size: 0.6rem;
+    }
+
+    .questions{
+        padding: 10px;
+    }
+
     .copyright {
         align-self: center;
+    }
+    header .logo{
+        max-width: 70vw;
+        align-self: flex-start;
     }
 }
 
