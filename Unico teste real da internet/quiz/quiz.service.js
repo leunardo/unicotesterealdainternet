@@ -2,7 +2,7 @@ app.factory("quizService", quizService);
 
 function quizService($http) {
     var url = "http://25.116.166.189:3000/"
-    var QI = 0;
+    var Pontuacao = 0;
 
     function getPergunta() {
         return $http.get(url + "perguntas");
@@ -18,7 +18,7 @@ function quizService($http) {
 
     return {
         getPergunta: getPergunta,
-        getQI: QI,
+        getPontuacao: Pontuacao,
         getUsuario: getUsuario,
         criarUsuario: criarUsuario
     }

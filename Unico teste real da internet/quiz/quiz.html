@@ -10,7 +10,7 @@
         </div>
         <div class = "respostas">
             <span ng-repeat="resposta in questao.respostas">
-            <button ng-click="avancarPergunta()">{{resposta.resposta}}</button> 
+            <button ng-click="avancarPergunta(resposta.nota)">{{resposta.resposta}}</button> 
             </span>
         </div>
     </div>

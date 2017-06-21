@@ -2,11 +2,11 @@ app.controller("quizController", quizController);
 
 function quizController($scope, quizService, $location) {
     $scope.questoes = [];
+    $scope.notas = [];
     $scope.nPergunta = 0;
     $scope.avancarPergunta = avancarPergunta;
     $scope.retrocederPergunta = retrocederPergunta;
-
-    getUsuarios();
+    var notaFinal = 0;
     getPergunta();
 
     function getPergunta() {
@@ -20,56 +20,49 @@ function quizController($scope, quizService, $location) {
             });
     }
 
+    function contabilizarPergunta(nota, avancar){
+        if(avancar){
+            $scope.notas[$scope.nPergunta] = nota;
+        }else{
+            $scope.notas[$scope.nPergunta] = 0;
+        }
+    }
+
     function mostrarPergunta(nPergunta) {
         $scope.questao = $scope.questoes[nPergunta];
     }
 
-    function avancarPergunta() {
+    function avancarPergunta(nota) {
         if ($scope.nPergunta < $scope.questoes.length - 1) {
+            contabilizarPergunta(nota, true); 
             $scope.nPergunta++;
             mostrarPergunta($scope.nPergunta);
         } else {
+            contabilizarPergunta(nota, true);
             encerrarQuiz();
         }
     }
 
     function encerrarQuiz() {
-        alert("Parabéns! Você terminou o Unico Teste (DE QI) Real da Internet")
-        if (existeUsuario()) {
-            var usuario = $scope.usuarios
-                .find(u => u.Nome === localStorage.nome);
-            quizService.getQI = usuario.QI;
-        } else {
-            salvarUsuario();
-        }
+        alert("Parabéns! Você terminou o Unico Teste (DE PONTUAÇAO GENERICA) Real da Internet!");
+        notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
+            return notaAnterior + notaAtual;
+        })
+        salvarUsuario();
         $location.path("/resultado");
     }
 
-    function getUsuarios() {
-        quizService.getUsuario().then(r => {
-            $scope.usuarios = r.data;
-        }, e => {
-            alert("erro")
-        });
-    }
-
-    function existeUsuario() {
-        return !!$scope.usuarios
-            .filter(u => u.Nome.toUpperCase() === localStorage.nome.toUpperCase())
-            .length;
-    }
-
     function salvarUsuario() {
-        quizService.getQI = Math.trunc(Math.random() * 200 * 1.5);
         var usuario = {
             Nome: localStorage.nome,
-            QI: quizService.getQI
+            Pontuacao: notaFinal
         }
         quizService.criarUsuario(usuario);
     }
 
     function retrocederPergunta() {
         $scope.nPergunta--;
+        contabilizarPergunta(0, false);
         mostrarPergunta($scope.nPergunta);
     }
     
