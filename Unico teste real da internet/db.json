@@ -6,15 +6,18 @@
       "respostas": [
         {
           "id": 1,
-          "resposta": "Sim"
+          "resposta": "Sim",
+          "nota": 0
         },
         {
           "id": 2,
-          "resposta": "Não"
+          "resposta": "Não",
+          "nota": 2
         },
         {
           "id": 3,
-          "resposta": "Como todo Jovisley representa um Clendeuspeno, todas as calopsitas serão pinguins"
+          "resposta": "Como todo Jovisley representa um Clendeuspeno, todas as calopsitas serão pinguins",
+          "nota": 0
         }
       ]
     },
@@ -24,15 +27,18 @@
       "respostas": [
         {
           "id": 1,
-          "resposta": "Nenhum, Pietro não é degenerado"
+          "resposta": "Nenhum, Pietro não é degenerado",
+          "nota": 1
         },
         {
           "id": 2,
-          "resposta": "Um, Pietro é um degenerado consciente"
+          "resposta": "Um, Pietro é um degenerado consciente",
+          "nota": 0
         },
         {
           "id": 3,
-          "resposta": "DEPENDE, QUANTOS GUAIBAS CABEM EM CINCO EVERESTS?"
+          "resposta": "DEPENDE, QUANTOS GUAIBAS CABEM EM CINCO EVERESTS?",
+          "nota": 2
         }
       ]
     },
@@ -42,19 +48,23 @@
       "respostas": [
         {
           "id": 1,
-          "resposta": "Louvar nosso grande deus Nicolas Cage todas as manhãs."
+          "resposta": "Louvar nosso grande deus Nicolas Cage todas as manhãs.",
+          "nota": 0
         },
         {
           "id": 2,
-          "resposta": "Louvar nosso grande deus Nicolas Cage todas as tardes."
+          "resposta": "Louvar nosso grande deus Nicolas Cage todas as tardes.",
+          "nota": 0
         },
         {
           "id": 3,
-          "resposta": "Louvar nosso grande deus Nicolas Cage todas as noites."
+          "resposta": "Louvar nosso grande deus Nicolas Cage todas as noites.",
+          "nota": 0
         },
         {
           "id": 4,
-          "resposta": "Nicolas Cage."
+          "resposta": "Nicolas Cage.",
+          "nota": 1
         }
       ]
     },
@@ -64,15 +74,18 @@
       "respostas": [
         {
           "id": 1,
-          "resposta": "23:59"
+          "resposta": "23:59",
+          "nota": 2
         },
         {
           "id": 2,
-          "resposta": "22:36"
+          "resposta": "22:36",
+          "nota": 0
         },
         {
           "id": 3,
-          "resposta": "23:17"
+          "resposta": "23:17",
+          "nota": 0
         }
       ]
     },
@@ -82,15 +95,18 @@
       "respostas": [
         {
           "id": 1,
-          "resposta": "?"
+          "resposta": "?",
+          "nota": 0
         },
         {
           "id": 2,
-          "resposta": "?"
+          "resposta": "?",
+          "nota": 0
         },
         {
           "id": 3,
-          "resposta": "?"
+          "resposta": "?",
+          "nota": 0
         }
       ]
     },
@@ -98,16 +114,20 @@
       "pergunta": "Qual dos cinco é menos similar aos outros quatro?",
       "respostas": [
         {
-          "resposta": "Rato"
+          "resposta": "Rato",
+          "nota": 2
         },
         {
-          "resposta": "Cobra"
+          "resposta": "Cobra",
+          "nota": 2
         },
         {
-          "resposta": "Tartaruga"
+          "resposta": "Tartaruga",
+          "nota": 0
         },
         {
-          "resposta": "Iguana"
+          "resposta": "Iguana",
+          "nota": 0
         }
       ],
       "id": 6
@@ -116,10 +136,12 @@
       "pergunta": "Quem é mais parecido com um quadrado?",
       "respostas": [
         {
-          "resposta": "O senhor triângulo"
+          "resposta": "O senhor triângulo",
+          "nota": 3
         },
         {
-          "resposta": "O avô pentágono"
+          "resposta": "O avô pentágono",
+          "nota": 0
         }
       ],
       "id": 7
@@ -128,16 +150,20 @@
       "pergunta": "Um piloto de formula 1 ultrapassa o 2º lugar, em que lugar ele fica?",
       "respostas": [
         {
-          "resposta": "Primeiro"
+          "resposta": "Primeiro",
+          "nota": 0
         },
         {
-          "resposta": "Segundo"
+          "resposta": "Segundo",
+          "nota": 1
         },
         {
-          "resposta": "Terceiro"
+          "resposta": "Terceiro",
+          "nota": 0
         },
         {
-          "resposta": "Quarto"
+          "resposta": "Quarto",
+          "nota": 0
         }
       ],
       "id": 8
@@ -146,16 +172,20 @@
       "pergunta": "5 pessoas levam 8 dias para concluir o trabalho. Quantos dias levaria para 2 pessoas concluirem o trabalho?",
       "respostas": [
         {
-          "resposta": "15"
+          "resposta": "15",
+          "nota": 0
         },
         {
-          "resposta": "18"
+          "resposta": "18",
+          "nota": 0
         },
         {
-          "resposta": "20"
+          "resposta": "20",
+          "nota": 1
         },
         {
-          "resposta": "23"
+          "resposta": "23",
+          "nota": 0
         }
       ],
       "id": 9
@@ -164,19 +194,24 @@
       "pergunta": "João vendeu 7 balas, isso representa 14% do seu total de balas, quantas baladas João tem?",
       "respostas": [
         {
-          "resposta": "46"
+          "resposta": "46",
+          "nota": 0
         },
         {
-          "resposta": "40"
+          "resposta": "40",
+          "nota": 0
         },
         {
-          "resposta": "54"
+          "resposta": "54",
+          "nota": 0
         },
         {
-          "resposta": "50"
+          "resposta": "50",
+          "nota": 3
         },
         {
-          "resposta": "48"
+          "resposta": "48",
+          "nota": 0
         }
       ],
       "id": 10
@@ -185,16 +220,20 @@
       "pergunta": "Caneca esta para café assim como panela esta para:",
       "respostas": [
         {
-          "resposta": "Fogão"
+          "resposta": "Fogão",
+          "nota": 0
         },
         {
-          "resposta": "Prato"
+          "resposta": "Prato",
+          "nota": 0
         },
         {
-          "resposta": "Colher"
+          "resposta": "Colher",
+          "nota": 0
         },
         {
-          "resposta": "Comida"
+          "resposta": "Comida",
+          "nota": 2
         }
       ],
       "id": 11
@@ -203,19 +242,24 @@
       "pergunta": "Qual das seguintes opções é uma melhor comparação?  PEACH é para  HCAEP como 46251 é para:",
       "respostas": [
         {
-          "resposta": "25641"
+          "resposta": "25641",
+          "nota": 0
         },
         {
-          "resposta": "26451"
+          "resposta": "26451",
+          "nota": 0
         },
         {
-          "resposta": "12654"
+          "resposta": "12654",
+          "nota": 0
         },
         {
-          "resposta": "51462"
+          "resposta": "51462",
+          "nota": 0
         },
         {
-          "resposta": "15264"
+          "resposta": "15264",
+          "nota": 1
         }
       ],
       "id": 12
@@ -224,19 +268,24 @@
       "pergunta": "Qual dos números não pertence á série seguinte? 2 - 3 - 6 - 7 - 8 -14 - 15 - 30",
       "respostas": [
         {
-          "resposta": "15"
+          "resposta": "15",
+          "nota": 0
         },
         {
-          "resposta": "3"
+          "resposta": "3",
+          "nota": 0
         },
         {
-          "resposta": "7"
+          "resposta": "7",
+          "nota": 0
         },
         {
-          "resposta": "8"
+          "resposta": "8",
+          "nota": 3
         },
         {
-          "resposta": "30"
+          "resposta": "30",
+          "nota": 0
         }
       ],
       "id": 13
@@ -245,19 +294,24 @@
       "pergunta": "O John precisa de 13 garrafas de água da loja. O John só pode carregar 3 ao mesmo tempo. Qual é o minimo de viagens que o John precisa de fazer á loja?",
       "respostas": [
         {
-          "resposta": "3"
+          "resposta": "3",
+          "nota": 0
         },
         {
-          "resposta": "4"
+          "resposta": "4",
+          "nota": 0
         },
         {
-          "resposta": "4 1/2"
+          "resposta": "4 1/2",
+          "nota": 0
         },
         {
-          "resposta": "5"
+          "resposta": "5",
+          "nota": 1
         },
         {
-          "resposta": "6"
+          "resposta": "6",
+          "nota": 0
         }
       ],
       "id": 14
@@ -266,19 +320,24 @@
       "pergunta": "Se 3 esta para 9, e 12 esta para 144. 40 esta para?",
       "respostas": [
         {
-          "resposta": "1600"
+          "resposta": "1600",
+          "nota": 1
         },
         {
-          "resposta": "160"
+          "resposta": "160",
+          "nota": 0
         },
         {
-          "resposta": "16"
+          "resposta": "16",
+          "nota": 0
         },
         {
-          "resposta": "1,6"
+          "resposta": "1,6",
+          "nota": 0
         },
         {
-          "resposta": "16000"
+          "resposta": "16000",
+          "nota": 0
         }
       ],
       "id": 15
@@ -287,19 +346,24 @@
       "pergunta": "batata é:",
       "respostas": [
         {
-          "resposta": "batata"
+          "resposta": "batata",
+          "nota": 1
         },
         {
-          "resposta": "uma pessoa com sindrome de down"
+          "resposta": "uma pessoa com sindrome de down",
+          "nota": 3
         },
         {
-          "resposta": "leguminosa"
+          "resposta": "leguminosa",
+          "nota": 0
         },
         {
-          "resposta": "um feitiço do universo harry potter"
+          "resposta": "um feitiço do universo harry potter",
+          "nota": 0
         },
         {
-          "resposta": "uma raça tolkeniana"
+          "resposta": "uma raça tolkeniana",
+          "nota": 0
         }
       ],
       "id": 16
@@ -307,314 +371,9 @@
   ],
   "usuarios": [
     {
-      "id": 1,
-      "Nome": "Pietro",
-      "QI": 0
-    },
-    {
-      "id": 2,
-      "Nome": "Diogo Korok",
-      "QI": 146
-    },
-    {
-      "Nome": "Guilherme Pereira",
-      "QI": 248,
-      "id": 3
-    },
-    {
-      "Nome": "Leonardo Alves",
-      "QI": 183,
-      "id": 4
-    },
-    {
-      "Nome": "asd",
-      "QI": 74,
-      "id": 5
-    },
-    {
-      "Nome": "kkkk",
-      "QI": 200,
-      "id": 6
-    },
-    {
-      "Nome": "Leonardo Sevla",
-      "QI": 89,
-      "id": 7
-    },
-    {
-      "Nome": "Ferdinando Escoteiro",
-      "QI": 1,
-      "id": 8
-    },
-    {
-      "Nome": "Ibrahim Abu Shakr Al-Baghdadi",
-      "QI": 215,
-      "id": 9
-    },
-    {
-      "Nome": "Depressivo de Facebook Anônimo",
-      "QI": 287,
-      "id": 10
-    },
-    {
-      "Nome": "Fazedor de textão",
-      "QI": 109,
-      "id": 11
-    },
-    {
-      "Nome": "Caneca",
-      "QI": 99,
-      "id": 12
-    },
-    {
-      "Nome": "Carlos Henrique da Costa Mendes de Fonseca",
-      "QI": 173,
-      "id": 13
-    },
-    {
-      "Nome": "Nicolas Cage",
-      "QI": 198,
-      "id": 14
-    },
-    {
-      "Nome": "DK Drift Korok Diogo Kink Dragon Kavaleiro",
-      "QI": 46,
-      "id": 15
-    },
-    {
-      "Nome": "nardo",
-      "QI": 91,
-      "id": 16
-    },
-    {
-      "Nome": "poietro",
-      "QI": 211,
-      "id": 17
-    },
-    {
-      "Nome": ".",
-      "QI": 150,
-      "id": 18
-    },
-    {
-      "Nome": "odeio esse site",
-      "QI": 226,
-      "id": 19
-    },
-    {
-      "Nome": "aaaaa",
-      "QI": 183,
-      "id": 20
-    },
-    {
-      "Nome": "dqweqwe",
-      "QI": 203,
-      "id": 21
-    },
-    {
-      "Nome": "asedqwr0qweq",
-      "QI": 258,
-      "id": 22
-    },
-    {
-      "Nome": "o homem mais inteligente da terra",
-      "QI": 46,
-      "id": 23
-    },
-    {
-      "Nome": "o homem mais burro da terra",
-      "QI": 226,
-      "id": 24
-    },
-    {
-      "Nome": "Stephen Hawking",
-      "QI": 44,
-      "id": 25
-    },
-    {
-      "Nome": "Muhamad Ali",
-      "QI": 76,
-      "id": 26
-    },
-    {
-      "Nome": "Jair Messias Bolsonaro",
-      "QI": 10,
-      "id": 27
-    },
-    {
-      "Nome": "Luiz Inácio Lula Da Silva",
-      "QI": 37,
-      "id": 28
-    },
-    {
-      "Nome": "Dilma Rouseff",
-      "QI": 90,
-      "id": 29
-    },
-    {
-      "Nome": "Enéias",
-      "QI": 171,
-      "id": 30
-    },
-    {
-      "Nome": "Criador do Crocs",
-      "QI": 132,
-      "id": 31
-    },
-    {
-      "Nome": "Dono da CDG",
-      "QI": 151,
-      "id": 32
-    },
-    {
-      "Nome": "PIPOPOPOPOIPOOOPOPOOO",
-      "QI": 237,
-      "id": 33
-    },
-    {
-      "Nome": "Cachorro de raça Corgi",
-      "QI": 97,
-      "id": 34
-    },
-    {
-      "Nome": "Gato vira-lata",
-      "QI": 188,
-      "id": 35
-    },
-    {
-      "Nome": "O todo poderoso DEUS Adriano ADR",
-      "QI": 53,
-      "id": 36
-    },
-    {
-      "Nome": "ta cansei",
-      "QI": 65,
-      "id": 37
-    },
-    {
-      "Nome": "rita",
-      "QI": 186,
-      "id": 38
-    },
-    {
-      "Nome": "odeio o pooter",
-      "QI": 293,
-      "id": 39
-    },
-    {
-      "Nome": "Batata",
-      "QI": 49,
-      "id": 40
-    },
-    {
-      "Nome": "Guillherminho Alvvv",
-      "QI": 147,
-      "id": 41
-    },
-    {
-      "Nome": "asdasd",
-      "QI": 195,
-      "id": 42
-    },
-    {
-      "Nome": "Korok",
-      "QI": 74,
-      "id": 43
-    },
-    {
-      "Nome": "42",
-      "QI": 139,
-      "id": 44
-    },
-    {
-      "Nome": "a",
-      "QI": 59,
-      "id": 45
-    },
-    {
-      "Nome": "boffcomecu",
-      "QI": 162,
-      "id": 46
-    },
-    {
-      "Nome": "blabo",
-      "QI": 170,
-      "id": 47
-    },
-    {
-      "Nome": "Carol",
-      "QI": 4,
-      "id": 48
-    },
-    {
-      "Nome": "Carlos",
-      "QI": 73,
-      "id": 49
-    },
-    {
-      "Nome": "meucuzinho",
-      "QI": 200,
-      "id": 50
-    },
-    {
-      "Nome": "kklkkj",
-      "QI": 22,
-      "id": 51
-    },
-    {
-      "Nome": "1312312312",
-      "QI": 79,
-      "id": 52
-    },
-    {
-      "Nome": "nheeeeeeeeeeeee",
-      "QI": 49,
-      "id": 53
-    },
-    {
-      "Nome": "qwerqweqwe",
-      "QI": 32,
-      "id": 54
-    },
-    {
-      "Nome": "gfdasdfs",
-      "QI": 190,
-      "id": 55
-    },
-    {
-      "Nome": "aaadas",
-      "QI": 164,
-      "id": 56
-    },
-    {
-      "Nome": "meupau",
-      "QI": 206,
-      "id": 57
-    },
-    {
-      "Nome": "korno",
-      "QI": 9,
-      "id": 58
-    },
-    {
-      "Nome": "korpo",
-      "QI": 204,
-      "id": 59
-    },
-    {
-      "Nome": "korco",
-      "QI": 89,
-      "id": 60
-    },
-    {
-      "Nome": "deus",
-      "QI": 86,
-      "id": 61
-    },
-    {
-      "Nome": "Bruno",
-      "QI": 216,
-      "id": 62
+      "Nome": "Guilherme",
+      "Pontuacao": 28,
+      "id": 1
     }
   ]
 }
