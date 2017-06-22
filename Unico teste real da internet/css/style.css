@@ -32,7 +32,12 @@ ol .nome {
     padding-bottom: 2px;
 }
 
-.ranking-container {
+.home-container {
+    display: flex;
+    justify-content: center;    
+}
+
+.ranking-container  {
     display: flex;
     justify-content: space-around;
 }
@@ -73,6 +78,8 @@ header {
     background: linear-gradient(to bottom, #4d68a1 0%, #3b5998 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998', GradientType=0);
     border-bottom: 1px solid #133783;
+    justify-content: space-between;
+   
 }
 
 header a {
@@ -85,6 +92,7 @@ header a {
 header .logo {
     font-size: 2.3rem;
 }
+
 
 .questions {
     padding-top: 10vh;
