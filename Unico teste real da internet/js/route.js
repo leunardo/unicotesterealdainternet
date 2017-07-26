@@ -4,7 +4,7 @@ app.config(function ($routeProvider){
             controller: "homeController",
             templateUrl: "home/home.html"
         })        
-        .when("/quiz" , {
+        .when("/quiz/:id" , {
             controller: "quizController",
             templateUrl: "quiz/quiz.html"
         })

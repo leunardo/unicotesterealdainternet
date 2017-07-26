@@ -1,6 +1,6 @@
 app.controller("quizController", quizController);
 
-function quizController($scope, quizService, usuarioService, $location) {
+function quizController($scope, quizService, usuarioService, $location, $routeParams) {
     $scope.questoes = [];
     $scope.notas = [];
     $scope.nPergunta = 0;
