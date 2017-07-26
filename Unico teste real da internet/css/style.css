@@ -3,6 +3,12 @@
     font-family: 'Klavika';
     src: url('fonts/Klavika/Klavika.otf')
 }
+
+.wrapper {
+    margin: 10px;
+    padding: 10px;
+}
+
 .quizzes {
     display: flex;
     flex-direction: row;
@@ -111,8 +117,7 @@ a {
 }
 
 header {
-    display: flex;
-    width: 100vw;
+    display: flex;    
     padding-top: 10px;
     padding-left: 10px;
     background: #4d68a1;
@@ -292,7 +297,99 @@ footer article section {
     flex-grow: 3;
 }
 
+.img-medium {
+    max-width: 96px;
+    max-height: 96px;
+}
+
+.hero {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.hero-img {
+    align-self: center;
+}
+
+.hero-name {
+    margin-top: 10px;
+    font-size: 180%;
+}
+
+.hero-body {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    padding: 30px; 
+    min-height: 13vh;    
+    background: #e5f442;
+}
+
+.marginless {
+    margin: 0;
+}
+
+.user-quizzes {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;    
+}
+
+.user-quiz {
+    padding: 50px;
+    background: #41f480;
+}
+
+.mobile-signin {
+    display: none;
+}
+
+@media screen and (max-width: 1015px) {
+    .user-quiz {
+        justify-content: space-around;
+        margin: 10px 0 10px 0;
+    }
+}
 @media screen and (max-width: 600px) {
+
+    .profile-info {
+        justify-content: center;
+        margin: 3px;
+    }
+    .g-signin2 {
+        display: none;
+    }
+
+    .mobile-signin {
+        display: block;
+        cursor: pointer;
+        z-index: 1000;
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+         padding: 20px; 
+        background: #4d68a1;
+        border-radius: 50%;
+    }
+
+    .mobile-signin > * {
+        max-width: 32px;
+        max-height: 32px;        
+    }
+
+    .gsignin2 {
+        display: none;
+    }
+
+    .user-quizzes {
+        justify-content: center;
+    }
+
+    .user-quiz {
+        text-align: center;
+        width: 80%;
+    }
+
     footer article section {
         max-width: 90vw;
         align-self: center;
