@@ -1,7 +1,7 @@
 app.factory("quizService", quizService);
 
 function quizService($http) {
-    var url = "http://25.116.166.189:3000/"
+    var url = "http://localhost:3000/"
     var Pontuacao = 0;
 
     function getPergunta() {
