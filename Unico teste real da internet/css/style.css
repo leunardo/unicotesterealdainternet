@@ -4,6 +4,11 @@
     src: url('fonts/Klavika/Klavika.otf')
 }
 
+.g-signout2 {
+    border-left: 2px white solid;
+    margin-left: 5px;
+}
+
 .center-title {
     display: flex;
     justify-content: center;
@@ -12,6 +17,10 @@
 .justified-text {
     display: flex;
     justify-content: space-between;
+}
+
+.aligned-center {
+    align-self: center;
 }
 
 .valor {
@@ -93,6 +102,19 @@ header .logo {
     font-size: 2.3rem;
 }
 
+.profile-info {
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    flex-flow: row nowrap;
+}
+
+.profile-pic {
+    margin-right: 8px;
+    border-radius: 50%;
+    max-width: 32px;
+    max-height: 32px;
+}
 
 .questions {
     padding-top: 10vh;
