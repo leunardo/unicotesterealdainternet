@@ -24,5 +24,9 @@ app.config(function ($routeProvider){
             controller: "quizMenuController",
             templateUrl: "quizMenu/quizMenu.html"
         })
+        .when("/perfil/:id", {
+            controller: "perfilController",
+            templateUrl: "usuario/perfil.html"
+        })
         .otherwise({redirectTo: "/index"});
 });

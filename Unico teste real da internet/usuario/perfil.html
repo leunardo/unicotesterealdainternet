@@ -1,0 +1,20 @@
+<section class="hero">
+    <article class="hero-body">
+        <img ng-src="{{usuario.foto}}" class="profile-pic img-medium hero-img">
+        <b class="hero-name">{{usuario.nome}}</b>
+    </article>
+
+    <article class="wrapper">
+        <h2>Meus quizzes</h2>
+
+        <section class="quizzes user-quizzes">
+            
+            <a ng-href="/#!/quiz/{{quiz.id}}" ng-repeat="quiz in quizzes" class="user-quiz marginless">
+                {{quiz.titulo}}
+            </a>
+            
+        </section>
+    </article>
+
+
+</section>
