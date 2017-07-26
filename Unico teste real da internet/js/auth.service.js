@@ -1,12 +1,17 @@
 app.service('authService', authService);
 
-function authService() {           
+function authService(usuarioService) {           
 
     return {
         isLogado: () =>  !!localStorage.getItem('usuario'),        
         signIn: signIn,
         signOut: signOut,      
     } 
+
+    function isUsuarioCadastrado(){
+        let id = JSON.parse(localStorage.usuario).id;
+        return usuarioService.getUsuarioPorId(id);
+    }
 
     function signOut() {
         let googleAuth = gapi.auth2.getAuthInstance();
@@ -23,8 +28,16 @@ function authService() {
                 'nome': profile.getName(),
                 'email': profile.getEmail(),
                 'foto': profile.getImageUrl(),
+                'id': profile.getId(),
             });
             atualizar();
+
+            isUsuarioCadastrado().then(response => {
+                return;
+            }, fail => {
+                let usuario = JSON.parse(localStorage.usuario);
+                usuarioService.criarUsuario(usuario);
+            });                       
         });
     }
 }
