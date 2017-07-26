@@ -1,7 +1,7 @@
 app.factory("criacaoPerguntasService", criacaoPerguntasService)
 
-function criacaoPerguntasService($http){
-    var url = "http://localhost:3000/perguntas"
+function criacaoPerguntasService($http, URL){
+    var url = `${URL}/perguntas`;
     function criarPergunta(pergunta) {
         return $http.post(url, pergunta);
     }
