@@ -5,6 +5,7 @@
     <title>Descubra seu QI</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="24339375695-sngstbgelv3cpvvgs96ndoa6n472u3n4.apps.googleusercontent.com">
     <link href="css/style.css" rel="stylesheet">
     
@@ -15,8 +16,10 @@
     <header>
         <a href="/#!/index" class="logo">TOP TESTES 2000</a>
         <a href="/#!/ranking">RANKING DAS PONTUACOES</a>
-        <div ng-hide="logged" class="g-signin2" data-onsuccess="onSignIn"></div>
-        <a href="#" ng-show="logged" class="g-signout2" onclick="signOut();">Sign out</a>        
+        <section ng-controller="authController">
+            <div ng-hide="logged" class="g-signin2" ng-click="signIn()"></div>
+            <a href="#" ng-show="logged" class="g-signout2" ng-click="signOut()">Sign out</a>          
+        </section>
 
     </header>
     <div class="container">
@@ -40,12 +43,13 @@
         </section>
     </footer>
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>    
-
+    <script src="https://apis.google.com/js/platform.js"></script>    
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js'></script>
 
     <script src='js/module.js'></script>
+    <script src='js/auth.service.js'></script>
+    <script src='js/auth.controller.js'></script>
     <script src='js/route.js'></script>
 
     <script src='home/home.controller.js'></script>
