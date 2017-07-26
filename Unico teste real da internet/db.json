@@ -2,7 +2,7 @@
   {
     "id": 1,
     "titulo": "UNICO TESTE REAL DE QI",
-    "autores": "LIXO SILVA E CIA",
+    "autor": "LIXO SILVA",
     "perguntas": [
       {
         "id": 1,
@@ -754,7 +754,18 @@
         ],
         "id": 35
       }
-    ]}
+    ]},
+    {"id": 2,
+     "titulo": "E AI SERA QUE FOI",
+     "autor": "LEONARDO ALVES"
+    },
+    {"id": 3,
+     "titulo": "QUIZ SOBRE A MALONHA",
+     "autor": "PIETRO ISOTTON"
+    },
+    {"id": 4,
+     "titulo": "ANTONIO LINDO",
+     "autor": "ANTONIO JUNIOR"}
   ]
   ,
   "usuarios": [
