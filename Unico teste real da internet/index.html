@@ -19,7 +19,7 @@
         <section ng-controller="authController" class="profile-info">
             <img ng-show="logged" class="profile-pic aligned-center" ng-src="{{usuario.foto}}">
             <span ng-show="logged" class="aligned-center">{{usuario.nome}}</span>
-            <div ng-hide="logged" class="g-signin2" ng-click="signIn()"></div>
+            <div ng-hide="logged" class="g-signin2" ng-click="signIn(atualizar)"></div>
             <a href="#" ng-show="logged" class="g-signout2" ng-click="signOut()">Sign out</a>            
         </section>
 
