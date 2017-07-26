@@ -6,7 +6,7 @@
       "autor": {
         "nome": "Guilherme",
         "foto": "",
-        "id": 1
+        "id": "112502432735239711682"
       },
       "perguntas": [
         {
@@ -764,17 +764,29 @@
     {
       "id": 2,
       "titulo": "E AI SERA QUE FOI",
-      "autor": "LEONARDO ALVES"
+      "autor": {
+        "nome": "Guilherme",
+        "foto": "",
+        "id": "112502432735239711682"
+      }
     },
     {
       "id": 3,
       "titulo": "QUIZ SOBRE A MALONHA",
-      "autor": "PIETRO ISOTTON"
+      "autor": {
+        "nome": "Guilherme",
+        "foto": "",
+        "id": "112502432735239711682"
+      }
     },
     {
       "id": 4,
       "titulo": "ANTONIO LINDO",
-      "autor": "ANTONIO JUNIOR"
+      "autor": {
+        "nome": "Guilherme",
+        "foto": "",
+        "id": "112502432735239711682"
+      }
     }
   ],
   "usuarios": [
