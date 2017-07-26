@@ -20,5 +20,9 @@ app.config(function ($routeProvider){
             controller: "criacaoPerguntasController",
             templateUrl: "criacaoPerguntas/criacaoPerguntas.html"
         })
+        .when("/quizzes", {
+            controller: "quizMenuController",
+            templateUrl: "quizMenu/quizMenu.html"
+        })
         .otherwise({redirectTo: "/index"});
 });
