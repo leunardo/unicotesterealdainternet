@@ -4,8 +4,12 @@ function quizService($http) {
     var url = "http://localhost:3000/"
     var Pontuacao = 0;
 
-    function getPergunta() {
-        return $http.get(url + "perguntas");
+    function getPergunta(id) {
+        return $http.get(url + "quizzes/"+id+"/perguntas");
+    }
+
+    function getQuizzes(nPagina){
+        return $http.get(`${url}quizzes?_page=${nPagina}&_limit=20`);
     }
 
     function getUsuario() {
@@ -20,6 +24,7 @@ function quizService($http) {
         getPergunta: getPergunta,
         getPontuacao: Pontuacao,
         getUsuario: getUsuario,
+        getQuizzes: getQuizzes,
         criarUsuario: criarUsuario
     }
 
