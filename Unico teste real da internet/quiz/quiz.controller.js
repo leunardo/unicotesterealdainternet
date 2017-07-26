@@ -1,6 +1,6 @@
 app.controller("quizController", quizController);
 
-function quizController($scope, quizService, $location) {
+function quizController($scope, quizService, usuarioService, $location) {
     $scope.questoes = [];
     $scope.notas = [];
     $scope.nPergunta = 0;
@@ -48,17 +48,9 @@ function quizController($scope, quizService, $location) {
         notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
             return notaAnterior + notaAtual;
         })
-        salvarUsuario();
+        usuarioService.atualizarUsuario(notaFinal);
         $location.path("/resultado");
-    }
-
-    function salvarUsuario() {
-        var usuario = {
-            Nome: localStorage.nome,
-            Pontuacao: notaFinal
-        }
-        quizService.criarUsuario(usuario);
-    }
+    }    
 
     function retrocederPergunta() {
         $scope.nPergunta--;
