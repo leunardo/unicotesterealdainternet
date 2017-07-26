@@ -2,25 +2,27 @@ app.service('authService', authService);
 
 function authService($location, $timeout) {
     let isLogado;
-    $timeout(atualizarEstado, 1000);    
+    $timeout(atualizarEstado, 300);    
 
     return {
-        isLogado: () =>  isLogado,
-        atualizarEstado: atualizarEstado,
+        isLogado: () =>  isLogado,        
         signIn: signIn,
         signOut: signOut,
     } 
-    
+
     function atualizarEstado() {
         let googleAuth = gapi.auth2.getAuthInstance();
-        isLogado = googleAuth.isSignedIn.get();
+        googleAuth.isSignedIn.listen(atualizar);
+    }
+
+    function atualizar(status) {
+        $timeout(() => { isLogado = status }, 200);
     }
 
     function signOut() {
         let googleAuth = gapi.auth2.getAuthInstance();
         googleAuth.signOut();
-        localStorage.usuario = '';
-        isLogado = false;
+        localStorage.usuario = '';        
     }
 
     function signIn() {
@@ -32,8 +34,7 @@ function authService($location, $timeout) {
                 'nome': profile.getName(),
                 'email': profile.getEmail(),
                 'foto': profile.getImageUrl(),
-            });
-            $timeout(() => { isLogado = true }, 100);
+            });            
         });
     }
 }
