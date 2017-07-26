@@ -6,9 +6,21 @@
 .quizzes {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
-.quizBox { 
+.quizzes > * {
+    margin: 3rem;
+}
+.quizHeader{
+    font-weight: bolder;
+    color: #365CAB;
+    text-decoration: none;
+    font-size: 2.7rem;
+    text-align: center;
+}
+.quizBox {
+    display: inline-block;
     background: #4d68a1;
     background: -moz-linear-gradient(top, #4d68a1 0%, #3b5998 100%);
     background: -webkit-linear-gradient(top, #4d68a1 0%, #3b5998 100%);
@@ -19,6 +31,8 @@
     flex-flow: column;
     text-align: center;
     width: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
     font-weight: bolder;
     color: white;
     text-decoration: none;
