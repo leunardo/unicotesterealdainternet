@@ -1,7 +1,8 @@
 app.controller('quizMenuController', quizMenuController);
-
 function quizMenuController($scope, quizService){
-    $scope.nPagina = 0;
+    $scope.proximaPagina = proximaPagina;
+    $scope.retornarPagina = retornarPagina;
+    $scope.nPagina = 1;
     getQuizzes();
 
     function getQuizzes(){
@@ -9,11 +10,26 @@ function quizMenuController($scope, quizService){
     }
 
     function mostrarQuizzes(quizList){
-        $scope.quizzes = quizList.data;
+        if(quizList.data.length > 0){
+            $scope.quizzes = quizList.data;
+        }
+        else{
+            $scope.nPagina--;
+            alert('Não existem mais quizzes para carregar.');
+        }
     }
 
     function proximaPagina(){
-        nPagina++;
-        mostrarQuizzes();
+        $scope.nPagina++;
+        getQuizzes();
+
+    }
+
+    function retornarPagina(){
+        console.log("a")
+        if($scope.nPagina >= 2){
+            $scope.nPagina--;
+            getQuizzes();
+        }
     }
 }

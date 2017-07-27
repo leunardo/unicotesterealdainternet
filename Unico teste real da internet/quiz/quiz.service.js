@@ -9,7 +9,7 @@ function quizService($http, URL) {
     }
 
     function getQuizzes(nPagina){
-        return $http.get(`${url}/quizzes?_page=${nPagina}&_limit=20`);
+        return $http.get(`${url}/quizzes?_page=${nPagina}&_limit=8`);
     }    
 
     function getAllQuizzes(){
