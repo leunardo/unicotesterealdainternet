@@ -1,0 +1,28 @@
+<div class="top-part">
+    <div class="pergunta">
+        <label>
+            Pergunta:
+            <input type="text" class="rounded-input" placeholder="Quanto é 1 + 1?">
+        </label>        
+    </div>
+    <div class="quiz-info">
+        <h4>Respostas: (mínimo 2)</h4>
+        <section class="resposta-input-wrapper">
+            <small class="resposta-desc">adicionar resposta:</small>
+            <input type="text" class="rounded-input resposta-input" ng-model="resposta" placeholder="Provavelmente 2!">        
+            <button class="resposta-button-inline" ng-click="adicionarResposta()">Adicionar</button>
+        </section>
+        <div class="quiz-respostas">
+            <section ng-repeat="resposta in respostas track by $index">
+                <p>{{resposta}}</p> 
+                <span>
+                    <i class="fa fa-trash link" ng-click="removerResposta($index)"></i>
+                </span>
+            </section>
+            
+        </div>
+    </div>
+</div>
+
+
+<button class="aligned-center" ng-click="publicar()">Publicar</button>

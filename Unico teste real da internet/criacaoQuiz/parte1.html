@@ -1,0 +1,18 @@
+<div class="top-part">
+    <div class="pergunta">
+        <label>
+            Titulo:
+            <input type="text" class="rounded-input" name="titulo" placeholder="O titulo do meu super quiz">
+        </label>
+        <label>
+            Insira a foto de capa: 
+            <input class="rounded-input" type="text" name="foto-capa" ng-model="fotoSrc" placeholder="http://minhafoto.com/foto.jpg">
+        </label>
+    </div>
+
+</div>
+<div class="quiz-info">
+    <img ng-src="{{fotoSrc}}" class="preview-foto">
+</div>
+
+<button class="aligned-center" ng-click="proximaParte()">Próxima parte</button>
