@@ -281,6 +281,15 @@ body {
 a {
     font-weight: bolder;
     text-decoration: none;
+    color: #365CAB;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #365CAB;
 }
 
 header {
@@ -303,6 +312,10 @@ header a {
     padding: 5px;    
     color: white;
     padding-right: 30px;
+}
+
+header a:visited {
+    color: white;
 }
 
 header .logo {
