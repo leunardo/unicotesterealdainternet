@@ -1,6 +1,6 @@
-app.factory("criacaoPerguntasService", criacaoPerguntasService)
+app.factory("criacaoQuizService", criacaoQuizService)
 
-function criacaoPerguntasService($http, URL){
+function criacaoQuizService($http, URL){
     var url = `${URL}/perguntas`;
     function criarPergunta(pergunta) {
         return $http.post(url, pergunta);

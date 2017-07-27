@@ -1,6 +1,6 @@
-app.controller('criacaoPerguntasController', criacaoPerguntasController);
+app.controller('criacaoQuizController', criacaoQuizController);
 
-function criacaoPerguntasController($scope, criacaoPerguntasService){
+function criacaoQuizController($scope, criacaoPerguntasService){
     $scope.resposta = []
     $scope.oi = ".";
     $scope.criarPergunta = criarPergunta;
