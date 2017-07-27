@@ -28,5 +28,9 @@ app.config(function ($routeProvider){
             controller: "perfilController",
             templateUrl: "usuario/perfil.html"
         })
+        .when("/search/:q", {
+            controller: "searchController",
+            templateUrl: "search/search.html"
+        })
         .otherwise({redirectTo: "/index"});
 });
