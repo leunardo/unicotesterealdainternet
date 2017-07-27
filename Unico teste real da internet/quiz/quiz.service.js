@@ -12,6 +12,10 @@ function quizService($http, URL) {
         return $http.get(`${url}/quizzes?_page=${nPagina}&_limit=20`);
     }    
 
+    function getAllQuizzes(){
+        return $http.get(`${url}/quizzes`);
+    }
+
     function getQuizzesDoUsuario(idUsuario) {
         return $http.get(`${url}/quizzes/?autor.id=${idUsuario}`);
     }
@@ -20,6 +24,7 @@ function quizService($http, URL) {
         getQuiz: getQuiz,
         getQuizzes: getQuizzes,
         getQuizzesDoUsuario: getQuizzesDoUsuario,
+        getAllQuizzes: getAllQuizzes
     }
 
 }

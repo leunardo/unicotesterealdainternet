@@ -1,20 +1,17 @@
 <div class="home-container">
-   
-    <article ng-hide="logged">
-        <h3>Por favor faça o login</h3>
-        <p>É necessário termos algumas informações suas antes de continuarmos.</p>
-    </article>
     
     <div class="menu-home">
         <div class = "opcoes">
-            <p> <a> Crie seu próprio Quiz! </a> </p>
-            <p> <a> Encontre seu Quiz ideal! </a> </p>
+            <p class="criar"> <a ng-href="/#!/criarquiz"> Crie seu próprio Quiz! </a> </p>
+            <p> <a ng-href="/#!/quizzes"> Encontre seu Quiz ideal! </a> </p>
         </div>
+        <h3> QUIZZES ALEATÓRIOS </h3>
         <div class = "randomQuizzes">
             <section class = "quizAnchor" ng-repeat="quiz in quizzes">
-                <img ng-url="quiz.foto">
-                <p> <a> {{quiz.titulo}} </a> </p>
-                <p> {{quiz.resumo}} </p> 
+                <p class = "quiztitle"> <a ng-href = "/#!/quiz/{{quiz.id}}"> {{quiz.titulo}} </a> </p>
+                <div class = "foto"> <img ng-href = "/#!/quiz/{{quiz.id}}" ng-src="{{quiz.foto}}"> </div>
+                <p class = "resumo"> {{quiz.resumo}} </p> 
+                <p class = "autor"> <a ng-href = "/#!/perfil/{{quiz.autor.id}}"> {{quiz.autor.nome}} <a> </p>
             </section>
         </div>
     </div>
