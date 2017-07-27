@@ -39,6 +39,20 @@
     flex-wrap: wrap;
 }
 
+criar-quiz {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: inherit;
+}
+
+.resposta-input-wrapper {
+    padding: 10px;
+    background: #F6F7F9;
+    border-radius: 5px;
+    width: 100%;
+}
+
 .menu-home h3{
     font-size: 3rem;
     align-self: center;
@@ -453,13 +467,85 @@ footer article section {
     display: none;
 }
 
+.img-quiz {
+    width: 500px;
+    height: 300px;
+}
+
+.quiz-info {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.rounded-input {
+    border-radius: 5px;
+    padding: 5px;
+    border: 0;
+    outline: none;
+    width: 100%;
+}
+
+.resposta-desc {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.resposta-input {
+    width: 80%;
+    height: 20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: -3px;
+}
+
+button.resposta-button-inline {
+    padding: 0 8px 0 8px;
+    height: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: 100%;
+    margin: 0;
+    font-size: 80%;
+    width: 19.5%;
+}
+
+.quiz-info > * {
+    align-self: center;
+}
+
+.quiz-respostas {
+    overflow: auto;
+    max-height: 180px;
+}
+
+.quiz-respostas > p {
+    margin: 4px;
+}
+
+.preview-foto {
+    width: 300px;
+    height: 200px;
+    border: 2px solid gray;
+}
+
 @media screen and (max-width: 1015px) {
     .user-quiz {
         justify-content: space-around;
         margin: 10px 0 10px 0;
     }
+
+    .resposta-input {
+        width: 74%;
+    }
+
+    button.resposta-button-inline {
+        width: 25%;
+    }
 }
 @media screen and (max-width: 600px) {
+
+    
 
     .profile-info {
         justify-content: center;
@@ -547,5 +633,16 @@ footer article section {
     }
     .top-part button {
         font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    
+    .resposta-input {
+        width: 65%;
+    }
+
+    button.resposta-button-inline {
+        width: 34%;
     }
 }
