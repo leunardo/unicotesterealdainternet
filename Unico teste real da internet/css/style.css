@@ -492,7 +492,7 @@ footer article section {
     text-align: center;
     padding: 30px; 
     min-height: 13vh;    
-    background: #e5f442;
+    background: #EDF0F5 ; 
 }
 
 .marginless {
@@ -523,8 +523,10 @@ footer article section {
 }
 
 .user-quiz {
-    padding: 50px;
-    background: #41f480;
+    padding: 50px;    
+    background: #F6F7F9; 
+    border: 2px solid #DFE0E4; 
+    border-radius: 15px;
 }
 
 .mobile-signin {
