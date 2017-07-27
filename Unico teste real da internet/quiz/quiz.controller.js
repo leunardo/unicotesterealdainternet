@@ -6,13 +6,15 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     $scope.nPergunta = 0;
     $scope.avancarPergunta = avancarPergunta;
     $scope.retrocederPergunta = retrocederPergunta;
+    let route = $location.path();
+    let id = route.slice(6);
     var notaFinal = 0;
-    getPergunta();
+    getQuiz();
 
-    function getPergunta() {
-        quizService.getPergunta().then(
+    function getQuiz() {
+        quizService.getQuiz(id).then(
             c => {
-                $scope.questoes = c.data;
+                $scope.questoes = c.data.perguntas;
                 mostrarPergunta($scope.nPergunta);
             },
             error => {
