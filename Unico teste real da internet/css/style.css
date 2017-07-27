@@ -8,44 +8,11 @@
     padding: 10px;
 }
 
-.pagebuttons{
-    display: flex;
-    justify-content: space-around;
-    margin-left: 30vw;
-    margin-right: 30vw;
-}
-
-.readmore{
-    background: #4d68a1;
-    background: -moz-linear-gradient(top, #4d68a1 0%, #3b5998 100%);
-    background: -webkit-linear-gradient(top, #4d68a1 0%, #3b5998 100%);
-    background: linear-gradient(to bottom, #4d68a1 0%, #3b5998 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998', GradientType=0);
-    font-size: 2rem;
-    border-radius: 50%;
-    padding: 20px;
-    text-align: center;
-    color: #F6F7F9;
-    margin-bottom: 10px;
-}
-
-.title{
-    text-align: center;
-    color: #365CAB;
-    font-size: 2.3rem;
-}
-
-.quizMenu{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
 .menu-home {
     display: flex;
     flex-direction: column;
     width: 70vw;
-    padding-bottom: 10vh;
+    height: 160vh;
     margin-top: 15vh;
     margin-bottom: 15vh;
     background: white;
@@ -89,7 +56,7 @@
     width: 300px;
     height: 200px;
     border: 1px solid #DFE0E4;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .quizzes {
@@ -107,7 +74,6 @@
     text-decoration: none;
     font-size: 2.7rem;
     text-align: center;
-    align-self: center;
 }
 .quizBox {
     background: white;
@@ -118,6 +84,7 @@
     justify-content: flex-start;
     text-align: center;
     width: 15%;
+    height: 45vh;
     margin-left: 5%;
     margin-right: 5%;
     padding: 3px;
@@ -436,8 +403,6 @@ footer article section {
     align-self: center;
 }
 
-
-
 .hero-name {
     margin-top: 10px;
     font-size: 180%;
@@ -449,13 +414,24 @@ footer article section {
     text-align: center;
     padding: 30px; 
     min-height: 13vh;    
-    background: #EDF0F5 ;
+    background: #e5f442;
 }
 
 .marginless {
     margin: 0;
 }
 
+.user-descricao{
+    text-align: center;
+    margin-left:250px;
+    margin-right:250px;
+    font-size: 1.1rem;
+
+}
+.user-titulodescricao{
+    text-align: center;
+    font-size: 1.8rem;
+}
 .user-quizzes {
     display: flex;
     flex-flow: row wrap;
@@ -464,20 +440,17 @@ footer article section {
 .user-quizzes > *{
     margin: 2rem;
 }
+.user-destaque{
+    text-align:right;
+}
 
 .user-quiz {
     padding: 50px;
-    background: #F6F7F9;
-    border: 1px solid #DFE0E4;
-    border-radius: 5px;
+    background: #41f480;
 }
 
 .mobile-signin {
     display: none;
-}
-
-.link {
-    cursor: pointer;
 }
 
 @media screen and (max-width: 1015px) {

@@ -3,9 +3,15 @@
         <img ng-src="{{usuario.foto}}" class="profile-pic img-medium hero-img">
         <b class="hero-name">{{usuario.nome}}</b>
     </article>
+    <h class = "user-titulodescricao">
+        <p>Sobre mim:</p>
+    </h>
+    <article class="user-descricao">
+        <p>{{usuario.descricao}}</p>
+    </article>
 
     <article class="wrapper">
-        <h2 class = "title">Meus quizzes</h2>
+        <h2 class= "title">Meus quizzes</h2>
 
         <section class="quizzes user-quizzes">
             
@@ -15,4 +21,6 @@
             
         </section>
     </article>
+
+
 </section>
