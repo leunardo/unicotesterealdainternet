@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 @font-face {
     font-family: 'Klavika';
     src: url('fonts/Klavika/Klavika.otf')
@@ -11,14 +10,53 @@
 
 .menu-home {
     display: flex;
-    width: 70%;
-    height: 50vh;
+    flex-direction: column;
+    width: 70vw;
+    height: 160vh;
     margin-top: 15vh;
     margin-bottom: 15vh;
     background: white;
-    border: 1px #DFE0E4;
+    border: 1px #DFE0E4 solid;
     border-radius: 5px;
     color: #365CAB;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.7rem;
+    background: #F6F7F9;
+    border: 1px solid #DFE0E4;
+    border-radius: 5px;
+}
+
+.randomQuizzes{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.menu-home h3{
+    font-size: 3rem;
+    align-self: center;
+}
+
+.quizAnchor{
+    display: flex;
+    padding: 0.7rem;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.quizAnchor img {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #DFE0E4;
+    border-radius: 5px;
 }
 
 .quizzes {
@@ -46,22 +84,36 @@
     justify-content: flex-start;
     text-align: center;
     width: 15%;
+    height: 45vh;
     margin-left: 5%;
     margin-right: 5%;
+    padding: 3px;
 }
-.quizBox > div > .quiztitle {
+.quizBox > div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 250px;
+    justify-content: flex-start;
+}
+.quiztitle {
+    height: 10%
+}
+.quiztitle > a{
+    color: #365CAB;
     font-size: 1.3rem;
     font-weight: bolder;
-    color: #365CAB;
     text-decoration: none;
 }
-.quizBox > div > img {
+.quizBox > div > div > img {
+    flex-grow: 3;
     border: 1px solid #DFE0E4;
     align-self: center;
-    height: 100px;
+    height: 120px;
     width: 150px;
+    margin-top: 10px;
 }
-.quizBox > div > .resumo {
+.resumo {
     font-size: 0.7rem;
     color: #A8949C;
     margin-left: 0.3rem;
@@ -73,6 +125,11 @@
     font-size: 0.7rem;
     margin-bottom: 10px;
     font-weight: normal;
+    color: #A8949C;
+    text-decoration: none;
+}
+
+.autor > a{
     color: #365CAB;
     text-decoration: underline;
 }
@@ -145,7 +202,6 @@ body {
 
 a {
     font-weight: bolder;
-    color: white;
     text-decoration: none;
 }
 
@@ -166,7 +222,8 @@ header {
 header a {
     display: flex;
     align-self: center;
-    padding: 5px;
+    padding: 5px;    
+    color: white;
     padding-right: 30px;
 }
 
@@ -309,6 +366,8 @@ footer .copyright {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f5c9a', endColorstr='#214896', GradientType=0);
     justify-content: flex-start;
     font-style: italic;
+    margin-left: 30px;
+    margin-bottom: 3px;
 }
 
 footer article section {
