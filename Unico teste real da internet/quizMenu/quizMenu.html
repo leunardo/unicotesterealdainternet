@@ -1,7 +1,11 @@
 <h3 class="quizHeader"> LISTA DE QUIZZES: PÁGINA {{nPagina+1}} </h3>
 <div class = "quizzes">
     <section class = "quizBox" ng-repeat="quiz in quizzes">
-        <p> {{quiz.titulo}}      </p>
-        <p> DE: {{quiz.autor}} </p>
+        <div>
+            <p class = "quizztitle"> {{quiz.titulo}}      </p>
+            <img class = "foto" ng-src="{{quiz.foto}}">
+            <p class = "resumo"> {{quiz.resumo}} </p>
+        </div>
+        <p class = "autor"> DE: <a>{{quiz.autor.nome}}<a> </p>
     </section>
 </div>
