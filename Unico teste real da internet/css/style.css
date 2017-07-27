@@ -20,18 +20,22 @@
     align-self: center;
 }
 
-.quizSearch > textarea{
-    height: 1.3rem;
+.quizSearch > input{
+    border: 2px solid #133783;
+    border-radius: 10px;
+    padding: 0.1rem;
+    height: 2rem;
 }
 
-.quizSearch > a{
+.quizSearch > button{
     padding: 0.1rem;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     background: #ffffff;
     color: #4d68a1;
-    border: 1px solid #365CAB;
+    cursor: pointer;
+    border: 2px solid #133783;
 }
 
 .pagebuttons{
@@ -39,6 +43,7 @@
     justify-content: space-around;
     margin-left: 30vw;
     margin-right: 30vw;
+    cursor: pointer;
 }
 
 .readmore{
@@ -178,7 +183,7 @@ criar-quiz {
     font-weight: bolder;
     text-decoration: none;
 }
-.quizBox > div > div > img {
+.quizBox > div > div > a > img {
     flex-grow: 3;
     border: 1px solid #DFE0E4;
     align-self: center;

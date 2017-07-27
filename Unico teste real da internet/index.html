@@ -17,7 +17,7 @@
     <header>
         <div class = "leftpart">
         <a href="/#!/index" class="logo">TOP TESTES 2000</a>
-            <form ng-submit="buscarQuiz(query)" ng-controller="searchHeaderController" class = "quizSearch"> BUSCAR QUIZ: <input type="text" placeholder = "DIGITE SUA BUSCA" ng-model = "query"> </input> <button type = "submit"> <i class="fa fa-search" aria-hidden="true"></i> </button> </form>
+            <form ng-submit="buscarQuiz(query)" ng-controller="searchHeaderController" class = "quizSearch"> Buscar quiz <input type="text" placeholder = "ex: Malonha" ng-model = "query"> </input> <button type = "submit" class="link"> <i class="fa fa-search" aria-hidden="true"></i> </button> </form>
         </div>
             <section ng-controller="authController" class="profile-info">
             <img ng-show="logged" class="profile-pic aligned-center" ng-src="{{usuario.foto}}">
