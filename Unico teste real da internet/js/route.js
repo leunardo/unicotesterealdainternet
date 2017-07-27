@@ -16,9 +16,9 @@ app.config(function ($routeProvider){
             controller: "rankingController",
             templateUrl: "ranking/ranking.html"
         })
-        .when("/criacaoPerguntas", {
-            controller: "criacaoPerguntasController",
-            templateUrl: "criacaoPerguntas/criacaoPerguntas.html"
+        .when("/criar", {
+            controller: "criacaoQuizController",
+            templateUrl: "criacaoQuiz/criacaoQuiz.html"
         })
         .when("/quizzes", {
             controller: "quizMenuController",
