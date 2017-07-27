@@ -5,6 +5,19 @@
         <p>É necessário termos algumas informações suas antes de continuarmos.</p>
     </article>
     
+    <div class="menu-home">
+        <div class = "opcoes">
+            <p> <a> Crie seu próprio Quiz! </a> </p>
+            <p> <a> Encontre seu Quiz ideal! </a> </p>
+        </div>
+        <div class = "randomQuizzes">
+            <section class = "quizAnchor" ng-repeat="quiz in quizzes">
+                <img ng-url="quiz.foto">
+                <p> <a> {{quiz.titulo}} </a> </p>
+                <p> {{quiz.resumo}} </p> 
+            </section>
+        </div>
+    </div>
 </div>
 
 
