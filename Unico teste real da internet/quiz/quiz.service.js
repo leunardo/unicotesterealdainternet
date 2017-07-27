@@ -20,11 +20,19 @@ function quizService($http, URL) {
         return $http.get(`${url}/quizzes/?autor.id=${idUsuario}`);
     }
 
+    function buscarQuiz(quizQuery){
+        return $http.get(`${url}/quizzes?q=${quizQuery}`);
+    }
+
+    let resultados = [];
+
     return {
         getQuiz: getQuiz,
         getQuizzes: getQuizzes,
         getQuizzesDoUsuario: getQuizzesDoUsuario,
-        getAllQuizzes: getAllQuizzes
+        getAllQuizzes: getAllQuizzes,
+        buscarQuiz: buscarQuiz,
+        resultados: resultados,
     }
 
 }
