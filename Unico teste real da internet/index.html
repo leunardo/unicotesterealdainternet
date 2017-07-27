@@ -15,8 +15,11 @@
 <body ng-app="testeInternet">
    
     <header>
+        <div class = "leftpart">
         <a href="/#!/index" class="logo">TOP TESTES 2000</a>
-        <section ng-controller="authController" class="profile-info">
+            <form ng-submit="buscarQuiz(query)" ng-controller="searchHeaderController" class = "quizSearch"> BUSCAR QUIZ: <input type="text" placeholder = "DIGITE SUA BUSCA" ng-model = "query"> </input> <button type = "submit"> <i class="fa fa-search" aria-hidden="true"></i> </button> </form>
+        </div>
+            <section ng-controller="authController" class="profile-info">
             <img ng-show="logged" class="profile-pic aligned-center" ng-src="{{usuario.foto}}">
              <a ng-show="logged" class="aligned-center" ng-href="/#!/perfil/{{usuario.id}}">{{usuario.nome}}</a> 
             <div ng-hide="logged" class="g-signin2" ng-click="signIn(atualizar)"></div>
@@ -76,6 +79,8 @@
     <script src='quizMenu/quizMenu.controller.js'></script>
 
     <script src='usuario/perfil.controller.js'></script>
+
+    <script src='search/search.controller.js'></script>
 
 </body>
 
