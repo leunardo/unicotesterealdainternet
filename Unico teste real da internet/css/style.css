@@ -8,11 +8,44 @@
     padding: 10px;
 }
 
+.pagebuttons{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+
+.readmore{
+    background: #4d68a1;
+    background: -moz-linear-gradient(top, #4d68a1 0%, #3b5998 100%);
+    background: -webkit-linear-gradient(top, #4d68a1 0%, #3b5998 100%);
+    background: linear-gradient(to bottom, #4d68a1 0%, #3b5998 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998', GradientType=0);
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 20px;
+    text-align: center;
+    color: #F6F7F9;
+    margin-bottom: 10px;
+}
+
+.title{
+    text-align: center;
+    color: #365CAB;
+    font-size: 2.3rem;
+}
+
+.quizMenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 .menu-home {
     display: flex;
     flex-direction: column;
     width: 70vw;
-    height: 160vh;
+    padding-bottom: 10vh;
     margin-top: 15vh;
     margin-bottom: 15vh;
     background: white;
@@ -56,7 +89,7 @@
     width: 300px;
     height: 200px;
     border: 1px solid #DFE0E4;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .quizzes {
@@ -74,6 +107,7 @@
     text-decoration: none;
     font-size: 2.7rem;
     text-align: center;
+    align-self: center;
 }
 .quizBox {
     background: white;
@@ -84,7 +118,6 @@
     justify-content: flex-start;
     text-align: center;
     width: 15%;
-    height: 45vh;
     margin-left: 5%;
     margin-right: 5%;
     padding: 3px;
@@ -403,6 +436,8 @@ footer article section {
     align-self: center;
 }
 
+
+
 .hero-name {
     margin-top: 10px;
     font-size: 180%;
@@ -414,7 +449,7 @@ footer article section {
     text-align: center;
     padding: 30px; 
     min-height: 13vh;    
-    background: #e5f442;
+    background: #EDF0F5 ;
 }
 
 .marginless {
@@ -432,11 +467,17 @@ footer article section {
 
 .user-quiz {
     padding: 50px;
-    background: #41f480;
+    background: #F6F7F9;
+    border: 1px solid #DFE0E4;
+    border-radius: 5px;
 }
 
 .mobile-signin {
     display: none;
+}
+
+.link {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1015px) {

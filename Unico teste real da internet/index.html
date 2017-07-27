@@ -4,6 +4,7 @@
 <head>
     <title>Descubra seu QI</title>
     <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="24339375695-sngstbgelv3cpvvgs96ndoa6n472u3n4.apps.googleusercontent.com">
@@ -15,7 +16,6 @@
    
     <header>
         <a href="/#!/index" class="logo">TOP TESTES 2000</a>
-        <a href="/#!/ranking">RANKING DAS PONTUACOES</a>
         <section ng-controller="authController" class="profile-info">
             <img ng-show="logged" class="profile-pic aligned-center" ng-src="{{usuario.foto}}">
              <a ng-show="logged" class="aligned-center" ng-href="/#!/perfil/{{usuario.id}}">{{usuario.nome}}</a> 
@@ -44,7 +44,7 @@
             </section>
         </article>
         <section class="copyright">
-            All rights reserved Leonardo Alves, Guilherme Silva and Pietro Isotton - 2017.
+            2017 TOPTESTES 2000, All rights reserved.
         </section>
     </footer>
 
