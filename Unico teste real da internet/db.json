@@ -2,11 +2,13 @@
   "quizzes": [
     {
       "id": 1,
+      "foto": "https://images.duckduckgo.com/iu/?u=https%3A%2F%2Faidobonsai.files.wordpress.com%2F2012%2F06%2Farvore-mangue-ponta-castelhano-low.jpg&f=1",
       "titulo": "UNICO TESTE REAL DE QI",
+      "resumo": "QUEM É MAIS INTELIGENTE??? TU??? TEU AMIGO??? DESCUBRA AGORA!!!",
       "autor": {
         "nome": "Guilherme",
-        "foto": "",
-        "id": "112502432735239711682"
+        "foto": "https://lh5.googleusercontent.com/-X5h9V--Gsi4/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUoMPFtR3Z6ac_BrBytKMT-XwE_D1A/s96-c/photo.jpg",
+        "id": "114640009337362536568"
       },
       "perguntas": [
         {
@@ -763,45 +765,50 @@
     },
     {
       "id": 2,
+      "foto": "https://images.duckduckgo.com/iu/?u=https%3A%2F%2Faidobonsai.files.wordpress.com%2F2012%2F06%2Farvore-mangue-ponta-castelhano-low.jpg&f=1",
       "titulo": "E AI SERA QUE FOI",
+      "resumo": "E AI, SERÁ QUE FOI? VENHA DESCOBRIR!",
       "autor": {
         "nome": "Guilherme",
-        "foto": "",
-        "id": "112502432735239711682"
+        "foto": "https://lh5.googleusercontent.com/-X5h9V--Gsi4/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUoMPFtR3Z6ac_BrBytKMT-XwE_D1A/s96-c/photo.jpg",
+        "id": "114640009337362536568"
       }
     },
     {
       "id": 3,
+      "foto": "https://images.duckduckgo.com/iu/?u=https%3A%2F%2Faidobonsai.files.wordpress.com%2F2012%2F06%2Farvore-mangue-ponta-castelhano-low.jpg&f=1",
       "titulo": "QUIZ SOBRE A MALONHA",
+      "resumo": "Quiz criado pelo profissional na área de entorpecentes, Pietro Isotton",
       "autor": {
-        "nome": "Guilherme",
-        "foto": "",
+        "nome": "Leonardo Alves",
+        "foto": "https://lh6.googleusercontent.com/-1Jm1-V_fwlU/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUpzZ9_yyZOFkvg8bgiGa-3aQwpKNg/s96-c/photo.jpg",
         "id": "112502432735239711682"
       }
     },
     {
-      "id": 4,
+      "id": 4,      
+      "foto": "https://images.duckduckgo.com/iu/?u=https%3A%2F%2Faidobonsai.files.wordpress.com%2F2012%2F06%2Farvore-mangue-ponta-castelhano-low.jpg&f=1",
       "titulo": "ANTONIO LINDO",
+      "resumo": "Quiz sobre os gostos e peculiaridades do nosso precto favorito.",
       "autor": {
-        "nome": "Guilherme",
-        "foto": "",
+        "nome": "Leonardo Alves",
+        "foto": "https://lh6.googleusercontent.com/-1Jm1-V_fwlU/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUpzZ9_yyZOFkvg8bgiGa-3aQwpKNg/s96-c/photo.jpg",
         "id": "112502432735239711682"
       }
     }
   ],
   "usuarios": [
     {
-      "nome": "Guilherme",
-      "foto": "",
-      "email": "lsilva@gmail.com",
-      "pontuacao": 37,
-      "id": 1
-    },
-    {
       "nome": "Leonardo Alves",
       "email": "leunardosevla@gmail.com",
       "foto": "https://lh6.googleusercontent.com/-1Jm1-V_fwlU/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUpzZ9_yyZOFkvg8bgiGa-3aQwpKNg/s96-c/photo.jpg",
       "id": "112502432735239711682"
+    },
+    {
+      "nome": "Gui Pereira",
+      "email": "guilhermejardimpereira@gmail.com",
+      "foto": "https://lh5.googleusercontent.com/-X5h9V--Gsi4/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUoMPFtR3Z6ac_BrBytKMT-XwE_D1A/s96-c/photo.jpg",
+      "id": "114640009337362536568"
     }
   ]
 }
