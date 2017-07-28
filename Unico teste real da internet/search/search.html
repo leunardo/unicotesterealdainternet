@@ -1,7 +1,5 @@
 <div class="page-div">
     <h3 class = "title">Resultados da sua busca (PAG {{nPagina}}):</h3>
-    <h1 class="title" ng-show="mensagem"> {{mensagem}} <h1>
-
     <div class = "quizzes">
         <section class = "quizBox" ng-repeat="quiz in resultado track by $index">
             <div>
@@ -11,7 +9,8 @@
             </div>
             <p class = "autor"> DE: <a ng-href="/#!/perfil/{{quiz.autor.id}}">{{quiz.autor.nome}}</a> </p>
         </section>
-    </div>
+    </div>    
+    <h1 class="title" ng-show="mensagem"> {{mensagem}} <h1>
     <div class = "pagebuttons">
         <a ng-show="nPagina>1" ng-click="retornarPagina()" class = "aligned-center readmore link"><i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
         <a ng-click="proximaPagina()" class = "aligned-center readmore link"> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </a>
