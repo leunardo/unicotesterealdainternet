@@ -58,6 +58,7 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
         usuarioService.atualizarPerfil($scope.usuarioCopia)
             .then(function response(resposta){
                 $scope.usuario = angular.copy($scope.usuarioCopia);
+                localStorage.usuario = JSON.stringify($scope.usuario);
             }, function erro(error) {
                 console.log(error);
             });

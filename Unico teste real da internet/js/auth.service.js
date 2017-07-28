@@ -24,12 +24,21 @@ function authService(usuarioService) {
         googleAuth.signIn().then(() => {
             let googleUser = googleAuth.currentUser.get();
             let profile = googleUser.getBasicProfile();
-            localStorage.usuario = JSON.stringify({
-                'nome': profile.getName(),
-                'email': profile.getEmail(),
-                'foto': profile.getImageUrl(),
-                'id': profile.getId(),
-            });
+            let id = profile.getId();
+            if(!usuarioService.getUsuarioPorId(id))
+                localStorage.usuario = JSON.stringify({
+                    'nome': profile.getName(),
+                    'email': profile.getEmail(),
+                    'foto': profile.getImageUrl(),
+                    'id': profile.getId(),
+                });
+            else{
+                usuarioService.getUsuarioPorId(id).then(c => {
+                    localStorage.usuario = JSON.stringify(c.data);
+                }
+                );
+
+            }
             atualizar();
 
             isUsuarioCadastrado().then(response => {
