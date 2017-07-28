@@ -12,8 +12,36 @@ function searchHeaderController($scope, $location){
 
 function searchController($scope, quizService, $routeParams) {
     let query = $routeParams.q;
-    quizService.buscarQuiz(query)
-    .then(response => {
-        $scope.resultado = response.data;
-    });
+    $scope.proximaPagina = proximaPagina;
+    $scope.retornarPagina = retornarPagina;
+    $scope.nPagina = 1;
+
+    getQuizzes();
+    function getQuizzes(){
+        quizService.buscarQuiz(query, $scope.nPagina)
+        .then(mostrarQuizzes);
+    }
+    function mostrarQuizzes(quizList){
+        if(quizList.data.length > 0){
+            $scope.resultado = quizList.data;
+        }
+        else{
+            $scope.nPagina--;
+            alert('Não existem mais quizzes para carregar.');
+        }
+    }
+
+    function proximaPagina(){
+        $scope.nPagina++;
+        getQuizzes();
+
+    }
+
+    function retornarPagina(){
+        console.log("a")
+        if($scope.nPagina >= 2){
+            $scope.nPagina--;
+            getQuizzes();
+        }
+    }
 }
