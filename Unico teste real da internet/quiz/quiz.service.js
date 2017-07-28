@@ -20,8 +20,8 @@ function quizService($http, URL) {
         return $http.get(`${url}/quizzes/?autor.id=${idUsuario}`);
     }
 
-    function buscarQuiz(quizQuery){
-        return $http.get(`${url}/quizzes?q=${quizQuery}`);
+    function buscarQuiz(quizQuery, nPagina){
+        return $http.get(`${url}/quizzes?q=${quizQuery}&_page=${nPagina}&_limit=8`);
     }
 
     let resultados = [];

@@ -66,7 +66,7 @@
     font-size: 2.3rem;
 }
 
-.quizMenu{
+.page-div{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -146,7 +146,7 @@ criar-quiz {
 .quizzes > * {
     margin: 3rem;
 }
-.quizHeader{
+.title{
     font-weight: bolder;
     color: #365CAB;
     text-decoration: none;
