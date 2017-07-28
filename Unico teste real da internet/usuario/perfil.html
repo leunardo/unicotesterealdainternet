@@ -4,10 +4,13 @@
         <b class="hero-name">{{usuario.nome}}</b>
     </article>
     <h class = "user-titulodescricao">
-        <p>Sobre mim:</p>
+        <p>Sobre mim: 
+            <p ng-show="checarUser()"> 
+                 <button type="button" onclick ="atualizarDescricao()" > <i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>  
+            </p>
     </h>
-    <article class="user-descricao">
-        <p>{{usuario.descricao}}</p>
+    <article class="user-descricao"> 
+        </p>{{usuario.descricao}}</p>
     </article>
 
     <article class="wrapper">
@@ -21,6 +24,4 @@
             
         </section>
     </article>
-
-
 </section>
