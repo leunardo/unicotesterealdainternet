@@ -1,27 +1,36 @@
-<section class="hero">
-    <article class="hero-body">
-        <img ng-src="{{usuario.foto}}" class="profile-pic img-medium hero-img">
-        <b class="hero-name">{{usuario.nome}}</b>
-    </article>
-    <h class = "user-titulodescricao">
-        <p>Sobre mim: 
-            <p ng-show="checarUser()"> 
-                 <button type="button" onclick ="atualizarDescricao()" > <i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>  
-            </p>
-    </h>
-    <article class="user-descricao"> 
-        </p>{{usuario.descricao}}</p>
-    </article>
+<div class="hero page-div">
+    <div>
+        <article class="hero-body">
+            <img ng-src="{{usuario.foto}}" class="profile-pic img-medium hero-img">
+            <b class="hero-name">{{usuario.nome}}</b>
+        </article>
+        <h class = "user-titulodescricao">
+            <p>Sobre mim: 
+                <p ng-show="checarUser()"> 
+                    <button type="button" onclick ="atualizarDescricao()" > <i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>  
+                </p>
+        </h>
+        <article class="user-descricao"> 
+            </p>{{usuario.descricao}}</p>
+        </article>
 
-    <article class="wrapper">
-        <h2 class= "title">Meus quizzes</h2>
-
-        <section class="quizzes user-quizzes">
-            
-            <a ng-href="/#!/quiz/{{quiz.id}}" ng-repeat="quiz in quizzes" class="user-quiz marginless">
-                {{quiz.titulo}}
-            </a>
-            
-        </section>
-    </article>
-</section>
+        <div>
+            <h3 class="title"> Quizzes do usuário, pag {{nPagina}} </h3>
+            <h1 class="title" ng-show="mensagem"> {{mensagem}} <h1>
+            <div class = "quizzes">
+                <section class = "quizBox" ng-repeat="quiz in quizzes track by $index">
+                    <div>
+                        <p class = "quiztitle"> <a ng-href = "/#!/quiz/{{quiz.id}}"> {{quiz.titulo}}      </a></p> 
+                        <div class = "foto"><a ng-href = "/#!/quiz/{{quiz.id}}"><img ng-src="{{quiz.foto}}"></a></div>
+                        <p class = "resumo"> {{quiz.resumo}} </p>
+                    </div>
+                    <p class = "autor"> DE: <a ng-href="/#!/perfil/{{quiz.autor.id}}">{{quiz.autor.nome}}</a> </p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class = "pagebuttons">
+        <a ng-show="nPagina>1" ng-click="retornarPagina()" class = "aligned-center readmore link"><i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+        <a ng-click="proximaPagina()" class = "aligned-center readmore link"> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </a>
+    </div>
+</div>

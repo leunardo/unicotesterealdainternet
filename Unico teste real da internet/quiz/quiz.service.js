@@ -16,8 +16,8 @@ function quizService($http, URL) {
         return $http.get(`${url}/quizzes`);
     }
 
-    function getQuizzesDoUsuario(idUsuario) {
-        return $http.get(`${url}/quizzes/?autor.id=${idUsuario}`);
+    function getQuizzesDoUsuario(idUsuario, nPagina) {
+        return $http.get(`${url}/quizzes/?autor.id=${idUsuario}&_page=${nPagina}&_limit=8`);
     }
 
     function buscarQuiz(quizQuery, nPagina){

@@ -71,6 +71,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    padding-bottom: 5vh;
 }
 .menu-home {
     display: flex;

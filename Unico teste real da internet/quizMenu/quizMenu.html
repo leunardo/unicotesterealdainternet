@@ -1,6 +1,7 @@
 <div class = "page-div">
     <div>
         <h3 class="title"> LISTA DE QUIZZES: PÁGINA {{nPagina}} </h3>
+        <h1 class="title" ng-show="mensagem"> {{mensagem}} <h1>
         <div class = "quizzes">
             <section class = "quizBox" ng-repeat="quiz in quizzes track by $index">
                 <div>

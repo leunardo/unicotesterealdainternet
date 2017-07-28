@@ -13,9 +13,11 @@ function quizMenuController($scope, quizService){
         if(quizList.data.length > 0){
             $scope.quizzes = quizList.data;
         }
-        else{
+        else if($scope.nPagina!=1){
             $scope.nPagina--;
             alert('Não existem mais quizzes para carregar.');
+        }else{
+            $scope.mensagem = "Não possuimos nenhum quiz no momento, contribua e faça história criando o primeiro!";
         }
     }
 
@@ -26,7 +28,6 @@ function quizMenuController($scope, quizService){
     }
 
     function retornarPagina(){
-        console.log("a")
         if($scope.nPagina >= 2){
             $scope.nPagina--;
             getQuizzes();

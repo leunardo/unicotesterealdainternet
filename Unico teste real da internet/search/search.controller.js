@@ -25,9 +25,11 @@ function searchController($scope, quizService, $routeParams) {
         if(quizList.data.length > 0){
             $scope.resultado = quizList.data;
         }
-        else{
+        else if ($scope.nPagina!=1){
             $scope.nPagina--;
-            alert('Não existem mais quizzes para carregar.');
+            alert('Não existem mais quizzes para essa busca!');
+        }else{
+            $scope.mensagem = "Ainda não existem itens com sua pesquisa! Seja o primeiro a fazer um!"
         }
     }
 
@@ -38,7 +40,6 @@ function searchController($scope, quizService, $routeParams) {
     }
 
     function retornarPagina(){
-        console.log("a")
         if($scope.nPagina >= 2){
             $scope.nPagina--;
             getQuizzes();
