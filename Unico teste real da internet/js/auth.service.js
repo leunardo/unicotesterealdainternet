@@ -9,7 +9,10 @@ function authService(usuarioService) {
     } 
 
     function isUsuarioCadastrado(){
-        let id = JSON.parse(localStorage.usuario).id;
+        let id;
+        if(localStorage.usuario)
+            id = JSON.parse(localStorage.usuario).id;
+
         return usuarioService.getUsuarioPorId(id);
     }
 
@@ -25,28 +28,21 @@ function authService(usuarioService) {
             let googleUser = googleAuth.currentUser.get();
             let profile = googleUser.getBasicProfile();
             let id = profile.getId();
-            if(!usuarioService.getUsuarioPorId(id))
+
+            usuarioService.getUsuarioPorId(id).then(response => {
+                localStorage.usuario = JSON.stringify(response.data);
+            }, fail => {
+
                 localStorage.usuario = JSON.stringify({
                     'nome': profile.getName(),
                     'email': profile.getEmail(),
                     'foto': profile.getImageUrl(),
                     'id': profile.getId(),
                 });
-            else{
-                usuarioService.getUsuarioPorId(id).then(c => {
-                    localStorage.usuario = JSON.stringify(c.data);
-                }
-                );
 
-            }
-            atualizar();
-
-            isUsuarioCadastrado().then(response => {
-                return;
-            }, fail => {
                 let usuario = JSON.parse(localStorage.usuario);
                 usuarioService.criarUsuario(usuario);
-            });                       
+            }).finally(atualizar);                                       
         });
     }
 }
