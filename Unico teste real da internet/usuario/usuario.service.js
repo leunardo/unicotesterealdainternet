@@ -7,6 +7,7 @@ function usuarioService($http, URL) {
         getUsuario: getUsuario,
         criarUsuario: criarUsuario,
         getUsuarioPorId: getUsuarioPorId,
+        atualizarPerfil: atualizarPerfil,
     }
 
     function getUsuario() {
@@ -19,6 +20,10 @@ function usuarioService($http, URL) {
 
     function criarUsuario(usuario) {
         return $http.post(`${url}/usuarios`, usuario);
+    }
+
+    function atualizarPerfil(usuario){        
+        return $http.put(`${url}/usuarios/${usuario.id}`, usuario);
     }
 
 }
