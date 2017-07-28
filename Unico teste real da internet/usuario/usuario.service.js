@@ -6,7 +6,6 @@ function usuarioService($http, URL) {
     return {
         getUsuario: getUsuario,
         criarUsuario: criarUsuario,
-        atualizarUsuario: atualizarNotaUsuario,
         getUsuarioPorId: getUsuarioPorId,
     }
 
@@ -20,11 +19,6 @@ function usuarioService($http, URL) {
 
     function criarUsuario(usuario) {
         return $http.post(`${url}/usuarios`, usuario);
-    }
-
-    function atualizarNotaUsuario(nota){
-        let idUsuario = JSON.parse(localStorage.usuario).id;
-        return $http.put(`${url}/usuarios/${id}`)
     }
 
 }
