@@ -2,27 +2,34 @@
     <div class="pergunta">
         <label>
             Pergunta:
-            <input type="text" class="rounded-input" placeholder="Quanto é 1 + 1?">
+            <input type="text" class="rounded-input" name="pergunta" placeholder="Quanto é 1 + 1?" required ng-minlength="10" ng-model="pergunta.pergunta">
+            <small ng-show="perguntaForm.pergunta.$error.minlength">No minimo 10 caracteres</small>
+            <small ng-show="perguntaForm.pergunta.$error.required && perguntaForm.pergunta.$touched">Preencha o campo</small>
+            
         </label>        
     </div>
-    <div class="quiz-info">
+    <div class="quiz-info">        
         <h4>Respostas: (mínimo 2)</h4>
-        <section class="resposta-input-wrapper">
+        <section class="resposta-input-wrapper">            
             <small class="resposta-desc">adicionar resposta:</small>
-            <input type="text" class="rounded-input resposta-input" ng-model="resposta" placeholder="Provavelmente 2!">        
-            <button class="resposta-button-inline" ng-click="adicionarResposta()">Adicionar</button>
+            <input type="text" name="resposta" class="rounded-input resposta-input" ng-minlength="3" ng-model="resposta" placeholder="Provavelmente 2!" required>  
+                
+            <button class="resposta-button-inline" ng-click="adicionarResposta(resposta)">Adicionar</button>
+            <small ng-show="perguntaForm.resposta.$error.minlength">No minimo 3 caracteres</small>
+            <small ng-show="perguntaForm.resposta.$error.required && perguntaForm.resposta.$touched">Preencha o campo</small>
         </section>
-        <div class="quiz-respostas">
-            <section ng-repeat="resposta in respostas track by $index">
-                <p>{{resposta}}</p> 
+        <ul class="quiz-respostas">
+            <div ng-repeat="resposta in pergunta.respostas track by $index" class="resposta-li-wrapper">
+                <li  class="list-respostas"> {{resposta}} </li>
                 <span>
                     <i class="fa fa-trash link" ng-click="removerResposta($index)"></i>
                 </span>
-            </section>
-            
-        </div>
+            </div>
+        </ul>
     </div>
 </div>
 
-
-<button class="aligned-center" ng-click="publicar()">Publicar</button>
+<section class="aligned-center">
+    <button  ng-click="publicar()">Publicar</button>
+    <button ng-click="proximaPergunta()">Próxima pergunta</button>
+</section>

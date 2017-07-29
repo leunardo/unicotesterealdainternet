@@ -13,6 +13,24 @@
     padding: 0.2rem;
 }
 
+.resposta-li-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resposta-li-wrapper:nth-child(even) {
+    background-color: #bcbfc1;
+}
+
+.list-respostas {
+    list-style: none;
+    margin-right: 5px;
+}
+
+.link {
+    cursor: pointer;
+}
+
 .quizSearch{
     font-size: 1.3rem;
     color: #ffffff;
@@ -598,6 +616,9 @@ button.resposta-button-inline {
 .quiz-respostas {
     overflow: auto;
     max-height: 180px;
+    max-width: 100%;
+    margin-bottom: 0;
+
 }
 
 .quiz-respostas > p {
