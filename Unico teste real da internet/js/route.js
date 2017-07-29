@@ -32,5 +32,9 @@ app.config(function ($routeProvider){
             controller: "searchController",
             templateUrl: "search/search.html"
         })
+        .when("/tag/:q", {
+            controller: "searchController",
+            templateUrl: "search/search.html"
+        })
         .otherwise({redirectTo: "/index"});
 });

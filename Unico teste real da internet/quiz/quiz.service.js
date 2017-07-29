@@ -24,6 +24,20 @@ function quizService($http, URL) {
         return $http.get(`${url}/quizzes?q=${quizQuery}&_page=${nPagina}&_limit=8`);
     }
 
+    function buscarQuizPorTag(query, nPagina){
+        let httpget = `${url}/quizzes/?_page=${nPagina}&_limit=8&`;
+        let tagsAdd = "tags_like="
+        let tags = query.split("&");
+        for(let i = 0; i<tags.length; i++){
+            httpget += tagsAdd+tags[i];
+            if(tags.length != i+1){
+                httpget += "&";
+            }
+        }
+        console.log(httpget);
+        return $http.get(httpget) 
+    }
+
     let resultados = [];
 
     return {
@@ -32,6 +46,7 @@ function quizService($http, URL) {
         getQuizzesDoUsuario: getQuizzesDoUsuario,
         getAllQuizzes: getAllQuizzes,
         buscarQuiz: buscarQuiz,
+        buscarQuizPorTag: buscarQuizPorTag,
         resultados: resultados,
     }
 
