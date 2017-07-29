@@ -1,38 +1,60 @@
 app.controller('criacaoQuizController', criacaoQuizController);
 
-function criacaoQuizController($scope, criacaoQuizService){
-    $scope.respostas = []
-    // $scope.proximaPergunta = proximaPergunta;
-    // $scope.criarPergunta = criarPergunta;
+function criacaoQuizController($scope, $location, criacaoQuizService) {
+    $scope.pergunta = { pergunta: '', respostas: []};    
+    $scope.quiz = {
+        titulo: '', 
+        foto: '',
+        resumo: '',
+        perguntas: [],
+        tags: [],
+    };
+    $scope.parteQuiz = '1';
+    $scope.proximaPergunta = proximaPergunta;  
     $scope.adicionarResposta = adicionarResposta;
     $scope.removerResposta = removerResposta;
+    $scope.proximaParte = proximaParte;
+    $scope.publicar = publicar;
 
-    // function criarPergunta(){
-    //     if($scope.pergunta!=""){
-    //         var pergunta = {
-    //             pergunta: $scope.pergunta,
-    //             respostas: []
-    //         }
-    //         for(n = 0; n<5; n++){
-    //             if($scope.resposta[n]==""){
-    //                 scope.resposta[n]=null;
-    //             }
-    //         }
-    //         pergunta.respostas = $scope.resposta;
-    //         criacaoPerguntasService.criarPergunta(pergunta).then(r => {
-    //            $scope.pergunta = "";
-    //            $scope.resposta = [];
-    //         });
-    //     }
-    // }
+    function adicionarResposta(resposta) {  
+        if($scope.perguntaForm.resposta.$invalid) return;
+        $scope.pergunta.respostas.push({ resposta: resposta });        
+        $scope.$$childHead.resposta = '';                 
+    }
 
-    function adicionarResposta() {
-        let copia = angular.copy($scope.resposta);
-        $scope.resposta = '';
-        $scope.respostas.push(copia);
+    function publicar() {
+        let usuario = JSON.parse(localStorage.usuario);
+        $scope.quiz.autor = {
+            nome: usuario.nome,
+            foto: usuario.foto,
+            id: usuario.id,
+        };
+        criacaoQuizService.criarQuiz($scope.quiz)
+            .then(response => {                
+                $location.path("quiz/" + response.data.id);
+            }, fail => {
+                console.log(fail);
+            });
+      }
+
+    function proximaPergunta() {
+        if($scope.pergunta.respostas.length < 2) return;
+        let copia = {
+            pergunta: $scope.pergunta.pergunta,
+            respostas: $scope.pergunta.respostas,
+        };
+        $scope.quiz.perguntas.push(copia);
+        $scope.pergunta = { pergunta: '', respostas: [] };
+        $scope.$$childHead.resposta = '';   
     }
 
     function removerResposta(indice) {
-        $scope.respostas.splice(indice, 1);
+        $scope.pergunta.respostas.splice(indice, 1);
     }
- }
+
+    function proximaParte() {
+        if($scope.perguntaForm.$valid)
+            $scope.parteQuiz = '2';
+    }   
+
+}
