@@ -761,6 +761,26 @@
           ],
           "id": 35
         }
+      ],
+      "tags": [
+        {
+          "id": 7
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id":16
+        }
       ]
     },
     {
@@ -772,7 +792,18 @@
         "nome": "Guilherme",
         "foto": "https://lh5.googleusercontent.com/-X5h9V--Gsi4/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUoMPFtR3Z6ac_BrBytKMT-XwE_D1A/s96-c/photo.jpg",
         "id": "114640009337362536568"
-      }
+      },
+      "tags":[
+        {
+          "id": 8
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        }
+      ]
     },
     {
       "id": 3,
@@ -783,7 +814,18 @@
         "nome": "Leonardo Alves",
         "foto": "https://lh6.googleusercontent.com/-1Jm1-V_fwlU/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUpzZ9_yyZOFkvg8bgiGa-3aQwpKNg/s96-c/photo.jpg",
         "id": "112502432735239711682"
-      }
+      },
+      "tags":[
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ]
     },
     {
       "id": 4,
@@ -794,7 +836,15 @@
         "nome": "Leonardo Alves",
         "foto": "https://lh6.googleusercontent.com/-1Jm1-V_fwlU/AAAAAAAAAAI/AAAAAAAAAAA/AMp5VUpzZ9_yyZOFkvg8bgiGa-3aQwpKNg/s96-c/photo.jpg",
         "id": "112502432735239711682"
-      }
+      },
+      "tags":[
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        } 
+      ]
     },
     {
       "titulo": "QUIZ DA SAM",
@@ -816,12 +866,25 @@
           ]
         }
       ],
-      "tags": [],
       "autor": {
         "nome": "Leonardo Alves",
         "foto": "https://lh5.googleusercontent.com/-eQFk1PqvdjE/AAAAAAAAAAI/AAAAAAAAHe8/xosNiza0DL0/s96-c/photo.jpg",
         "id": "113459922848124546149"
       },
+      "tags":[
+        {
+          "id": 9
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 7
+        }
+      ],
       "id": 5
     },
     {
@@ -844,7 +907,6 @@
           ]
         }
       ],
-      "tags": [],
       "autor": {
         "nome": "Leonardo Alves",
         "foto": "https://lh5.googleusercontent.com/-eQFk1PqvdjE/AAAAAAAAAAI/AAAAAAAAHe8/xosNiza0DL0/s96-c/photo.jpg",
@@ -878,6 +940,20 @@
         "foto": "https://lh5.googleusercontent.com/-eQFk1PqvdjE/AAAAAAAAAAI/AAAAAAAAHe8/xosNiza0DL0/s96-c/photo.jpg",
         "id": "113459922848124546149"
       },
+      "tags":[
+        {
+          "id": 9
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 11
+        }
+      ],
       "id": 7
     },
     {
@@ -900,12 +976,25 @@
           ]
         }
       ],
-      "tags": [],
       "autor": {
         "nome": "Peitro Pato",
         "foto": "http://3.bp.blogspot.com/-n_z36Em56RY/U9pwRro1MwI/AAAAAAABNas/B3G7ht0PZvc/s1600/IMAGEM-PATO+ENGRAVATADO-AZULeditededited1.jpg",
         "id": "111266231514955692603"
       },
+      "tags": [
+        {
+          "id": 6
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        }
+      ],
       "id": 8
     }
   ],
@@ -943,6 +1032,72 @@
       "email": "alexacaalves@gmail.com",
       "foto": "https://lh5.googleusercontent.com/-eQFk1PqvdjE/AAAAAAAAAAI/AAAAAAAAHe8/xosNiza0DL0/s96-c/photo.jpg",
       "id": "113459922848124546149"
+    }
+  ],
+  "tags": [
+    {
+      "tag": "Beleza",
+      "id": 1
+    },
+    {
+      "tag": "Pessoal",
+      "id": 2
+    },
+    {
+      "tag": "Malonha",
+      "id": 3
+    },
+    {
+      "tag": "Entorpecentes",
+      "id": 4
+    },
+    {
+      "tag": "Meems",
+      "id": 5
+    },
+    {
+      "tag": "Política",
+      "id": 6
+    },
+    {
+      "tag": "Random Stuff",
+      "id": 7
+    },
+    {
+      "tag": "Dúvida",
+      "id": 8
+    },
+    {
+      "tag": "Autismo",
+      "id": 9
+    },
+    {
+      "tag": "SAM",
+      "id": 10
+    },
+    {
+      "tag": "Carros",
+      "id": 11
+    },
+    {
+      "tag": "Matemática",
+      "id": 12
+    },
+    {
+      "tag": "QI",
+      "id": 13
+    },
+    {
+      "tag": "Conhecimentos gerais",
+      "id": 14
+    },
+    {
+      "tag": "Pontuação",
+      "id": 15
+    },
+    {
+      "tag": "Lógica",
+      "id": 16
     }
   ]
 }
