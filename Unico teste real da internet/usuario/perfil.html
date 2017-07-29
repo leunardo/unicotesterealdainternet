@@ -39,7 +39,7 @@
         </div>
     </div>
     <h1 class="title" ng-show="mensagem"> {{mensagem}} </h1>
-    <div class="pagebuttons">
+    <div ng-hide="mensagem" class="pagebuttons">
         <a ng-show="nPagina>1" ng-click="retornarPagina()" class="aligned-center readmore link"><i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
         <a ng-click="proximaPagina()" class="aligned-center readmore link"> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </a>
     </div>
