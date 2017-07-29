@@ -3,21 +3,26 @@
         <img ng-src="{{usuario.foto}}" class="profile-pic img-medium hero-img">
         <b class="hero-name">{{usuario.nome}}</b>
     </article>
+    
     <div class="user-titulodescricao">
         <p>Sobre mim:
             <article class="user-descricao">
         </p>{{usuario.descricao}}</p>
-        </article>
         <div ng-show="checarUser()">
-            <button type="button"> <i class="fa fa-pencil"></i> Editar</button>
-            <form>
-                <input type="text" ng-model="usuarioCopia.nome">
-                <input type="text" ng-model="usuarioCopia.descricao">
-                <img ng-src="{{usuario.foto}}">
-                <input type="text" ng-model="usuarioCopia.foto">
-                <button ng-click="atualizarPerfil()">Salvar</button>
+            <a ng-click="editarPerfil()"> <i class="fa fa-pencil"></i></a>
+            <form class="w3-modal" id="modal">
+                <div class=" w3-modal-content">
+                    <span onclick="document.getElementById('modal').style.display='none'" class=""> Fechar</span>
+                    <label>Nome: <input type="text" class="form-edicao" ng-model="usuarioCopia.nome"> </label>
+                    <label>Foto de Perfil: <input type="text" class= "form-edicao" ng-model="usuarioCopia.foto"></label>
+                    <img ng-src="{{usuario.foto}}" class="foto-Edicao">
+                    <label>Descrição: <textarea type="text" rows="5" cols="50" class="form-edicao" ng-model="usuarioCopia.descricao" maxlength="500"></textarea></label>
+                    <button ng-click="atualizarPerfil()" class ="botao-salvar">Salvar</button>
+
+                </div>
             </form>
         </div>
+        </article>
     </div>
 
     <div>

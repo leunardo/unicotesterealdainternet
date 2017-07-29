@@ -9,6 +9,7 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
     $scope.proximaPagina = proximaPagina;
     $scope.retornarPagina = retornarPagina;
     $scope.nPagina = 1;
+    $scope.editarPerfil = editarPerfil;
 
     function getUsuario() {
         usuarioService.getUsuarioPorId($routeParams.id)
@@ -52,6 +53,9 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
 
     function checarUser(){
         return $scope.usuario.id === JSON.parse(localStorage.usuario).id;           
+    }
+    function editarPerfil(){
+        document.getElementById('modal').style.display= "block";
     }
 
     function atualizarPerfil(){
