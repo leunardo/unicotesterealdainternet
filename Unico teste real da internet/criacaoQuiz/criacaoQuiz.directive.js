@@ -1,12 +1,12 @@
 app.directive('criarQuiz', criarQuiz);
 
-function criarQuiz() {
-    return {        
-        templateUrl: function(element, attrs) {
-            if(attrs.parte === '1')
-                return 'criacaoQuiz/parte1.html';
-            else 
-                return 'criacaoQuiz/parte2.html';
-        }
+function criarQuiz() {    
+    return {         
+        link : function(scope, elem, attr) {
+            attr.$observe('parte', (n) => {
+                scope.url = `criacaoQuiz/parte${n}.html`;
+            });
+        },           
+        template: `<div ng-include="url" class="caixa"></div>`     
     }     
 }
