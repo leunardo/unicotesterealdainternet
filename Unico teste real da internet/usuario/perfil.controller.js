@@ -10,6 +10,7 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
     $scope.retornarPagina = retornarPagina;
     $scope.nPagina = 1;
     $scope.editarPerfil = editarPerfil;
+    $scope.fecharModal = fecharModal;
 
     function getUsuario() {
         usuarioService.getUsuarioPorId($routeParams.id)
@@ -55,7 +56,13 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
         return $scope.usuario.id === JSON.parse(localStorage.usuario).id;           
     }
     function editarPerfil(){
-        document.getElementById('modal').style.display= "block";
+        document.querySelector('body').style.overflow = "hidden";
+        document.getElementById('modal').style.display = "block";
+    }
+
+    function fecharModal() {
+        document.querySelector('body').style.overflow = "auto";
+        document.getElementById('modal').style.display = "none";   
     }
 
     function atualizarPerfil(){

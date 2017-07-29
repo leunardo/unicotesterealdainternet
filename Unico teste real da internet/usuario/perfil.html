@@ -12,7 +12,7 @@
             <a ng-click="editarPerfil()"> <i class="fa fa-pencil"></i></a>
             <form class="w3-modal" id="modal">
                 <div class=" w3-modal-content">
-                    <span onclick="document.getElementById('modal').style.display='none'" class=""> Fechar</span>
+                    <span ng-click="fecharModal()"> Fechar</span>
                     <label>Nome: <input type="text" class="form-edicao" ng-model="usuarioCopia.nome"> </label>
                     <label>Foto de Perfil: <input type="text" class= "form-edicao" ng-model="usuarioCopia.foto"></label>
                     <img ng-src="{{usuario.foto}}" class="foto-Edicao">
