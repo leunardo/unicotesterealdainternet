@@ -164,6 +164,11 @@ criar-quiz {
     margin-right: 5%;
 }
 
+.quizAnchor .quiztitle{
+    margin-bottom: 10px;
+    height: 40px;
+}
+
 .quizAnchor img {
     width: 300px;
     height: 200px;
