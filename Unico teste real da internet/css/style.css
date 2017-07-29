@@ -3,6 +3,10 @@
     src: url('fonts/Klavika/Klavika.otf')
 }
 
+* {
+    word-break: break-all;
+}
+
 .wrapper {
     margin: 10px;
     padding: 10px;
@@ -659,6 +663,8 @@ button.resposta-button-inline {
 }
 
 .w3-modal-content {
+    overflow: auto;
+    border-radius: 10px;
     margin: auto;
     background-color: #fff;
     position: relative;
@@ -667,6 +673,7 @@ button.resposta-button-inline {
     display: flex;
     flex-flow: column nowrap;
     padding: 100px;
+    height: 80vh;
 }
 
 .foto-Edicao {
@@ -684,6 +691,7 @@ button.resposta-button-inline {
 }
 .botao-salvar{
     width: 75px;
+    height: 20px;
     align-self: center;
 }
 
