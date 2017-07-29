@@ -1,11 +1,11 @@
 app.factory("criacaoQuizService", criacaoQuizService)
 
 function criacaoQuizService($http, URL){
-    var url = `${URL}/perguntas`;
-    function criarPergunta(pergunta) {
-        return $http.post(url, pergunta);
+    let url = `${URL}/quizzes`;
+    
+    function criarQuiz(quiz) {
+        return $http.post(url, quiz);
     }
-    return{
-        criarPergunta:criarPergunta
-    }
+
+    return { criarQuiz: criarQuiz }
 }
