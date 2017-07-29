@@ -348,6 +348,10 @@ header {
     justify-content: space-between;
 }
 
+header input:required {
+    box-shadow:none;
+
+}
 header a {
     display: flex;
     align-self: center;
