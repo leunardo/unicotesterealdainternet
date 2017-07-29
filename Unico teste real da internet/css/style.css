@@ -204,7 +204,7 @@ criar-quiz {
     justify-content: flex-start;
     text-align: center;
     width: 15%;
-    height: 45vh;
+    height: 60vh;
     margin-left: 5%;
     margin-right: 5%;
     padding: 3px;
@@ -214,12 +214,32 @@ criar-quiz {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px;
+    height: 45vh;
     justify-content: flex-start;
 }
 
+.quizBox>.tags{
+    font-size: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    height: 50px;
+}
+
+.quizBox>.tags>a{
+    background: #C6EFFF;
+    border:#4d68a1 1px solid;
+    border-radius: 10px;
+    padding: 2px;
+    margin-right: 5px;
+    max-height: 16px;
+}
+
 .quiztitle {
-    height: 10%
+    height: 10%;
+    align-self: center;
 }
 
 .quiztitle>a {

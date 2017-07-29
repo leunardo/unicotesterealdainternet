@@ -31,6 +31,12 @@ function searchController($scope, quizService, $routeParams, $location) {
     $scope.nPagina = 1;
     let url = $location.path().split('/')[1];
     getQuizzes();
+    
+    function setTags(){
+        for(let i = 0; i<$scope.resultado.length; i++){
+            $scope.resultado[i].tags = $scope.resultado[i].tags.split(',');
+        }
+    }
     function getQuizzes(){
         if("search"===url){
             quizService.buscarQuiz(query, $scope.nPagina)
@@ -44,6 +50,7 @@ function searchController($scope, quizService, $routeParams, $location) {
     function mostrarQuizzes(quizList){
         if(quizList.data.length > 0){
             $scope.resultado = quizList.data;
+            setTags();
         }
         else if ($scope.nPagina!=1){
             $scope.nPagina--;

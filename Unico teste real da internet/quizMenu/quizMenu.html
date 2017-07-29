@@ -9,6 +9,11 @@
                     <p class = "resumo"> {{quiz.resumo}} </p>
                 </div>
                 <p class = "autor"> DE: <a ng-href="/#!/perfil/{{quiz.autor.id}}">{{quiz.autor.nome}}</a> </p>
+                <p class = "tags"> 
+                    <a ng-repeat="tags in quiz.tags" ng-href="/#!/tag/{{tags}}" class = "link">
+                        <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
+                    </a>
+                </p>
             </section>
         </div>
     </div>
