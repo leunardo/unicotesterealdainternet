@@ -720,12 +720,13 @@ button.resposta-button-inline {
     min-width: 50px;
     min-height: 50px;
     margin: 20px 0 20px 0;
-    align-self: center;
     border-radius: 50%;
+    align-self: center;
+    border: 4px solid #133783;
 }
 
 .form-edicao {
-    margin: 10px;
+    margin: 12px;
     border: 1px solid #bdc7d8;
     border-radius: 5px;
 }
@@ -738,6 +739,8 @@ button.resposta-button-inline {
 }
 .botao-salvar-edicao{
     font-size:2rem;
+    position: relative;
+    top:35px;
 }
 
 @media screen and (max-width: 1015px) {

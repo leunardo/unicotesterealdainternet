@@ -13,9 +13,9 @@
             <form class="w3-modal" id="modal">
                 <div class=" w3-modal-content">
                     <a ng-click="fecharModal()" class ="botao-fechar-edicao"> <i class="fa fa-times" aria-hidden="true"></i></a>
+                    <img ng-src="{{usuario.foto}}" class="foto-Edicao">
                     <label>Nome: <input type="text" class="form-edicao" ng-model="usuarioCopia.nome"> </label>
                     <label>Foto de Perfil: <input type="text" class= "form-edicao" ng-model="usuarioCopia.foto"></label>
-                    <img ng-src="{{usuario.foto}}" class="foto-Edicao">
                     <label>Descrição: <textarea type="text" rows="5" cols="50" class="form-edicao" ng-model="usuarioCopia.descricao" maxlength="500"></textarea></label>
                     <a ng-click="atualizarPerfil()"class = "botao-salvar-edicao"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
 
