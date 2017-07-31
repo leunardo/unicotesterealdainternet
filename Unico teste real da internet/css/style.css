@@ -7,6 +7,11 @@
     word-break: break-all;
 }
 
+textarea {
+    resize: vertical;
+    min-height: 40px;
+}
+
 .wrapper {
     margin: 10px;
     padding: 10px;
@@ -412,7 +417,7 @@ header .logo {
     padding-top: 10vh;
     display: flex;
     justify-content: center;
-    height: 70vh;
+    margin-bottom: 10vh;
 }
 
 .insertPergunta {
