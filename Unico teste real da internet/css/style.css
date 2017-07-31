@@ -134,8 +134,7 @@ textarea {
 
 .randomQuizzes {
     display: flex;
-    flex-direction: row;
-    align-self: center;
+    flex-direction: row;    
     text-align: center;
     flex-wrap: wrap;
 }
