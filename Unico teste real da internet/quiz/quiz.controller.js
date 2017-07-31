@@ -1,20 +1,21 @@
 app.controller("quizController", quizController);
 
 function quizController($scope, quizService, usuarioService, $location, $routeParams) {
-    $scope.questoes = [];
+    $scope.quiz;   
     $scope.notas = [];
-    $scope.nPergunta = 0;
+    $scope.parteQuiz = 1; 
+    $scope.proximaParte = proximaParte;
     $scope.avancarPergunta = avancarPergunta;
-    $scope.retrocederPergunta = retrocederPergunta;    
+    $scope.retrocederPergunta = retrocederPergunta;   
+    let nPergunta = 0;
     let id = $routeParams.id;
-    var notaFinal = 0;
+    let notaFinal = 0;
     getQuiz();
 
     function getQuiz() {
         quizService.getQuiz(id).then(
             c => {
-                $scope.questoes = c.data.perguntas;
-                mostrarPergunta($scope.nPergunta);
+                $scope.quiz = c.data;                
             },
             error => {
                 alert("Não foi possivel encontrar as perguntas");
@@ -23,21 +24,21 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
 
     function contabilizarPergunta(nota, avancar){
         if(avancar){
-            $scope.notas[$scope.nPergunta] = nota;
+            $scope.notas[nPergunta] = nota;
         }else{
-            $scope.notas[$scope.nPergunta] = 0;
+            $scope.notas[nPergunta] = 0;
         }
     }
 
     function mostrarPergunta(nPergunta) {
-        $scope.questao = $scope.questoes[nPergunta];
+        $scope.questao = $scope.quiz.perguntas[nPergunta];
     }
 
     function avancarPergunta(nota) {
-        if ($scope.nPergunta < $scope.questoes.length - 1) {
+        if (nPergunta < $scope.questoes.length - 1) {
             contabilizarPergunta(nota, true); 
-            $scope.nPergunta++;
-            mostrarPergunta($scope.nPergunta);
+            nPergunta++;
+            mostrarPergunta(nPergunta);
         } else {
             contabilizarPergunta(nota, true);
             encerrarQuiz();
@@ -54,9 +55,14 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     }    
 
     function retrocederPergunta() {
-        $scope.nPergunta--;
+        nPergunta--;
         contabilizarPergunta(0, false);
-        mostrarPergunta($scope.nPergunta);
+        mostrarPergunta(nPergunta);
+    }
+
+    function proximaParte() {
+        $scope.parteQuiz = 2;
+        mostrarPergunta(nPergunta);
     }
     
 }
