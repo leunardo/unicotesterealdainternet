@@ -20,7 +20,7 @@
         </section>
         <ul class="quiz-respostas">
             <div ng-repeat="resposta in pergunta.respostas track by $index" class="resposta-li-wrapper">
-                <li  class="list-respostas"> {{resposta}} </li>
+                <li  class="list-respostas"> {{resposta.resposta}} </li>
                 <span>
                     <i class="fa fa-trash link" ng-click="removerResposta($index)"></i>
                 </span>
