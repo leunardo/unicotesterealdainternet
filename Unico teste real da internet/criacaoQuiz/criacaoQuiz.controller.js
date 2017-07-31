@@ -40,7 +40,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
 
     function proximaPergunta() {
         if($scope.pergunta.respostas.length < 2) return;
-        if($scope.perguntaForm.$invalid) return;
+        if($scope.perguntaForm.pergunta.$invalid) return;
         let copia = {
             pergunta: $scope.pergunta.pergunta,
             respostas: $scope.pergunta.respostas,
