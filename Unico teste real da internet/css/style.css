@@ -22,9 +22,18 @@ textarea {
     padding: 0.2rem;
 }
 
+.vertical-middle {
+    vertical-align: sub;
+}
+
+i.fa.fa-certificate {
+    font-size: small;
+}
+
 .resposta-li-wrapper {
     display: flex;
     justify-content: space-between;
+    background-color: #dadada;
 }
 
 .resposta-li-wrapper:nth-child(even) {
@@ -643,6 +652,16 @@ footer article section {
     border: 0;
     outline: none;
     width: 100%;
+}
+
+.nota-input {
+    width: 30px;
+    border-radius: 0;   
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 .resposta-desc {

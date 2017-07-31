@@ -20,8 +20,15 @@
         </section>
         <ul class="quiz-respostas">
             <div ng-repeat="resposta in pergunta.respostas track by $index" class="resposta-li-wrapper">
-                <li  class="list-respostas"> {{resposta.resposta}} </li>
+                <li  class="list-respostas"> 
+                    <span class="vertical-middle">{{resposta.resposta}}</span>
+                </li>
                 <span>
+                    <i class="fa fa-certificate" aria-hidden="true"></i> 
+                    <label>
+                        nota:
+                        <input type="number" min="0" max="10" ng-model="pergunta.respostas[$index].nota" class="rounded-input nota-input">
+                    </label>
                     <i class="fa fa-trash link" ng-click="removerResposta($index)"></i>
                 </span>
             </div>
