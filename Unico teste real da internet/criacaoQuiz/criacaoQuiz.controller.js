@@ -7,7 +7,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
         foto: '',
         resumo: '',
         perguntas: [],
-        tags: [],
+        tags: '',
     };
     $scope.parteQuiz = '1';
     $scope.proximaPergunta = proximaPergunta;  
@@ -29,6 +29,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
             foto: usuario.foto,
             id: usuario.id,
         };
+        $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags);
         criacaoQuizService.criarQuiz($scope.quiz)
             .then(response => {                
                 $location.path("quiz/" + response.data.id);
@@ -55,6 +56,10 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
     function proximaParte() {
         if($scope.perguntaForm.$valid)
             $scope.parteQuiz = '2';
-    }   
+    }
+
+    function removerEspacosDasTags(tags) {
+        return tags.replace(/[, ]+[ ,]+/g, ',');
+    }
 
 }

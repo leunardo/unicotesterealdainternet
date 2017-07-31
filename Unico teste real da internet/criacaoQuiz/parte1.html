@@ -6,6 +6,10 @@
             <small ng-show="perguntaForm.tituloP.$error.required && perguntaForm.tituloP.$touched">Preencha o campo <br/></small>  
              
         </label>
+        <label>
+            Tags:
+            <input type="text" class="rounded-input" ng-model="quiz.tags" placeholder="Separe por virgula. Ex: politica,memes">
+        </label>
         <label>            
             Insira a foto de capa: 
             <input class="rounded-input" type="url" name="fotoCapa" ng-model="quiz.foto" placeholder="http://minhafoto.com/foto.jpg" required>
@@ -14,14 +18,14 @@
         </label>
         <label>
             Resumo:
-            <textarea ng-model="quiz.resumo" required name="resumo"></textarea>
+            <textarea class="rounded-input" ng-model="quiz.resumo" required name="resumo"></textarea>
             <small ng-show="perguntaForm.resumo.$error.required && perguntaForm.resumo.$touched">Preencha com um URL</small>            
         </label>
     </div>
 
 </div>
 <div class="quiz-info">
-    <img ng-src="{{quiz.foto}}" class="preview-foto">
+    <img ng-show="quiz.foto" ng-src="{{quiz.foto}}" class="preview-foto">
 </div>
 
 <button class="aligned-center" ng-click="proximaParte()">Próxima parte</button>
