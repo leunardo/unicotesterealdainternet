@@ -1,0 +1,17 @@
+<div class="top-part">
+    <div class="pergunta">{{quiz.titulo}}</div>
+
+</div>
+
+<div class="quiz-info">
+    <p class="justified-text">{{quiz.resumo}}</p>
+    <img ng-src="{{quiz.foto}}">
+    <span>Tags:</span>
+    <section class="tags">        
+        <a ng-repeat="tag in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class="link">
+            <i class="fa fa-hashtag" aria-hidden="true"></i>{{tag}}
+        </a>
+    </section>
+</div>
+
+<button class="aligned-center" ng-click="proximaParte()">Responder quiz</button>
