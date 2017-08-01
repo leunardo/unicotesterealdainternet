@@ -1,6 +1,6 @@
 app.controller('perfilController', perfilController);
 
-function perfilController($scope, $routeParams, usuarioService, quizService) {
+function perfilController($scope, $routeParams, authService, usuarioService, quizService) {
     getUsuario();
     getQuizzesDoUsuario();
     $scope.checarUser = checarUser;
@@ -15,7 +15,6 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
     function setTags(){
         for(let i = 0; i<$scope.quizzes.length; i++){
             $scope.quizzes[i].tags = $scope.quizzes[i].tags.split(',');
-            console.log($scope.quizzes[i].tags);
         }
     }
 
@@ -63,8 +62,11 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
     }
 
     function checarUser(){
-        console.log($scope.usuario.id===JSON.parse(localStorage.usuario).id);
-        return $scope.usuario.id === JSON.parse(localStorage.usuario).id;           
+        if(authService.isLogado()){
+            return $scope.usuario.id === JSON.parse(localStorage.usuario).id;           
+        }else{
+            return false;
+        }
     }
     function editarPerfil(){
         document.querySelector('body').style.overflow = "hidden";
