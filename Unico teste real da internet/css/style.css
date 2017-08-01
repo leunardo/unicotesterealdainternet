@@ -22,26 +22,43 @@ textarea {
     padding: 0.2rem;
 }
 
-.vertical-middle {
-    vertical-align: sub;
-}
-
 i.fa.fa-certificate {
     font-size: small;
 }
 
 .resposta-li-wrapper {
     display: flex;
+    color: #4d68a1;
+    font-size: 0.8rem;
+    height: 32px;
     justify-content: space-between;
-    background-color: #dadada;
+    background-color: #6bb5ff;
+    padding: 3px;
+    padding-right: 7px;
+    margin: 2px;
+    border: #C6EFFF solid 1px;
+    border-radius: 10px;
 }
 
 .resposta-li-wrapper:nth-child(even) {
-    background-color: #bcbfc1;
+    background-color: #94c9ff;
 }
 
 .list-respostas {
     list-style: none;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.iconeResposta{
+    color: #ffffff;
+    height: 20px;
+    width: 20px;
+}
+
+.labelNota{
     margin-right: 5px;
 }
 
@@ -662,8 +679,9 @@ footer article section {
 }
 
 .nota-input {
-    width: 30px;
-    border-radius: 0;   
+    width: 50px;
+    border-radius: 0;
+    padding-left: 0;
 }
 
 input::-webkit-outer-spin-button,
@@ -701,10 +719,9 @@ button.resposta-button-inline {
 
 .quiz-respostas {
     overflow: auto;
-    max-height: 180px;
+    min-width: 30vw;
     max-width: 100%;
     margin-bottom: 0;
-
 }
 
 .quiz-respostas>p {
