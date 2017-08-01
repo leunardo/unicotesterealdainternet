@@ -41,7 +41,7 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     }
 
     function avancarPergunta(nota) {
-        if (nPergunta < $scope.questoes.length - 1) {
+        if (nPergunta < $scope.quiz.perguntas.length - 1) {
             contabilizarPergunta(nota, true); 
             nPergunta++;
             mostrarPergunta(nPergunta);
@@ -56,8 +56,6 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
         notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
             return notaAnterior + notaAtual;
         })
-        usuarioService.atualizarUsuario(notaFinal);
-        $location.path("/resultado");
     }    
 
     function retrocederPergunta() {
