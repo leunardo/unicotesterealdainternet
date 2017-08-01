@@ -6,10 +6,9 @@
 <div class="quiz-info">
     <p class="justified-text">{{quiz.resumo}}</p>
     <img ng-src="{{quiz.foto}}">
-    <span>Tags:</span>
-    <section class="tags">        
-        <a ng-repeat="tag in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class="link">
-            <i class="fa fa-hashtag" aria-hidden="true"></i>{{tag}}
+    <section class="tags">         
+        <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class="link">
+            <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
         </a>
     </section>
 </div>

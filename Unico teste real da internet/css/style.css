@@ -464,6 +464,7 @@ header .logo {
     padding: 7px;
     display: flex;
     width: 50vw;
+    min-height: 70vh;
     flex-direction: column;
     justify-content: space-between;
     background: white;
@@ -644,6 +645,11 @@ footer article section {
     display: flex;
     justify-content: center;
     flex-flow: column;
+}
+
+.quiz-info > img{
+    max-width: 25vw;
+    max-height: 25vh;
 }
 
 .rounded-input {
