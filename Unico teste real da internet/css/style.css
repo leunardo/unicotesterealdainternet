@@ -613,6 +613,7 @@ footer article section {
     text-align: center;
     padding: 30px;
     min-height: 13vh;
+    background: #EDF0F5;
 }
 
 .marginless {
@@ -637,7 +638,6 @@ footer article section {
     border: 2px solid #133783;
     align-self: center;
 }
-
 .userDetails{
     background: #F6F7F9;
     border: 3px #DFE0E4;
@@ -783,15 +783,13 @@ button.resposta-button-inline {
     width: 600px;
     display: flex;
     flex-flow: column nowrap;
-    padding: 64px;
+    padding: 70px 70px 0 70px;
     height: 80vh;
 }
 
 .foto-Edicao {
     max-height: 50%;
     max-width: 50%;
-    min-width: 50px;
-    min-height: 50px;
     margin: 20px 0 20px 0;
     border-radius: 50%;
     align-self: center;
