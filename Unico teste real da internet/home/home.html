@@ -8,11 +8,11 @@
         <h3> QUIZZES ALEATÓRIOS </h3>
         <div class = "randomQuizzes">
             <section class = "quizAnchor" ng-repeat="quiz in quizzes">
-                <p class = "quiztitle"> <a ng-href = "/#!/quiz/{{quiz.id}}"> {{quiz.titulo}} </a> </p>
+                <p class = "quiztitle textBox"> <a ng-href = "/#!/quiz/{{quiz.id}}"> {{quiz.titulo}} </a> </p>
                 <div class = "foto"> <a ng-href = "/#!/quiz/{{quiz.id}}"><img ng-src="{{quiz.foto}}"></a></div>
-                <p class = "resumo"> {{quiz.resumo}} </p> 
-                <p class = "autor"> Por: <a ng-href = "/#!/perfil/{{quiz.autor.id}}"> {{quiz.autor.nome}} </a> </p>
-                <p class = "tags"> 
+                <p class = "resumo textBox"> {{quiz.resumo}} </p> 
+                <p class = "autor textBox"> Por: <a ng-href = "/#!/perfil/{{quiz.autor.id}}"> {{quiz.autor.nome}} </a> </p>
+                <p class = "tags textBox"> 
                     <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class = "link">
                         <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
                     </a>

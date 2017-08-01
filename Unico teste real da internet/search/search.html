@@ -3,7 +3,7 @@
     <div class = "quizzes">
         <section class = "quizBox" ng-repeat="quiz in resultado track by $index">
             <div>
-                <p class = "quiztitle"> <a ng-href = "/#!/quiz/{{quiz.id}}"> {{quiz.titulo}}      </a></p> 
+                <p class = "quiztitle textBox"> <a ng-href = "/#!/quiz/{{quiz.id}}"> {{quiz.titulo}}      </a></p> 
                 <div class = "foto"><a ng-href = "/#!/quiz/{{quiz.id}}"><img ng-src="{{quiz.foto}}"></a></div>
                 <p class = "resumo"> {{quiz.resumo}} </p>
             </div>

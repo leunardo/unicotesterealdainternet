@@ -3,10 +3,6 @@
     src: url('fonts/Klavika/Klavika.otf')
 }
 
-* {
-    word-break: break-all;
-}
-
 textarea {
     resize: vertical;
     min-height: 40px;
@@ -120,6 +116,13 @@ i.fa.fa-certificate {
     margin-bottom: 10px;
 }
 
+.textBox{
+    width: 100%;
+}
+
+*{
+    word-wrap: break-word;
+}
 .title {
     text-align: center;
     color: #365CAB;

@@ -42,8 +42,10 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
         else if ($scope.nPagina!=1){
             $scope.nPagina--;
             alert('Este usuário não possui mais quizzes!');
-        }else{
+        }else if (!checarUser()){
             $scope.mensagem = "Esse usuário ainda não possui quizzes. Incentive-o a criar um!";
+        }else{
+            $scope.mensagem = "Ei, você ainda não tem nenhum quiz :( Vai deixar todo mundo esperando!? Vamos, faz um! É fácil e divertido!"
         }
     }
 
@@ -61,6 +63,7 @@ function perfilController($scope, $routeParams, usuarioService, quizService) {
     }
 
     function checarUser(){
+        console.log($scope.usuario.id===JSON.parse(localStorage.usuario).id);
         return $scope.usuario.id === JSON.parse(localStorage.usuario).id;           
     }
     function editarPerfil(){
