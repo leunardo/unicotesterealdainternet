@@ -216,7 +216,7 @@ criar-quiz {
     justify-content: flex-start;
     text-align: center;
     width: 15%;
-    height: 60vh;
+    min-height: 60vh;
     margin-left: 5%;
     margin-right: 5%;
     padding: 3px;
@@ -234,6 +234,7 @@ criar-quiz {
     font-size: 0.6rem;
     width: 100%;
     display: flex;
+    align-self: center;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
