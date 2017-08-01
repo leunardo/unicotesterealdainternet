@@ -600,8 +600,8 @@ footer article section {
 
 .user-descricao {
     text-align: center;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 16%;
+    margin-right: 16%;
     font-size: 1.1rem;
 }
 
@@ -710,7 +710,7 @@ button.resposta-button-inline {
     border: 2px solid gray;
 }
 
-.w3-modal {
+.modal {
     z-index: 3;
     display: none;
     padding-top: 100px;
@@ -724,9 +724,9 @@ button.resposta-button-inline {
     background-color: rgba(0, 0, 0, 0.4)
 }
 
-.w3-modal-content {
+.modal-edicao {
     overflow: auto;
-    border-radius: 10px;
+    border-radius: 50px;
     margin: auto;
     background-color: #fff;
     position: relative;
@@ -734,7 +734,7 @@ button.resposta-button-inline {
     width: 600px;
     display: flex;
     flex-flow: column nowrap;
-    padding: 100px;
+    padding: 64px;
     height: 80vh;
 }
 
@@ -765,6 +765,10 @@ button.resposta-button-inline {
     font-size:2rem;
     position: relative;
     top:35px;
+}
+.texto-edicao-nome{
+    left: 27.1px;
+    position: relative;
 }
 
 @media screen and (max-width: 1015px) {
