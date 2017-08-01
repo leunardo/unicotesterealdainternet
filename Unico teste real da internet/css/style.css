@@ -627,6 +627,18 @@ footer article section {
     font-size: 1.1rem;
 }
 
+.user-titulodescricao button{
+    padding: 0.1rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #4d68a1;
+    cursor: pointer;
+    border: 2px solid #133783;
+    align-self: center;
+}
+
 .user-titulodescricao {
     text-align: center;
     font-size: 1.8rem;
@@ -787,11 +799,6 @@ button.resposta-button-inline {
     position: absolute;
     left: 20px;
     top: 15px;
-}
-.botao-salvar-edicao{
-    font-size:2rem;
-    position: relative;
-    top:35px;
 }
 .texto-edicao-nome{
     left: 27.1px;
