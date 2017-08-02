@@ -73,7 +73,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
     }
 
     function publicar() {
-        if($scope.quiz.perguntas.length>=1){        
+        if(($scope.parteQuiz==2 && $scope.quiz.perguntas.length>6)||($scope.parteQuiz==3 && $scope.quiz.resultado.length>1)){        
             let usuario = JSON.parse(localStorage.usuario);
             $scope.quiz.autor = {
                 nome: usuario.nome,
