@@ -136,7 +136,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
             foto: '',
             explicacao: ''
         }
-        if($scope.range.min>$scope.quiz.perguntas.length){
+        if($scope.range.min==$scope.quiz.perguntas.length){
             alert("Não é possivel criar mais resultados, publicando quiz.");
             publicar();
         }
