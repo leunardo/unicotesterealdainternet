@@ -3,10 +3,12 @@ app.controller("quizController", quizController);
 function quizController($scope, quizService, usuarioService, $location, $routeParams) {
     $scope.quiz;   
     $scope.notas = [];
+    $scope.resultado = [];    
     $scope.parteQuiz = 1; 
     $scope.proximaParte = proximaParte;
     $scope.avancarPergunta = avancarPergunta;
-    $scope.retrocederPergunta = retrocederPergunta;   
+    $scope.retrocederPergunta = retrocederPergunta;
+    $scope.pegarResultado = pegarResultado;   
     let nPergunta = 0;
     let id = $routeParams.id;
     let notaFinal = 0;
@@ -73,5 +75,30 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
         $scope.parteQuiz = 2;
         mostrarPergunta(nPergunta);
     }
-    
+
+    function pegarResultado() {
+        if (quiz.modalidade === 'generico')
+            gerarResultado();
+
+        return `quiz/parte3-${quiz.modalidade}.html`;
+    }
+
+    function gerarResultado() {
+        function pegarRangeDoResultado(resultado) {
+            return resultado.range.split('-');
+        }
+
+        function checarSeEstaNoRange(array) {
+            return array.includes(notaFinal);
+        }
+
+        $scope.quiz.resultado.forEach(r => {
+            if (checarSeEstaNoRange(pegarRangeDoResultado(r))) {
+                $scope.resultado.resultado = r.resultado;
+                $scope.resultado.range = r.range;
+                $scope.resultado.explicacao = r.explicacao;
+                $scope.resultado.foto = r.foto;
+            }
+        });
+    }    
 }
