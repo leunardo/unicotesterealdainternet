@@ -59,11 +59,12 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     }
 
     function encerrarQuiz() {
-        alert("Parabéns! Você terminou o Unico Teste (DE PONTUAÇAO GENERICA) Real da Internet!");
         notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
             return notaAnterior + notaAtual;
-        })
-    }    
+        });
+        pegarResultado();
+        $scope.parteQuiz = 3;
+    }
 
     function retrocederPergunta() {
         nPergunta--;
