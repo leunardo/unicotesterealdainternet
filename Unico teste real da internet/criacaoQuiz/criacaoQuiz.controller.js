@@ -124,9 +124,11 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
     }
 
     function proximaParte() {
-        if ($scope.perguntaForm.$valid)
+        if ($scope.perguntaForm.$valid) {
+            proximaPergunta();
             $scope.parteQuiz++;
-        if ($scope.parteQuiz === 3) {
+        }
+        if ($scope.parteQuiz == 3) {
             $scope.range.max = $scope.quiz.perguntas.length;
         }
     }
