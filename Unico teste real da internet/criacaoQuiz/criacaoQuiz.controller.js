@@ -139,9 +139,9 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
         for (e in $scope.opened) {
             if (e === tipo) {
                 $scope.opened[e] = !$scope.opened[e];
-                $scope.quiz.modalidade = tipo;
-                $scope.modalidadeSelecionada = tipo;
-            } else
+                $scope.quiz.modalidade = tipo;                
+            }
+            else
                 $scope.opened[e] = false;
         }
     }
