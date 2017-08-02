@@ -74,6 +74,11 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
         $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags);
         criacaoQuizService.criarQuiz($scope.quiz)
             .then(response => {
+                if($scope.parteQuiz==2){
+                    proximaResposta();
+                }else if($scope.parteQuiz==3){
+                    proximoResultado();
+                }
                 $location.path("quiz/" + response.data.id);
             }, fail => {
                 console.log(fail);
