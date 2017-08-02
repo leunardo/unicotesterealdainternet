@@ -80,14 +80,14 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
                 foto: usuario.foto,
                 id: usuario.id,
             };
+            if($scope.parteQuiz==2){
+                proximaPergunta();
+            }else if($scope.parteQuiz==3){
+                proximoResultado();
+            }
             $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags);
             criacaoQuizService.criarQuiz($scope.quiz)
                 .then(response => {
-                    if($scope.parteQuiz==2){
-                        proximaPergunta();
-                    }else if($scope.parteQuiz==3){
-                        proximoResultado();
-                    }
                     $location.path("quiz/" + response.data.id);
                 }, fail => {
                     console.log(fail);
