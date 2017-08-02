@@ -816,6 +816,8 @@ button.resposta-button-inline {
     flex-flow: column nowrap;
     padding: 70px 70px 0 70px;
     height: 80vh;
+    animation-name: abrir-modal;
+    animation-duration:0.5s;
 }
 
 .foto-Edicao {
@@ -842,6 +844,13 @@ button.resposta-button-inline {
 .texto-edicao-nome{
     left: 27.1px;
     position: relative;
+}
+.form-edicao-descricao{
+        resize:none
+}
+@keyframes abrir-modal{
+    from{opacity:0; overflow:none; width: 0px; height: 0px; padding: 0px;}
+    to{opacity:1; overflow:auto; width:600px; height:80vh; padding:70px 70px 0 70px}
 }
 
 @media screen and (max-width: 1015px) {
