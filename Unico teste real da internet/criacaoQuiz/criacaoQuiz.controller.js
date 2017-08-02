@@ -24,7 +24,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
         titulo: '',
         foto: '',
         resumo: '',
-        perguntas: ['', '', '', '', '', '', '', '', '', ''],
+        perguntas: [],
         resultado: [],
         tags: '',
         modalidade: '',
