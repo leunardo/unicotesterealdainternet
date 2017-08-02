@@ -2,9 +2,10 @@
     <div class="pergunta">
         <label>
             Titulo:
-            <input type="text" class="rounded-input" name="tituloP" ng-model="quiz.titulo" placeholder="O titulo do meu super quiz" required>
+            <input type="text" class="rounded-input" ng-maxlength="32" ng-minlength="5" name="tituloP" ng-model="quiz.titulo" placeholder="O titulo do meu super quiz" required>
+            <small ng-show="perguntaForm.tituloP.$error.minlength">No minimo 5 caracteres<br/></small>
+            <small ng-show="perguntaForm.tituloP.$error.maxlength">No máximo 32 caracteres<br/></small>
             <small ng-show="perguntaForm.tituloP.$error.required && perguntaForm.tituloP.$touched">Preencha o campo <br/></small>  
-             
         </label>
         <label>
             Tags:
@@ -18,7 +19,9 @@
         </label>
         <label>
             Resumo:
-            <textarea class="rounded-input" ng-model="quiz.resumo" required name="resumo"></textarea>
+            <textarea class="rounded-input" ng-model="quiz.resumo" required name="resumo" ng-minlength="20" ng-maxlength="100"></textarea>
+            <small ng-show="perguntaForm.resumo.$error.minlength">No minimo 20 caracteres</small>
+            <small ng-show="perguntaForm.resumo.$error.maxlength">No máximo 100 caracteres<br/></small>
             <small ng-show="perguntaForm.resumo.$error.required && perguntaForm.resumo.$touched">Preencha com um Resumo<br/></small>            
         </label>
         <section>
