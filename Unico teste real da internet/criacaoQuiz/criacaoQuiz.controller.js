@@ -9,6 +9,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
         resumo: '',
         perguntas: [],
         tags: '',
+        modalidade: '',
     };
     $scope.parteQuiz = '1';
     $scope.proximaPergunta = proximaPergunta;  
@@ -67,8 +68,10 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
 
     function selecionarTipoQuiz(tipo) {
         for(e in $scope.opened) {
-            if(e === tipo) 
+            if(e === tipo) {
                 $scope.opened[e] = !$scope.opened[e];
+                $scope.quiz.modalidade = tipo;
+            }
             else
                 $scope.opened[e] = false;
         }
