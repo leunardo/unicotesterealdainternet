@@ -74,6 +74,11 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
         $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags);
         criacaoQuizService.criarQuiz($scope.quiz)
             .then(response => {
+                if($scope.parteQuiz==2){
+                    proximaResposta();
+                }else if($scope.parteQuiz==3){
+                    proximoResultado();
+                }
                 $location.path("quiz/" + response.data.id);
             }, fail => {
                 console.log(fail);
@@ -124,9 +129,11 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
     }
 
     function proximaParte() {
-        if ($scope.perguntaForm.$valid)
+        if ($scope.perguntaForm.$valid) {
+            proximaPergunta();
             $scope.parteQuiz++;
-        if ($scope.parteQuiz === 3) {
+        }
+        if ($scope.parteQuiz == 3) {
             $scope.range.max = $scope.quiz.perguntas.length;
         }
     }
