@@ -62,7 +62,7 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
         notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
             return notaAnterior + notaAtual;
         });
-        pegarResultado();
+        // pegarResultado();
         $scope.parteQuiz = 3;
     }
 
@@ -78,10 +78,10 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     }
 
     function pegarResultado() {
-        if (quiz.modalidade === 'generico')
+        if ($scope.quiz.modalidade === 'generica')
             gerarResultado();
 
-        return `quiz/parte3-${quiz.modalidade}.html`;
+        return `quiz/parte3-${$scope.quiz.modalidade}.html`;
     }
 
     function gerarResultado() {
