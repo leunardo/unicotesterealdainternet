@@ -22,12 +22,18 @@ function homeController($scope, quizService, authService) {
     
     function getRandomQuizzes(quizList){
         quizData = quizList.data;
-        for(var i=0; i<4; i++){
-            while(contem(id, idsUsados)||id==0){
-                id = Math.floor(Math.random()*(quizData.length)+1);
+        if(quizData.length>4){
+            for(var i=0; i<4; i++){
+                while(contem(id, idsUsados)||id==0){
+                    id = Math.floor(Math.random()*(quizData.length)+1);
+                }
+                idsUsados[i+1] = id;
+                quizService.getQuiz(id).then(mostrarQuiz)
             }
-            idsUsados[i+1] = id;
-            quizService.getQuiz(id).then(mostrarQuiz)
+        }
+        else{
+            $scope.quizzes = quizData;
+            setTags();
         }
     }
 
