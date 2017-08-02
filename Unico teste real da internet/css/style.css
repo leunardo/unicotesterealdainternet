@@ -219,6 +219,28 @@ criar-quiz {
     margin: 3rem;
 }
 
+.modalidade-desc {
+    transition: all 1s ease-in-out;
+    opacity: 0;
+    margin: 0;
+    overflow: hidden;
+    max-height: 0;    
+}
+
+.modalidade-desc-active {    
+    opacity: 1;
+    margin: initial;
+    max-height: 1000px;
+}
+
+.modalidade-btn {
+    margin: 8px;
+}
+
+.modalidade-btn-active {
+    color: black;
+}
+
 .title {
     font-weight: bolder;
     color: #365CAB;

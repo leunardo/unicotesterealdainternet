@@ -1,7 +1,8 @@
 app.controller('criacaoQuizController', criacaoQuizController);
 
 function criacaoQuizController($scope, $location, criacaoQuizService) {
-    $scope.pergunta = { pergunta: '', respostas: []};    
+    $scope.pergunta = { pergunta: '', respostas: []};
+    $scope.opened = { 'pessoal': false, 'pontuacao': false, 'generico': false }    
     $scope.quiz = {
         titulo: '', 
         foto: '',
@@ -15,6 +16,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
     $scope.removerResposta = removerResposta;
     $scope.proximaParte = proximaParte;
     $scope.publicar = publicar;
+    $scope.selecionarTipoQuiz = selecionarTipoQuiz;
 
     function adicionarResposta(resposta) {  
         if($scope.perguntaForm.resposta.$invalid) return;
@@ -61,6 +63,15 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
 
     function removerEspacosDasTags(tags) {
         return tags.replace(/[, ]+[ ,]+/g, ',');
+    }
+
+    function selecionarTipoQuiz(tipo) {
+        for(e in $scope.opened) {
+            if(e === tipo) 
+                $scope.opened[e] = !$scope.opened[e];
+            else
+                $scope.opened[e] = false;
+        }
     }
 
 }
