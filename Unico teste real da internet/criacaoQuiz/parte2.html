@@ -3,17 +3,16 @@
         <label>
             Pergunta:
             <input type="text" class="rounded-input" name="pergunta" placeholder="Quanto é 1 + 1?" required ng-minlength="10" ng-model="pergunta.pergunta">
-            <small ng-show="perguntaForm.pergunta.$error.minlength">No minimo 10 caracteres</small>
-            <small ng-show="perguntaForm.pergunta.$error.required && perguntaForm.pergunta.$touched">Preencha o campo</small>
-            
+            <small ng-show="perguntaForm.pergunta.$error.minlength">No minimo 10 caracteres<br/></small>
+            <small ng-show="perguntaForm.pergunta.$error.required && perguntaForm.pergunta.$touched">Preencha o campo<br/></small>            
         </label>        
     </div>
-    <div class="quiz-info">        
+    <div class="quiz-info" ng-if="modalidadePontuacao()">
+        <!-- respostas pontuação -->        
         <h4>Respostas: (mínimo 2)</h4>
         <section class="resposta-input-wrapper">            
             <small class="resposta-desc">adicionar resposta:</small>
             <input type="text" name="resposta" class="rounded-input resposta-input" ng-minlength="3" ng-model="resposta" placeholder="Provavelmente 2!" required>  
-                
             <button class="resposta-button-inline" ng-click="adicionarResposta(resposta)">Adicionar</button>
             <small ng-show="perguntaForm.resposta.$error.minlength">No minimo 3 caracteres</small>
             <small ng-show="perguntaForm.resposta.$error.required && perguntaForm.resposta.$touched">Preencha o campo</small>
@@ -34,9 +33,62 @@
             </div>
         </ul>
     </div>
+    <div class="quiz-info" ng-if="modalidadeGenerica()">       
+        <!-- respostas genérica -->
+        <h4>Respostas: (mínimo 2)</h4>
+        <section class="resposta-input-wrapper">            
+            <small class="resposta-desc">adicionar resposta:</small>
+            <input type="text" name="resposta" class="rounded-input resposta-input" ng-minlength="3" ng-model="resposta" placeholder="Provavelmente 2!" required>  
+            <button class="resposta-button-inline" ng-click="adicionarResposta(resposta)">Adicionar</button>
+            <small ng-show="perguntaForm.resposta.$error.minlength">No minimo 3 caracteres</small>
+            <small ng-show="perguntaForm.resposta.$error.required && perguntaForm.resposta.$touched">Preencha o campo</small>
+        </section>
+        <ul class="quiz-respostas">
+            <div ng-repeat="resposta in pergunta.respostas track by $index" class="resposta-li-wrapper">
+                <li class="list-respostas"> 
+                    <p>{{resposta.resposta}}</p>
+                </li>
+                <span>
+                    <i class="fa fa-certificate iconeResposta" aria-hidden="true"></i> 
+                    <label class="labelNota">
+                        Correta?
+                        <input type="radio" required name="resposta" ng-value="$index">
+                    </label>
+                    <i class="fa fa-trash link iconeResposta" ng-click="removerResposta($index)"></i>
+                </span>
+            </div>
+        </ul>
+    </div>
+    <div class="quiz-info" ng-if="modalidadePessoal()">
+        <!-- respostas pessoal -->
+        <h4>Respostas: (mínimo 2)</h4>
+        <section class="resposta-input-wrapper">            
+            <small class="resposta-desc">adicionar resposta:</small>
+            <input type="text" name="resposta" class="rounded-input resposta-input" ng-minlength="3" ng-model="resposta" placeholder="Provavelmente 2!" required>  
+            <button class="resposta-button-inline" ng-click="adicionarResposta(resposta)">Adicionar</button>
+            <small ng-show="perguntaForm.resposta.$error.minlength">No minimo 3 caracteres</small>
+            <small ng-show="perguntaForm.resposta.$error.required && perguntaForm.resposta.$touched">Preencha o campo</small>
+        </section>
+        <ul class="quiz-respostas">
+            <div ng-repeat="resposta in pergunta.respostas track by $index" class="resposta-li-wrapper">
+                <li class="list-respostas"> 
+                    <p>{{resposta.resposta}}</p>
+                </li>
+                <span>
+                    <i class="fa fa-certificate iconeResposta" aria-hidden="true"></i> 
+                    <label class="labelNota">
+                        Correta?
+                        <input type="radio" required name="resposta" ng-value="$index">
+                    </label>
+                    <i class="fa fa-trash link iconeResposta" ng-click="removerResposta($index)"></i>
+                </span>
+            </div>
+        </ul>
+    </div>
 </div>
 
 <section class="aligned-center">
-    <button  ng-click="publicar()">Publicar</button>
+    <button ng-click="proximaParte()" ng-if="modalidadeGenerica()">Proxima parte</button>
+    <button ng-click="publicar()" ng-if="!modalidadeGenerica()">Publicar</button>
     <button ng-click="proximaPergunta()">Próxima pergunta</button>
 </section>

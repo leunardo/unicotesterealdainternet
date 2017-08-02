@@ -13,13 +13,13 @@
         <label>            
             Insira a foto de capa: 
             <input class="rounded-input" type="url" name="fotoCapa" ng-model="quiz.foto" placeholder="http://minhafoto.com/foto.jpg" required>
-            <small ng-show="perguntaForm.fotoCapa.$error.url">Preencha com um URL</small>
-            <small ng-show="perguntaForm.fotoCapa.$error.required && perguntaForm.fotoCapa.$touched">Preencha o campo</small>            
+            <small ng-show="perguntaForm.fotoCapa.$error.url">Preencha com um URL<br/></small>
+            <small ng-show="perguntaForm.fotoCapa.$error.required && perguntaForm.fotoCapa.$touched">Preencha o campo<br/></small>            
         </label>
         <label>
             Resumo:
             <textarea class="rounded-input" ng-model="quiz.resumo" required name="resumo"></textarea>
-            <small ng-show="perguntaForm.resumo.$error.required && perguntaForm.resumo.$touched">Preencha com um URL</small>            
+            <small ng-show="perguntaForm.resumo.$error.required && perguntaForm.resumo.$touched">Preencha com um Resumo<br/></small>            
         </label>
         <section>
             <span>Modalidades: <br/></span>
@@ -44,9 +44,9 @@
                     realizados uma vez.
                 </p>
             </section>
-            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.generico}">
-                <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('generico')" ng-class="{'modalidade-btn-active': opened.generico}">Quiz genérico</h3>
-                <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.generico}">
+            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.generica}">
+                <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('generica')" ng-class="{'modalidade-btn-active': opened.generica}">Quiz genérico</h3>
+                <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.generica}">
                     Quizzes "genéricos", assim como o nome diz, são 
                     aqueles onde vemos na maioria dos sites. São quizzes
                     onde, de acordo com as respostas que o usuário insere,

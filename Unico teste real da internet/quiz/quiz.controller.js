@@ -10,13 +10,15 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     let nPergunta = 0;
     let id = $routeParams.id;
     let notaFinal = 0;
+    let modalidade = "";
     getQuiz();
 
     function getQuiz() {
         quizService.getQuiz(id).then(
             c => {
                 $scope.quiz = c.data;    
-                setarTags();            
+                setarTags();
+                setModalidade();           
             },
             error => {
                 alert("Não foi possivel encontrar as perguntas");
@@ -25,7 +27,10 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     
     function setarTags(){
         $scope.quiz.tags = $scope.quiz.tags.split(',');
-        console.log($scope.quiz.tags);
+    }
+
+    function setModalidade(){
+        modalidade = $scope.quiz.modalidade;
     }
 
     function contabilizarPergunta(nota, avancar){
