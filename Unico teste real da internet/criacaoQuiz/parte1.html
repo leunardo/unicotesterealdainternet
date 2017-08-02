@@ -22,7 +22,8 @@
             <small ng-show="perguntaForm.resumo.$error.required && perguntaForm.resumo.$touched">Preencha com um URL</small>            
         </label>
         <section>
-            <span>Modalidades:</span>
+            <span>Modalidades: <br/></span>
+            <span>Selecionada: {{modalidadeSelecionada}}</span>
             <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.pessoal}">
                 <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('pessoal')" ng-class="{'modalidade-btn-active': opened.pessoal}">Quiz pessoal</h3>
                 <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.pessoal}">

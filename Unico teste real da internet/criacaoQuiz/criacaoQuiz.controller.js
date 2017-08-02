@@ -71,6 +71,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
             if(e === tipo) {
                 $scope.opened[e] = !$scope.opened[e];
                 $scope.quiz.modalidade = tipo;
+                $scope.modalidadeSelecionada = tipo;
             }
             else
                 $scope.opened[e] = false;
