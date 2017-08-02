@@ -219,6 +219,15 @@ criar-quiz {
     margin: 3rem;
 }
 
+.modalidade-box {
+    transition: 1s all;
+}
+
+.modalidade-box-active {
+    background-color: white;
+    border-radius: 10px;
+}
+
 .modalidade-desc {
     transition: all 1s ease-in-out;
     opacity: 0;
@@ -238,7 +247,7 @@ criar-quiz {
 }
 
 .modalidade-btn-active {
-    color: black;
+    color: #4c4a4a;
 }
 
 .title {
@@ -912,8 +921,7 @@ button.resposta-button-inline {
         max-width: 70vw;
     }
     .questions {
-        width: 90vw;
-        height: 70vh;
+        width: 90vw;        
         margin: 5%;
         padding: 2%;
     }

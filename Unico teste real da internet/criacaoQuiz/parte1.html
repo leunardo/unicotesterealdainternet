@@ -23,7 +23,7 @@
         </label>
         <section>
             <span>Modalidades:</span>
-            <section>
+            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.pessoal}">
                 <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('pessoal')" ng-class="{'modalidade-btn-active': opened.pessoal}">Quiz pessoal</h3>
                 <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.pessoal}">
                     Quizzes "pessoais" são quizzes sobre você: 
@@ -32,7 +32,7 @@
                     Só podem ser realizados uma vez.
                 </p>
             </section>
-            <section>
+            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.pontuacao}">
                 <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('pontuacao')" ng-class="{'modalidade-btn-active': opened.pontuacao}">Quiz de pontuação</h3>
                 <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.pontuacao}">
                     Quizzes "de pontuação" são aqueles que contribuem 
@@ -43,7 +43,7 @@
                     realizados uma vez.
                 </p>
             </section>
-            <section>
+            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.generico}">
                 <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('generico')" ng-class="{'modalidade-btn-active': opened.generico}">Quiz genérico</h3>
                 <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.generico}">
                     Quizzes "genéricos", assim como o nome diz, são 
