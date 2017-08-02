@@ -90,7 +90,7 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
         }
 
         function checarSeEstaNoRange(array) {
-            return array.includes(notaFinal);
+            return array[0] < notaFinal && array[1] > notaFinal;
         }
 
         $scope.quiz.resultado.forEach(r => {
