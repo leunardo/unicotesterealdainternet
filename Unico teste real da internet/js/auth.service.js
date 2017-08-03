@@ -38,7 +38,7 @@ function authService(usuarioService) {
                     'email': profile.getEmail(),
                     'foto': profile.getImageUrl(),
                     'id': profile.getId(),
-                    'score': 0
+                    'nota': 0
                 });
 
                 let usuario = JSON.parse(localStorage.usuario);

@@ -5,7 +5,7 @@
         <ol class="ranking20">
             <li class="flexAround" ng-repeat="usuario in top20">
                 <span class="nome">{{$index + 1}}. <a ng-href="/#!/perfil/{{usuario.id}}">{{usuario.nome}}</span>
-                <span class="valor">{{usuario.score}}</span>
+                <span class="valor">{{usuario.nota}}</span>
             </li>
         </ol>
     </section>

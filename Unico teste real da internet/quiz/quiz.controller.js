@@ -33,8 +33,8 @@ function quizController($scope, quizService, usuarioService, authService, $locat
         for(let i = 0; i<$scope.quiz.usuariosQueResponderam.length; i++){
             if($scope.quiz.usuariosQueResponderam[i].id===JSON.parse(localStorage.usuario).id){
                 $scope.usuario = JSON.parse(localStorage.usuario);
-                $scope.usuario.score = $scope.quiz.usuariosQueResponderam[i].score;
-            }else{}
+                $scope.nota2 = $scope.quiz.usuariosQueResponderam[i].nota;
+            }
         }
     }
 
@@ -124,7 +124,7 @@ function quizController($scope, quizService, usuarioService, authService, $locat
     }
 
     function atualizarNotaUsuario(){
-        $scope.usuario.score = $scope.usuario.score + $scope.notaFinal;
+        $scope.usuario.nota = $scope.usuario.nota + $scope.notaFinal;
         usuarioService.atualizarPerfil($scope.usuario).then(response => {
                 console.log(response);
             }, fail => {
@@ -136,7 +136,7 @@ function quizController($scope, quizService, usuarioService, authService, $locat
         let idUsuario = JSON.parse(localStorage.usuario).id;
         let usuario = {
             "id": idUsuario,
-            "score": $scope.notaFinal,
+            "nota": $scope.notaFinal,
         }
         if(!usuarioJaRespondeu()) {
             $scope.quiz.usuariosQueResponderam
@@ -184,7 +184,7 @@ function quizController($scope, quizService, usuarioService, authService, $locat
                 id: usuario.id,
                 nome: usuario.nome,
                 foto: usuario.foto,
-                score: $scope.scoreFinal,
+                nota: $scope.notaFinal,
             };
 
             if(existeTop3Usuarios()) {
@@ -193,8 +193,8 @@ function quizController($scope, quizService, usuarioService, authService, $locat
                 $scope.quiz.top3.splice(3);
 
                 function ordenarPorNota(a, b) {
-                    if (a.score < b.score) return 1;
-                    if (a.score > b.score) return -1;
+                    if (a.nota < b.nota) return 1;
+                    if (a.nota > b.nota) return -1;
                     return 0;
                 }
             } else 
@@ -228,10 +228,10 @@ function quizController($scope, quizService, usuarioService, authService, $locat
         function somar(a,b) {
             if(typeof a === 'number')
                 return a + 
-                    Math.max.apply(null, b.respostas.map(d => d.score));
+                    Math.max.apply(null, b.respostas.map(d => d.nota));
             else
-                return Math.max.apply(null, a.respostas.map(c => c.score)) +
-                    Math.max.apply(null, b.respostas.map(d => d.score));
+                return Math.max.apply(null, a.respostas.map(c => c.nota)) +
+                    Math.max.apply(null, b.respostas.map(d => d.nota));
             
         }
     }
