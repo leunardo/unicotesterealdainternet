@@ -98,6 +98,9 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
             gerarResultado();
 
         else {
+            if($scope.quiz.modalidade === 'pontuacao') 
+                gerarNotaTotal();
+
             let usuario = JSON.parse(localStorage.usuario);
             let user = {
                 id: usuario.id,
@@ -140,6 +143,19 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
                 $scope.resultado.foto = r.foto;
             }
         });
+    }
+
+    function gerarNotaTotal() {
+        $scope.notaTotal = $scope.quiz.perguntas.reduce(somar); 
+        function somar(a,b) {
+            if(typeof a === 'number')
+                return a + 
+                    Math.max.apply(null, b.respostas.map(d => d.nota));
+            else
+                return Math.max.apply(null, a.respostas.map(c => c.nota)) +
+                    Math.max.apply(null, b.respostas.map(d => d.nota));
+            
+        }
     }
 
     function existeTop3Usuarios() {
