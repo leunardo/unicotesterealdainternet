@@ -97,6 +97,12 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
             }else if($scope.parteQuiz==3&&!fim){
                 proximoResultado();
             }
+            $scope.quiz.usuariosQueResponderam = [
+                    $scope.quiz.autor.id
+                ];
+            if($scope.quiz.modalidade!="generica"){
+                $scope.quiz.top3 = [];
+            }
             $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags);
             criacaoQuizService.criarQuiz($scope.quiz)
                 .then(response => {
