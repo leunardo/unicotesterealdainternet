@@ -24,12 +24,12 @@ function criacaoQuizController($scope, authService, $location, quizService) {
         titulo: '',
         foto: '',
         resumo: '',
-        perguntas: [],
+        perguntas: ['','','','','','','','',''],
         resultado: [],
         tags: [],
         modalidade: '',
     };
-    $scope.parteQuiz = '1';
+    $scope.parteQuiz = '3';
     $scope.proximaPergunta = proximaPergunta;
     $scope.adicionarResposta = adicionarResposta;
     $scope.removerResposta = removerResposta;
@@ -41,6 +41,7 @@ function criacaoQuizController($scope, authService, $location, quizService) {
     $scope.modalidadePontuacao = modalidadePontuacao;
     $scope.proximoResultado = proximoResultado;
     $scope.alterarRadio = alterarRadio;
+    let resultadoCopia = [];
     let fim = false;
     checarSeLogado();
 
@@ -95,8 +96,12 @@ function criacaoQuizController($scope, authService, $location, quizService) {
     }
 
     function publicar() {
+        console.log(($scope.parteQuiz===3 && $scope.quiz.resultado.length>1 && checarSeTodaLacunaDeNotaERepresentadaPelosRanges()))
+        console.log(($scope.parteQuiz===3));
+        console.log(($scope.quiz.resultado.length>1))
         if(($scope.parteQuiz==2 && $scope.quiz.perguntas.length>6)||($scope.parteQuiz==3 && $scope.quiz.resultado.length>1 && checarSeTodaLacunaDeNotaERepresentadaPelosRanges())){        
             let usuario = JSON.parse(localStorage.usuario);
+            console.log("cheguei aqui");
             $scope.quiz.autor = {
                 nome: usuario.nome,
                 foto: usuario.foto,
@@ -144,23 +149,24 @@ function criacaoQuizController($scope, authService, $location, quizService) {
             return;
         }
         if($scope.quiz.resultado.length==0){
-            let resultadoCopia = {
+            resultadoCopia = {
                 resultado: $scope.resultado.resultado,
                 range: "" + ($scope.range.min-1) + "-" + $scope.range.max,
                 foto: $scope.resultado.foto,
                 explicacao: $scope.resultado.explicacao,
             };
         }else{
-            let resultadoCopia = {
+            resultadoCopia = {
                 resultado: $scope.resultado.resultado,
                 range: "" + $scope.range.min + "-" + $scope.range.max,
                 foto: $scope.resultado.foto,
                 explicacao: $scope.resultado.explicacao,
             };
         }
+        console.log(resultadoCopia)
         $scope.quiz.resultado.push(resultadoCopia);
-        if($scope.range.min==$scope.quiz.perguntas.length){
-            alert("Não é possivel criar mais resultados, publicando quiz.");
+        if($scope.range.max==$scope.quiz.perguntas.length){
+            alertify.alert("Não é possivel criar mais resultados, publicando quiz.");
             fim = true;
             publicar();
         }else{
