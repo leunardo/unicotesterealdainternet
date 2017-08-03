@@ -26,7 +26,7 @@ function criacaoQuizController($scope, $location, quizService) {
         resumo: '',
         perguntas: [],
         resultado: [],
-        tags: '',
+        tags: [],
         modalidade: '',
     };
     $scope.parteQuiz = '1';
@@ -103,7 +103,7 @@ function criacaoQuizController($scope, $location, quizService) {
             if($scope.quiz.modalidade!="generica"){
                 $scope.quiz.top3 = [];
             }
-            $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags);
+            $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags).split(',');
             quizService.criarQuiz($scope.quiz)
                 .then(response => {
                     $location.path("quiz/" + response.data.id);

@@ -11,12 +11,6 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     $scope.nPagina = 1;
     $scope.editarPerfil = editarPerfil;
     $scope.fecharModal = fecharModal;
-    
-    function setTags(){
-        for(let i = 0; i<$scope.quizzes.length; i++){
-            $scope.quizzes[i].tags = $scope.quizzes[i].tags.split(',');
-        }
-    }
 
     function getUsuario() {
         usuarioService.getUsuarioPorId($routeParams.id)
@@ -36,7 +30,6 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     function mostrarQuizzes(quizList){
         if(quizList.data.length > 0){
             $scope.quizzes = quizList.data;
-            setTags();
         }
         else if ($scope.nPagina!=1){
             $scope.nPagina--;

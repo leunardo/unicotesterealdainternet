@@ -9,12 +9,6 @@ function homeController($scope, quizService, authService) {
     let quizData = [];
     getQuizzes();
     
-    function setTags(){
-        for(let i = 0; i<$scope.quizzes.length; i++){
-            $scope.quizzes[i].tags = $scope.quizzes[i].tags.split(',');
-            console.log($scope.quizzes[i].tags);
-        }
-    }
 
     function getQuizzes(){
         quizService.getAllQuizzes().then(getRandomQuizzes);
@@ -33,7 +27,6 @@ function homeController($scope, quizService, authService) {
         }
         else{
             $scope.quizzes = quizData;
-            setTags();
         }
     }
 
@@ -42,7 +35,6 @@ function homeController($scope, quizService, authService) {
         i++;
         if(quizzes.length==4){
             $scope.quizzes = quizzes;
-            setTags();
         }
     }
 

@@ -5,13 +5,6 @@ function quizMenuController($scope, quizService){
     $scope.nPagina = 1;
     getQuizzes();
 
-    function setTags(){
-        for(let i = 0; i<$scope.quizzes.length; i++){
-            $scope.quizzes[i].tags = $scope.quizzes[i].tags.split(',');
-            console.log($scope.quizzes[i].tags);
-        }
-    }
-
     function getQuizzes(){
         quizService.getQuizzes($scope.nPagina).then(mostrarQuizzes);    
     }
@@ -19,7 +12,6 @@ function quizMenuController($scope, quizService){
     function mostrarQuizzes(quizList){
         if(quizList.data.length > 0){
             $scope.quizzes = quizList.data;
-            setTags();
         }
         else if($scope.nPagina!=1){
             $scope.nPagina--;

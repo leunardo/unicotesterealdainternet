@@ -4,6 +4,8 @@
       "id": 1,
       "foto": "https://images.duckduckgo.com/iu/?u=https%3A%2F%2Faidobonsai.files.wordpress.com%2F2012%2F06%2Farvore-mangue-ponta-castelhano-low.jpg&f=1",
       "titulo": "UNICO TESTE REAL DE QI",
+      "usuariosQueResponderam": [],
+      "top3": [],
       "resumo": "QUEM É MAIS INTELIGENTE??? TU??? TEU AMIGO??? DESCUBRA AGORA!!!",
       "autor": {
         "nome": "Guilherme",
@@ -762,7 +764,14 @@
           "id": 35
         }
       ],
-      "tags": "random stuff,matemática,qi,conhecimentos gerais,pontuação,lógica",
+      "tags": [
+        "random stuff",
+        "matemática",
+        "qi",
+        "conhecimentos gerais",
+        "pontuação",
+        "lógica"
+      ],
       "modalidade": "pontuacao"
     }
   ],
