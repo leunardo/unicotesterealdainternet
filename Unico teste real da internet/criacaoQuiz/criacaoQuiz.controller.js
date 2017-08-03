@@ -1,6 +1,6 @@
 app.controller('criacaoQuizController', criacaoQuizController);
 
-function criacaoQuizController($scope, $location, quizService) {
+function criacaoQuizController($scope, authService, $location, quizService) {
     $scope.pergunta = {
         pergunta: '',
         respostas: []
@@ -42,6 +42,16 @@ function criacaoQuizController($scope, $location, quizService) {
     $scope.proximoResultado = proximoResultado;
     $scope.alterarRadio = alterarRadio;
     let fim = false;
+    checarSeLogado();
+
+    function checarSeLogado(){
+        if(authService.isLogado()){
+            return;
+        }else{
+            alertify.alert("Faça login para continuar!");
+            $location.path("index");
+        }
+    }
 
     function alterarRadio(index){
         for(let i=0; i<$scope.pergunta.respostas.length; i++){
@@ -97,9 +107,7 @@ function criacaoQuizController($scope, $location, quizService) {
             }else if($scope.parteQuiz==3&&!fim){
                 proximoResultado();
             }
-            $scope.quiz.usuariosQueResponderam = [
-                    $scope.quiz.autor.id
-                ];
+            $scope.quiz.usuariosQueResponderam = [];
             if($scope.quiz.modalidade!="generica"){
                 $scope.quiz.top3 = [];
             }
