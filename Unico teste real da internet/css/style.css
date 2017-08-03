@@ -389,10 +389,17 @@ criar-quiz {
 }
 
 .pontuacao-resultado-foto {
-    max-height: 50px;
-    max-width: 50px;
+    height: 50px;
+    width: 50px;
 }
 
+.top3Quiz{
+    width: 60%;
+    align-self: center;
+    text-align: center;
+    padding-left: 0;
+    margin-left: 0;
+}
 
 .quizBox>.autor {
     font-size: 0.7rem;
