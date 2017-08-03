@@ -1,6 +1,6 @@
 app.controller('criacaoQuizController', criacaoQuizController);
 
-function criacaoQuizController($scope, $location, criacaoQuizService) {
+function criacaoQuizController($scope, $location, quizService) {
     $scope.pergunta = {
         pergunta: '',
         respostas: []
@@ -104,7 +104,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
                 $scope.quiz.top3 = [];
             }
             $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags);
-            criacaoQuizService.criarQuiz($scope.quiz)
+            quizService.criarQuiz($scope.quiz)
                 .then(response => {
                     $location.path("quiz/" + response.data.id);
                 }, fail => {
