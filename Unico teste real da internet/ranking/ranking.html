@@ -1,11 +1,11 @@
-<h2 class="center-title">Ranking mais legitimo da Internet</h2>
+<h2 class="center-title title MEGA">Ranking mais legitimo da Internet</h2>
 <div class="ranking-container">
-    <section>
-        <h3 class="center-title">Maiores 10 Scores</h3>
-        <ol>
-            <li class="justified-text" ng-repeat="usuario in top10">
-                <span class="nome">{{$index + 1}}. {{usuario.Nome}}</span>
-                <span class="valor">{{usuario.Pontuacao}}</span>
+    <section style="width:100%">
+        <h3 class="center-title title">Maiores 20 Scores</h3>
+        <ol class="ranking20">
+            <li class="flexAround" ng-repeat="usuario in top20">
+                <span class="nome">{{$index + 1}}. <a ng-href="/#!/perfil/{{usuario.id}}">{{usuario.nome}}</span>
+                <span class="valor">{{usuario.score}}</span>
             </li>
         </ol>
     </section>

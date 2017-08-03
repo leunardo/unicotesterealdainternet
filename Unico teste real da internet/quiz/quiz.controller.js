@@ -108,6 +108,18 @@ function quizController($scope, quizService, usuarioService, authService, $locat
         $scope.parteQuiz = 3;
         adicionarUsuarioAoQuiz();
         pegarResultado();
+        atualizarNotaUsuario();
+    }
+
+    function atualizarNotaUsuario(){
+        let usuario = getUsuario();
+        usuario.score = usuario.score + $scope.notaFinal;
+        usuarioService.atualizarPerfil(usuario).then(response => {
+                console.log(response);
+            }, fail => {
+                console.log(fail);
+            }
+        );
     }
 
     function adicionarUsuarioAoQuiz() {

@@ -1,10 +1,7 @@
 app.controller("rankingController", rankingController);
 
-function rankingController ($scope, quizService) {
+function rankingController ($scope, usuarioService) {
     getUsuarios();
-    
-
-
     function sortMaiorScore (a, b) {
         if (a.Pontuacao < b.Pontuacao) return 1;
         else if (a.Pontuacao > b.Pontuacao) return -1;
@@ -12,12 +9,12 @@ function rankingController ($scope, quizService) {
     }   
 
     function getUsuarios () {
-        quizService.getUsuario().then(
+        usuarioService.getUsuario().then(
             response =>{
                 $scope.usuarios = response.data;
                 $scope.usuarios.sort(sortMaiorScore);
 
-                $scope.top10 = $scope.usuarios.slice(0,10);
+                $scope.top20 = $scope.usuarios.slice(0,20);
             },
             fail => {
                 alert("Ops, não foi possivel pegar o rank.");
