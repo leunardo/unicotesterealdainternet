@@ -14,15 +14,29 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     let id = $routeParams.id;   
     getQuiz();
 
+    function getUsuario(){
+        for(let i = 0; i<$scope.quiz.usuariosQueResponderam.length; i++){
+            if($scope.quiz.usuariosQueResponderam[i].id===JSON.parse(localStorage.usuario).id){
+                $scope.usuario = JSON.parse(localStorage.usuario);
+                $scope.usuario.nota = $scope.quiz.usuariosQueResponderam[i].nota;
+                console.log($scope.usuario);
+            }else{}
+        }
+    }
+
     function getQuiz() {
         quizService.getQuiz(id).then(
             c => {
                 $scope.quiz = c.data;
-                if($scope.quiz.usuariosQueResponderam.indexOf(JSON.parse(localStorage.usuario).id)>-1){
-                    alertify.alert("Você já fez o quiz, redirecionado para o index!");
-                    $location.path("index");
+                if(usuarioJaRespondeu&&$scope.quiz.modalidade!="generico"){
+                    if($scope.quiz.modalidade==="pontuacao"){
+                        gerarNotaTotal();
+                    }
+                    getUsuario();
+                    $scope.parteQuiz = 3;
                 }
                 setRedirectModalidade();
+                
             },
             error => {
                 alert("Não foi possivel encontrar as perguntas");
@@ -67,14 +81,24 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
 
     function adicionarUsuarioAoQuiz() {
         let idUsuario = JSON.parse(localStorage.usuario).id;
-        let usuarioJaRespondeu = 
-            $scope.quiz.usuariosQueResponderam.indexOf(idUsuario) > -1;
-                        
+        let usuario = {
+            "id": idUsuario,
+            "nota": $scope.notaFinal,
+        }
         if(!usuarioJaRespondeu) {
             $scope.quiz.usuariosQueResponderam
-                .push(idUsuario); 
+                .push(usuario); 
             salvarUsuarioNoQuiz($scope.quiz);
         }
+    }
+
+    function usuarioJaRespondeu(){
+        for(let i = 0; i<$scope.quiz.usuariosQueResponderam; i++){
+            if($scope.quiz.usuariosQueResponderam[i].id === JSON.parse(localStorage.usuario).id){
+                return true;
+            }
+        }
+        return false;
     }
 
     function retrocederPergunta() {
@@ -102,9 +126,6 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
             gerarResultado();
 
         else {
-            if($scope.quiz.modalidade === 'pontuacao') 
-                gerarNotaTotal();
-
             let usuario = JSON.parse(localStorage.usuario);
             let user = {
                 id: usuario.id,
