@@ -332,6 +332,38 @@ criar-quiz {
     text-decoration: none;
 }
 
+.top-part-resultado {
+    flex: 1;
+}
+
+.resultado-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;   
+    justify-content: flex-start; 
+}
+
+.resultado-head {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.resultado-small {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.resultado-foto {
+    width: 70%;
+    height: auto;
+}
+
+.resultado-p {
+    padding: 0 30px 0 30px;
+    text-align: center;
+}
+
 .quizBox>.autor {
     font-size: 0.7rem;
     margin-bottom: 10px;
@@ -718,6 +750,11 @@ footer article section {
     display: flex;
     justify-content: center;
     flex-flow: column;
+}
+
+.quiz-info-resultado {
+    flex: 10;
+    justify-content: flex-start;
 }
 
 .quiz-info > img{

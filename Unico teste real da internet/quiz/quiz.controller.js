@@ -9,9 +9,9 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     $scope.avancarPergunta = avancarPergunta;
     $scope.retrocederPergunta = retrocederPergunta;
     $scope.pegarResultado = pegarResultado;   
+    $scope.notaFinal = 0;
     let nPergunta = 0;
     let id = $routeParams.id;
-    let notaFinal = 0;
     let modalidade = "";
     getQuiz();
 
@@ -59,7 +59,7 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     }
 
     function encerrarQuiz() {
-        notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
+        $scope.notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
             return notaAnterior + notaAtual;
         });
         // pegarResultado();
@@ -90,7 +90,7 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
         }
 
         function checarSeEstaNoRange(array) {
-            return array[0] < notaFinal && array[1] > notaFinal;
+            return array[0] <= $scope.notaFinal && array[1] >= $scope.notaFinal;
         }
 
         $scope.quiz.resultado.forEach(r => {

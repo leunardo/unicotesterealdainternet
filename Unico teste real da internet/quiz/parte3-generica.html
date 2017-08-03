@@ -1,7 +1,8 @@
-<h3>{{resultado.resultado}}</h3>
+<h3 class="title resultado-head">{{resultado.resultado}}</h3>
+<small class="resultado-small">{{notaFinal}} de {{quiz.perguntas.length}} </small>
 
-<img ng-src="{{resultado.foto}}">
+<img ng-src="{{resultado.foto}}" class="aligned-center resultado-foto">
 
-<p>
+<p class="resultado-p">
     {{resultado.explicacao}}
-</p> 
+</p>
