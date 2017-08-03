@@ -1,14 +1,14 @@
-<h3 class="title resultado-head">{{notaFinal}} de {{quiz.perguntas.length}}</h3>
-<small class="resultado-small">Você acertou: {{notaFinal/quiz.perguntas.length * 100 | number: 1}}% parabéns </small>
+<h3 class="title resultado-head">{{usuario.nota}} de {{quiz.perguntas.length}}</h3>
+<small class="resultado-small">Você acertou: {{usuario.nota/quiz.perguntas.length * 100 | number: 1}}% parabéns </small>
 
 
 <img ng-src="{{quiz.foto}}" class="aligned-center resultado-foto">
 
 <section class="pontuacao-resultado">    
-    <ul style="width: 60%">
-        <li class="li-head">TOPS</li>
+    <ul class="top3Quiz">
+        <li class="li-head">TOP 3 DESSE QUIZ</li>
         <li ng-repeat="user in quiz.top3" class="pontuacao-resultado-li">
-            <img ng-src="{{user.foto}}" class="pontuacao-resultado-foto">
+            <img ng-href="/#!/perfil/{{user.id}}" ng-src="{{user.foto}}" class="pontuacao-resultado-foto">
             <a ng-href="/#!/perfil/{{user.id}}">{{user.nome}}</a>
             <div>{{user.nota}}</div>
         </li>
