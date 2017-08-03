@@ -131,6 +131,17 @@ i.fa.fa-certificate {
     margin-right: 5vw;
 }
 
+.modalidade {
+    color: #365CAB;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.modalidade i{
+    font-size: 1.1rem;
+    margin-right: 5px;
+}
+
 .page-div {
     display: flex;
     flex-direction: column;

@@ -4,34 +4,34 @@
             <img ng-src="{{usuario.foto}}" class="profile-pic img-medium hero-img">
             <b class="hero-name">{{usuario.nome}}</b>
         </article>
-        
+
         <div class="user-titulodescricao">
             <p>Sobre mim:</p>
             <article class="user-descricao">
-            <p class="textBox">{{usuario.descricao}}</p>
-            <div ng-if="checarUser()">
-                <button class = "link" ng-click="editarPerfil()"> <i class="fa fa-pencil"></i></button>
-                <form class="modal" id="modal">
-                    <div class=" modal-edicao">
-                        <a ng-click="fecharModal()" class ="link botao-fechar-edicao"> <i class="fa fa-times" aria-hidden="true"></i></a>
-                        <img ng-src="{{usuario.foto}}" class="foto-Edicao">
-                        <label >Foto de Perfil: <input type="text" class= "form-edicao" ng-model="usuarioCopia.foto"></label>
-                        <label class="texto-edicao-nome">Nome: <input type="text" class="form-edicao" ng-model="usuarioCopia.nome"> </label>
-                        <label>Descrição: <textarea type="text" rows="5" cols="50" class="form-edicao form-edicao-descricao" ng-model="usuarioCopia.descricao" maxlength="500"></textarea></label>
-                        <button ng-click="atualizarPerfil()"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                    </div>
-                </form>
-            </div>
+                <p class="textBox">{{usuario.descricao}}</p>
+                <div ng-if="checarUser()">
+                    <button class="link" ng-click="editarPerfil()"> <i class="fa fa-pencil"></i></button>
+                    <form class="modal" id="modal">
+                        <div class=" modal-edicao">
+                            <a ng-click="fecharModal()" class="link botao-fechar-edicao"> <i class="fa fa-times" aria-hidden="true"></i></a>
+                            <img ng-src="{{usuario.foto}}" class="foto-Edicao">
+                            <label>Foto de Perfil: <input type="text" class= "form-edicao" ng-model="usuarioCopia.foto"></label>
+                            <label class="texto-edicao-nome">Nome: <input type="text" class="form-edicao" ng-model="usuarioCopia.nome"> </label>
+                            <label>Descrição: <textarea type="text" rows="5" cols="50" class="form-edicao form-edicao-descricao" ng-model="usuarioCopia.descricao" maxlength="500"></textarea></label>
+                            <button ng-click="atualizarPerfil()"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </div>
             </article>
             <div ng-if="!usuario.descricao" class="title">
                 <p ng-if="!checarUser()">
-                Esse usuário ainda não escreveu nos deu uma descrição
+                    Esse usuário ainda não escreveu nos deu uma descrição
                 </p>
                 <p ng-if="checarUser()">
-                Você ainda não escreveu sua descrição! Conte ao mundo algo sobre você!
+                    Você ainda não escreveu sua descrição! Conte ao mundo algo sobre você!
                 </p>
             </div>
-            
+
         </div>
     </div>
 
@@ -44,9 +44,12 @@
                     <div class="foto"><a ng-href="/#!/quiz/{{quiz.id}}"><img ng-src="{{quiz.foto}}"></a></div>
                     <p class="resumo"> {{quiz.resumo}} </p>
                 </div>
+                <p ng-if="quiz.modalidade==='generica'" class="modalidade textBox"> <i class="fa fa-random" aria-hidden="true"></i> Modalidade: {{quiz.modalidade}} </p>
+                <p ng-if="quiz.modalidade==='pessoal'" class="modalidade textBox"> <i class="fa fa-user" aria-hidden="true"></i> Modalidade: {{quiz.modalidade}} </p>
+                <p ng-if="quiz.modalidade==='pontuacao'" class="modalidade textBox"> <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: {{quiz.modalidade}} </p>
                 <p class="autor"> DE: <a ng-href="/#!/perfil/{{quiz.autor.id}}">{{quiz.autor.nome}}</a> </p>
-                <p class = "tags"> 
-                    <a ng-repeat="tags in quiz.tags" ng-href="/#!/tag/{{tags}}" class = "link">
+                <p class="tags">
+                    <a ng-repeat="tags in quiz.tags" ng-href="/#!/tag/{{tags}}" class="link">
                         <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
                     </a>
                 </p>
