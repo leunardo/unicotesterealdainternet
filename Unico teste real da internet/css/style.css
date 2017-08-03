@@ -364,6 +364,33 @@ criar-quiz {
     text-align: center;
 }
 
+.li-head {
+    font-size: 150%;
+    text-align: center;
+    list-style: none;
+    color: #365CAB;
+     margin-bottom: 12px; 
+}
+
+.pontuacao-resultado {
+    display: flex;
+    justify-content: center;
+}
+
+.pontuacao-resultado-li {
+    margin-bottom: 4px;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.pontuacao-resultado-foto {
+    max-height: 50px;
+    max-width: 50px;
+}
+
+
 .quizBox>.autor {
     font-size: 0.7rem;
     margin-bottom: 10px;

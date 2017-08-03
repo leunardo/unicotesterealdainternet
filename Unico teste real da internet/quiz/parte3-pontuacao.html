@@ -4,6 +4,14 @@
 
 <img ng-src="{{quiz.foto}}" class="aligned-center resultado-foto">
 
-<p class="resultado-p">
-    {{resultado.explicacao}}
-</p>
+<section class="pontuacao-resultado">    
+    <ul style="width: 60%">
+        <li class="li-head">TOPS</li>
+        <li ng-repeat="user in quiz.top3" class="pontuacao-resultado-li">
+            <img ng-src="{{user.foto}}" class="pontuacao-resultado-foto">
+            <span>{{user.nome}}</span>
+            <span>{{user.nota}}</span>
+        </li>
+    </ul>
+    
+</section>
