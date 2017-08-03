@@ -1,6 +1,6 @@
 app.controller("quizController", quizController);
 
-function quizController($scope, quizService, usuarioService, $location, $routeParams) {
+function quizController($scope, quizService, usuarioService, authService, $location, $routeParams) {
     $scope.quiz;
     $scope.notas = [];
     $scope.resultado = [];
@@ -10,11 +10,24 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     $scope.retrocederPergunta = retrocederPergunta;
     $scope.pegarResultado = pegarResultado;   
     $scope.notaFinal = 0;
+    $scope.usuarioEhOAutor = usuarioEhOAutor;
     let nPergunta = 0;
     let id = $routeParams.id;   
-    getQuiz();
+    if(checarSeLogado()){
+        getQuiz();
+    }
 
-    function getUsuario(){
+    function checarSeLogado(){
+        if(authService.isLogado()){
+            return true;
+        }else{
+            alertify.alert("Faça login para continuar!");
+            $location.path("index");
+            return false;
+        }
+    }
+
+    function getUsuarioQueRespondeu(){
         for(let i = 0; i<$scope.quiz.usuariosQueResponderam.length; i++){
             if($scope.quiz.usuariosQueResponderam[i].id===JSON.parse(localStorage.usuario).id){
                 $scope.usuario = JSON.parse(localStorage.usuario);
@@ -22,6 +35,22 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
                 console.log($scope.usuario);
             }else{}
         }
+    }
+
+    function getUsuario(){
+        $scope.usuarioId = JSON.parse(localStorage.usuario).id;
+        usuarioService.getUsuarioPorId(usuarioId).then( c =>
+            {
+                $scope.usuario = c.data;
+            }
+        );
+    }
+
+    function usuarioEhOAutor(){
+        if($scope.quiz.autor.id===JSON.parse(localStorage.usuario).id){
+            return true;
+        }
+        return false;
     }
 
     function getQuiz() {
@@ -32,7 +61,9 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
                     if($scope.quiz.modalidade==="pontuacao"){
                         gerarNotaTotal();
                     }
-                    getUsuario();
+                    getUsuarioQueRespondeu();
+                    $scope.parteQuiz = 3;
+                }else if(usuarioEhOAutor()&&$scope.quiz.modadelidade!="generico"){
                     $scope.parteQuiz = 3;
                 }
                 setRedirectModalidade();
