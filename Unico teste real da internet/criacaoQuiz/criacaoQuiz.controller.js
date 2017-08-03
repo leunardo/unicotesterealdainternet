@@ -92,9 +92,6 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
                 }, fail => {
                     console.log(fail);
                 });
-        }else{
-            alert("Seu quiz precisa ter ao menos 7 perguntas. Você só fez "+$scope.quiz.perguntas.length+" perguntas até agora.");
-            return;
         }
     }
 
