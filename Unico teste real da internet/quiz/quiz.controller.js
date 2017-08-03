@@ -1,9 +1,9 @@
 app.controller("quizController", quizController);
 
 function quizController($scope, quizService, usuarioService, $location, $routeParams) {
-    $scope.quiz;   
+    $scope.quiz;
     $scope.notas = [];
-    $scope.resultado = [];    
+    $scope.resultado = [];
     $scope.parteQuiz = 1; 
     $scope.proximaParte = proximaParte;
     $scope.avancarPergunta = avancarPergunta;
@@ -18,9 +18,9 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     function getQuiz() {
         quizService.getQuiz(id).then(
             c => {
-                $scope.quiz = c.data;    
+                $scope.quiz = c.data;
                 setarTags();
-                setModalidade();           
+                setModalidade();
             },
             error => {
                 alert("Não foi possivel encontrar as perguntas");
@@ -62,14 +62,35 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
         $scope.notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
             return notaAnterior + notaAtual;
         });
-        // pegarResultado();
         $scope.parteQuiz = 3;
+        adicionarUsuarioAoQuiz();
+    }
+
+    function adicionarUsuarioAoQuiz() {
+        let idUsuario = JSON.parse(localStorage.usuario).id;
+        let usuarioJaRespondeu = 
+            $scope.quiz.usuariosQueResponderam.indexOf(idUsuario) > -1;
+
+        if(!usuarioJaRespondeu) {
+            $scope.quiz.usuariosQueResponderam
+                .push(idUsuario); 
+            salvarUsuarioNoQuiz($scope.quiz);
+        }
     }
 
     function retrocederPergunta() {
         nPergunta--;
         contabilizarPergunta(0, false);
         mostrarPergunta(nPergunta);
+    }
+
+    function salvarUsuarioNoQuiz(quiz) {
+        quizService.alterarQuiz(quiz)
+            .then(response => {
+                console.log(response);
+            }, fail => {
+                console.log(fail);
+            })
     }
 
     function proximaParte() {
@@ -80,6 +101,31 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     function pegarResultado() {
         if ($scope.quiz.modalidade === 'generica')
             gerarResultado();
+
+        else {
+            let usuario = JSON.parse(localStorage.usuario);
+            let user = {
+                id: usuario.id,
+                nome: usuario.nome,
+                foto: usuario.foto,
+                nota: $scope.notaFinal,
+            };
+
+            if(existeTop3Usuarios()) {
+                $scope.quiz.top3.push(user);                
+                $scope.quiz.top3.sort(ordenarPorNota);
+                $scope.quiz.top3.splice(3);
+
+                function ordenarPorNota(a, b) {
+                    if (a.nota < b.nota) return 1;
+                    if (a.nota > b.nota) return -1;
+                    return 0;
+                }
+            } else 
+                $scope.quiz.top3.push(user);
+            
+            salvarUsuarioNoQuiz($scope.quiz);
+        }
 
         return `quiz/parte3-${$scope.quiz.modalidade}.html`;
     }
@@ -101,5 +147,9 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
                 $scope.resultado.foto = r.foto;
             }
         });
-    }    
+    }
+
+    function existeTop3Usuarios() {
+        return $scope.quiz.top3.length === 3;
+    }
 }

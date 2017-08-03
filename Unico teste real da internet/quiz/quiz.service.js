@@ -24,6 +24,14 @@ function quizService($http, URL) {
         return $http.get(`${url}/quizzes?q=${quizQuery}&_page=${nPagina}&_limit=8`);
     }
 
+    function criarQuiz(quiz) {
+        return $http.post(`${url}/quizzes`, quiz);
+    }
+
+    function alterarQuiz(quiz) {
+        return $http.put(`${url}/quizzes/${quiz.id}`, quiz);
+    }
+
     function buscarQuizPorTag(query, nPagina){
         let httpget = `${url}/quizzes/?_page=${nPagina}&_limit=8&`;
         let tagsAdd = "tags_like="
@@ -41,6 +49,8 @@ function quizService($http, URL) {
     let resultados = [];
 
     return {
+        criarQuiz: criarQuiz,
+        alterarQuiz: alterarQuiz,
         getQuiz: getQuiz,
         getQuizzes: getQuizzes,
         getQuizzesDoUsuario: getQuizzesDoUsuario,
