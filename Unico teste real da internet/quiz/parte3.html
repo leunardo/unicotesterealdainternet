@@ -1,6 +1,9 @@
 <div class="top-part top-part-resultado">
-    <div class="pergunta">
+    <div class="pergunta" ng-if="!usuarioEhOAutor()||quiz.modalidade==generica">
         Resultado:
+    </div>
+    <div class="pergunta" ng-if="usuarioEhOAutor()&&quiz.modalidade!=generica">
+        Sumário do seu quiz até então:
     </div>
 </div>
 

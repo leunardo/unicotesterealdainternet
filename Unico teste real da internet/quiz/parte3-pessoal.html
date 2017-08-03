@@ -1,12 +1,18 @@
-<h3 class="title resultado-head">{{usuario.nota}} de {{quiz.perguntas.length}}</h3>
-<small class="resultado-small">Você acertou: {{usuario.nota/quiz.perguntas.length * 100 | number: 1}}% parabéns </small>
-
+<section ng-if="!usuarioEhOAutor()">
+    <h3 class="title resultado-head">{{usuario.nota}} de {{quiz.perguntas.length}}</h3>
+    <small class="resultado-small">Você acertou: {{usuario.nota/quiz.perguntas.length * 100 | number: 1}}% parabéns </small>
+</section>
+<section ng-if="usuarioEhOAutor()">
+    <h3 class="title resultado-head" ng-if="quiz.usuariosQueResponderam.length!=0">{{quiz.usuariosQueResponderam.length}} usuários já responderam seu quiz! </h3>
+    <h3 class="title resultado-head" ng-if="quiz.usuariosQueResponderam.length==0">Nenhum usuário respondeu seu quiz até agora. Divulgue-o em suas redes sociais! </h3>
+</section>
 
 <img ng-src="{{quiz.foto}}" class="aligned-center resultado-foto">
 
-<section class="pontuacao-resultado">    
+<section ng-if="quiz.usuariosQueResponderam.length!=0" class="pontuacao-resultado">    
     <ul class="top3Quiz">
-        <li class="li-head">TOP 3 DESSE QUIZ</li>
+        <li ng-if="!usuarioEhOAutor()" class="li-head">TOP 3 DESSE QUIZ</li>
+        <li ng-if="usuarioEhOAutor()" class="li-head">TOP 3 DO SEU QUIZ ATÉ ENTÃO</li>
         <li ng-repeat="user in quiz.top3" class="pontuacao-resultado-li">
             <img ng-href="/#!/perfil/{{user.id}}" ng-src="{{user.foto}}" class="pontuacao-resultado-foto">
             <a ng-href="/#!/perfil/{{user.id}}">{{user.nome}}</a>
