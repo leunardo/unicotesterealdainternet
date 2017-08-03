@@ -8,10 +8,10 @@
             <small ng-show="perguntaForm.resultado.$error.required && perguntaForm.resultado.$touched">Preencha o campo<br/></small>
         </label>
         <label>
-            <h4>Range: ({{range.min}} até ?)</h4>
-            <input type="number" required class="rounded-input" name="range" placeholder="ex: 9" required min="{{range.min+1}}" max="{{quiz.perguntas.length}}" ng-model="range.max" ng-value="range.min+1">
-            <small ng-if="quiz.resultado.length==0">Valor de {{range.min+1}} até {{quiz.perguntas.length-1}}<br/></small>
-            <small ng-if="quiz.resultado.length>0">Valor de {{range.min+1}} até {{quiz.perguntas.length}}<br/></small>
+            <h4>Range: ({{range.min-1}} até ?)</h4>
+            <input type="number" required class="rounded-input" name="range" placeholder="ex: 9" required min="{{range.min}}" max="{{quiz.perguntas.length}}" ng-model="range.max" ng-value="range.min">
+            <small ng-if="quiz.resultado.length==0">Valor de {{range.min}} até {{quiz.perguntas.length-1}}<br/></small>
+            <small ng-if="quiz.resultado.length>0">Valor de {{range.min}} até {{quiz.perguntas.length}}<br/></small>
             <small ng-show="perguntaForm.range.$error.required && perguntaForm.range.$touched">Preencha o campo<br/></small>
         </label>
         <label>            

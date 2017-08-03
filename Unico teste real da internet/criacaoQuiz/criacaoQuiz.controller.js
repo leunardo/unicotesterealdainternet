@@ -126,8 +126,7 @@ function criacaoQuizController($scope, $location, criacaoQuizService) {
             foto: $scope.resultado.foto,
             explicacao: $scope.resultado.explicacao,
         };
-        console.log(resultadoCopia);
-        $scope.range.min = $scope.range.max;
+        $scope.range.min = $scope.range.max+1;
         $scope.range.max = 0;
         $scope.quiz.resultado.push(resultadoCopia);
         $scope.resultado = {
