@@ -375,6 +375,12 @@ criar-quiz {
     text-align: center;
 }
 
+.resultadoHead{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .li-head {
     font-size: 150%;
     text-align: center;

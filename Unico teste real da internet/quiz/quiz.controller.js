@@ -1,7 +1,7 @@
 app.controller("quizController", quizController);
 
 function quizController($scope, quizService, usuarioService, authService, $location, $routeParams) {
-    $scope.quiz;
+    $scope.quiz = [];
     $scope.notas = [];
     $scope.resultado = [];
     $scope.parteQuiz = 1; 
@@ -11,10 +11,12 @@ function quizController($scope, quizService, usuarioService, authService, $locat
     $scope.pegarResultado = pegarResultado;   
     $scope.notaFinal = 0;
     $scope.usuarioEhOAutor = usuarioEhOAutor;
+    $scope.usuario = [];
     let nPergunta = 0;
     let id = $routeParams.id;   
     if(checarSeLogado()){
         getQuiz();
+        getUsuario();
     }
 
     function checarSeLogado(){
@@ -32,18 +34,23 @@ function quizController($scope, quizService, usuarioService, authService, $locat
             if($scope.quiz.usuariosQueResponderam[i].id===JSON.parse(localStorage.usuario).id){
                 $scope.usuario = JSON.parse(localStorage.usuario);
                 $scope.usuario.nota = $scope.quiz.usuariosQueResponderam[i].nota;
-                console.log($scope.usuario);
             }else{}
         }
     }
 
     function getUsuario(){
         $scope.usuarioId = JSON.parse(localStorage.usuario).id;
-        usuarioService.getUsuarioPorId(usuarioId).then( c =>
-            {
-                $scope.usuario = c.data;
-            }
+        usuarioService.getUsuarioPorId($scope.usuarioId).then(usuario => {
+            $scope.usuario = usuario.data;
+        },
+        error =>{
+            console.log(error);
+        }
         );
+    }
+
+    function salvarUsuario(usuario){
+        $scope.usuario = usuario.data;
     }
 
     function usuarioEhOAutor(){
@@ -57,10 +64,10 @@ function quizController($scope, quizService, usuarioService, authService, $locat
         quizService.getQuiz(id).then(
             c => {
                 $scope.quiz = c.data;
+                if($scope.quiz.modalidade==="pontuacao"){
+                    gerarNotaTotal();
+                }
                 if(usuarioJaRespondeu()&&$scope.quiz.modalidade!="generico"){
-                    if($scope.quiz.modalidade==="pontuacao"){
-                        gerarNotaTotal();
-                    }
                     getUsuarioQueRespondeu();
                     $scope.parteQuiz = 3;
                 }else if(usuarioEhOAutor()&&$scope.quiz.modadelidade!="generico"){
@@ -106,15 +113,15 @@ function quizController($scope, quizService, usuarioService, authService, $locat
             return notaAnterior + notaAtual;
         });
         $scope.parteQuiz = 3;
-        adicionarUsuarioAoQuiz();
-        pegarResultado();
+        adicionarUsuarioAoQuiz();        
         atualizarNotaUsuario();
+        pegarResultado();
+
     }
 
     function atualizarNotaUsuario(){
-        let usuario = getUsuario();
-        usuario.score = usuario.score + $scope.notaFinal;
-        usuarioService.atualizarPerfil(usuario).then(response => {
+        $scope.usuario.score = $scope.usuario.score + $scope.notaFinal;
+        usuarioService.atualizarPerfil($scope.usuario).then(response => {
                 console.log(response);
             }, fail => {
                 console.log(fail);
@@ -128,7 +135,7 @@ function quizController($scope, quizService, usuarioService, authService, $locat
             "id": idUsuario,
             "nota": $scope.notaFinal,
         }
-        if(!usuarioJaRespondeu) {
+        if(!usuarioJaRespondeu()) {
             $scope.quiz.usuariosQueResponderam
                 .push(usuario); 
             salvarUsuarioNoQuiz($scope.quiz);
@@ -136,7 +143,7 @@ function quizController($scope, quizService, usuarioService, authService, $locat
     }
 
     function usuarioJaRespondeu(){
-        for(let i = 0; i<$scope.quiz.usuariosQueResponderam; i++){
+        for(let i = 0; i<$scope.quiz.usuariosQueResponderam.length; i++){
             if($scope.quiz.usuariosQueResponderam[i].id === JSON.parse(localStorage.usuario).id){
                 return true;
             }

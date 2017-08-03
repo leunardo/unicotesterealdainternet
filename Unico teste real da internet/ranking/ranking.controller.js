@@ -3,8 +3,8 @@ app.controller("rankingController", rankingController);
 function rankingController ($scope, usuarioService) {
     getUsuarios();
     function sortMaiorScore (a, b) {
-        if (a.Pontuacao < b.Pontuacao) return 1;
-        else if (a.Pontuacao > b.Pontuacao) return -1;
+        if (a.score < b.score) return 1;
+        else if (a.score > b.score) return -1;
         return 0;
     }   
 
