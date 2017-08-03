@@ -11,28 +11,22 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
     $scope.pegarResultado = pegarResultado;   
     $scope.notaFinal = 0;
     let nPergunta = 0;
-    let id = $routeParams.id;
-    let modalidade = "";
+    let id = $routeParams.id;   
     getQuiz();
 
     function getQuiz() {
         quizService.getQuiz(id).then(
             c => {
                 $scope.quiz = c.data;
-                setarTags();
-                setModalidade();
+                setRedirectModalidade();
             },
             error => {
                 alert("Não foi possivel encontrar as perguntas");
             });
     }
     
-    function setarTags(){
-        $scope.quiz.tags = $scope.quiz.tags.split(',');
-    }
-
-    function setModalidade(){
-        modalidade = $scope.quiz.modalidade;
+    function setRedirectModalidade(){        
+        $scope.redirecionar = `quiz/parte3-${$scope.quiz.modalidade}.html`;        
     }
 
     function contabilizarPergunta(nota, avancar){
@@ -64,13 +58,14 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
         });
         $scope.parteQuiz = 3;
         adicionarUsuarioAoQuiz();
+        pegarResultado();
     }
 
     function adicionarUsuarioAoQuiz() {
         let idUsuario = JSON.parse(localStorage.usuario).id;
         let usuarioJaRespondeu = 
             $scope.quiz.usuariosQueResponderam.indexOf(idUsuario) > -1;
-
+                        
         if(!usuarioJaRespondeu) {
             $scope.quiz.usuariosQueResponderam
                 .push(idUsuario); 
@@ -126,8 +121,6 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
             
             salvarUsuarioNoQuiz($scope.quiz);
         }
-
-        return `quiz/parte3-${$scope.quiz.modalidade}.html`;
     }
 
     function gerarResultado() {
