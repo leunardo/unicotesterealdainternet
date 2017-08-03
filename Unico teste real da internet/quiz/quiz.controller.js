@@ -18,6 +18,10 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
         quizService.getQuiz(id).then(
             c => {
                 $scope.quiz = c.data;
+                if($scope.quiz.usuariosQueResponderam.indexOf(JSON.parse(localStorage.usuario).id)>-1){
+                    alertify.alert("Você já fez o quiz, redirecionado para o index!");
+                    $location.path("index");
+                }
                 setRedirectModalidade();
             },
             error => {
