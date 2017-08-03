@@ -82,7 +82,7 @@
                     <i class="fa fa-certificate iconeResposta" aria-hidden="true"></i> 
                     <label class="labelNota">
                         Correta?
-                        <input ng-change="alterarRadio($index)" type="radio" required name="resposta" ng-value="$index">
+                        <input ng-change="alterarRadio($index)" type="radio" ng-model="resposta.nota" required name="resposta" ng-value="$index">
                     </label>
                     <i class="fa fa-trash link iconeResposta" ng-click="removerResposta($index)"></i>
                 </span>
