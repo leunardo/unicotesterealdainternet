@@ -384,6 +384,9 @@ criar-quiz {
     justify-content: space-between;
     list-style: none;
 }
+.pontuacao-resultado-li > * {
+    align-self: center;
+}
 
 .pontuacao-resultado-foto {
     max-height: 50px;

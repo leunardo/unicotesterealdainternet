@@ -9,7 +9,7 @@
         <li class="li-head">TOPS</li>
         <li ng-repeat="user in quiz.top3" class="pontuacao-resultado-li">
             <img ng-src="{{user.foto}}" class="pontuacao-resultado-foto">
-            <span>{{user.nome}}</span>
+            <a ng-href="/#!/perfil/{{user.id}}">{{user.nome}}</a>
             <span>{{user.nota}}</span>
         </li>
     </ul>
