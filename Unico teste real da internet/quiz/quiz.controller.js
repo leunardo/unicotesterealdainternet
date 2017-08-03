@@ -29,6 +29,7 @@ function quizController($scope, quizService, usuarioService, $location, $routePa
             c => {
                 $scope.quiz = c.data;
                 if(usuarioJaRespondeu&&$scope.quiz.modalidade!="generico"){
+                if(usuarioJaRespondeu()&&$scope.quiz.modalidade!="generico"){
                     if($scope.quiz.modalidade==="pontuacao"){
                         gerarNotaTotal();
                     }
