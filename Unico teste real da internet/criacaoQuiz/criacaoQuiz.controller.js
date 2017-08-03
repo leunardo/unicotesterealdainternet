@@ -24,12 +24,12 @@ function criacaoQuizController($scope, authService, $location, quizService) {
         titulo: '',
         foto: '',
         resumo: '',
-        perguntas: ['','','','','','','','',''],
+        perguntas: [],
         resultado: [],
         tags: [],
         modalidade: '',
     };
-    $scope.parteQuiz = '3';
+    $scope.parteQuiz = '1';
     $scope.proximaPergunta = proximaPergunta;
     $scope.adicionarResposta = adicionarResposta;
     $scope.removerResposta = removerResposta;

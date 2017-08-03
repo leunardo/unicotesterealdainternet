@@ -73,7 +73,7 @@
             <small ng-show="perguntaForm.resposta.$error.maxlength">No máximo 70 caracteres<br/></small>
             <small ng-show="perguntaForm.resposta.$error.required && perguntaForm.resposta.$touched">Preencha o campo</small>
         </section>
-        <ul class="quiz-respostas">
+         <ul class="quiz-respostas">
             <div ng-repeat="resposta in pergunta.respostas track by $index" class="resposta-li-wrapper">
                 <li class="list-respostas"> 
                     <p>{{resposta.resposta}}</p>
@@ -82,7 +82,7 @@
                     <i class="fa fa-certificate iconeResposta" aria-hidden="true"></i> 
                     <label class="labelNota">
                         Correta?
-                        <input ng-change="alterarRadio($index)" type="radio" ng-model="resposta.nota" required name="resposta" ng-value="$index">
+                        <input ng-change="alterarRadio($index)" type="radio" required name="resposta" ng-value="1" ng-model="pergunta.respostas[$index].nota">
                     </label>
                     <i class="fa fa-trash link iconeResposta" ng-click="removerResposta($index)"></i>
                 </span>
