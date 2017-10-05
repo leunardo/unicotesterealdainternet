@@ -1,6 +1,6 @@
 var app = angular.module('testeInternet', ['ngRoute']);
 
-app.constant('URL', 'http://localhost:3000');
+app.constant('URL', 'http://localhost:5566');
 
 alertify.defaults = {
         // dialogs defaults
