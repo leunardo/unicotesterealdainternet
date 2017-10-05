@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.use('/usuarios', user);
-app.use('/authenticate', auth);
+app.use('/authenticate', auth.router);
 
 
 app.listen(5566, () => console.log('conectado'));

@@ -72,7 +72,11 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     }
 
     function atualizarPerfil(){
-        usuarioService.atualizarPerfil($scope.usuarioCopia)
+        let googleAuth = gapi.auth2.getAuthInstance();
+        let googleUser = googleAuth.currentUser.get();
+        let token = googleUser.getAuthResponse().id_token;
+
+        usuarioService.atualizarPerfil($scope.usuarioCopia, token)
             .then(function response(resposta){
                 $scope.usuario = angular.copy($scope.usuarioCopia);
                 localStorage.usuario = JSON.stringify($scope.usuario);

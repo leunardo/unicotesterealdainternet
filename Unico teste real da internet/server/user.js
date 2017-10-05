@@ -3,17 +3,49 @@ const userService = require('./service/userService');
 
 router
     .route('/:id')
-        .get(getUser);
-
-//router        
+        .get(getUserPorId)
+        .put(atualizarUsuario)
+router
+    .route('/')
+        .get(getUsuarios)        
+        .post(criarUsuario)
+        
+        //router        
     //.route('/euae')
     //    .get(getCurrentUser);
+/*
+    var token = gapi.GetUSer().Audhfasdj
+    $put(usuario, token) http:localhost/usuario/idDele
+-,
+
+    token => usuario 
+
+*/
 
 
-function getUser(req, res) {
-   userService.getUsuario(req.params.id, (user) => {
+function getUserPorId(req, res) {
+   userService.getUsuarioPorId(req.params.id, (user) => {
     res.send(user);
    })
 }
+
+function getUsuarios(req, res) {
+    userService.getUsuarios((users) => {
+        res.send(users);
+    })
+}
+
+function criarUsuario(req, res) {
+    userService.criarUsuario(req.body.user, (response) => {
+        res.send(response);
+    })
+}
+
+function atualizarUsuario(req, res) {
+    userService.atualizarUsuario(req.body.user, req.body.token, req.params.id, (response) => {
+        res.send(response);
+    })
+}
+
 
 module.exports = router;

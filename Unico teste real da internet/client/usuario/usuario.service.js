@@ -22,8 +22,8 @@ function usuarioService($http, URL) {
         return $http.post(`${url}/usuarios`, usuario);
     }
 
-    function atualizarPerfil(usuario){        
-        return $http.put(`${url}/usuarios/${usuario.id}`, usuario);
+    function atualizarPerfil(usuario, token){        
+        return $http.put(`${url}/usuarios/${usuario.id}`, usuario, token);
     }
 
 }
