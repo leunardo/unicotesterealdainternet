@@ -1,6 +1,6 @@
 app.service('authService', authService);
 
-function authService(usuarioService) {           
+function authService(usuarioService, $http) {           
 
     return {
         isLogado: () =>  !!localStorage.getItem('usuario'),        
@@ -26,9 +26,13 @@ function authService(usuarioService) {
         let googleAuth = gapi.auth2.getAuthInstance();
         googleAuth.signIn().then(() => {
             let googleUser = googleAuth.currentUser.get();
+            let token = googleUser.getAuthResponse().id_token;
             let profile = googleUser.getBasicProfile();
-            let id = profile.getId();
 
+
+            console.log(token);
+
+            
             usuarioService.getUsuarioPorId(id).then(response => {
                 localStorage.usuario = JSON.stringify(response.data);
             }, fail => {
@@ -37,7 +41,6 @@ function authService(usuarioService) {
                     'nome': profile.getName(),
                     'email': profile.getEmail(),
                     'foto': profile.getImageUrl(),
-                    'id': profile.getId(),
                     'nota': 0
                 });
 
