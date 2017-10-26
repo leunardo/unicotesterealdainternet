@@ -1,41 +1,14 @@
-// var MongoClient = require('mongodb').MongoClient;
 
-// var uri = "mongodb://user:pMvutHTGrzecqdQ1@dev-topteste-shard-00-00-gyr9r.mongodb.net:27017,dev-topteste-shard-00-01-gyr9r.mongodb.net:27017,dev-topteste-shard-00-02-gyr9r.mongodb.net:27017/user?ssl=true&replicaSet=dev-topteste-shard-0&authSource=admin";
+const mysql = require('mysql');
+const userService = require('./service/userService');
 
-// MongoClient.connect(uri, function(err, db) {
-  
-//   /* comandos basicos de insert
-//   db.collection('inventory').insertOne({"batata": 123});
-//   db.collection('inventory').insertMany([
-//     {"batata": 789}, 
-//     {"batata": 456}]);
-//   */
+userService.atualizarUsuario({
+    id_google: '112502432735239711682',
+    nome: 'LEASDASDASQasdWEQWE!@#!@#!#',
+    descricao: 'OI Eu asdiosutr cialçaoo',
+    url_foto: 'asasdd'
+    
+    }, 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImFhYzA4OGNiOGRjZWE1OTEwOTlhZTIyYzhmY2FlZWM2ODFkMWM2YzgifQ.eyJhenAiOiIyNDMzOTM3NTY5NS1zbmdzdGJnZWx2M2NwdnZnczk2bmRvYTZuNDcydTNuNC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjI0MzM5Mzc1Njk1LXNuZ3N0YmdlbHYzY3B2dmdzOTZuZG9hNm40NzJ1M240LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTEyNTAyNDMyNzM1MjM5NzExNjgyIiwiZW1haWwiOiJsZXVuYXJkb3NldmxhQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiYmVTQVlqb2VaVzBLWERqeFo5WFNpUSIsImlzcyI6ImFjY291bnRzLmdvb2dsZS5jb20iLCJqdGkiOiIwNWUyMWU4Y2RjNmUwOThlNDY0ZjA4ZGIzNzIwNWY0ZjY0NmIxNDAzIiwiaWF0IjoxNTA5MDE0NjY2LCJleHAiOjE1MDkwMTgyNjYsIm5hbWUiOiJMZW9uYXJkbyBBbHZlcyIsInBpY3R1cmUiOiJodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vLTFKbTEtVl9md2xVL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FOUTBrZjZQUFg2MUtGN09Cc2xDNWlGSUFfNzB2XzZjdHcvczk2LWMvcGhvdG8uanBnIiwiZ2l2ZW5fbmFtZSI6Ikxlb25hcmRvIiwiZmFtaWx5X25hbWUiOiJBbHZlcyIsImxvY2FsZSI6InB0In0.NtKHApi1Ic-oRE0VPfFW7yGtEkirSm6MRApCd7Ssb-ek40omqMNPAYicZiAEKwYBM2wTbuZKFRkoDBqPeIOGFPJZ7StervYTaHG2OZdniW6ty48FcBotq-ycnfy8qPrx3WNJ2ONI4NMK08Gm1_BQ9OOfmU6vypA7hFqu-w9WSHkx1EEIQEsqnsYcJqxfPV6oSX3rTvbHkTgPfiCzQLW119C4Ch-Nlvuvb9LGhn6RV9YaxE-mHVu_4rWiO16nUe197l2JddlTRrbqrErwctrB1IXiU15Sk5Z8rbtcaFOItbJClrC7FYGgLGqcOTO9I_35zKar32FAvYUMEIo4HSyCTw' ,'112502432735239711682',
+(usuarios) => {
+    console.log(usuarios);})
 
-//   // select buscando tudo do banco
-//   db.collection('inventory')
-//     .find({})
-//     .toArray((err, res) => {
-//       if(err != undefined)
-//         throw err;
-//       else
-//         console.log(res);
-//   });
-
-//   db.close(); // dispose
-// });
-var mysql = require('mysql');
-
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'db_topquizzes'
-});
-
-var user  = {id_google: "assda123123", nome: 'LEONARDOGROSSOTA', descricao: "OI EU SOU TESTE", url_foto:"asd", pontuacao: 0};
-
-var query = connection.query('UPDATE usuario SET ? WHERE id_usuario = ', user, (err, result) => {
-  if (err) throw err;
-
-  console.log(result);
-});

@@ -23,8 +23,8 @@ query.criarUsuario = function criarUsuario(user, callback){
 }
 
 query.atualizarUsuario = function atualizarUsuario(user, callback){
-    var query = 'update usuario set = ? where id_usuario = ?';
-    executeQuery(user, user.id, callback, query);
+    var query = 'update usuario set nome = ?, url_foto = ?, descricao = ? where id_usuario = ?';
+    executeQueryDeUpdate(user.nome, user.url_foto, user.descricao, user.id, callback, query);
 }
 
 function executeQuery(obj, callback, query) {
@@ -34,8 +34,8 @@ function executeQuery(obj, callback, query) {
     })
 }
 
-function executeQuery(obj, obj2, callback, query) {
-    connection.query(query, obj, obj2, (err, result) => {
+function executeQueryDeUpdate(nome, foto, descricao, query) {
+    connection.query(query, nome, foto, descricao, (err, result) => {
         if (err) throw err;
         else callback(result);
     })
