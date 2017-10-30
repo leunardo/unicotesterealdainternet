@@ -22,9 +22,9 @@ query.criarUsuario = function criarUsuario(user, callback){
     executeQuery(user, callback, query);
 }
 
-query.atualizarUsuario = function atualizarUsuario(user, callback){
-    var query = 'update usuario set nome = ?, url_foto = ?, descricao = ? where id_usuario = ?';
-    executeQueryDeUpdate(user.nome, user.url_foto, user.descricao, user.id, callback, query);
+query.atualizarUsuario = function atualizarUsuario(nome, foto, descricao, id, callback){
+    var query = 'update usuario set nome = ?, url_foto = ?, descricao = ? where id_google = ?';
+    executeQueryDeUpdate(nome, foto, descricao, id, callback, query);
 }
 
 function executeQuery(obj, callback, query) {
@@ -34,11 +34,11 @@ function executeQuery(obj, callback, query) {
     })
 }
 
-function executeQueryDeUpdate(nome, foto, descricao, query) {
-    connection.query(query, nome, foto, descricao, (err, result) => {
+function executeQueryDeUpdate(nome, foto, descricao, id, callback, query) {
+    connection.query(query, [nome, foto, descricao, id], (err, result) => {
         if (err) throw err;
         else callback(result);
-    })
+        })
 }
 
 module.exports = query;

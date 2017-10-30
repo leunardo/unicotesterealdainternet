@@ -14,10 +14,10 @@ service.criarUsuario = function criarUsuario(user, callback) {
     userQuery.criarUsuario(user, (result) => callback(result));
 };
 
-service.atualizarUsuario = function atualizarUsuario(user, token, id, callback){
+service.updateUsuario = function updateUsuario(nome, foto, descricao, id, token, callback){
     auth.authenticate(token, (payload) => {
-        if (user.id_google == payload['sub'])    
-            userQuery.atualizarUsuario(user, (result) => callback(result));
+        if (id == payload['sub'])    
+            userQuery.atualizarUsuario(nome, foto, descricao, id, (result) => callback(result));
     });
 };
 
