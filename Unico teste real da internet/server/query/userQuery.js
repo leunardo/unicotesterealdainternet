@@ -24,7 +24,7 @@ query.criarUsuario = function criarUsuario(user, callback){
 
 query.atualizarUsuario = function atualizarUsuario(nome, foto, descricao, id, callback){
     var query = 'update usuario set nome = ?, url_foto = ?, descricao = ? where id_google = ?';
-    executeQueryDeUpdate(nome, foto, descricao, id, callback, query);
+    executeQuery([nome, foto, descricao, id], callback, query);
 }
 
 function executeQuery(obj, callback, query) {
@@ -32,13 +32,6 @@ function executeQuery(obj, callback, query) {
         if (err) throw err;
         else callback(result);
     })
-}
-
-function executeQueryDeUpdate(nome, foto, descricao, id, callback, query) {
-    connection.query(query, [nome, foto, descricao, id], (err, result) => {
-        if (err) throw err;
-        else callback(result);
-        })
 }
 
 module.exports = query;
