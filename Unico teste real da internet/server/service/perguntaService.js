@@ -6,8 +6,8 @@ service.getPergunta = function getPergunta(idPergunta, callback){
     perguntaQuery.getPergunta(idPergunta, (result) => callback(result))
 }
 
-service.getAllPerguntas = function getAllPerguntas(callback){
-    perguntaQuery.getAllPerguntas((result) => callback(result));
+service.getAllPerguntas = function getAllPerguntas(idQuiz, callback){
+    perguntaQuery.getAllPerguntas(idQuiz, (result) => callback(result));
 }
 
 service.criarPergunta = function criarPergunta(pergunta, callback){

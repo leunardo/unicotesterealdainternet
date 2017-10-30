@@ -16,14 +16,14 @@ function getPergunta(req, res){
 }
 
 function getAllPerguntas(req, res){
-    perguntaService.getAllPerguntas(req, (pergunta)=>{
-        res.send(pergunta)
+    perguntaService.getAllPerguntas(req, (perguntas)=>{
+        res.send(perguntas)
     });
 }
 
 function criarPergunta(req, res){
-    perguntaService.criarPergunta(req, (pergunta)=>{
-        res.send(pergunta)
+    perguntaService.criarPergunta(req, (result)=>{
+        res.send(result)
     });
 }
 

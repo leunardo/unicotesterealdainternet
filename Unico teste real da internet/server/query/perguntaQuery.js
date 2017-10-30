@@ -17,9 +17,9 @@ query.criarPergunta = function criarPergunta(pergunta, callback){
     executeQuery(pergunta, callback, query);
 }
 
-query.getAllPerguntas = function getAllPerguntas(callback){
-    var query = 'select * from pergunta';
-    executeQuery(null, callback, query);
+query.getAllPerguntas = function getAllPerguntas(idQuiz, callback){
+    var query = 'select * from pergunta where id_quiz = ?';
+    executeQuery(idQuiz, callback, query);
 }
 
 function executeQuery(obj, callback, query) {
