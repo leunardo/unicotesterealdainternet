@@ -15,4 +15,16 @@ function getPergunta(req, res){
     });
 }
 
+function getAllPerguntas(req, res){
+    perguntaService.getAllPerguntas(req, (pergunta)=>{
+        res.send(pergunta)
+    });
+}
+
+function criarPergunta(req, res){
+    perguntaService.criarPergunta(req, (pergunta)=>{
+        res.send(pergunta)
+    });
+}
+
 module.exports = router;
