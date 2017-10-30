@@ -28,8 +28,8 @@ query.getQuizzesDoUsuario = function getQuizzesDoUsuario(idUsuario, nPagina, cal
 }
 
 query.buscarQuiz = function buscarQuiz(quizQuery, nPagina, callback){
-    var query = 'select * from quiz where id_usuario where (titulo = like(%?%)) or (resumo = like(%?%)) limit ?,8';
-    executeQuery([quizQuery, nPagina], callback, query);
+    var query = 'select * from quiz where (titulo like ?) or (resumo like ?) limit ?,8'
+    executeQuery(['%'+quizQuery+'%', '%'+quizQuery+'%', nPagina], callback, query);
 }
 
 query.criarQuiz = function criarQuiz(quiz, callback){

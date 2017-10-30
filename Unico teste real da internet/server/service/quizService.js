@@ -18,8 +18,8 @@ service.getQuizzesDoUsuario = function getQuizzesDoUsuario(idUsuario, nPagina, c
     quizQuery.getQuizzesDoUsuario(idUsuario, nPagina, (result)=>callback(result));
 }
 
-service.buscarQuiz = function buscarQuiz(quizQuery, nPagina, callback){
-    quizQuery.buscarQuiz(quizQuery, nPagina, (result) => callback(result));
+service.buscarQuiz = function buscarQuiz(searchQuery, nPagina, callback){
+    quizQuery.buscarQuiz(searchQuery, nPagina, (result) => callback(result));
 }
 
 service.criarQuiz = function criarQuiz(quiz, callback) {
