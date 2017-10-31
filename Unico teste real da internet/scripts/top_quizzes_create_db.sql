@@ -61,3 +61,18 @@ create table resposta
     primary key(id_resposta)								,
     foreign key(id_pergunta) references pergunta(id_pergunta)
 );
+
+create table tag(
+	id_tag bigint unsigned not null auto_increment,
+    tag varchar(255) unique not null,
+    primary key(id_tag)
+);
+
+create table quiztags(
+	id_relacao bigint unsigned not null auto_increment,
+    id_quiz bigint unsigned not null,
+    id_tag bigint unsigned not null,
+    primary key(id_relacao),
+    foreign key(id_quiz) references quiz(id_quiz),
+    foreign key(id_tag) references tag(id_tag)
+);
