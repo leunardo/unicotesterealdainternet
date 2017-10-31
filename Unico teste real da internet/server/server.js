@@ -8,11 +8,12 @@ const busca = require('./busca');
 const tag = require('./tag');
 const pergunta = require('./pergunta');
 const resposta = require('./resposta');
+const top3 = require('./top3');
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-app.use('/quizzes', [tag, busca, quiz]);
+app.use('/quizzes', [tag, busca, quiz, pergunta, resposta, top3]);
 app.use('/usuarios', user);
 app.use('/authenticate', auth.router);
 

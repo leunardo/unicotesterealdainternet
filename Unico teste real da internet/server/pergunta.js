@@ -2,27 +2,27 @@ const router = require('express').Router();
 const perguntaService = require('./service/perguntaService');
 
 router
-    .route(':id')
+    .route(':id_quiz/perguntas/:id_pergunta')
         .get(getPergunta)
 router
-    .route('')
+    .route(':id_quiz/perguntas')
         .get(getAllPerguntas)
         .put(criarPergunta)
 
 function getPergunta(req, res){
-    perguntaService.getPergunta(req.params.id, (pergunta)=>{
+    perguntaService.getPergunta(req.params.id_pergunta, (pergunta)=>{
         res.send(pergunta)
     });
 }
 
 function getAllPerguntas(req, res){
-    perguntaService.getAllPerguntas(req, (perguntas)=>{
+    perguntaService.getAllPerguntas(req.params.id_quiz, (perguntas)=>{
         res.send(perguntas)
     });
 }
 
 function criarPergunta(req, res){
-    perguntaService.criarPergunta(req, (result)=>{
+    perguntaService.criarPergunta(req.body.pergunta, (result)=>{
         res.send(result)
     });
 }
