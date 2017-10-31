@@ -11,13 +11,6 @@ router
     .route('/')
         .get(getAllQuizzes)
         .post(criarQuiz);
-
-router 
-    .route('/buscar/')
-        .get(buscarQuiz);
-router
-    .route('/:tag/:page')
-        .get(buscarQuizPorTag);
 router
     .route('/pagina/:page')
         .get(getQuizzesDaPagina);

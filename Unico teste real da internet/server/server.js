@@ -4,11 +4,15 @@ const bodyParser = require('body-parser')
 const user = require('./user');
 const quiz = require('./quiz');
 const auth = require('./auth');
+const busca = require('./busca');
+const tag = require('./tag');
+const pergunta = require('./pergunta');
+const resposta = require('./resposta');
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-app.use('/quizzes', quiz);
+app.use('/quizzes', [tag, busca, quiz]);
 app.use('/usuarios', user);
 app.use('/authenticate', auth.router);
 
