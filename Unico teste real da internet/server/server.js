@@ -2,11 +2,13 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const user = require('./user');
+const quiz = require('./quiz');
 const auth = require('./auth');
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
+app.use('/quizzes', quiz);
 app.use('/usuarios', user);
 app.use('/authenticate', auth.router);
 

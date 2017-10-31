@@ -2,15 +2,15 @@ const router = require('express').Router();
 const perguntaService = require('./service/perguntaService');
 
 router
-    .route('/:id')
+    .route(':id')
         .get(getPergunta)
 router
-    .route('/')
+    .route('')
         .get(getAllPerguntas)
         .put(criarPergunta)
 
 function getPergunta(req, res){
-    perguntaService.getPergunta(req, (pergunta)=>{
+    perguntaService.getPergunta(req.params.id, (pergunta)=>{
         res.send(pergunta)
     });
 }

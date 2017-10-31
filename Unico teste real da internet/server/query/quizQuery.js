@@ -14,7 +14,7 @@ query.getQuizPorId = function getQuizPorId(id, callback){
 
 query.getQuizzesDaPagina = function getQuizzesDaPagina(nPagina, callback){
     var query = 'select * from quiz limit ?,8';
-    executeQuery(id, callback, query);
+    executeQuery((nPagina-1)*8, callback, query);
 }
 
 query.getAllQuizzes = function getAllQuizzes(callback){
@@ -24,12 +24,12 @@ query.getAllQuizzes = function getAllQuizzes(callback){
 
 query.getQuizzesDoUsuario = function getQuizzesDoUsuario(idUsuario, nPagina, callback){
     var query = 'select * from quiz where id_usuario = ? limit ?,8';
-    executeQuery([idUsuario, nPagina-1], callback, query);
+    executeQuery([idUsuario, (nPagina-1)*8], callback, query);
 }
 
 query.buscarQuiz = function buscarQuiz(quizQuery, nPagina, callback){
     var query = 'select * from quiz where (titulo like ?) or (resumo like ?) limit ?,8'
-    executeQuery(['%'+quizQuery+'%', '%'+quizQuery+'%', nPagina], callback, query);
+    executeQuery(['%'+quizQuery+'%', '%'+quizQuery+'%', (nPagina-1)*8], callback, query);
 }
 
 query.criarQuiz = function criarQuiz(quiz, callback){

@@ -3,62 +3,68 @@ const quizService = require('./service/quizService');
 
 router
     .route('/:id')
-        .get(getQuizPorId)
+        .get(getQuizPorId);
 router
-    .route('/?user_:idUsuario&page_:nPagina')
-        .get(getQuizzesDoUsuario)
+    .route('/user/:userid/:page')
+        .get(getQuizzesDoUsuario);
 router 
     .route('/')
         .get(getAllQuizzes)
-        .post(criarQuiz)
+        .post(criarQuiz);
+
 router 
-    .route('/?:busca&page_:nPagina')
-        .get(buscarQuiz)
+    .route('/buscar/')
+        .get(buscarQuiz);
 router
-    .route('/?tags_:tag&page_:nPagina')
-        .get(buscarQuizPorTag)
+    .route('/:tag/:page')
+        .get(buscarQuizPorTag);
 router
-    .route('/?page_:nPagina')
-        .get(getQuizzesDaPagina)
+    .route('/pagina/:page')
+        .get(getQuizzesDaPagina);
+
+
 
 function getQuizPorId(req, res) {
-    userService.getQuizPorId(req.params.id, (quiz) => {
+    quizService.getQuizPorId(req.params.id, (quiz) => {
         res.send(quiz);
     })
 }
 
 function getQuizzesDoUsuario(req, res) {
-    userService.getQuizzesDoUsuario(req.params.idUsuario, req.body.nPagina, (quizzes) => {
+    quizService.getQuizzesDoUsuario(req.params.userid, req.params.page, (quizzes) => {
         res.send(quizzes);
     })
 }
 
 function getAllQuizzes(req, res) {
-    userService.getAllQuizzes((quizzes) => {
+    quizService.getAllQuizzes((quizzes) => {
         res.send(quizzes);
     })
 }
 
 function criarQuiz(req, res) {
-    userService.criarQuiz(req.body.quiz, (response) => {
+    quizService.criarQuiz(req.body.quiz, (response) => {
         res.send(response);
     })
 }
 
 function buscarQuiz(req, res) {
-    userService.buscarQuiz(req.body.busca, req.body.nPagina, (quizzes) => {
+    console.log('AAAAAA')
+    quizService.buscarQuiz(req.query.busca, req.query.page, (quizzes) => {
         res.send(quizzes);
     })
 }
 
 function buscarQuizPorTag(req, res) {
-    userService.buscarQuizPorTag(req.body.tag, req.body.nPagina, (quizzes) => {
+    quizService.buscarQuizPorTag(req.query.tag, req.query.page, (quizzes) => {
         res.send(quizzes);
     })
 }
 
 function getQuizzesDaPagina(req, res) {
-    userService.getQuizzesDaPagina(req.body.nPagina, (quizzes) => {
+    quizService.getQuizzesDaPagina(req.params.page, (quizzes) => {
         res.send(quizzes);
     });
 }
+
+module.exports = router;
