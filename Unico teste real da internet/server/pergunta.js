@@ -2,10 +2,10 @@ const router = require('express').Router();
 const perguntaService = require('./service/perguntaService');
 
 router
-    .route(':id_quiz/perguntas/:id_pergunta')
+    .route('/:id_quiz/perguntas/:id_pergunta')
         .get(getPergunta)
 router
-    .route(':id_quiz/perguntas')
+    .route('/:id_quiz/perguntas')
         .get(getAllPerguntas)
         .put(criarPergunta)
 
