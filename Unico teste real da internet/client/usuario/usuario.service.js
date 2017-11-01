@@ -24,7 +24,11 @@ function usuarioService($http, URL) {
     }
 
     function usuarioJaCadastrado(id_google) {
-        return $http.get(`${url}/usuarios/gid/`, id_google);
+        $http.get(`${url}/usuarios/gid/`, id_google).then((response)=>{
+            return response.data;
+        }, (fail) =>{
+            return "usuario nao existente"
+        });
     }
 
     function atualizarPerfil(usuario, token){        

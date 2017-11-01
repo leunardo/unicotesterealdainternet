@@ -26,14 +26,16 @@ function authService(usuarioService, $http) {
         googleAuth.signIn().then(() => {
             let googleUser = googleAuth.currentUser.get();
             let profile = googleUser.getBasicProfile();
-            console.log('sera q existo? '+ profile.getId());
-            var usuario = usuarioService.usuarioJaCadastrado(profile.getId());
-            console.log(usuario);
-            if(usuario!='undefined'&&usuario!=null){
-                console.log('ou eu sou cadastrado')
+            let usuario;
+            setTimeout(3000, usuarioService.usuarioJaCadastrado(profile.getId())).then((result)=>{
+                usuario = result.data;
+            }
+            ,(fail)=>{
+                usuario = null
+            });
+            if(usuario!=null){
                 localStorage.usuario = JSON.stringify(usuario);
             }else{
-                console.log('ainda n sou cadastrado')
                 usuarioService.criarUsuario({
                     'id_google': profile.getId(),
                     'nome': profile.getName(),
