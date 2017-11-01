@@ -27,6 +27,11 @@ query.atualizarUsuario = function atualizarUsuario(nome, foto, descricao, id, ca
     executeQuery([nome, foto, descricao, id], callback, query);
 }
 
+query.usuarioJaCadastrado = function usuarioJaCadastrado(gid, callback){
+    var query = 'select * from usuario where id_google = ?';
+    executeQuery(gid, callback, query);
+}
+
 function executeQuery(obj, callback, query) {
     connection.query(query, obj, (err, result) => {
         if (err) throw err;

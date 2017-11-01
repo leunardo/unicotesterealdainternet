@@ -12,7 +12,6 @@ function authService(usuarioService, $http) {
         let id;
         if(localStorage.usuario)
             id = JSON.parse(localStorage.usuario).id;
-
         return usuarioService.getUsuarioPorId(id);
     }
 
@@ -26,27 +25,26 @@ function authService(usuarioService, $http) {
         let googleAuth = gapi.auth2.getAuthInstance();
         googleAuth.signIn().then(() => {
             let googleUser = googleAuth.currentUser.get();
-            let token = googleUser.getAuthResponse().id_token;
             let profile = googleUser.getBasicProfile();
-
-
-            console.log(token);
-
-            
-            usuarioService.getUsuarioPorId(id).then(response => {
-                localStorage.usuario = JSON.stringify(response.data);
-            }, fail => {
-
-                localStorage.usuario = JSON.stringify({
+            console.log('sera q existo? '+ profile.getId());
+            var usuario = usuarioService.usuarioJaCadastrado(profile.getId());
+            console.log(usuario);
+            if(usuario!='undefined'&&usuario!=null){
+                console.log('ou eu sou cadastrado')
+                localStorage.usuario = JSON.stringify(usuario);
+            }else{
+                console.log('ainda n sou cadastrado')
+                usuarioService.criarUsuario({
+                    'id_google': profile.getId(),
                     'nome': profile.getName(),
-                    'email': profile.getEmail(),
-                    'foto': profile.getImageUrl(),
-                    'nota': 0
-                });
-
-                let usuario = JSON.parse(localStorage.usuario);
-                usuarioService.criarUsuario(usuario);
-            }).finally(atualizar);                                       
+                    'descricao': '',
+                    'url_foto': profile.getImageUrl(),
+                    'pontuacao': 0
+                }).then((user)=>{
+                    localStorage.usuario = JSON.stringifu(user.data);
+                })
+            }
+            atualizar;                                       
         });
     }
 }

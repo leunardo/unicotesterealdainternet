@@ -9,6 +9,9 @@ router
     .route('/')
         .get(getUsuarios)        
         .post(criarUsuario)
+router
+    .route('/gid/:gid')
+        .get(usuarioJaCadastrado)
         
         //router        
     //.route('/euae')
@@ -43,6 +46,12 @@ function criarUsuario(req, res) {
 
 function atualizarUsuario(req, res) {
     userService.atualizarUsuario(req.body.user, req.body.token, req.params.id, (response) => {
+        res.send(response);
+    })
+}
+
+function usuarioJaCadastrado(req, res) {
+    userService.usuarioJaCadastrado(req.params.gid, (response) =>{
         res.send(response);
     })
 }

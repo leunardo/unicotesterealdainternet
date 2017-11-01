@@ -8,6 +8,7 @@ function usuarioService($http, URL) {
         criarUsuario: criarUsuario,
         getUsuarioPorId: getUsuarioPorId,
         atualizarPerfil: atualizarPerfil,
+        usuarioJaCadastrado: usuarioJaCadastrado
     }
 
     function getUsuario() {
@@ -20,6 +21,10 @@ function usuarioService($http, URL) {
 
     function criarUsuario(usuario) {
         return $http.post(`${url}/usuarios`, usuario);
+    }
+
+    function usuarioJaCadastrado(id_google) {
+        return $http.get(`${url}/usuarios/gid/`, id_google);
     }
 
     function atualizarPerfil(usuario, token){        

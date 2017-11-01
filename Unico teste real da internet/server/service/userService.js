@@ -21,4 +21,8 @@ service.updateUsuario = function updateUsuario(nome, foto, descricao, id, token,
     });
 };
 
+service.usuarioJaCadastrado = function usuarioJaCadastrado(gid, callback){
+    userQuery.usuarioJaCadastrado(gid, (result) => callback(result));
+}
+
 module.exports = service;
