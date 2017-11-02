@@ -4,59 +4,62 @@
 <head>
     <title>Descubra seu QI</title>
     <meta charset="UTF-8">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="24339375695-sngstbgelv3cpvvgs96ndoa6n472u3n4.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+        crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.10.0/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.10.0/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.10.0/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.10.0/css/themes/default.min.css" />
 </head>
 
 <body ng-app="testeInternet">
-   
-    <header>
-        <div class = "leftpart">
-        <a href="/#!/index" class="logo">TOP TESTES 2000</a>
-            <form ng-submit="buscar(query)" ng-controller="searchHeaderController" class = "quizSearch"> Buscar quiz <input type="text" placeholder = "EX Tags: malonha, pietro | EX busca: malonha" ng-model = "query" required> </input>
-            <button type = "submit" class="link"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-            <button type = "submit" ng-click="buscarTag()" class="link"><i class="fa fa-hashtag" aria-hidden="true"></i></button>
+
+    <header class="pure-g">
+        
+        <div class="leftpart">
+            <a href="/#!/index" class="logo pure-u-1-1 pure-u-md-1-2 pure-u-lg-1-3">TOP TESTES 2000</a>
+            <form ng-submit="buscar(query)" ng-controller="searchHeaderController" class="quizSearch pure-u-1-1 pure-u-md-1-2 pure-u-lg-1-3 pure-form">
+                <input class ="pure-input-rounded" type="text" placeholder="Pesquisar" ng-model="query" required> </input>
+                <button type="submit" class="link pure-button">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+                <button type="submit" ng-click="buscarTag()" class="pure-button link">
+                    <i class="fa fa-hashtag" aria-hidden="true"></i>
+                </button>
             </form>
-        </div>
-            <section ng-controller="authController" class="profile-info">
-            <a ng-href="#!/perfil/{{usuario.id}}"><img ng-show="logged" class="profile-pic aligned-center" ng-src="{{usuario.foto}}"></a>
-            <a ng-show="logged" class="aligned-center" ng-href="/#!/perfil/{{usuario.id}}">{{usuario.nome}}</a> 
+        <div ng-controller="authController" class="profile-info pure-u-1-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <a ng-href="#!/perfil/{{usuario.id}}">
+                <img ng-show="logged" class="profile-pic aligned-center" ng-src="{{usuario.foto}}">
+            </a>
+            <a ng-show="logged" class="aligned-center" ng-href="/#!/perfil/{{usuario.id}}">{{usuario.nome}}</a>
             <div ng-hide="logged" class="g-signin2" ng-click="signIn(atualizar)"></div>
             <div ng-hide="logged" class="mobile-signin" ng-click="signIn(atualizar)">
-                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggc3R5bGU9ImZpbGw6Izk5ODM3MzsiIGQ9Ik04Mi40NDEsNTAzLjMyMmgzNDcuMTE5VjBIODIuNDQxVjUwMy4zMjJ6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiM1MTQ0Mzk7IiBkPSJNMTE3LjE1Myw1MDMuMzIyaDI3Ny42OTVWMzQuNzEySDExNy4xNTNWNTAzLjMyMnoiLz4KPHBhdGggc3R5bGU9ImZpbGw6Izk5ODM3MzsiIGQ9Ik0zMjUuNDI0LDI4Ni4zNzNoMzQuNzEydi0zNC43MTJoLTM0LjcxMlYyODYuMzczeiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRThFREVFOyIgZD0iTTMyNS40MjQsMjc3LjY5NUgyOTkuMzljLTUuMjA3LDAtOC42NzgtMy40NzEtOC42NzgtOC42NzhjMC01LjIwNywzLjQ3MS04LjY3OCw4LjY3OC04LjY3OGgyNi4wMzQgIGM1LjIwNywwLDguNjc4LDMuNDcxLDguNjc4LDguNjc4QzMzNC4xMDIsMjc0LjIyNCwzMzAuNjMsMjc3LjY5NSwzMjUuNDI0LDI3Ny42OTUiLz4KPHBhdGggc3R5bGU9ImZpbGw6I0RCRDZEMjsiIGQ9Ik00OTAuMzA1LDUxMkgyMS42OTVjLTUuMjA3LDAtOC42NzgtMy40NzEtOC42NzgtOC42NzhjMC01LjIwNywzLjQ3MS04LjY3OCw4LjY3OC04LjY3OGg0NjguNjEgIGM1LjIwNywwLDguNjc4LDMuNDcxLDguNjc4LDguNjc4QzQ5OC45ODMsNTA4LjUyOSw0OTUuNTEyLDUxMiw0OTAuMzA1LDUxMiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggc3R5bGU9ImZpbGw6Izk5ODM3MzsiIGQ9Ik04Mi40NDEsNTAzLjMyMmgzNDcuMTE5VjBIODIuNDQxVjUwMy4zMjJ6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiM1MTQ0Mzk7IiBkPSJNMTE3LjE1Myw1MDMuMzIyaDI3Ny42OTVWMzQuNzEySDExNy4xNTNWNTAzLjMyMnoiLz4KPHBhdGggc3R5bGU9ImZpbGw6Izk5ODM3MzsiIGQ9Ik0zMjUuNDI0LDI4Ni4zNzNoMzQuNzEydi0zNC43MTJoLTM0LjcxMlYyODYuMzczeiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRThFREVFOyIgZD0iTTMyNS40MjQsMjc3LjY5NUgyOTkuMzljLTUuMjA3LDAtOC42NzgtMy40NzEtOC42NzgtOC42NzhjMC01LjIwNywzLjQ3MS04LjY3OCw4LjY3OC04LjY3OGgyNi4wMzQgIGM1LjIwNywwLDguNjc4LDMuNDcxLDguNjc4LDguNjc4QzMzNC4xMDIsMjc0LjIyNCwzMzAuNjMsMjc3LjY5NSwzMjUuNDI0LDI3Ny42OTUiLz4KPHBhdGggc3R5bGU9ImZpbGw6I0RCRDZEMjsiIGQ9Ik00OTAuMzA1LDUxMkgyMS42OTVjLTUuMjA3LDAtOC42NzgtMy40NzEtOC42NzgtOC42NzhjMC01LjIwNywzLjQ3MS04LjY3OCw4LjY3OC04LjY3OGg0NjguNjEgIGM1LjIwNywwLDguNjc4LDMuNDcxLDguNjc4LDguNjc4QzQ5OC45ODMsNTA4LjUyOSw0OTUuNTEyLDUxMiw0OTAuMzA1LDUxMiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"
+                />
             </div>
-            <a href="#" ng-show="logged" class="g-signout2" ng-click="signOut()">Sign out</a>            
-        </section>
-
+            <a href="#" ng-show="logged" class="g-signout2" ng-click="signOut()">Sign out</a>
+        </div>
+        </div>
+    </div>
     </header>
     <div class="container">
         <ng-view></ng-view>
     </div>
 
     <footer>
-        <article>
-            <section>
-                <h4 class="header-footer">Você acha que é mais esperto que o seu colega?</h4>
-                <p class="content-footer">Mostre pra ele do que é capaz com esse super teste incrivelmente preciso. Você nunca viu nada igual</p>
-            </section>
-            <section>
-                <h4 class="header-footer">Mais de décadas de estudo...</h4>
-                <p class="content-footer">Resultaram neste incrível teste. Complexibilidade comparada à engenharia espacial da NASA. 
-                   <br/> O maior trabalho científico desde o estudo da relatividade de Einstein.</p>
-            </section>
-        </article>
         <section class="copyright">
-            2017 TOPTESTES 2000, All rights reserved.
+        ©2017 TOPTESTES 2000 Inc. All rights reserved.
         </section>
     </footer>
 
-    <script src="https://apis.google.com/js/platform.js">gapi.auth2.init({ cookie_policy: none, })</script>    
+    <script src="https://apis.google.com/js/platform.js">
+        gapi.auth2.init({
+            cookie_policy: none,
+        })
+    </script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js'></script>
     <script src="//cdn.jsdelivr.net/alertifyjs/1.10.0/alertify.min.js"></script>
