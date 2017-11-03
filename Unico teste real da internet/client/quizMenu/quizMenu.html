@@ -4,8 +4,8 @@
         <div class="quizzes">
             <section class="quizBox" ng-repeat="quiz in quizzes track by $index">
                 <div>
-                    <p class="quiztitle textBox"> <a ng-href="/#!/quiz/{{quiz.id}}"> {{quiz.titulo}}      </a></p>
-                    <div class="foto"><a ng-href="/#!/quiz/{{quiz.id}}"><img ng-src="{{quiz.foto}}"></a></div>
+                    <p class="quiztitle textBox"> <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}}      </a></p>
+                    <div class="foto"><a ng-href="/#!/quiz/{{quiz.id_quiz}}"><img ng-src="{{quiz.foto}}"></a></div>
                     <p class="resumo"> {{quiz.resumo}} </p>
                 </div>
                 <p ng-if="quiz.modalidade==='generica'" class="modalidade textBox"> <i class="fa fa-random" aria-hidden="true"></i> Modalidade: {{quiz.modalidade}} </p>

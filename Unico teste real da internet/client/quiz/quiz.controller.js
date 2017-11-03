@@ -181,9 +181,9 @@ function quizController($scope, quizService, usuarioService, authService, $locat
         else {
             let usuario = JSON.parse(localStorage.usuario);
             let user = {
-                id: usuario.id,
+                id: usuario.id_usuario,
                 nome: usuario.nome,
-                foto: usuario.foto,
+                foto: usuario.url_foto,
                 nota: $scope.notaFinal,
             };
 

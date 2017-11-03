@@ -1,7 +1,7 @@
 <div class="hero page-div">
     <div class="userDetails">
         <article class="hero-body">
-            <img ng-src="{{usuario.foto}}" class="profile-pic img-medium hero-img">
+            <img ng-src="{{usuario.url_foto}}" class="profile-pic img-medium hero-img">
             <b class="hero-name">{{usuario.nome}}</b>
         </article>
 
@@ -14,7 +14,7 @@
                     <form class="modal" id="modal">
                         <div class=" modal-edicao">
                             <a ng-click="fecharModal()" class="link botao-fechar-edicao"> <i class="fa fa-times" aria-hidden="true"></i></a>
-                            <img ng-src="{{usuario.foto}}" class="foto-Edicao">
+                            <img ng-src="{{usuario.url_foto}}" class="foto-Edicao">
                             <label>Foto de Perfil: <input type="text" class= "form-edicao" ng-model="usuarioCopia.foto"></label>
                             <label class="texto-edicao-nome">Nome: <input type="text" class="form-edicao" ng-model="usuarioCopia.nome"> </label>
                             <label>Descrição: <textarea type="text" rows="5" cols="50" class="form-edicao form-edicao-descricao" ng-model="usuarioCopia.descricao" maxlength="500"></textarea></label>
@@ -40,8 +40,8 @@
         <div class="quizzes">
             <section class="quizBox" ng-repeat="quiz in quizzes track by $index">
                 <div>
-                    <p class="quiztitle textBox"> <a ng-href="/#!/quiz/{{quiz.id}}"> {{quiz.titulo}}      </a></p>
-                    <div class="foto"><a ng-href="/#!/quiz/{{quiz.id}}"><img ng-src="{{quiz.foto}}"></a></div>
+                    <p class="quiztitle textBox"> <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}}      </a></p>
+                    <div class="foto"><a ng-href="/#!/quiz/{{quiz.id_quiz}}"><img ng-src="{{quiz.foto}}"></a></div>
                     <p class="resumo"> {{quiz.resumo}} </p>
                 </div>
                 <p ng-if="quiz.modalidade==='generica'" class="modalidade textBox"> <i class="fa fa-random" aria-hidden="true"></i> Modalidade: {{quiz.modalidade}} </p>

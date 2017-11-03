@@ -41,19 +41,6 @@ function criarQuiz(req, res) {
     })
 }
 
-function buscarQuiz(req, res) {
-    console.log('AAAAAA')
-    quizService.buscarQuiz(req.query.busca, req.query.page, (quizzes) => {
-        res.send(quizzes);
-    })
-}
-
-function buscarQuizPorTag(req, res) {
-    quizService.buscarQuizPorTag(req.query.tag, req.query.page, (quizzes) => {
-        res.send(quizzes);
-    })
-}
-
 function getQuizzesDaPagina(req, res) {
     quizService.getQuizzesDaPagina(req.params.page, (quizzes) => {
         res.send(quizzes);

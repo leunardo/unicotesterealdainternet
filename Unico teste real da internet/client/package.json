@@ -1,0 +1,9 @@
+{
+    "name": "TopTestesClient",
+    "description": "Client-side of top testes",
+    "authors": "Leonardo A.; Guilherme S.; Pietro I.",
+    "version": "1.0.0",
+    "dependencies": {
+        "http-server": "^0.10.0"
+    }
+}

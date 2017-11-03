@@ -23,7 +23,7 @@ query.criarUsuario = function criarUsuario(user, callback){
 }
 
 query.atualizarUsuario = function atualizarUsuario(nome, foto, descricao, id, callback){
-    var query = 'update usuario set nome = ?, url_foto = ?, descricao = ? where id_google = ?';
+    var query = 'update usuario set nome = ?, url_foto = ?, descricao = ? where id_usuario = ?';
     executeQuery([nome, foto, descricao, id], callback, query);
 }
 
