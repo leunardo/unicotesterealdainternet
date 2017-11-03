@@ -85,3 +85,14 @@ create table userquizzes(
     foreign key(id_quiz) references quiz(id_quiz),
     foreign key(id_user) references usuario(id_usuario)
 )
+
+create table friendship(
+	id_friendship bigint unsigned not null auto_increment,
+    id_user bigint unsigned not null,
+    id_user2 bigint unsigned not null,
+    pendente boolean not null default true,
+    primary key(id_friendship),
+    foreign key(id_user) references usuario(id_usuario),
+    foreign key(id_user2) references usuario(id_usuario),
+    constraint id_friendship unique(id_user, id_user2)
+);
