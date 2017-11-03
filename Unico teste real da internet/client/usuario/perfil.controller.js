@@ -56,7 +56,7 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
 
     function checarUser(){
         if(authService.isLogado()){
-            return $scope.usuario.id === JSON.parse(localStorage.usuario).id;           
+            return $scope.usuario.id_usuario === JSON.parse(localStorage.usuario).id;           
         }else{
             return false;
         }

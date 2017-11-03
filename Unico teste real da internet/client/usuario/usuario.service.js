@@ -28,7 +28,7 @@ function usuarioService($http, URL) {
     }
 
     function atualizarPerfil(usuario, token){        
-        return $http.put(`${url}/usuarios/${usuario.id}`, usuario, token);
+        return $http.put(`${url}/usuarios/${usuario.id_usuario}`, usuario, token);
     }
 
 }
