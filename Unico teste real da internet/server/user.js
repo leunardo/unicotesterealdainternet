@@ -39,7 +39,7 @@ function getUsuarios(req, res) {
 }
 
 function criarUsuario(req, res) {
-    userService.criarUsuario(req.body.user, (response) => {
+    userService.criarUsuario(req.body, (response) => {
         res.send(response);
     })
 }
