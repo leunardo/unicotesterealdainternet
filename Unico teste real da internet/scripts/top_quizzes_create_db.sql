@@ -76,3 +76,12 @@ create table quiztags(
     foreign key(id_quiz) references quiz(id_quiz),
     foreign key(id_tag) references tag(id_tag)
 );
+
+create table userquizzes(
+    id_userquiz bigint unsigned not null auto_increment,
+    id_quiz bigint unsigned not null,
+    id_user bigint unsigned not null,
+    primary key(id_userquiz),
+    foreign key(id_quiz) references quiz(id_quiz),
+    foreign key(id_user) references user(id_user)
+)
