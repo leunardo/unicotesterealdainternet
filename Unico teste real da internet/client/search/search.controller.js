@@ -13,7 +13,7 @@ function searchHeaderController($scope, $location){
     }    
 
     function buscarQuiz(query){          
-        $location.path(`search/${query}`);
+        $location.path(`busca/${query}`);
         $scope.query = "";
     }
 
@@ -33,7 +33,7 @@ function searchController($scope, quizService, $routeParams, $location) {
     getQuizzes();
 
     function getQuizzes(){
-        if("search"===url){
+        if("busca"===url){
             quizService.buscarQuiz(query, $scope.nPagina)
             .then(mostrarQuizzes);
         }

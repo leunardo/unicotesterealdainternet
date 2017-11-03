@@ -27,15 +27,11 @@ function authService(usuarioService, $http) {
             let googleUser = googleAuth.currentUser.get();
             let profile = googleUser.getBasicProfile();
             let usuario;
-            setTimeout(3000, usuarioService.usuarioJaCadastrado(profile.getId())).then((result)=>{
-                usuario = result.data;
+            usuarioService.usuarioJaCadastrado(profile.getId()).then((result)=>{
+                usuario = result.data[0];
+                localStorage.usuario = JSON.stringify(usuario);
             }
             ,(fail)=>{
-                usuario = null
-            });
-            if(usuario!=null){
-                localStorage.usuario = JSON.stringify(usuario);
-            }else{
                 usuarioService.criarUsuario({
                     'id_google': profile.getId(),
                     'nome': profile.getName(),
@@ -45,8 +41,7 @@ function authService(usuarioService, $http) {
                 }).then((user)=>{
                     localStorage.usuario = JSON.stringifu(user.data);
                 })
-            }
-            atualizar;                                       
+            }).finally(atualizar);                                       
         });
     }
 }
