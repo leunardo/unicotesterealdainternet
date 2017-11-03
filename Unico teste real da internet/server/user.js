@@ -4,7 +4,7 @@ const userService = require('./service/userService');
 router
     .route('/:id')
         .get(getUserPorId)
-        .put(atualizarUsuario)
+        .put(updateUsuario)
 router
     .route('/')
         .get(getUsuarios)        
@@ -44,8 +44,8 @@ function criarUsuario(req, res) {
     })
 }
 
-function atualizarUsuario(req, res) {
-    userService.atualizarUsuario(req.body.user, req.body.token, req.params.id, (response) => {
+function updateUsuario(req, res) {
+    userService.updateUsuario(req.body[0], req.body[1], req.params.id, (response) => {
         res.send(response);
     })
 }

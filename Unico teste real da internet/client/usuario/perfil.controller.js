@@ -15,7 +15,7 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     function getUsuario() {
         usuarioService.getUsuarioPorId($routeParams.id)
             .then(response => {
-                $scope.usuario = response.data; 
+                $scope.usuario = response.data[0]; 
                 $scope.usuarioCopia = angular.copy($scope.usuario);
             }, fail => {
                 alert("Deu erro");
@@ -56,7 +56,7 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
 
     function checarUser(){
         if(authService.isLogado()){
-            return $scope.usuario.id_usuario === JSON.parse(localStorage.usuario).id;           
+            return $scope.usuario.id_usuario === JSON.parse(localStorage.usuario).id_usuario;           
         }else{
             return false;
         }
