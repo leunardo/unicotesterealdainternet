@@ -83,5 +83,5 @@ create table userquizzes(
     id_user bigint unsigned not null,
     primary key(id_userquiz),
     foreign key(id_quiz) references quiz(id_quiz),
-    foreign key(id_user) references user(id_user)
+    foreign key(id_user) references usuario(id_usuario)
 )
