@@ -28,7 +28,7 @@ app.config(function ($routeProvider){
             controller: "perfilController",
             templateUrl: "usuario/perfil.html"
         })
-        .when("/search/:q", {
+        .when("/busca/:q", {
             controller: "searchController",
             templateUrl: "search/search.html"
         })
