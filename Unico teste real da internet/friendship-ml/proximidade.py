@@ -1,5 +1,6 @@
 import numpy as np
 from user import User
+from similaridadecossenos import similaridade_cossenos
 
 
 def calcular_proximidade(usuario_1, usuario_2):
@@ -34,12 +35,13 @@ def calcular_softmax(usuario_principal, usuarios):
 if __name__ == '__main__':
     """Executa o arquivo e roda amostras de teste."""
     leo = User(1, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [], [10, 20, 30, 40, 50, 60, 70, 80], {"arroz": 4, "feijao": 3, "c": 2})
-    bruno = User(2, [2], [10, 20, 30, 40], [], {"arroz": 2, "feijao": 3, "batata": 6})
+    bruno = User(2, [2], [10, 20, 30, 40], [], {"arroz": 2, "feijao": 3, "batata": 6, "queijo": 3})
     airton = User(3, [2, 3], [10, 20, 30, 40, 50, 60, 70], [], {"arroz": 8, "feijao": 3, "batata": 6})
     pablo = User(4, [2, 3, 4], [10, 20, 30], [], {"arroz": 2, "feijao": 3, "batata": 6})
     juck = User(5, [2, 3, 4], [10, 20, 30, 40], [], {"arroz": 2, "feijao": 3, "batata": 6})
     jose = User(6, [2, 3, 4, 5, 6], [], [], {"calabresa": 3,  "sucao": 6})
-    users = [bruno, jose, airton, pablo, juck]
-    resultado = calcular_softmax(leo, users)
-
-    print(list(zip([user.uid for user in users], resultado)))
+    # users = [bruno, jose, airton, pablo, juck]
+    # resultado = calcular_softmax(leo, users)
+    matriz_tags = leo.tags_em_comum(bruno)
+    print(similaridade_cossenos(matriz_tags))
+    #print(list(zip([user.uid for user in users], resultado)))

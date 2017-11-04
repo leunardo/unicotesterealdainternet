@@ -1,5 +1,6 @@
 from collections import defaultdict
-
+from similaridadecossenos import ordenar_dict
+import pandas as pd
 
 class User:
     """Essa classe é uma abstracao de um usuario.
@@ -30,12 +31,14 @@ class User:
         return self.somatorio_quizzes.intersection(user.somatorio_quizzes)
 
     def tags_em_comum(self, user):
-        # Retorna as tags em comum entre dois usuarios
-        tags_em_comum = defaultdict(int)
-        for tag, n in user.tags.items():
-            if tag in self.tags:
-                tags_em_comum[tag] += n
-        return tags_em_comum
+        # Retorna uma matriz espersa de usuario,tag
+        for tag in self.tags.keys():
+            user.tags[tag] += 0
+        for tag in user.tags.keys():
+            self.tags[tag] += 0
+
+        matriz_tags = ordenar_dict(self.tags, user.tags)
+        return matriz_tags
 
 
     @property
