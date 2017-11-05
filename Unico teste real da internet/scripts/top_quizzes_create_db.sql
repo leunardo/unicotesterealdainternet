@@ -27,6 +27,7 @@ create table quiz
     id_modalidade bigint 				          unsigned not null,
     titulo varchar(255)					         	       not null,
     resumo varchar(255)					          		   not null,
+    url_foto varchar(255)                                  not null,
     primary key(id_quiz)                                           ,
     foreign key(id_usuario) references usuario(id_usuario)         ,
     foreign key(id_modalidade) references modalidade(id_modalidade)    
