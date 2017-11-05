@@ -7,7 +7,7 @@ router
 router
     .route('/:id_quiz/perguntas')
         .get(getAllPerguntas)
-        .put(criarPergunta)
+        .post(criarPergunta)
 
 function getPergunta(req, res){
     perguntaService.getPergunta(req.params.id_pergunta, (pergunta)=>{
@@ -22,7 +22,8 @@ function getAllPerguntas(req, res){
 }
 
 function criarPergunta(req, res){
-    perguntaService.criarPergunta(req.body.pergunta, (result)=>{
+    console.log(req.body);
+    perguntaService.criarPergunta(req.body, (result)=>{
         res.send(result)
     });
 }

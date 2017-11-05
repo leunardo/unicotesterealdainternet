@@ -18,6 +18,7 @@ router
 
 
 function getQuizPorId(req, res) {
+    console.log(req.params.id);
     quizService.getQuizPorId(req.params.id, (quiz) => {
         res.send(quiz);
     })
@@ -36,7 +37,7 @@ function getAllQuizzes(req, res) {
 }
 
 function criarQuiz(req, res) {
-    quizService.criarQuiz(req.body.quiz, (response) => {
+    quizService.criarQuiz(req.body, (response) => {
         res.send(response);
     })
 }

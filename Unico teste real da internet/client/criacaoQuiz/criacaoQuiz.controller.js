@@ -16,18 +16,18 @@ function criacaoQuizController($scope, authService, $location, quizService) {
         explicacao: ''
     };
     $scope.opened = {
-        'pessoal': false,
-        'pontuacao': false,
-        'generica': false
+        '1': false,
+        '2': false,
+        '3': false
     }
     $scope.quiz = {
         titulo: '',
-        foto: '',
+        url_foto: '',
         resumo: '',
         perguntas: [],
         resultado: [],
         tags: [],
-        modalidade: '',
+        modalidade: 0
     };
     $scope.parteQuiz = '1';
     $scope.proximaPergunta = proximaPergunta;
@@ -62,16 +62,16 @@ function criacaoQuizController($scope, authService, $location, quizService) {
         }
     }
 
-    function modalidadeGenerica() {
-        return $scope.quiz.modalidade === "generica";
-    }
-
     function modalidadePessoal() {
-        return $scope.quiz.modalidade === "pessoal";
+        return $scope.quiz.modalidade === 1;
     }
 
     function modalidadePontuacao() {
-        return $scope.quiz.modalidade === "pontuacao";
+        return $scope.quiz.modalidade === 2;
+    }
+
+    function modalidadeGenerica() {
+        return $scope.quiz.modalidade === 3;
     }
 
     function adicionarResposta(resposta) {
@@ -96,27 +96,18 @@ function criacaoQuizController($scope, authService, $location, quizService) {
     }
 
     function publicar() {
-        console.log(($scope.parteQuiz===3 && $scope.quiz.resultado.length>1 && checarSeTodaLacunaDeNotaERepresentadaPelosRanges()))
-        console.log(($scope.parteQuiz===3));
-        console.log(($scope.quiz.resultado.length>1))
         if(($scope.parteQuiz==2 && $scope.quiz.perguntas.length>6)||($scope.parteQuiz==3 && $scope.quiz.resultado.length>1 && checarSeTodaLacunaDeNotaERepresentadaPelosRanges())){        
             let usuario = JSON.parse(localStorage.usuario);
-            console.log("cheguei aqui");
-            $scope.quiz.autor = {
-                nome: usuario.nome,
-                foto: usuario.foto,
-                id: usuario.id,
-            };
+            $scope.quiz.id_usuario = usuario.id_usuario;
             if($scope.parteQuiz==2){
                 proximaPergunta();
             }else if($scope.parteQuiz==3&&!fim){
                 proximoResultado();
             }
             $scope.quiz.usuariosQueResponderam = [];
-            if($scope.quiz.modalidade!="generica"){
+            if($scope.quiz.modalidade!=3){
                 $scope.quiz.top3 = [];
             }
-            $scope.quiz.tags = removerEspacosDasTags($scope.quiz.tags).split(',');
             quizService.criarQuiz($scope.quiz)
                 .then(response => {
                     $location.path("quiz/" + response.data.id);
@@ -163,7 +154,6 @@ function criacaoQuizController($scope, authService, $location, quizService) {
                 explicacao: $scope.resultado.explicacao,
             };
         }
-        console.log(resultadoCopia)
         $scope.quiz.resultado.push(resultadoCopia);
         if($scope.range.max==$scope.quiz.perguntas.length){
             alertify.alert("Não é possivel criar mais resultados, publicando quiz.");
@@ -204,7 +194,7 @@ function criacaoQuizController($scope, authService, $location, quizService) {
 
     function selecionarTipoQuiz(tipo) {
         for (e in $scope.opened) {
-            if (e === tipo) {
+            if (e == tipo) {
                 $scope.opened[e] = !$scope.opened[e];
                 $scope.quiz.modalidade = tipo;                
             }

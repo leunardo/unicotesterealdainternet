@@ -6,7 +6,7 @@ service.getAllRespostas = function getAllRespostas(idPergunta, callback){
     respostaQuery.getAllRespostas(idPergunta, (result) => callback(result));
 }
 
-service.criarPergunta = function criarResposta(resposta, callback){
+service.criarResposta = function criarResposta(resposta, callback){
     respostaQuery.criarResposta(resposta, (result) => callback(result));
 }
 

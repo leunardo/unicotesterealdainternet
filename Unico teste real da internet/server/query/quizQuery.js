@@ -33,6 +33,7 @@ query.buscarQuiz = function buscarQuiz(quizQuery, nPagina, callback){
 }
 
 query.criarQuiz = function criarQuiz(quiz, callback){
+    console.log(quiz);
     var query = 'insert into quiz set ?';
     executeQuery(quiz, callback, query); 
 }
