@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+const cors = require('cors');
 const user = require('./user');
 const quiz = require('./quiz');
 const auth = require('./auth');
@@ -10,6 +11,7 @@ const pergunta = require('./pergunta');
 const resposta = require('./resposta');
 const top3 = require('./top3');
 
+app.use(cors())
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
