@@ -27,18 +27,18 @@
         <section>
             <span>Modalidades: <br/></span>
             <span>Selecionada: {{quiz.modalidade}}</span>
-            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.pessoal}">
-                <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('pessoal')" ng-class="{'modalidade-btn-active': opened.pessoal}"><i class="fa fa-user" aria-hidden="true"></i> Quiz pessoal</h3>
-                <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.pessoal}">
+            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.1}">
+                <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz(1)" ng-class="{'modalidade-btn-active': opened.1}"><i class="fa fa-user" aria-hidden="true"></i> Quiz pessoal</h3>
+                <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.1}">
                     Quizzes "pessoais" são quizzes sobre você: 
                     Eles só podem ter uma resposta certa por pergunta, 
                     e devem se tratar dos teus gostos, opiniões, entre outros. 
                     Só podem ser realizados uma vez.
                 </p>
             </section>
-            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.pontuacao}">
-                <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('pontuacao')" ng-class="{'modalidade-btn-active': opened.pontuacao}"><i class="fa fa-list-ol" aria-hidden="true"></i> Quiz de pontuação</h3>
-                <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.pontuacao}">
+            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.2}">
+                <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz(2)" ng-class="{'modalidade-btn-active': opened.2}"><i class="fa fa-list-ol" aria-hidden="true"></i> Quiz de pontuação</h3>
+                <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.2}">
                     Quizzes "de pontuação" são aqueles que contribuem 
                     com o seu "Score" dentro do site, aumentando sua pontuação, 
                     e assim, melhorando sua posição no Ranking geral. 
@@ -47,9 +47,9 @@
                     realizados uma vez.
                 </p>
             </section>
-            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.generica}">
-                <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz('generica')" ng-class="{'modalidade-btn-active': opened.generica}"><i class="fa fa-random" aria-hidden="true"></i> Quiz genérico</h3>
-                <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.generica}">
+            <section class="modalidade-box" ng-class="{'modalidade-box-active': opened.3}">
+                <h3 class="link modalidade-btn" ng-click="selecionarTipoQuiz(3)" ng-class="{'modalidade-btn-active': opened.3}"><i class="fa fa-random" aria-hidden="true"></i> Quiz genérico</h3>
+                <p class="modalidade-desc" ng-class="{'modalidade-desc-active': opened.3}">
                     Quizzes "genéricos", assim como o nome diz, são 
                     aqueles onde vemos na maioria dos sites. São quizzes
                     onde, de acordo com as respostas que o usuário insere,
@@ -67,7 +67,7 @@
 
 </div>
 <div class="quiz-info">
-    <img ng-show="quiz.foto" ng-src="{{quiz.foto}}" class="preview-foto">
+    <img ng-show="quiz.url_foto" ng-src="{{quiz.url_foto}}" class="preview-foto">
 </div>
 
 <button class="aligned-center" ng-click="proximaParte()">Próxima parte</button>

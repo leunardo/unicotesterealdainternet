@@ -27,6 +27,7 @@ create table quiz
     id_modalidade bigint 				          unsigned not null,
     titulo varchar(255)					         	       not null,
     resumo varchar(255)					          		   not null,
+    url_foto varchar(255)                                  not null,
     primary key(id_quiz)                                           ,
     foreign key(id_usuario) references usuario(id_usuario)         ,
     foreign key(id_modalidade) references modalidade(id_modalidade)    
@@ -84,7 +85,18 @@ create table userquizzes(
     primary key(id_userquiz),
     foreign key(id_quiz) references quiz(id_quiz),
     foreign key(id_user) references usuario(id_usuario)
-)
+);
+
+create table resultado(
+	id_resultado bigint unsigned not null auto_increment,
+    id_quiz bigint unsigned not null,
+    resultado varchar(255) not null,
+    url_foto varchar(255) not null,
+    pontuacaoMin int unsigned not null,
+    pontuacaoMax int unsigned not null,
+    primary key (id_resultado),
+    foreign key (id_quiz) references quiz(id_quiz)
+);
 
 create table friendship(
 	id_friendship bigint unsigned not null auto_increment,

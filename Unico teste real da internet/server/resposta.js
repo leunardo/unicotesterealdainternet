@@ -4,7 +4,7 @@ const respostaService = require('./service/respostaService');
 router
     .route('/:id_quiz/perguntas/:id_pergunta/respostas')
         .get(getAllRespostas)
-        .put(criarResposta)
+        .post(criarResposta)
 
 function getAllRespostas(req, res){
     respostaService.getAllRespostas(req.params.id_pergunta, (respostas)=>{
@@ -13,7 +13,7 @@ function getAllRespostas(req, res){
 }
 
 function criarResposta(req, res){
-    respostaService.criarResposta(req.body.resposta, (result)=>{
+    respostaService.criarResposta(req.body, (result)=>{
         res.send(result)
     });
 }
