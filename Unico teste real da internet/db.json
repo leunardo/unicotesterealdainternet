@@ -775,6 +775,7 @@
           "id": 35
         }
       ],
+<<<<<<< Updated upstream
       "tags": [
         "random stuff",
         "matemática",
@@ -783,6 +784,10 @@
         "pontuação",
         "lógica"
       ],
+=======
+<<<<<<< Updated upstream
+      "tags": "random stuff,matemática,qi,conhecimentos gerais,pontuação,lógica",
+>>>>>>> Stashed changes
       "modalidade": "pontuacao"
     },
     {
