@@ -42,10 +42,11 @@ if __name__ == '__main__':
     #            uid   amigos                          quizzes_respondidos           meus_quizzes                       tags
     users = [bruno, jose, airton, pablo, juck]
     resultado = calcular_softmax(leo, users)
-
+    variancia = np.var(resultado)
+    media = np.mean(resultado)
     print(list(zip([user.uid for user in users], resultado)))
     for r in resultado:
-        if r > (1 / len(resultado)):
+        if r > media - variancia:
             print(r, " tem coisas em comum com voce")
         else:
             print(r, " não tem coisas em comum com voce")
