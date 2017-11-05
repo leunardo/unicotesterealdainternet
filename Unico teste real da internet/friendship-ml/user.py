@@ -1,5 +1,5 @@
 from collections import defaultdict
-from similaridadecossenos import ordenar_dict
+from util import ordenar_dict
 import pandas as pd
 
 class User:
@@ -22,15 +22,23 @@ class User:
         for tag, n in tags.items():
             self.tags[tag] += n
 
-    def amigos_em_comum(self, user):
+    def amigos_em_comum(self, user: 'User'):
         # Retorna os amigos em comum entre dois usuarios.
         return self.amigos.intersection(user.amigos)
 
-    def quizzes_em_comum(self, user):
+    def mesclar_amigos(self, user: 'User'):
+        # Retorna os amigos mesclados entre dois usuarios
+        return self.amigos.union(user.amigos)
+
+    def quizzes_em_comum(self, user: 'User'):
         # Retorna os quizzes em comum entre dois usuarios
         return self.somatorio_quizzes.intersection(user.somatorio_quizzes)
 
-    def tags_em_comum(self, user):
+    def mesclar_quizzes(self, user: 'User'):
+        # Retorna a uniao de quizzes entre dois usuarios
+        return self.somatorio_quizzes.union(user.somatorio_quizzes)
+
+    def tags_em_comum(self, user: 'User'):
         # Retorna uma matriz espersa de usuario,tag
         for tag in self.tags.keys():
             user.tags[tag] += 0
