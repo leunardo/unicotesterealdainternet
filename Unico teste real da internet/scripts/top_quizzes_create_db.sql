@@ -91,11 +91,12 @@ create table resultado(
 	id_resultado bigint unsigned not null auto_increment,
     id_quiz bigint unsigned not null,
     resultado varchar(255) not null,
+    url_foto varchar(255) not null,
     pontuacaoMin int unsigned not null,
     pontuacaoMax int unsigned not null,
     primary key (id_resultado),
     foreign key (id_quiz) references quiz(id_quiz)
-    );
+);
 
 create table friendship(
 	id_friendship bigint unsigned not null auto_increment,
