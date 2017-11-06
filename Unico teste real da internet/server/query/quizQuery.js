@@ -38,9 +38,13 @@ query.criarQuiz = function criarQuiz(quiz, callback){
     executeQuery(quiz, callback, query); 
 }
 
-query.getIdQuizzesDoUsuario = function getIdQuizzesDoUsuario(idUsuario, callback) {
-    var query = 'select id_quiz from userquizzes where id_user = ?'
+query.getIdQuizzesRespondidosPeloUsuario = function (idUsuario, callback) {
+    var query = 'select id_quiz from userquizzes where id_usuario = ?'
     executeQuery(idUsuario, callback, query);
+}
+
+query.getIdQuizzesCriadosPeloUsuario = function (idUsuario, callback) {
+    var query = 'select id_quiz from quiz where id_usuario = ?'
 }
 
 function executeQuery(obj, callback, query) {
