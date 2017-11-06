@@ -38,6 +38,11 @@ query.criarQuiz = function criarQuiz(quiz, callback){
     executeQuery(quiz, callback, query); 
 }
 
+query.getIdQuizzesDoUsuario = function getIdQuizzesDoUsuario(idUsuario, callback) {
+    var query = 'select id_quiz from userquizzes where id_user = ?'
+    executeQuery(idUsuario, callback, query);
+}
+
 function executeQuery(obj, callback, query) {
     connection.query(query, obj, (err, result) => {
         if (err) throw err;
