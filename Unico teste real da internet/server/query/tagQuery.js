@@ -17,6 +17,14 @@ query.criarTag = function criarTag(tag, callback){
     executeQuery(tag, callback, query);
 }
 
+query.tagsDoUsuario = function tagsDoUsuario(idUsuario, callback) {
+    var query = `Select t.tag, count(t.id_tag) n from userquizzes u
+                    inner join quiztags q on u.id_quiz = q.id_quiz
+                    inner join tag t on t.id_tag = q.id_tag
+                    group by t.tag desc;`;
+    executeQuery(idUsuario, callback, query);
+}
+
 function executeQuery(obj, callback, query) {
     connection.query(query, obj, (err, result) => {
         if (err) throw err;
