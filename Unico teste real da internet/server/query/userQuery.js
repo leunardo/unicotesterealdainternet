@@ -32,6 +32,12 @@ query.usuarioJaCadastrado = function usuarioJaCadastrado(gid, callback){
     executeQuery(gid, callback, query);
 }
 
+query.amigosDosAmigos = function amigosDosAmigos(idUsuario, callback) {
+    var query = `select id_user2 from friendship where id_user in 
+                    (select id_user2 where id_user = ?);`;
+    executeQuery(idUsuario, callback);
+}
+
 function executeQuery(obj, callback, query) {
     connection.query(query, obj, (err, result) => {
         if (err) throw err;
