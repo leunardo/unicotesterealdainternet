@@ -45,11 +45,9 @@ if __name__ == '__main__':
     resultado = calcular_softmax(leo, users)
     variancia = np.var(resultado)
     media = np.mean(resultado)
-    output = []
-    
-    output.append({ "resultado": list(zip([user.uid for user in users], resultado)), 
-                    "media": media, 
-                    "variancia": variancia})
+    output = {"resultado": list(zip([user.uid for user in users], resultado)), 
+              "media": media, 
+              "variancia": variancia}
     print(json.dumps(output))
     #for r in resultado:
     #    if r > media - variancia:
