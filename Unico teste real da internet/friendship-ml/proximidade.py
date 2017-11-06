@@ -1,4 +1,5 @@
 import numpy as np
+import json
 from user import User
 from similaridadecossenos import similaridade_cossenos
 from similaridadejaccard import similaridade_amigos, similaridade_quizzes_feitos
@@ -44,9 +45,14 @@ if __name__ == '__main__':
     resultado = calcular_softmax(leo, users)
     variancia = np.var(resultado)
     media = np.mean(resultado)
-    print(list(zip([user.uid for user in users], resultado)))
-    for r in resultado:
-        if r > media - variancia:
-            print(r, " tem coisas em comum com voce")
-        else:
-            print(r, " não tem coisas em comum com voce")
+    output = []
+    
+    output.append({ "resultado": list(zip([user.uid for user in users], resultado)), 
+                    "media": media, 
+                    "variancia": variancia})
+    print(json.dumps(output))
+    #for r in resultado:
+    #    if r > media - variancia:
+    #        print(r, " tem coisas em comum com voce")
+    #    else:
+    #        print(r, " não tem coisas em comum com voce")
