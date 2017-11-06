@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const respostaService = require('./service/respostaService');
+const respostaService = require('../service/respostaService');
 
 router
     .route('/:id_quiz/perguntas/:id_pergunta/respostas')
