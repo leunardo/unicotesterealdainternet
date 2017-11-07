@@ -1,5 +1,4 @@
 const tagQuery = require('../query/tagQuery');
-const auth = require('../auth');
 const service = {};
 
 service.getAllTags = function getAllTags(callback){

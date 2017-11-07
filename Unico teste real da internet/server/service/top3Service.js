@@ -1,5 +1,4 @@
 const top3Query = require('../query/top3Query');
-const auth = require('../auth');
 const service = {};
 
 service.getTop3 = function getTop3(callback){

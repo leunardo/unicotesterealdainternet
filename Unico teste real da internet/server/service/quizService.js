@@ -1,5 +1,4 @@
 const quizQuery = require('../query/quizQuery');
-const auth = require('../auth');
 const service = {};
 
 service.getQuizPorId = function getQuizPorId(id, callback){

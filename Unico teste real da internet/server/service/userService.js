@@ -1,5 +1,5 @@
 const userQuery = require('../query/userQuery');
-const auth = require('../auth');
+const auth = require('../endpoint/auth');
 const service = {};
 
 service.getUsuarioPorId = function getUsuarioPorId(id, callback) {
