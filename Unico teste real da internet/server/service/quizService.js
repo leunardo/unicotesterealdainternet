@@ -1,6 +1,11 @@
 const quizQuery = require('../query/quizQuery');
-const auth = require('../auth');
+const openConnection = require('../factory/dbConnectionFactory');
 const service = {};
+
+service.quizService = function quizService() {
+    let db = openConnection();
+    quizQuery.quizQuery(db);
+}
 
 service.getQuizPorId = function getQuizPorId(id, callback){
     quizQuery.getQuizPorId(id, (result) => callback(result));
@@ -29,5 +34,27 @@ service.criarQuiz = function criarQuiz(quiz, callback) {
 service.buscarQuizPorTag = function buscarQuizPorTag(query, nPagina, callback){
     quizQuery.buscarQuizPorTag(query, nPagina, (result) => callback(result));
 }
+
+service.quizzesRespondidos = function(idUsuario, callback) {
+    quizQuery.getIdQuizzesRespondidosPeloUsuario(idUsuario, (result) => {
+        let quizzes = [];
+        for (quiz of result) {
+            quizzes.push(quiz.id_quiz);
+        }
+        callback(quizzes);
+    });
+} 
+
+service.quizzesFeitos = function(idUsuario, callback) {
+    quizQuery.getIdQuizzesCriadosPeloUsuario(idUsuario, (result) => {
+        let quizzes = [];
+        for (quiz of result) {
+            quizzes.push(quiz.id_quiz);
+        }
+        callback(quizzes);
+    });
+}
+
+service.dispose = quizQuery.dispose;
 
 module.exports = service;

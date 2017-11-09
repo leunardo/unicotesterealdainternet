@@ -1,6 +1,12 @@
 const respostaQuery = require('../query/respostaQuery');
+const openConnection = require('../factory/dbConnectionFactory')
 const auth = require('../auth');
 const service = {};
+
+service.respostaService = function respostaService() {
+    let db = openConnection();
+    respostaQuery.respostaQuery(db);
+}
 
 service.getAllRespostas = function getAllRespostas(idPergunta, callback){
     respostaQuery.getAllRespostas(idPergunta, (result) => callback(result));
