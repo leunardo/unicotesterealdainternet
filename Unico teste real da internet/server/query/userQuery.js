@@ -1,11 +1,9 @@
-const mysql = require('mysql');
 const query = {};
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'db_topquizzes'
-});
+let connection;
+
+query.userQuery = function userQuery(conn) {
+    connection = conn;
+}
 
 query.getUsuarioPorId = function getUsuarioPorId(id, callback) {
     var query = 'select * from usuario where id_usuario = ?';
@@ -33,14 +31,14 @@ query.usuarioJaCadastrado = function usuarioJaCadastrado(gid, callback){
 }
 
 query.amigosDosAmigos = function amigosDosAmigos(idUsuario, callback) {
-    var query = `select id_usuario2 from friendship where id_user in 
-                    (select id_usuario2 where id_usuario = ?);`;
+    var query = `select id_usuario2 from friendship where id_usuario in 
+                    (select id_usuario2 where id_usuario = ?) and pendente = 0;`;
     executeQuery(idUsuario, callback, query);
 }
 
-query.amigos = function amigos(idUsuario, callback) {
-    var query = 'select id_user2 from friendship where id_usuario = ?';
-    executeQuery(idUsuario, callback, query)
+query.amigos = function amigos(idUsuario,callback) {
+    var query = 'select id_usuario2 from friendship where id_usuario = ? and pendente = 0';
+    executeQuery(idUsuario, callback, query);    
 }
 
 function executeQuery(obj, callback, query) {

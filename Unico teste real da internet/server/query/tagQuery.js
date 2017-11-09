@@ -1,11 +1,9 @@
-const mysql = require('mysql');
 const query = {};
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'db_topquizzes'
-});
+let connection;
+
+query.tagQuery = function tagQuery(conn) {
+    connection = conn;
+}
 
 query.getAllTags = function getAllTags(callback){
     var query = 'select * from tag';
@@ -18,19 +16,26 @@ query.criarTag = function criarTag(tag, callback){
 }
 
 query.tagsDoUsuario = function tagsDoUsuario(idUsuario, callback) {
-    var query = `Select t.tag, count(t.id_tag) n from userquizzes u
-                    inner join quiztags q on u.id_quiz = q.id_quiz
-                    inner join tag t on t.id_tag = q.id_tag
+    var query = `Select t.tag, count(t.id_tag) n from quiz q 
+                    inner join usuario u on u.id_usuario = q.id_usuario
+                    inner join quiztags qt on qt.id_quiz = q.id_quiz
+                    inner join tag t on t.id_tag = qt.id_tag
                     where u.id_usuario = ?
-                    group by t.tag desc;`;
-    executeQuery(idUsuario, callback, query);
+                    group by t.id_tag;`;
+
+    let resultado = executeQuery(idUsuario, callback, query);
+    return resultado;
+
 }
+
+query.dispose = () => { connection.end() };
 
 function executeQuery(obj, callback, query) {
     connection.query(query, obj, (err, result) => {
         if (err) throw err;
         else callback(result);
     })
+    connection.end();
 }
 
 module.exports = query;

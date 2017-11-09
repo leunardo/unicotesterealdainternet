@@ -1,11 +1,9 @@
-const mysql = require('mysql');
 const query = {};
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'db_topquizzes'
-});
+let connection;
+
+query.top3Query = function top3Query(conn) {
+    connection = conn;
+}
 
 query.getTop3 = function getTop3(id_quiz, callback){
     var query = 'select * from top3 where id_quiz = ?';

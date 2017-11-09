@@ -1,11 +1,9 @@
-const mysql = require('mysql');
 const query = {};
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'db_topquizzes'
-});
+let connection;
+
+query.respostaQuery = function respostaQuery(conn) {
+    connection = conn;
+}
 
 query.criarResposta = function criarResposta(resposta, callback){
     var query = 'insert into resposta set ?';

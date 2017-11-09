@@ -1,11 +1,9 @@
-const mysql = require('mysql');
 const query = {};
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'db_topquizzes'
-});
+let connection;
+
+query.quizQuery = function quizQuery(conn) {
+    connection = conn;
+}
 
 query.getQuizPorId = function getQuizPorId(id, callback){
     var query = 'select * from quiz where id_quiz = ?';
@@ -40,12 +38,15 @@ query.criarQuiz = function criarQuiz(quiz, callback){
 
 query.getIdQuizzesRespondidosPeloUsuario = function (idUsuario, callback) {
     var query = 'select id_quiz from userquizzes where id_usuario = ?'
+    executeQuery(idUsuario, callback, query);    
+}
+
+query.getIdQuizzesCriadosPeloUsuario = function (idUsuario,callback) {
+    var query = 'select id_quiz from quiz where id_usuario = ?'
     executeQuery(idUsuario, callback, query);
 }
 
-query.getIdQuizzesCriadosPeloUsuario = function (idUsuario, callback) {
-    var query = 'select id_quiz from quiz where id_usuario = ?'
-}
+query.dispose = () => { connection.end(); };
 
 function executeQuery(obj, callback, query) {
     connection.query(query, obj, (err, result) => {
