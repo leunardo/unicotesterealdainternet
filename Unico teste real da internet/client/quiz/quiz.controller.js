@@ -109,11 +109,9 @@ function quizController($scope, quizService, usuarioService, authService, $locat
     }
 
     function encerrarQuiz() {
-        console.log($scope.notas);
         $scope.notaFinal = $scope.notas.reduce(function(notaAnterior, notaAtual){
             return notaAnterior + notaAtual;
         });
-        console.log($scope.notaFinal);
         $scope.parteQuiz = 3;
         adicionarUsuarioAoQuiz();        
         if($scope.quiz.modalidade==="pontuacao"){

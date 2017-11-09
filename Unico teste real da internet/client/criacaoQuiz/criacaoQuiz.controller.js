@@ -16,9 +16,9 @@ function criacaoQuizController($scope, authService, $location, quizService) {
         explicacao: ''
     };
     $scope.opened = {
-        '1': false,
-        '2': false,
-        '3': false
+        'pessoal': false,
+        'pontuacao': false,
+        'generico': false
     }
     $scope.quiz = {
         titulo: '',
@@ -63,15 +63,15 @@ function criacaoQuizController($scope, authService, $location, quizService) {
     }
 
     function modalidadePessoal() {
-        return $scope.quiz.modalidade === 1;
+        return $scope.quiz.modalidade === 'pessoal';
     }
 
     function modalidadePontuacao() {
-        return $scope.quiz.modalidade === 2;
+        return $scope.quiz.modalidade === 'pontuacao';
     }
 
     function modalidadeGenerica() {
-        return $scope.quiz.modalidade === 3;
+        return $scope.quiz.modalidade === 'generico';
     }
 
     function adicionarResposta(resposta) {
@@ -105,15 +105,11 @@ function criacaoQuizController($scope, authService, $location, quizService) {
                 proximoResultado();
             }
             $scope.quiz.usuariosQueResponderam = [];
-            if($scope.quiz.modalidade!=3){
+            if($scope.quiz.modalidade!="generico"){
                 $scope.quiz.top3 = [];
             }
-            quizService.criarQuiz($scope.quiz)
-                .then(response => {
-                    $location.path("quiz/" + response.data.id);
-                }, fail => {
-                    console.log(fail);
-                });
+            quizService.criarQuiz($scope.quiz);
+            alertify.alert("Quiz criado com sucesso. Redirecionando para home.")
         }
     }
 
@@ -177,6 +173,7 @@ function criacaoQuizController($scope, authService, $location, quizService) {
 
     function proximaParte() {
         if ($scope.perguntaForm.$valid&&$scope.parteQuiz==1&&$scope.quiz.modalidade != '') {
+            $scope.quiz.id_modalidade = ($scope.quiz.modalidade == 'generico')? 3: ($scope.quiz.modalidade == 'pontuacao')? 2: 1;
             $scope.parteQuiz++;
         }
         else if($scope.parteQuiz==2&&$scope.quiz.perguntas.length>6){

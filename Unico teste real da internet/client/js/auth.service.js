@@ -28,20 +28,24 @@ function authService(usuarioService, $http) {
             let profile = googleUser.getBasicProfile();
             let usuario;
             usuarioService.usuarioJaCadastrado(profile.getId()).then((result)=>{
-                usuario = result.data[0];
-                localStorage.usuario = JSON.stringify(usuario);
-            }
-            ,(fail)=>{
-                usuarioService.criarUsuario({
+                if(result.data[0]==undefined){
+                    usuarioService.criarUsuario({
                     'id_google': profile.getId(),
                     'nome': profile.getName(),
                     'descricao': '',
                     'url_foto': profile.getImageUrl(),
                     'pontuacao': 0
                 }).then((user)=>{
-                    localStorage.usuario = JSON.stringifu(user.data);
+                    localStorage.usuario = JSON.stringify(user.data);
                 })
-            }).finally(atualizar);                                       
+                }else{
+                    usuario = result.data[0];
+                    localStorage.usuario = JSON.stringify(usuario);
+                }
+            }
+            ,(fail)=>{
+                console.log(fail);
+            }).finally(atualizar);                      
         });
     }
 }

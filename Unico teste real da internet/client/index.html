@@ -25,7 +25,7 @@
             </form>
         </div>
             <section ng-controller="authController" class="profile-info">
-             <a ng-href="#!/perfil/{{usuario.id_usuario}}"><img ng-show="logged" class="profile-pic aligned-center" ng-src="{{usuario.url_foto}}"></a> 
+            <a ng-href="#!/perfil/{{usuario.id_usuario}}"><img ng-show="logged" class="profile-pic aligned-center" ng-src="{{usuario.url_foto}}"></a> 
             <a ng-show="logged" class="aligned-center" ng-href="/#!/perfil/{{usuario.id_usuario}}">{{usuario.nome}}</a>  
             <div ng-hide="logged" class="g-signin2" ng-click="signIn(atualizar)"></div>
             <div ng-hide="logged" class="mobile-signin" ng-click="signIn(atualizar)">
