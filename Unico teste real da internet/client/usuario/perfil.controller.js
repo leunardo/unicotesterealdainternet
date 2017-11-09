@@ -1,8 +1,6 @@
 app.controller('perfilController', perfilController);
 
 function perfilController($scope, $routeParams, authService, usuarioService, quizService) {
-    getUsuario();
-    getQuizzesDoUsuario();
     $scope.checarUser = checarUser;
     $scope.usuario = "";
     $scope.atualizarPerfil = atualizarPerfil;
@@ -11,12 +9,14 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     $scope.nPagina = 1;
     $scope.editarPerfil = editarPerfil;
     $scope.fecharModal = fecharModal;
+    getUsuario();
 
     function getUsuario() {
         usuarioService.getUsuarioPorId($routeParams.id)
             .then(response => {
                 $scope.usuario = response.data[0]; 
                 $scope.usuarioCopia = angular.copy($scope.usuario);
+                getQuizzesDoUsuario();
             }, fail => {
                 alert("Deu erro");
             });

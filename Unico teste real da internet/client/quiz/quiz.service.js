@@ -1,6 +1,6 @@
 app.factory("quizService", quizService);
 
-function quizService($http, URL) {
+function quizService($http, URL, $location) {
     var url = `${URL}`;
     var Pontuacao = 0;
 
@@ -27,19 +27,21 @@ function quizService($http, URL) {
     function criarQuiz(quizObj) {
         var quiz = {
             "id_usuario": quizObj.id_usuario,
-            "id_modalidade": quizObj.modalide,
+            "id_modalidade": quizObj.id_modalidade,
             "titulo": quizObj.titulo,
             "resumo": quizObj.resumo,
             "url_foto": quizObj.url_foto
         }
+        console.log(quiz);
+        console.log(quizObj);
         insertQuiz(quiz).then(
             (response)=>
             {
-                console.log(response);
                 criarPerguntas(response.data.insertId, quizObj.perguntas)
+                return response.data.insertId;
             }
             ,(fail) => console.log(fail)
-        )
+        ).finally($location.path("index"));
     }
 
     function insertQuiz(quiz){
@@ -68,7 +70,6 @@ function quizService($http, URL) {
     }
 
     function insertPergunta(pergunta){
-        console.log(pergunta);
         return $http.post(`${url}/quizzes/${pergunta.id_quiz}/perguntas`, pergunta)
     }
 

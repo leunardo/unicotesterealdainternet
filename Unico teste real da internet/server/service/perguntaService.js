@@ -1,6 +1,5 @@
 const openConnection = require('../factory/dbConnectionFactory');
 const perguntaQuery = require('../query/perguntaQuery');
-const auth = require('../auth');
 const service = {};
 
 service.perguntaService = function perguntaService() {

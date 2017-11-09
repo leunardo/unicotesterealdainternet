@@ -20,6 +20,10 @@ create table modalidade
     primary key (id_modalidade)
 );
 
+insert into modalidade set nome = "pessoal";
+insert into modalidade set nome = "pontuacao";
+insert into modalidade set nome = "generica";
+
 create table quiz 
 (
 	id_quiz bigint                 unsigned not null auto_increment,
@@ -50,6 +54,7 @@ create table pergunta
 	id_pergunta bigint unsigned not null auto_increment,
     id_quiz bigint 					  unsigned not null,
     descricao varchar(255) 					   not null,
+    nPergunta smallint unsigned not null,
     primary key (id_pergunta)
 );
 
@@ -75,7 +80,7 @@ create table quiztags(
     id_tag bigint unsigned not null,
     primary key(id_relacao),
     foreign key(id_quiz) references quiz(id_quiz),
-    foreign key(id_tag) references tag(id_tag)
+    foreign key(id_ftag) references tag(id_tag)
 );
 
 create table userquizzes(

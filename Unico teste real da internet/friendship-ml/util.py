@@ -27,3 +27,4 @@ def soma_raiz_quadrada(x):
     :return: raiz quadrada da soma dos quadrados de x.
     """
     return np.sqrt(np.sum([a * a for a in x]))
+

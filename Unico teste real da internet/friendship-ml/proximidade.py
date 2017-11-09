@@ -1,5 +1,5 @@
 import numpy as np
-import json
+import json, sys
 from user import User
 from similaridadecossenos import similaridade_cossenos
 from similaridadejaccard import similaridade_amigos, similaridade_quizzes_feitos
@@ -32,6 +32,8 @@ def calcular_softmax(usuario_principal, usuarios):
 
 
 if __name__ == '__main__':
+    dados = sys.stdin.readlines()
+    
     """Executa o arquivo e roda amostras de teste."""
     leo    = User(1, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [                          ], [10, 20, 30, 40, 50, 60, 70, 80], {"arroz": 4, "feijao": 3, "c": 2})
     bruno  = User(2, [2                            ], [10, 20, 30, 40            ], [                              ], {"arroz": 2, "feijao": 3, "batata": 6, "queijo": 3})
@@ -48,9 +50,5 @@ if __name__ == '__main__':
     output = {"resultado": list(zip([user.uid for user in users], resultado)), 
               "media": media, 
               "variancia": variancia}
-    print(json.dumps(output))
-    #for r in resultado:
-    #    if r > media - variancia:
-    #        print(r, " tem coisas em comum com voce")
-    #    else:
-    #        print(r, " não tem coisas em comum com voce")
+
+    print(output)
