@@ -1,58 +1,51 @@
-const query = {};
-let connection;
+const Query = require('./query')
 
-query.quizQuery = function quizQuery(conn) {
-    connection = conn;
+class QuizQuery extends Query {
+    
+    constructor (connection) {
+        super(connection);
+    }
+
+    getQuizPorId(id, callback){
+        let query = 'select * from quiz where id_quiz = ?';
+        this.executeQuery(id, callback, query);
+    }
+
+    getQuizzesDaPagina(nPagina, callback){
+        let query = 'select * from quiz limit ?,8';
+        this.executeQuery((nPagina-1)*8, callback, query);
+    }
+
+    getAllQuizzes(callback){
+        let query = 'select * from quiz';
+        this.executeQuery(null, callback, query);
+    }
+
+    getQuizzesDoUsuario(idUsuario, nPagina, callback){
+        let query = 'select * from quiz where id_usuario = ? limit ?,8';
+        this.executeQuery([idUsuario, (nPagina-1)*8], callback, query);
+    }
+
+    buscarQuiz(quizQuery, nPagina, callback){
+        let query = 'select * from quiz where (titulo like ?) or (resumo like ?) limit ?,8'
+        this.executeQuery(['%'+quizQuery+'%', '%'+quizQuery+'%', (nPagina-1)*8], callback, query);
+    }
+
+    criarQuiz(quiz, callback){
+        let query = 'insert into quiz set ?';
+        this.executeQuery(quiz, callback, query); 
+    }
+
+    getIdQuizzesRespondidosPeloUsuario  (idUsuario, callback) {
+        let query = 'select id_quiz from userquizzes where id_usuario = ?'
+        this.executeQuery(idUsuario, callback, query);    
+    }
+
+    getIdQuizzesCriadosPeloUsuario (idUsuario,callback) {
+        let query = 'select id_quiz from quiz where id_usuario = ?'
+        this.executeQuery(idUsuario, callback, query);
+    }
+    
 }
 
-query.getQuizPorId = function getQuizPorId(id, callback){
-    var query = 'select * from quiz where id_quiz = ?';
-    executeQuery(id, callback, query);
-}
-
-query.getQuizzesDaPagina = function getQuizzesDaPagina(nPagina, callback){
-    var query = 'select * from quiz limit ?,8';
-    executeQuery((nPagina-1)*8, callback, query);
-}
-
-query.getAllQuizzes = function getAllQuizzes(callback){
-    var query = 'select * from quiz';
-    executeQuery(null, callback, query);
-}
-
-query.getQuizzesDoUsuario = function getQuizzesDoUsuario(idUsuario, nPagina, callback){
-    var query = 'select * from quiz where id_usuario = ? limit ?,8';
-    executeQuery([idUsuario, (nPagina-1)*8], callback, query);
-}
-
-query.buscarQuiz = function buscarQuiz(quizQuery, nPagina, callback){
-    var query = 'select * from quiz where (titulo like ?) or (resumo like ?) limit ?,8'
-    executeQuery(['%'+quizQuery+'%', '%'+quizQuery+'%', (nPagina-1)*8], callback, query);
-}
-
-query.criarQuiz = function criarQuiz(quiz, callback){
-    console.log(quiz);
-    var query = 'insert into quiz set ?';
-    executeQuery(quiz, callback, query); 
-}
-
-query.getIdQuizzesRespondidosPeloUsuario = function (idUsuario, callback) {
-    var query = 'select id_quiz from userquizzes where id_usuario = ?'
-    executeQuery(idUsuario, callback, query);    
-}
-
-query.getIdQuizzesCriadosPeloUsuario = function (idUsuario,callback) {
-    var query = 'select id_quiz from quiz where id_usuario = ?'
-    executeQuery(idUsuario, callback, query);
-}
-
-query.dispose = () => { connection.end(); };
-
-function executeQuery(obj, callback, query) {
-    connection.query(query, obj, (err, result) => {
-        if (err) throw err;
-        else callback(result);
-    })
-}
-
-module.exports = query;
+module.exports = QuizQuery;

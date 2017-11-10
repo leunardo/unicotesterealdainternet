@@ -1,30 +1,32 @@
-const query = {};
-let connection;
+const Query = require('./query')
 
-query.perguntaQuery = function perguntaQuery(conn) { 
-    connection = conn;
+class PerguntaQuery extends Query {
+
+    constructor (connection) {
+        super(connection);
+    }
+
+    getPergunta(idPergunta, callback){
+        let query = 'select * from pergunta where id_pergunta = ?';
+        this.executeQuery(idPergunta, callback, query);
+    }
+
+    criarPergunta(pergunta, callback){
+        let query = 'insert into pergunta set ?';
+        this.executeQuery(pergunta, callback, query);
+    }
+
+    getAllPerguntas(idQuiz, callback){
+        let query = 'select * from pergunta where id_quiz = ?';
+        this.executeQuery(idQuiz, callback, query);
+    }
+
+    executeQuery(obj, callback, query) {
+        this._connection.query(query, obj, (err, result) => {
+            if (err) throw err;
+            else callback(result);
+        })
+    }
 }
 
-query.getPergunta = function getPergunta(idPergunta, callback){
-    var query = 'select * from pergunta where id_pergunta = ?';
-    executeQuery(idPergunta, callback, query);
-}
-
-query.criarPergunta = function criarPergunta(pergunta, callback){
-    var query = 'insert into pergunta set ?';
-    executeQuery(pergunta, callback, query);
-}
-
-query.getAllPerguntas = function getAllPerguntas(idQuiz, callback){
-    var query = 'select * from pergunta where id_quiz = ?';
-    executeQuery(idQuiz, callback, query);
-}
-
-function executeQuery(obj, callback, query) {
-    connection.query(query, obj, (err, result) => {
-        if (err) throw err;
-        else callback(result);
-    })
-}
-
-module.exports = query;
+module.exports = PerguntaQuery;

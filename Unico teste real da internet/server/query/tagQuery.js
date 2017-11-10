@@ -1,41 +1,32 @@
-const query = {};
-let connection;
+const Query = require('./query');
 
-query.tagQuery = function tagQuery(conn) {
-    connection = conn;
+class TagQuery extends Query {
+
+    constructor (connection) {
+        super(connection);
+    }
+
+    getAllTags(callback){
+        let query = 'select * from tag';
+        this.executeQuery(null, callback, query);
+    }
+
+    criarTag(tag, callback){
+        let query = 'insert into tag set ?';
+        this.executeQuery(tag, callback, query);
+    }
+
+    tagsDoUsuario(idUsuario, callback) {
+        let query = `Select t.tag, count(t.id_tag) n from quiz q 
+                        inner join usuario u on u.id_usuario = q.id_usuario
+                        inner join quiztags qt on qt.id_quiz = q.id_quiz
+                        inner join tag t on t.id_tag = qt.id_tag
+                        where u.id_usuario = ?
+                        group by t.id_tag;`;
+    
+        this.executeQuery(idUsuario, callback, query);   
+    } 
+    
 }
 
-query.getAllTags = function getAllTags(callback){
-    var query = 'select * from tag';
-    executeQuery(null, callback, query);
-}
-
-query.criarTag = function criarTag(tag, callback){
-    var query = 'insert into tag set ?';
-    executeQuery(tag, callback, query);
-}
-
-query.tagsDoUsuario = function tagsDoUsuario(idUsuario, callback) {
-    var query = `Select t.tag, count(t.id_tag) n from quiz q 
-                    inner join usuario u on u.id_usuario = q.id_usuario
-                    inner join quiztags qt on qt.id_quiz = q.id_quiz
-                    inner join tag t on t.id_tag = qt.id_tag
-                    where u.id_usuario = ?
-                    group by t.id_tag;`;
-
-    let resultado = executeQuery(idUsuario, callback, query);
-    return resultado;
-
-}
-
-query.dispose = () => { connection.end() };
-
-function executeQuery(obj, callback, query) {
-    connection.query(query, obj, (err, result) => {
-        if (err) throw err;
-        else callback(result);
-    })
-    connection.end();
-}
-
-module.exports = query;
+module.exports = TagQuery;

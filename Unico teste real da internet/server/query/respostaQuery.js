@@ -1,25 +1,21 @@
-const query = {};
-let connection;
+const query = require('./query')
 
-query.respostaQuery = function respostaQuery(conn) {
-    connection = conn;
+class RespostaQuery extends Query {
+    
+    constructor (connection) {
+        super(connection);
+    }
+
+    criarResposta(resposta, callback){
+        let query = 'insert into resposta set ?';
+        this.executeQuery(resposta, callback, query);
+    }
+
+    getAllRespostas(idPergunta, callback){
+        let query = 'select * from resposta where id_pergunta = ?';
+        this.executeQuery(idPergunta, callback, query);
+    }
+    
 }
 
-query.criarResposta = function criarResposta(resposta, callback){
-    var query = 'insert into resposta set ?';
-    executeQuery(resposta, callback, query);
-}
-
-query.getAllRespostas = function getAllRespostas(idPergunta, callback){
-    var query = 'select * from resposta where id_pergunta = ?';
-    executeQuery(idPergunta, callback, query);
-}
-
-function executeQuery(obj, callback, query) {
-    connection.query(query, obj, (err, result) => {
-        if (err) throw err;
-        else callback(result);
-    })
-}
-
-module.exports = query;
+module.exports = RespostaQuery;
