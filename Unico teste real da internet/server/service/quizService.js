@@ -38,7 +38,7 @@ class QuizService {
     quizzesRespondidos(idUsuario, callback) {
         this._quizQuery.getIdQuizzesRespondidosPeloUsuario(idUsuario, (result) => {
             let quizzes = [];
-            for (quiz of result) {
+            for (let quiz of result) {
                 quizzes.push(quiz.id_quiz);
             }
             callback(quizzes);
@@ -48,7 +48,7 @@ class QuizService {
     quizzesFeitos(idUsuario, callback) {
         this._quizQuery.getIdQuizzesCriadosPeloUsuario(idUsuario, (result) => {
             let quizzes = [];
-            for (quiz of result) {
+            for (let quiz of result) {
                 quizzes.push(quiz.id_quiz);
             }
             callback(quizzes);
