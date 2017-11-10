@@ -6,6 +6,9 @@ const connectionString = {
     database : 'db_topquizzes'
   };
 
+/**
+ * Classe que conecta-se ao banco de dados e gerencia sua conexão.
+ */
 class DB {
   constructor () {
     this._connection = mysql.createConnection(connectionString);
@@ -18,6 +21,10 @@ class DB {
     return this._connection;
   }
 
+  /**
+   * Fecha a conexão com o banco. Cuidado que isso poderá causar erro caso
+   * exista querys para serem executadas na fila.
+   */
   dispose () {
     this._connection.end();
   }
