@@ -1,19 +1,20 @@
-const top3Query = require('../query/top3Query');
-const openConnection = require('../factory/dbConnectionFactory');
-const auth = require('../auth');
-const service = {};
+const Top3Query = require('../query/top3Query');
+const DB = require('../factory/dbConnectionFactory');
 
-service.top3Service = function top3Service() {
-    let db = openConnection();
-    top3Query.top3Query(db);
+class Top3Service {
+
+    constructor(db = new DB()) {
+        this._top3Query = new Top3Query(db.connection);
+    }
+
+    getTop3(callback){
+        this._top3Query.getTop3((top3) => callback(top3));
+    }
+
+    insertTop3(user, callback){
+        this._top3Query.insertTop3(user, (newTop3) => callback(newTop3));
+    }    
+
 }
 
-service.getTop3 = function getTop3(callback){
-    top3Query.getTop3((top3)=>callback(top3));
-}
-
-service.insertTop3 = function insertTop3(user, callback){
-    top3Query.insertTop3(user, (newTop3)=>callback(newTop3));
-}
-
-module.exports = service;
+module.exports = Top3Service;

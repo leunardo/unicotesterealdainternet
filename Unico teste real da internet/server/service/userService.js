@@ -1,60 +1,56 @@
-const openConnection = require('../factory/dbConnectionFactory')
-const userQuery = require('../query/userQuery');
-const tagQuery = require('../query/tagQuery');
-const quizQuery = require('../query/quizQuery');
+const DB = require('../factory/dbConnectionFactory')
+const UserQuery = require('../query/userQuery');
 const auth = require('../endpoint/auth');
-//const friendship = require('../integration/friendship-ml')
-const service = {};
 
-service.userService = function userService() {
-    let db = openConnection();
-    userQuery.userQuery(db);
-    tagQuery.tagQuery(db);
-    quizQuery.quizQuery(db);
+class UserService {
+    constructor(db = new DB()) {
+        this._userQuery = new UserQuery(db.connection);
+    }
+
+    getUsuarioPorId(id, callback) {
+        this._userQuery.getUsuarioPorId(id, (result) => callback(result));
+    }
+
+    getUsuarios(callback) {
+        this._userQuery.getUsuarios((result) => callback(result));
+    }
+
+    criarUsuario(user, callback) {
+        this._userQuery.criarUsuario(user, (result) => callback(result));
+    };
+
+    updateUsuario(user, token, id, callback){
+        auth.authenticate(token, (payload) => {
+            if (user.id_google == payload['sub'])    
+                this._userQuery.atualizarUsuario
+                    (user.nome, user.url_foto, user.descricao, id, 
+                        (result) => callback(result));
+        })
+    }
+
+    usuarioJaCadastrado(gid, callback){
+        this._userQuery.usuarioJaCadastrado(gid, (result) => callback(result));
+    }
+
+    sugestaoAmigos(idUsuario, callback) {
+        this._userQuery.amigosDosAmigos(idUsuario, (result) => {
+            let usuarios = [];
+            for (let usuario of result) {
+                usuarios.push(usuario.id_usuario2);
+            }
+            callback(usuarios);
+        })  
+    }   
+
+    amigos(idUsuario, callback) {
+        this._userQuery.amigos(idUsuario, (result) => {
+            let usuarios = [];
+            for (let usuario of result) {
+                usuarios.push(usuario.id_usuario2);
+            }    
+            callback(usuarios);
+        });
+    }
+
 }
-
-service.getUsuarioPorId = function getUsuarioPorId(id, callback) {
-    userQuery.getUsuarioPorId(id, (result) => callback(result));
-};
-
-service.getUsuarios = function getUsuarios(callback) {
-    userQuery.getUsuarios((result) => callback(result));
-};
-
-service.criarUsuario = function criarUsuario(user, callback) {
-    userQuery.criarUsuario(user, (result) => callback(result));
-};
-
-service.updateUsuario = function updateUsuario(user, token, id, callback){
-    auth.authenticate(token, (payload) => {
-        if (user.id_google == payload['sub'])    
-            userQuery.atualizarUsuario(user.nome, user.url_foto, user.descricao, id, (result) => callback(result));
-    });
-};
-
-service.usuarioJaCadastrado = function usuarioJaCadastrado(gid, callback){
-    userQuery.usuarioJaCadastrado(gid, (result) => callback(result));
-}
-
-service.sugestaoAmigos = function sugestaoAmigos(idUsuario, callback) {
-    userQuery.amigosDosAmigos(idUsuario, (result) => {
-        let usuarios = [];
-        for (let usuario of result) {
-            usuarios.push(usuario.id_usuario2);
-        }
-        callback(usuarios);
-    });    
-}
-
-service.amigos = function(idUsuario, callback) {
-    userQuery.amigos(idUsuario, (result) => {
-        let usuarios = [];
-        for (let usuario of result) {
-            usuarios.push(usuario.id_usuario2);
-        }
-
-        callback(usuarios);
-    });
-}
-
-module.exports = service;
+module.exports = UserService;

@@ -1,19 +1,20 @@
-const respostaQuery = require('../query/respostaQuery');
-const openConnection = require('../factory/dbConnectionFactory')
-const auth = require('../auth');
-const service = {};
+const RespostaQuery = require('../query/respostaQuery');
+const DB = require('../factory/dbConnectionFactory')
 
-service.respostaService = function respostaService() {
-    let db = openConnection();
-    respostaQuery.respostaQuery(db);
+class RespostaService {
+
+    constructor(db = new DB()) {
+        this._respostaQuery = new RespostaQuery(db.connection);
+    }
+
+    getAllRespostas(idPergunta, callback){
+        this._respostaQuery.getAllRespostas(idPergunta, (result) => callback(result));
+    }
+
+    criarResposta(resposta, callback){
+        this._respostaQuery.criarResposta(resposta, (result) => callback(result));
+    }    
+    
 }
 
-service.getAllRespostas = function getAllRespostas(idPergunta, callback){
-    respostaQuery.getAllRespostas(idPergunta, (result) => callback(result));
-}
-
-service.criarResposta = function criarResposta(resposta, callback){
-    respostaQuery.criarResposta(resposta, (result) => callback(result));
-}
-
-module.exports = service;
+module.exports = RespostaService;

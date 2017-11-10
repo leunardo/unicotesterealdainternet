@@ -1,22 +1,22 @@
-const openConnection = require('../factory/dbConnectionFactory');
-const perguntaQuery = require('../query/perguntaQuery');
-const service = {};
+const DB = require('../factory/dbConnectionFactory');
+const PerguntaQuery = require('../query/perguntaQuery');
 
-service.perguntaService = function perguntaService() {
-    const db = openConnection();
-    perguntaQuery.perguntaQuery(db);
+class perguntaService {
+    constructor(db = new DB()) {        
+        this._perguntaQuery = new PerguntaQuery(db.connection);
+    }
+
+    getPergunta(idPergunta, callback){
+        _perguntaQuery.getPergunta(idPergunta, (result) => callback(result))
+    }
+
+    getAllPerguntas(idQuiz, callback){
+        _perguntaQuery.getAllPerguntas(idQuiz, (result) => callback(result));
+    }
+
+    criarPergunta(pergunta, callback){
+        _perguntaQuery.criarPergunta(pergunta, (result) => callback(result));
+    }
 }
 
-service.getPergunta = function getPergunta(idPergunta, callback){
-    perguntaQuery.getPergunta(idPergunta, (result) => callback(result))
-}
-
-service.getAllPerguntas = function getAllPerguntas(idQuiz, callback){
-    perguntaQuery.getAllPerguntas(idQuiz, (result) => callback(result));
-}
-
-service.criarPergunta = function criarPergunta(pergunta, callback){
-    perguntaQuery.criarPergunta(pergunta, (result) => callback(result));
-}
-
-module.exports = service;
+module.exports = perguntaService;

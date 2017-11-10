@@ -1,33 +1,30 @@
-const tagQuery = require('../query/tagQuery');
-const openConnection = require('../factory/dbConnectionFactory')
-const service = {};
+const TagQuery = require('../query/tagQuery');
+const DB = require('../factory/dbConnectionFactory')
 
-service.tagService = function tagService {
-    let db = openConnection();
-    tagQuery.tagQuery(db);
+class TagService {
+
+    constructor(db = new DB()) {
+        this._tagQuery = new TagQuery(db.connection);
+    }
+
+    getAllTags(callback) {
+        this._tagQuery.getAllTags((tags) => callback(tags));
+    }
+
+    criarTag(tag, callback) {
+        this._tagQuery.criarTag(tag, (result) => callback(result));
+    }
+
+    buscarTagsUsuario(idUsuario, callback) {
+        this._tagQuery.tagsDoUsuario(idUsuario, (result) => {
+            let tags = {};
+            for (let tag of result) {
+                tags[tag.tag] = tag.n
+            }
+            callback(tags);
+        });
+    }
+    
 }
 
-service.getAllTags = function getAllTags(callback){
-    tagQuery.getAllTags((tags)=>{
-        callback(tags);
-    });
-}
-service.criarTag = function criarTag(tag, callback){
-    tagQuery.criarTag(tag, (result)=>{
-        callback(result);
-    });
-}
-
-service.buscarTagsUsuario = function(idUsuario, callback) {
-    tagQuery.tagsDoUsuario(idUsuario, (result) => {
-        let tags = {};
-        for (let tag of result) {
-            tags[tag.tag] = tag.n
-        }
-        callback(tags);
-    });
-}
-
-service.dispose = tagQuery.dispose;
-
-module.exports = service;
+module.exports = TagService;
