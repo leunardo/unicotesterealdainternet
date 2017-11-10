@@ -26,7 +26,7 @@ class DB {
    * exista querys para serem executadas na fila.
    */
   dispose () {
-    this._connection.end();
+    this._connection.end((err) => { if (err) console.log(err) });
   }
 }
 
