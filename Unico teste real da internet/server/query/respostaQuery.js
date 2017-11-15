@@ -1,4 +1,4 @@
-const query = require('./query')
+const Query = require('./query')
 
 class RespostaQuery extends Query {
     

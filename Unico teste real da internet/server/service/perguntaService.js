@@ -7,15 +7,15 @@ class perguntaService {
     }
 
     getPergunta(idPergunta, callback){
-        _perguntaQuery.getPergunta(idPergunta, (result) => callback(result))
+        this._perguntaQuery.getPergunta(idPergunta, (result) => callback(result))
     }
 
     getAllPerguntas(idQuiz, callback){
-        _perguntaQuery.getAllPerguntas(idQuiz, (result) => callback(result));
+        this._perguntaQuery.getAllPerguntas(idQuiz, (result) => callback(result));
     }
 
     criarPergunta(pergunta, callback){
-        _perguntaQuery.criarPergunta(pergunta, (result) => callback(result));
+        this._perguntaQuery.criarPergunta(pergunta, (result) => callback(result));
     }
 }
 

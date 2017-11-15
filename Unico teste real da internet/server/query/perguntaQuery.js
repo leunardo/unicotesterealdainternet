@@ -20,13 +20,6 @@ class PerguntaQuery extends Query {
         let query = 'select * from pergunta where id_quiz = ?';
         this.executeQuery(idQuiz, callback, query);
     }
-
-    executeQuery(obj, callback, query) {
-        this._connection.query(query, obj, (err, result) => {
-            if (err) throw err;
-            else callback(result);
-        })
-    }
 }
 
 module.exports = PerguntaQuery;
