@@ -31,7 +31,7 @@ function homeController($scope, quizService, authService) {
     }
 
     function mostrarQuiz(quiz){
-        quizzes[i] = quiz.data;
+        quizzes[i] = quiz.data[0];
         i++;
         if(quizzes.length==4){
             $scope.quizzes = quizzes;
