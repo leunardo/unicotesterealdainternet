@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 const connectionString = {
     host     : 'localhost',
-    user     : 'leo',
-    password : '123',
+    user     : 'root',
+    password : '',
     database : 'db_topquizzes'
   };
 

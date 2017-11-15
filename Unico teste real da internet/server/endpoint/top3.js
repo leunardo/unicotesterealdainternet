@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const top3Service = require('../service/top3Service');
+const Top3Service = require('../service/top3Service');
+const top3Service = new Top3Service();
 
 router
     .route(':id_quiz/top3')

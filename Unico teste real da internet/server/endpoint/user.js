@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const userService = require('../service/userService');
-
+const UserService = require('../service/userService');
+const userService = new UserService();
 router
     .route('/:id')
         .get(getUserPorId)

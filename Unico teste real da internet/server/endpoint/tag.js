@@ -1,6 +1,9 @@
 const router = require('express').Router();
-const quizService = require('../service/quizService');
-const tagService = require('../service/tagService');
+const QuizService = require('../service/quizService');
+const TagService = require('../service/tagService');
+const quizService = new QuizService();
+const tagService = new TagService();
+
 
 router
     .route('/tag/:tag/:page')
