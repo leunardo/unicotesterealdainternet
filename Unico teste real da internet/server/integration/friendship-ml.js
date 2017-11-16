@@ -8,11 +8,12 @@ const process = spawn('python3', [path]);
 
 class Friendship {
 
-    constructor () {
+    constructor (idUsuario = 0) {
         this._db = new DB();
         this._tagService = new TagService(this._db);
         this._userService = new UserService(this._db);
         this._quizService = new QuizService(this._db);
+        this._usuario = idUsuario;
     }
 
     /**
@@ -21,7 +22,7 @@ class Friendship {
      * @param {*} callback: Função executada após todas as informações serem pegas.
      * @returns {Array} dados do usuario, no formato: [id, amigos, quizzes respondidos, quizzes feitos, tags]
      */
-    montarDados(usuario, callback) {
+    _montarDados(usuario, callback) {
         let dado = [usuario];
         this._userService.amigos(usuario, (amigos) => {
             dado.push(amigos);
@@ -32,35 +33,52 @@ class Friendship {
                     this._tagService.buscarTagsUsuario(usuario, (tags) => {
                         dado.push(tags);
                         callback(dado);
-                        this._db.dispose();
-                    })
-                    
+                    })                    
                 })
             })
         })
     }
 
+    meusDados(callback) {
+        this._montarDados(this._usuario, callback);
+    }
+    
+    buscarCombinacoes(callback) {
+        this._userService.sugestaoAmigos(this._usuario, (possiveisAmigos) => {
+            let combinacoes = [];
+            let amizade = new Friendship();
+            let nCombinacoes = possiveisAmigos.length;
 
+            if (nCombinacoes == 0) callback(combinacoes);
+            for(let i = 0; i < nCombinacoes; i++) {
+                amizade._montarDados(possiveisAmigos[i], (res) => {
+                    combinacoes.push(res);
+
+                    if (nCombinacoes == i + 1)
+                        callback(combinacoes);
+                });
+            }
+        });        
+    }
 }
-let amizade = new Friendship();
 
-amizade.montarDados(12, (dados) => console.log(dados));
-// montarDados(12, (dado) => console.log(dado));
-// function buscarCombinacoes(idUsuario) {
-//     let possiveisAmigos = userService.sugestaoAmigos(idUsuario);
-//     for(usuario of possiveisAmigos) {
-        
-//     }
+function amigosSugeridos(idUsuario, callback) {
+    let amizade = new Friendship(idUsuario);
+    let output = '';
+    amizade.meusDados(dados => { 
+        process.stdin.write(JSON.stringify(dados) + '\n')
+        amizade.buscarCombinacoes(data => { 
+            process.stdin.write(JSON.stringify(data)); 
+            process.stdin.end();
+        })
+    })
+    
+    process.stdout.on('data', data => output += data.toString());
+    process.stderr.on('data', (data) => output += data.toString());
+    process.stdout.on('end', () => callback(output));
+    
+}
 
-// }
+module.exports = amigosSugeridos;
 
-
-// process.stdout.on('data', (data) => output += data.toString());
-// process.stderr.on('data', (data) => output += data.toString());
-// process.stdout.on('end', () => console.log(output));
-
-// process.stdin.write("Hello world");
-// process.stdin.write("Ola mundo");
-// process.stdin.write("hehe xd");
-// process.stdin.end();
-// process.stdin.write(JSON.stringify)
+amigosSugeridos(12, (r) => console.log(r));
