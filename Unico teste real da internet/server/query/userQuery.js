@@ -33,9 +33,13 @@ class UserQuery extends Query {
 
     amigosDosAmigos(idUsuario, callback) {
         let query = `select distinct id_usuario2 from friendship where id_usuario in
-                        (select id_usuario2 from friendship where id_usuario = ?)
-                     and pendente = 0
-                     and id_usuario2 <> ?;`;
+                            (select id_usuario2 from friendship 
+                                    where id_usuario = 12 and pendente = 0)
+                        and id_usuario2 not in (select id_usuario2 from friendship 
+                            where id_usuario = 12 and pendente = 0)
+                        and pendente = 0
+                        and id_usuario <> 12
+                        and id_usuario2 <> 12;`;
         this.executeQuery([idUsuario, idUsuario], callback, query);
     }
 
