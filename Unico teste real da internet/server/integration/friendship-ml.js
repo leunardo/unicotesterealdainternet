@@ -62,13 +62,13 @@ class Friendship {
     }
 }
 
-function amigosSugeridos(idUsuario, callback) {
+function calcularProximidade(idUsuario, callback) {
     let amizade = new Friendship(idUsuario);
     let output = '';
     amizade.meusDados(dados => { 
         process.stdin.write(JSON.stringify(dados) + '\n')
         amizade.buscarCombinacoes(data => { 
-            process.stdin.write(JSON.stringify(data)); 
+            process.stdin.write(JSON.stringify(data));
             process.stdin.end();
         })
     })
@@ -79,6 +79,20 @@ function amigosSugeridos(idUsuario, callback) {
     
 }
 
-module.exports = amigosSugeridos;
+function amigosSugeridos(idUsuario, callback) {
+    calcularProximidade(idUsuario, dadosString => {
+        let dados = JSON.parse(dadosString);
+        let media = parseFloat(dados.media);
+        let variancia = parseFloat(dados.variancia);
+        let usuariosProximos = [];
 
-amigosSugeridos(12, (r) => console.log(r));
+        for (proximidade of dados.resultado) {
+            if (proximidade[1] >= media - variancia)
+                usuariosProximos.push(proximidade[0]);
+        }
+
+        callback(usuariosProximos);
+    })
+}
+
+module.exports = amigosSugeridos;
