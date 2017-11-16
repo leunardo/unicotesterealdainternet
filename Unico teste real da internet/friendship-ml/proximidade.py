@@ -46,4 +46,4 @@ if __name__ == '__main__':
               "media": media, 
               "variancia": variancia}
 
-    print(output)
+    print(json.dumps(output))
