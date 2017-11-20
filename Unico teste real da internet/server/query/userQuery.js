@@ -15,6 +15,11 @@ class UserQuery extends Query {
         let query = 'select * from usuario';
         this.executeQuery(null, callback, query);
     }
+    
+    getUsuariosPorIds(ids, callback) {
+        let query = 'select * from usuario where id_usuario in (?)';
+        this.executeQuery(ids, callback, query);
+    }
 
     criarUsuario(user, callback){
         let query = 'insert into usuario set ?';
