@@ -3,7 +3,7 @@ from user import User
 
 
 def similaridade_jaccard(interseccao: set, uniao: set):
-    return len(interseccao) / len(uniao)
+    return len(interseccao) / (len(uniao) or 1)
 
 
 def similaridade_quizzes_feitos(user1: User, user2: User):
