@@ -12,19 +12,11 @@ router
 router
     .route('/gid/:gid')
         .get(usuarioJaCadastrado)
+
+router
+    .route('/:id/amigosSugeridos')
+        .get(amigosSugeridos)
         
-        //router        
-    //.route('/euae')
-    //    .get(getCurrentUser);
-/*
-    var token = gapi.GetUSer().Audhfasdj
-    $put(usuario, token) http:localhost/usuario/idDele
--,
-
-    token => usuario 
-
-*/
-
 
 function getUserPorId(req, res) {
    userService.getUsuarioPorId(req.params.id, (user) => {
@@ -54,6 +46,10 @@ function usuarioJaCadastrado(req, res) {
     userService.usuarioJaCadastrado(req.params.gid, (response) =>{
         res.send(response);
     })
+}
+
+function amigosSugeridos(req, res) {
+    userService.amigosSugeridos(req.params.id, usuarios => res.send(usuarios));
 }
 
 
