@@ -17,9 +17,12 @@ textarea {
     display: flex;
     padding: 0.2rem;
 }
-
 i.fa.fa-certificate {
     font-size: small;
+}
+
+.fa-random{
+    transform: rotate(270deg);
 }
 
 .resposta-li-wrapper {
@@ -133,13 +136,14 @@ i.fa.fa-certificate {
 
 .modalidade {
     color: #365CAB;
-    font-size: 0.7rem;
+    font-size: 1.1rem;
     text-align: center;
 }
 
 .modalidade i{
-    font-size: 1.1rem;
+    font-size: 2rem;
     margin-right: 5px;
+    text-align: left;
 }
 
 .page-div {
