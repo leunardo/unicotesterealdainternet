@@ -9,6 +9,7 @@ function quizService($http, URL, $location) {
     }
 
     function getQuizzes(nPagina){
+        return $http.get(`${url}/quizzes/pagina/${nPagina}`);
     }    
 
     function getAllQuizzes(){
