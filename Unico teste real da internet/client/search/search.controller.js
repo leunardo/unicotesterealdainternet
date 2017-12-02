@@ -24,11 +24,12 @@ function searchHeaderController($scope, $location){
     }
 }
 
-function searchController($scope, quizService, $routeParams, $location) {
+function searchController($scope, quizService, usuarioService, $routeParams, $location) {
     let query = $routeParams.q;
     $scope.proximaPagina = proximaPagina;
     $scope.retornarPagina = retornarPagina;
     $scope.nPagina = 1;
+    var i = 0;
     let url = $location.path().split('/')[1];
     getQuizzes();
 
@@ -44,24 +45,42 @@ function searchController($scope, quizService, $routeParams, $location) {
     }
     function mostrarQuizzes(quizList){
         if(quizList.data.length > 0){
-            $scope.resultado = quizList.data;
+            $scope.quizzes = quizList.data;
+            getAutor();
         }
-        else if ($scope.nPagina!=1){
+        else if($scope.nPagina!=1){
             $scope.nPagina--;
-            alert('Não existem mais quizzes para essa busca!');
+            alert('Não existem mais quizzes para carregar.');
         }else{
-            $scope.mensagem = "Ainda não existem itens com sua pesquisa! Seja o primeiro a fazer um!"
+            $scope.mensagem = "Não possuimos quizzes com a busca/tag inserida, seja o primeiro a criar um!";
         }
+    }
+
+    function getAutor(){
+        usuarioService.getUsuarioPorId($scope.quizzes[i].id_usuario).then(assimilarAutor).finally(proximoAutor);
+    }
+
+    function proximoAutor(){
+        i++;
+        if($scope.quizzes[$scope.quizzes.length-1].autor == undefined)
+            getAutor();
+    }
+
+
+    function assimilarAutor(user){
+        $scope.quizzes[i].autor = user.data[0];
     }
 
     function proximaPagina(){
         $scope.nPagina++;
+        i=0;
         getQuizzes();
 
     }
 
     function retornarPagina(){
         if($scope.nPagina >= 2){
+            i = 0;
             $scope.nPagina--;
             getQuizzes();
         }
