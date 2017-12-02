@@ -31,13 +31,17 @@ function homeController($scope, quizService, usuarioService, authService) {
         idsUsados[i+1] = id;
         quizService.getQuiz(id).then(mostrarQuiz).finally(getAutor);  
     }
+    function mostrarQuiz(quiz){
+        quizzes[i] = quiz.data[0];
+    }
 
     function getAutor(){
         usuarioService.getUsuarioPorId(quizzes[i].id_usuario).then(assimilarAutor).finally(proximoQuiz);
     }
 
-    function mostrarQuiz(quiz){
-        quizzes[i] = quiz.data[0];
+
+    function assimilarAutor(user){
+        quizzes[i].autor = user.data[0];
     }
 
     function proximoQuiz(){
@@ -47,10 +51,6 @@ function homeController($scope, quizService, usuarioService, authService) {
         }else{
             quizSorting();
         }
-    }
-
-    function assimilarAutor(user){
-        quizzes[i].autor = user.data[0];
     }
 
     function contem(id, idsUsados) {
