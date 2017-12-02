@@ -1,28 +1,148 @@
 <div class="home-container">
-    
+
     <div class="menu-home">
-        <div class = "opcoes">
-            <p> <a ng-href="/#!/criar"> <i class="fa fa-plus" aria-hidden="true"></i> Crie seu próprio Quiz! </a> </p>
-            <p> <a ng-href="/#!/ranking"> <i class="fa fa-list-ol" aria-hidden="true"></i> Veja o ranking! </a> </p>
-            <p> <a ng-href="/#!/quizzes"> <i class="fa fa-list" aria-hidden="true"></i> Encontre seu Quiz ideal! </a> </p>
+        <div class="opcoes">
+            <p>
+                <a ng-href="/#!/criar">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Crie seu próprio Quiz! </a>
+            </p>
+            <p>
+                <a ng-href="/#!/ranking">
+                    <i class="fa fa-list-ol" aria-hidden="true"></i> Veja o ranking! </a>
+            </p>
+            <p>
+                <a ng-href="/#!/quizzes">
+                    <i class="fa fa-list" aria-hidden="true"></i> Encontre seu Quiz ideal! </a>
+            </p>
         </div>
-        <h3> QUIZZES ALEATÓRIOS </h3>
-        <div class = "randomQuizzes">
-            <section class = "quizAnchor" ng-repeat="quiz in quizzes">
-                <p class = "quiztitle textBox"> <a ng-href = "/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a> </p>                
-                <div class = "foto"> <a ng-href = "/#!/quiz/{{quiz.id_quiz}}"><img ng-src="{{quiz.foto}}"></a></div>
-                <p ng-if="quiz.id_modalidade=='1'" class = "modalidade textBox"> <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
-                <p ng-if="quiz.id_modalidade=='2'" class = "modalidade textBox"> <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
-                <p ng-if="quiz.id_modalidade=='3'" class = "modalidade textBox"> <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
-                <p class = "resumo textBox"> {{quiz.resumo}} </p> 
-                <p class = "autor textBox"> Por: <a ng-href = "/#!/perfil/{{quiz.autor.id}}"> {{quiz.autor.nome}} </a> </p>
-                <p class = "tags textBox"> 
-                    <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class = "link">
+        <h3 ng-show="logged">QUIZZES RECOMENDADOS</h3>
+        <div ng-show="logged" class="randomQuizzes">
+            <section class="quizAnchor" ng-repeat="quizRecomendado in quizzes">
+                <p class="quiztitle textBox">
+                    <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a>
+                </p>
+                <div class="foto">
+                    <a ng-href="/#!/quiz/{{quiz.id_quiz}}">
+                        <img ng-src="{{quiz.foto}}">
+                    </a>
+                </div>
+                <p ng-if="quiz.id_modalidade=='1'" class="modalidade textBox">
+                    <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
+                <p ng-if="quiz.id_modalidade=='2'" class="modalidade textBox">
+                    <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
+                <p ng-if="quiz.id_modalidade=='3'" class="modalidade textBox">
+                    <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
+                <p class="resumo textBox"> {{quiz.resumo}} </p>
+                <p class="autor textBox"> Por:
+                    <a ng-href="/#!/perfil/{{quiz.autor.id}}"> {{quiz.autor.nome}} </a>
+                </p>
+                <p class="tags textBox">
+                    <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class="link">
                         <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
                     </a>
                 </p>
             </section>
         </div>
+        <h3> QUIZZES ALEATÓRIOS </h3>
+        <div class="randomQuizzes">
+            <section class="quizAnchor" ng-repeat="quiz in quizzes">
+                <p class="quiztitle textBox">
+                    <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a>
+                </p>
+                <div class="foto">
+                    <a ng-href="/#!/quiz/{{quiz.id_quiz}}">
+                        <img ng-src="{{quiz.foto}}">
+                    </a>
+                </div>
+                <p ng-if="quiz.id_modalidade=='1'" class="modalidade textBox">
+                    <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
+                <p ng-if="quiz.id_modalidade=='2'" class="modalidade textBox">
+                    <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
+                <p ng-if="quiz.id_modalidade=='3'" class="modalidade textBox">
+                    <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
+                <p class="resumo textBox"> {{quiz.resumo}} </p>
+                <p class="autor textBox"> Por:
+                    <a ng-href="/#!/perfil/{{quiz.autor.id}}"> {{quiz.autor.nome}} </a>
+                </p>
+                <p class="tags textBox">
+                    <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class="link">
+                        <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
+                    </a>
+                </p>
+            </section>
+        </div>
+        <h3 ng-show="logged"> RECOMENDAÇÕES DE AMIZADE </h3>
+        <!-- 
+            <div class = friendRecommendations" ng-show="logged" ng-repeat="user in users">
+                <section class ="friends">
+                    <div>
+                        <a ng-href="/#!/perfil/{{usuario.id_usuario}}">
+                            <img ng-src ="{{usuario.url_foto}}">
+                        </a>
+                    </div>
+                    <p ng-href="/#!/perfil/{{usuario.id_usuario}}" class="textBox quiztitle">{{usuario.nome}}</p>
+                    <button ng-click= "adicionarAmigo()" class="link pure-button botaoAmigo aligned-center"> Adicionar amigo
+                        <i class ="fa fa user-plus" aria-hidden="true"></i>
+                    </button>
+                </section>
+        -->
+        <div class="friendRecommendations" ng-show="logged">
+            <div class="friends">
+                <div>
+                    <a ng-href="/#!/perfil/1">
+                        <img src="https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg">
+                    </a>
+                </div>
+                <p class="textBox quiztitle link">
+                    <a ng-href="/#!/perfil/1">Usuário Exemplo</a>
+                </p>
+                <button class="link pure-button botaoAmigo aligned-center">Adicionar amigo
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="friends">
+                <div>
+                    <a ng-href="/#!/perfil/1">
+                        <img src="https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg">
+                    </a>
+                </div>
+                <p class="textBox quiztitle link">
+                    <a ng-href="/#!/perfil/1">Usuário Exemplo</a>
+                </p>
+                <button class="link pure-button botaoAmigo aligned-center">Adicionar amigo
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="friends">
+                <div>
+                    <a ng-href="/#!/perfil/1">
+                        <img src="https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg">
+                    </a>
+                </div>
+                <p class="textBox quiztitle link">
+                    <a ng-href="/#!/perfil/1">Usuário Exemplo</a>
+                </p>
+                <button class="link pure-button botaoAmigo aligned-center">Adicionar amigo
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="friends">
+                <div>
+                    <a ng-href="/#!/perfil/1">
+                        <img src="https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg">
+                    </a>
+                </div>
+                <p class="textBox quiztitle link">
+                    <a ng-href="/#!/perfil/1">Usuário Exemplo</a>
+                </p>
+                <button class="link pure-button botaoAmigo aligned-center">Adicionar amigo
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </button>
+            </div>
+
+        </div>
+
+
     </div>
 </div>
-
+</div>
