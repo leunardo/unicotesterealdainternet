@@ -10,7 +10,7 @@
     </div>
     <div class="quiz-info" ng-if="modalidadePontuacao()">
         <!-- respostas pontuação -->        
-        <h4>Respostas: (mínimo 2)</h4>
+        <h4>Respostas: (mínimo 2) {{quiz.tags}}</h4>
         <section class="resposta-input-wrapper">            
             <small class="resposta-desc">adicionar resposta:</small>
             <input type="text" name="resposta" class="rounded-input resposta-input" ng-maxlength="70" ng-minlength="3" ng-model="resposta" placeholder="Provavelmente 2!" required>  

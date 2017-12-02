@@ -25,7 +25,21 @@ class TagQuery extends Query {
                         group by t.id_tag;`;
     
         this.executeQuery(idUsuario, callback, query);   
-    } 
+    }
+    
+    getQTags(id_quiz, callback){
+        let query = `select * from quiztags where id_quiz = ?`;
+        this.executeQuery(id_quiz, callback, query);
+    }
+
+    criarQTag(id_quiz, id_tag, callback){
+        let qtag = {
+            'id_quiz': id_quiz,
+            'id_tag': id_tag
+        }
+        let query = `inser into quiztags set ?`;
+        this.executeQuery(qtag, callback, query);
+    }
     
 }
 

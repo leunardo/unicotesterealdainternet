@@ -1,6 +1,6 @@
 app.factory("quizService", quizService);
 
-function quizService($http, URL, $location) {
+function quizService($http, URL, tagService, $location) {
     var url = `${URL}`;
     var Pontuacao = 0;
 
@@ -17,7 +17,7 @@ function quizService($http, URL, $location) {
     }
 
     function getQuizzesDoUsuario(idUsuario, nPagina) {
-        return $http.get(`${url}/quizzes/?autor.id=${idUsuario}&_page=${nPagina}&_limit=8`);
+        return $http.get(`${url}/quizzes/user/${idUsuario}/${nPagina}`);
     }
 
     function buscarQuiz(quizQuery, nPagina){
@@ -35,11 +35,11 @@ function quizService($http, URL, $location) {
         insertQuiz(quiz).then(
             (response)=>
             {
+                tagService.checarTags(quizObj.tags, response.data.insertId);
                 criarPerguntas(response.data.insertId, quizObj.perguntas)
-                return response.data.insertId;
             }
             ,(fail) => console.log(fail)
-        ).finally($location.path("index"));
+        ).finally();
     }
 
     function insertQuiz(quiz){
@@ -83,8 +83,7 @@ function quizService($http, URL, $location) {
             resposta.nota = respostas[k].nota;
             insertResposta(angular.copy(resposta)).then(
                 (response)=>
-                {
-                    console.log(response);    
+                {    
                 }
                 ,(fail) => console.log(fail)
             );

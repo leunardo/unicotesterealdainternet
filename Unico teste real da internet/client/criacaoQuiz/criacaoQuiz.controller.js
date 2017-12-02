@@ -22,7 +22,7 @@ function criacaoQuizController($scope, authService, $location, quizService) {
     }
     $scope.quiz = {
         titulo: '',
-        url_foto: '',
+        url_foto: null,
         resumo: '',
         perguntas: [],
         resultado: [],
@@ -172,7 +172,8 @@ function criacaoQuizController($scope, authService, $location, quizService) {
     }
 
     function proximaParte() {
-        if ($scope.perguntaForm.$valid&&$scope.parteQuiz==1&&$scope.quiz.modalidade != '') {
+        if ($scope.perguntaForm.$valid&&$scope.parteQuiz==1&&$scope.quiz.modalidade != '') {        
+            removerEspacosDasTags()            
             $scope.quiz.id_modalidade = ($scope.quiz.modalidade == 'generico')? 3: ($scope.quiz.modalidade == 'pontuacao')? 2: 1;
             $scope.parteQuiz++;
         }
@@ -185,8 +186,17 @@ function criacaoQuizController($scope, authService, $location, quizService) {
         }
     }
 
-    function removerEspacosDasTags(tags) {
-        return tags.replace(/[, ]+[ ,]+/g, ',');
+    function removerEspacosDasTags() {
+        $scope.quiz.tags = $scope.quiz.tags.split(',')
+        for(let k = 0; k < $scope.quiz.tags.length; k++){
+            for(let i = 0; i < $scope.quiz.tags[k].length; i++){
+                if($scope.quiz.tags[k].charAt(i)==" ");
+                else{
+                    $scope.quiz.tags[k] = $scope.quiz.tags[k].substring(i);
+                    break;
+                }
+            }
+        }
     }
 
     function selecionarTipoQuiz(tipo) {

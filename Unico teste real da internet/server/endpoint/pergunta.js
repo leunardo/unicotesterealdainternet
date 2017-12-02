@@ -23,7 +23,6 @@ function getAllPerguntas(req, res){
 }
 
 function criarPergunta(req, res){
-    console.log(req.body);
     perguntaService.criarPergunta(req.body, (result)=>{
         res.send(result)
     });

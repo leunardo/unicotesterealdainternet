@@ -18,7 +18,7 @@
    
     <header>
         <div class = "leftpart">
-        <a href="/#!/index" class="logo">TOP TESTES 2000</a>
+        <a href="/#!/index" class="logo">QUIZIOTECA</a>
             <form ng-submit="buscar(query)" ng-controller="searchHeaderController" class = "quizSearch"> Buscar quiz <input type="text" placeholder = "EX Tags: malonha, pietro | EX busca: malonha" ng-model = "query" required> </input>
             <button type = "submit" class="link"> <i class="fa fa-search" aria-hidden="true"></i> </button>
             <button type = "submit" ng-click="buscarTag()" class="link"><i class="fa fa-hashtag" aria-hidden="true"></i></button>
@@ -87,6 +87,8 @@
     <script src='usuario/perfil.controller.js'></script>
 
     <script src='search/search.controller.js'></script>
+
+    <script src='tag/tag.service.js'></script>
 
 </body>
 

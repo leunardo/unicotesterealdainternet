@@ -19,8 +19,7 @@ app.use('/quizzes', [tag, busca, quiz, pergunta, resposta, top3]);
 app.use('/usuarios', user);
 app.use('/authenticate', auth.router);
 
-
-app.listen(5566, () => console.log('conectado'));
+app.listen(5566, () => console.log('VOCE EH HACKERMEN ESTA NA QUIZIOTECA BEM VINDO RAKER'));
 
 module.exports = express;
 /**

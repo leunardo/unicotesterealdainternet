@@ -8,12 +8,12 @@
             <small ng-show="perguntaForm.tituloP.$error.required && perguntaForm.tituloP.$touched">Preencha o campo <br/></small>  
         </label>
         <label>
-            Tags:
+            Tags: {{tags}}
             <input type="text" class="rounded-input" ng-model="quiz.tags" placeholder="Separe por virgula. Ex: politica,memes">
         </label>
         <label>            
             Insira a foto de capa: 
-            <input class="rounded-input" type="url" name="fotoCapa" ng-model="quiz.url_foto" placeholder="http://minhafoto.com/foto.jpg" required>
+            <input class="rounded-input" type="url" name="fotoCapa" ng-init="quiz.url_foto = 'http://construcaoedecoracaodejardins.com/wp-content/gallery/arvore-para-jardim/arvore-para-jardim-5.jpg'" ng-model="quiz.url_foto" value = "http://construcaoedecoracaodejardins.com/wp-content/gallery/arvore-para-jardim/arvore-para-jardim-5.jpg" required>
             <small ng-show="perguntaForm.fotoCapa.$error.url">Preencha com um URL<br/></small>
             <small ng-show="perguntaForm.fotoCapa.$error.required && perguntaForm.fotoCapa.$touched">Preencha o campo<br/></small>            
         </label>

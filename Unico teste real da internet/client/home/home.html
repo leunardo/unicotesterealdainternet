@@ -10,7 +10,7 @@
         <div class = "randomQuizzes">
             <section class = "quizAnchor" ng-repeat="quiz in quizzes">
                 <p class = "quiztitle textBox"> <a ng-href = "/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a> </p>                
-                <div class = "foto"> <a ng-href = "/#!/quiz/{{quiz.id_quiz}}"><img ng-src="{{quiz.foto}}"></a></div>
+                <div class = "foto"> <a ng-href = "/#!/quiz/{{quiz.id_quiz}}"><img ng-src="{{quiz.url_foto}}"></a></div>
                 <p ng-if="quiz.id_modalidade=='1'" class = "modalidade textBox"> <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
                 <p ng-if="quiz.id_modalidade=='2'" class = "modalidade textBox"> <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
                 <p ng-if="quiz.id_modalidade=='3'" class = "modalidade textBox"> <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
