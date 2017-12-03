@@ -3,8 +3,8 @@ const DB = require('../factory/dbConnectionFactory');
 const UserQuery = require('../query/userQuery');
 const TagService = require('../service/tagService');
 const QuizService = require('../service/quizService');
-const spawn = require('child_process').spawn;
-const process = spawn('python3', [path]);
+/*const spawn = require('child_process').spawn;
+const process = spawn('python3', [path]);*/
 const auth = require('../endpoint/auth');
 
 class UserService {
@@ -42,7 +42,7 @@ class UserService {
     usuarioJaCadastrado(gid, callback){
         this._userQuery.usuarioJaCadastrado(gid, (result) => callback(result));
     }
-    
+
     /*
     amigosDosAmigos(idUsuario, callback) {
         this._userQuery.amigosDosAmigos(idUsuario, (result) => {
