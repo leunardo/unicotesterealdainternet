@@ -46,8 +46,11 @@ function getQTags(req, res){
 }
 
 function criarQTag(req, res){ 
-    tagService.criarQTag(req.params.idquiz, req.body, (result)=>{
-        res.send(result);
+    tagService.criarQTag(req.params.idquiz, req.body, (result)=>{ 
+        res.send(result); 
+    });
+}
+
 function getTagsUsuario(req, res) {
     tagService.buscarTagsUsuario(req.params.id, (dados) => {
         res.send(dados);
