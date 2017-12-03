@@ -2,9 +2,7 @@ const Query = require('./query')
 
 class RespostaQuery extends Query {
     
-    constructor (connection) {
-        super(connection);
-    }
+    constructor () { super() }
 
     criarResposta(resposta, callback){
         let query = 'insert into resposta set ?';
