@@ -2,9 +2,7 @@ const Query = require('./query');
 
 class TagQuery extends Query {
 
-    constructor (connection) {
-        super(connection);
-    }
+    constructor () { super() }
 
     getAllTags(callback){
         let query = 'select * from tag';

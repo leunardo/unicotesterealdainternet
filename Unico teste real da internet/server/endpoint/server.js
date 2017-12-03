@@ -10,6 +10,7 @@ const tag = require('./tag');
 const pergunta = require('./pergunta');
 const resposta = require('./resposta');
 const top3 = require('./top3');
+const DB = require('../factory/dbConnectionFactory');
 
 app.use(cors())
 app.use(bodyParser.urlencoded());
@@ -19,6 +20,7 @@ app.use('/quizzes', [tag, busca, quiz, pergunta, resposta, top3]);
 app.use('/usuarios', user);
 app.use('/authenticate', auth.router);
 
+DB.createPool();
 
 app.listen(5566, () => console.log('conectado'));
 

@@ -13,6 +13,10 @@ router
         .get(getAllTags)
         .put(criarTag);
 
+router
+    .route('/tag/:id')
+        .get(getTagsUsuario)
+
 function buscarQuizPorTag(req, res){
     quizService.buscarQuizPorTag(req.params.tag, req.params.page, (quizzes)=>{
         res.send(quizzes);
@@ -29,6 +33,12 @@ function criarTag(req, res){
     tagService.criarTag(req.body.tag, (result)=>{
         res.send(result);
     });
+}
+
+function getTagsUsuario(req, res) {
+    tagService.buscarTagsUsuario(req.params.id, (dados) => {
+        res.send(dados);
+    })
 }
 
 module.exports = router;

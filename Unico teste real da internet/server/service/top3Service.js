@@ -3,8 +3,8 @@ const DB = require('../factory/dbConnectionFactory');
 
 class Top3Service {
 
-    constructor(db = new DB()) {
-        this._top3Query = new Top3Query(db.connection);
+    constructor() {
+        this._top3Query = new Top3Query();
     }
 
     getTop3(callback){

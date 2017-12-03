@@ -1,33 +1,28 @@
 const mysql = require('mysql');
-const connectionString = {
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'db_topquizzes'
-  };
-
+let pool = undefined;
 /**
  * Classe que conecta-se ao banco de dados e gerencia sua conexão.
  */
 class DB {
-  constructor () {
-    this._connection = mysql.createConnection(connectionString);
+
+  static createPool() {
+    pool = mysql.createPool({
+      connectionLimit: 100,
+      host     : 'localhost',
+      user     : 'leo',
+      password : '123',
+      database : 'db_topquizzes',
+      port     : '3306',
+    });          
   }
 
-  get connection () {
-    if (this._connection || this._connection.state === 'disconnected')
-      this._connection = mysql.createConnection(connectionString);
-    
-    return this._connection;
+  static getConnection (callback) {
+    pool.getConnection(function(err, conn) {
+      if (err) throw err;
+      else callback(conn);
+    });
   }
 
-  /**
-   * Fecha a conexão com o banco. Cuidado que isso poderá causar erro caso
-   * exista querys para serem executadas na fila.
-   */
-  dispose () {
-    this._connection.end((err) => { if (err) console.log(err) });
-  }
 }
 
 module.exports = DB;

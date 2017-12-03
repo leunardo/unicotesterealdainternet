@@ -3,15 +3,15 @@ const DB = require('../factory/dbConnectionFactory');
 const UserQuery = require('../query/userQuery');
 const TagService = require('../service/tagService');
 const QuizService = require('../service/quizService');
-const spawn = require('child_process').spawn;
-const process = spawn('python3', [path]);
+/*const spawn = require('child_process').spawn;
+const process = spawn('python3', [path]);*/
 const auth = require('../endpoint/auth');
 
 class UserService {
-    constructor(db = new DB()) {
-        this._userQuery = new UserQuery(db.connection);
-        this._tagService = new TagService(db);
-        this._quizService = new QuizService(db);
+    constructor() {
+        this._userQuery = new UserQuery();
+        this._tagService = new TagService();
+        this._quizService = new QuizService();
     }
 
     getUsuarioPorId(id, callback) {
@@ -23,7 +23,7 @@ class UserService {
     }
 
     getUsuariosPorId(ids, callback) {
-        this._userQuery.getUsuariosPorIds(ids, (result) => callback(result));
+        this._userQuery.getUsuariosPorIds(ids, result => callback(result));
     }
 
     criarUsuario(user, callback) {
@@ -43,6 +43,7 @@ class UserService {
         this._userQuery.usuarioJaCadastrado(gid, (result) => callback(result));
     }
 
+    /*
     amigosDosAmigos(idUsuario, callback) {
         this._userQuery.amigosDosAmigos(idUsuario, (result) => {
             let usuarios = [];
@@ -53,6 +54,7 @@ class UserService {
         })  
     }   
 
+    
     amigos(idUsuario, callback) {
         this._userQuery.amigos(idUsuario, (result) => {
             let usuarios = [];
@@ -70,12 +72,15 @@ class UserService {
             let variancia = parseFloat(dados.variancia);
             let usuariosProximos = [];
 
-            for (let proximidade of dados.resultado) {
+            for (let proximidade of dados.resultado)
                 if (proximidade[1] >= media - variancia)
-                    usuariosProximos.push(proximidade[0]);
-            }
+                    usuariosProximos.push(proximidade[0]);            
     
-            callback(usuariosProximos);
+            
+            this.getUsuariosPorId([usuariosProximos], res => {
+                this._db.dispose();
+                callback(res);
+            });
         })
     }
 
@@ -112,6 +117,7 @@ class UserService {
         process.stdout.on('end', () => callback(output));
         
     }
+    */
 
     /**
      * Monta um array contendo os dados de um usuário.
@@ -119,7 +125,8 @@ class UserService {
      * @param {*} callback: Função executada após todas as informações serem pegas.
      * @returns {Array} dados do usuario, no formato: [id, amigos, quizzes respondidos, quizzes feitos, tags]
      */
-    _montarDados(usuario, callback) {
+    /*    
+     _montarDados(usuario, callback) {
         let dado = [usuario];
         this.amigos(usuario, (amigos) => {
             dado.push(amigos);
@@ -135,6 +142,6 @@ class UserService {
             })
         })
     }
-
+    */
 }
 module.exports = UserService;

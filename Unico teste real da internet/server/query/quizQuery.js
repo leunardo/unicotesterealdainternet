@@ -2,9 +2,7 @@ const Query = require('./query')
 
 class QuizQuery extends Query {
     
-    constructor (connection) {
-        super(connection);
-    }
+    constructor () { super() }
 
     getQuizPorId(id, callback){
         let query = 'select * from quiz where id_quiz = ?';
