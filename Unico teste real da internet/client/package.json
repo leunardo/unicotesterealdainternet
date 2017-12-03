@@ -3,6 +3,9 @@
     "description": "Client-side of top testes",
     "authors": "Leonardo A.; Guilherme S.; Pietro I.",
     "version": "1.0.0",
+    "scripts": {
+        "start": "http-server"
+    },
     "dependencies": {
         "http-server": "^0.10.0"
     }
