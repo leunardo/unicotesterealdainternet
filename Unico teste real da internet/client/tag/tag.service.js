@@ -28,11 +28,12 @@ function tagService($http, URL) {
     }
 
     function relacionarQuizTag(tid, qid){
+        console.log(tid + " " +qid)
         let QTag = {
             'id_tag': tid,
             'id_quiz': qid
         }
-        return $http.post(`${url}/quizzes/QTags/`, QTag)
+        criarQT(QTag);
     }
 
     function relacionarQT(tag, qid){
@@ -41,8 +42,21 @@ function tagService($http, URL) {
                 'id_tag': res.data[0].id_tag,
                 'id_quiz': qid
             }
-            return $http.post(`${url}/quizzes/QTags/`, QTag)
+            criarQT(QTag);
         })
+    }
+
+    function criarQT(QTag){
+        getTagsDoQuiz(QTag.id_quiz).then((res) => {
+            var existe = false;
+            for(var i = 0; i < res.data.length; i++){
+                if(res.data[i] == QTag){
+                    existe = true;
+                }
+            }
+            if(!existe)
+                return $http.post(`${url}/quizzes/QTags/`, QTag);
+        });
     }
 
     function criarTag(tag){
@@ -64,6 +78,7 @@ function tagService($http, URL) {
 
     return {
         getTags: getTags,
-        checarTags: checarTags
+        checarTags: checarTags,
+        relacionarQuizTag: relacionarQuizTag
     }
 }

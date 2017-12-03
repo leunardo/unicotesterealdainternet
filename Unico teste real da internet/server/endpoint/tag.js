@@ -50,7 +50,7 @@ function criarTag(req, res){
 }
 
 function getQTags(req, res){
-    tagService.getQTags(req.params.idquiz, (quizzes)=>{
+    tagService.getQTags(req.params.idquiz, (tags)=>{
         res.send(tags);
     })
 }
