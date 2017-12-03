@@ -116,6 +116,7 @@ i.fa.fa-certificate {
     padding: 20px;
     text-align: center;
     color: #F6F7F9;
+    box-shadow: 0 0 10px 2px grey;
     margin-bottom: 10px;
 }
 
@@ -160,10 +161,11 @@ i.fa.fa-certificate {
     width: 70vw;
     margin-top: 15vh;
     margin-bottom: 15vh;
-    background: white;
+    background: #ECEFF4;
     border: 1px #DFE0E4 solid;
     border-radius: 5px;
     color: #365CAB;
+    box-shadow: 0 0 20px grey;
 }
 
 .opcoes {
@@ -208,7 +210,11 @@ criar-quiz {
     flex-direction: column;
     width: 40%;
     margin-left: 5%;
+    border-radius: 20px;
+    background: rgb(242, 242, 242);
+    box-shadow: 0 0 20px #827d7d;
     margin-right: 5%;
+    margin-bottom: 5vw;
 }
 
 .quizAnchor .quiztitle{
@@ -239,7 +245,7 @@ criar-quiz {
 }
 
 .modalidade-box-active {
-    background-color: white;
+    background-color: rgb(222, 222, 222);
     border-radius: 10px;
 }
 
@@ -274,7 +280,7 @@ criar-quiz {
 }
 
 .quizBox {
-    background: white;
+    background: rgb(242, 242, 242);
     border: 1px #DFE0E4;
     border-radius: 5px;
     display: flex;
@@ -286,7 +292,7 @@ criar-quiz {
     margin-left: 1%;
     margin-right: 1%;
     padding: 3px;
-    box-shadow: 0 0 40px 5px rgb(150, 150, 150);
+    box-shadow: 0 0 20px 5px rgb(150, 150, 150);
 }
 
 .quizBox>div {
@@ -530,7 +536,7 @@ ol .nome {
     margin-left:30%;
     padding: 20px;
     border: 3px solid #4d68a1;
-    background: #ffffff;
+    background: rgb(228, 228, 228);
     border-radius: 70px;
 }
 
@@ -540,7 +546,7 @@ ol .nome {
 
 body {
     margin: 0;
-    background: #EDF0F5;
+    background: rgb(229, 232, 237);
     color: black;
     font-family: 'Klavika';
     display: flex;
@@ -574,6 +580,7 @@ header {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998', GradientType=0);
     border-bottom: 1px solid #133783;
     justify-content: space-between;
+    box-shadow: 0 -5px 30px 22px rgb(32, 32, 69);
 }
 
 header input:required {
@@ -657,7 +664,7 @@ header .logo {
     min-height: 70vh;
     flex-direction: column;
     justify-content: space-between;
-    background: white;
+    background: rgb(228, 228, 228);
     border: 1px #DFE0E4;
     border-radius: 5px;
 }
@@ -716,6 +723,7 @@ footer {
     border-top: 1px solid #133783;
     color: white;
     align-self: flex-end;
+    box-shadow: 0 5px 30px 15px rgb(32, 32, 69);
 }
 
 footer article {
