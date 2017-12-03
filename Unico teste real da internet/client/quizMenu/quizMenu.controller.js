@@ -18,7 +18,7 @@ function quizMenuController($scope, quizService, usuarioService, tagService){
         }
         else if($scope.nPagina!=1){
             $scope.nPagina--;
-            alert('Não existem mais quizzes para carregar.');
+            alertify.alert('Não existem mais quizzes para carregar.');
         }else{
             $scope.mensagem = "Não possuimos nenhum quiz no momento, contribua e faça história criando o primeiro!";
         }

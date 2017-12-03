@@ -91,7 +91,7 @@ function criacaoQuizController($scope, authService, $location, quizService) {
                 return true;
             }
         }
-        alert("Você ainda não fez resultados para todas as notas possiveis.");
+        alertify.alert("Você ainda não fez resultados para todas as notas possiveis.");
         return false;
     }
 
@@ -132,7 +132,7 @@ function criacaoQuizController($scope, authService, $location, quizService) {
         if ($scope.perguntaForm.resultado.$invalid||$scope.perguntaForm.range.$invalid
             ||$scope.perguntaForm.fotoResultado.$invalid||$scope.perguntaForm.explicacao.$invalid) return;
         if ($scope.range.max === $scope.quiz.perguntas.length && $scope.quiz.resultado.length == 0) {
-            alert("Com um range assim ("+range.min+"-"+range.max+"), o quiz só teria um resultado. Diminua o máximo do range em ao menos 1.");
+            alertify.alert("Com um range assim ("+range.min+"-"+range.max+"), o quiz só teria um resultado. Diminua o máximo do range em ao menos 1.");
             return;
         }
         if($scope.quiz.resultado.length==0){

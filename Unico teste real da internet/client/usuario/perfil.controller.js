@@ -20,7 +20,7 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
                 $scope.usuarioCopia = angular.copy($scope.usuario);
                 getQuizzesDoUsuario();
             }, fail => {
-                alert("Deu erro");
+                alertify.alert("Deu erro");
             });
     }
 
@@ -36,7 +36,7 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
         }
         else if($scope.nPagina!=1){
             $scope.nPagina--;
-            alert('Não existem mais quizzes para carregar.');
+            alertify.alert('Não existem mais quizzes para carregar.');
         }else if (!checarUser()){
             $scope.mensagem = "Esse usuário ainda não possui quizzes. Incentive-o a criar um!";
         }else{

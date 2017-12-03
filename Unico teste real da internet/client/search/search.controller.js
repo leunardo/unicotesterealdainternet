@@ -65,9 +65,9 @@ function searchController($scope, quizService, usuarioService, $routeParams, $lo
         }
         else if($scope.nPagina!=1){
             $scope.nPagina--;
-            alert('Não existem mais quizzes para carregar.');
+            alertify.alerts('Não existem mais quizzes para carregar.');
         }else{
-            $scope.mensagem = "Não possuimos nenhum quiz no momento, contribua e faça história criando o primeiro!";
+            $scope.mensagem = "Nenhum quiz relativo a sua busca, seja o primeiro a criar um!";
         }
     }
 

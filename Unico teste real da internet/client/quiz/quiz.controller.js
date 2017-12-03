@@ -77,7 +77,7 @@ function quizController($scope, quizService, usuarioService, authService, $locat
                 
             },
             error => {
-                alert("Não foi possivel encontrar as perguntas");
+                alertify.alert("Não foi possivel encontrar as perguntas");
             });
     }
     
