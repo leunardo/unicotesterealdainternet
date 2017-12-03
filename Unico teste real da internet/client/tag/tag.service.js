@@ -24,7 +24,7 @@ function tagService($http, URL) {
     }
 
     function criarTag(tag){
-        return $http.post(`${url}/quizzes/tag/`, tag);
+        return $http.post(`${url}/quizzes/tag/`, JSON.stringify({ tag }));
     }
 
     function relacionarQuizTag(tagResponse){
