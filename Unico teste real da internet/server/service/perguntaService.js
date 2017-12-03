@@ -1,9 +1,8 @@
-const DB = require('../factory/dbConnectionFactory');
 const PerguntaQuery = require('../query/perguntaQuery');
 
 class perguntaService {
-    constructor(db = new DB()) {        
-        this._perguntaQuery = new PerguntaQuery(db.connection);
+    constructor() {
+        this._perguntaQuery = new PerguntaQuery();
     }
 
     getPergunta(idPergunta, callback){

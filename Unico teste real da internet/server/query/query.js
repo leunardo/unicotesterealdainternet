@@ -1,12 +1,11 @@
 const mysql = require('mysql');
+const DB = require('../factory/dbConnectionFactory')
 /**
  * Classe base que faz chamadas ao banco de dados.
  */
 class Query {
 
-    constructor(connection) {
-        this._connection = connection;
-    }
+    constructor() { }
 
     /**
      * Executa uma query e retorna o obtido por callback.
@@ -16,11 +15,18 @@ class Query {
      * @param {*} query: query a ser executada. 
      */
     executeQuery(obj, callback, query) {
-        this._connection.query(query, obj, (err, result) => {
-            if (err) throw err;
-            else callback(result);
+        DB.getConnection(conn => {
+            conn.query(query, obj, (err, result) => {
+                if (err) throw err;
+                else {
+                    console.log('QUERY | conectado como: ', conn.threadId, ' ', query)
+                    conn.release();
+                    callback(result);
+                }
+            })
         })
     }
+    
 }
 
 module.exports = Query;

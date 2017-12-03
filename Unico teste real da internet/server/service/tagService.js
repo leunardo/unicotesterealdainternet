@@ -3,8 +3,8 @@ const DB = require('../factory/dbConnectionFactory')
 
 class TagService {
 
-    constructor(db = new DB()) {
-        this._tagQuery = new TagQuery(db.connection);
+    constructor() {
+        this._tagQuery = new TagQuery();
     }
 
     getAllTags(callback) {

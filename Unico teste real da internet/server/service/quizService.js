@@ -3,8 +3,8 @@ const DB = require('../factory/dbConnectionFactory');
 
 class QuizService {
 
-    constructor(db = new DB()) {
-        this._quizQuery = new QuizQuery(db.connection);
+    constructor() {
+        this._quizQuery = new QuizQuery();
     }
 
     getQuizPorId(id, callback){

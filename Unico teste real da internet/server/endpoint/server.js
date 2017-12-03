@@ -10,6 +10,7 @@ const tag = require('./tag');
 const pergunta = require('./pergunta');
 const resposta = require('./resposta');
 const top3 = require('./top3');
+const DB = require('../factory/dbConnectionFactory');
 
 app.use(cors())
 app.use(bodyParser.urlencoded());
@@ -19,7 +20,9 @@ app.use('/quizzes', [tag, busca, quiz, pergunta, resposta, top3]);
 app.use('/usuarios', user);
 app.use('/authenticate', auth.router);
 
-app.listen(5566, () => console.log('VOCE EH HACKERMEN ESTA NA QUIZIOTECA BEM VINDO RAKER'));
+DB.createPool();
+
+app.listen(5566, () => console.log('conectado'));
 
 module.exports = express;
 /**

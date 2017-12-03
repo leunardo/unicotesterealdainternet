@@ -3,8 +3,8 @@ const DB = require('../factory/dbConnectionFactory')
 
 class RespostaService {
 
-    constructor(db = new DB()) {
-        this._respostaQuery = new RespostaQuery(db.connection);
+    constructor() {
+        this._respostaQuery = new RespostaQuery();
     }
 
     getAllRespostas(idPergunta, callback){

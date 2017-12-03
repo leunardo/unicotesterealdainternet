@@ -2,9 +2,7 @@ const Query = require('./query')
 
 class PerguntaQuery extends Query {
 
-    constructor (connection) {
-        super(connection);
-    }
+    constructor () { super() }
 
     getPergunta(idPergunta, callback){
         let query = 'select * from pergunta where id_pergunta = ?';
