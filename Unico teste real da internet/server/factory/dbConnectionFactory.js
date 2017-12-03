@@ -9,8 +9,8 @@ class DB {
     pool = mysql.createPool({
       connectionLimit: 100,
       host     : 'localhost',
-      user     : 'leo',
-      password : '123',
+      user     : 'root',
+      password : '',
       database : 'db_topquizzes',
       port     : '3306',
     });          
