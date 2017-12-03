@@ -25,12 +25,16 @@ class TagService {
         });
     }
 
-    criarQTag(id_quiz, id_tag, callback) {        
-        this._tagQuery.criarQTag(id_quiz, id_tag, (result) => callback(result));
+    criarQTag(qtag, callback) {        
+        this._tagQuery.criarQTag(qtag, (result) => callback(result));
     }
 
     getQTags(id_quiz, callback) {
         this._tagQuery.getQTags(id_quiz, (QTags) => callback(QTags));
+    }
+
+    getTag(tag, callback) {
+        this._tagQuery.getTag(tag, (tagId) => callback(tagId));
     }
     
 }

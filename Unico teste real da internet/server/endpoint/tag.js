@@ -13,12 +13,16 @@ router
         .get(getAllTags)
         .post(criarTag);
 router
-    .route('/:idquiz/tags')
-        .get(getQTags)
+    .route('/QTags/')
         .post(criarQTag);
-
+router 
+    .route('/QTags/:idquiz')
+        .get(getQTags);
 router
-    .route('/tag/:id')
+    .route('/tag/:tag')
+        .get(getTag);
+router
+    .route('/tag/usuario/:id')
         .get(getTagsUsuario)
 
 function buscarQuizPorTag(req, res){
@@ -30,6 +34,12 @@ function buscarQuizPorTag(req, res){
 function getAllTags(req, res){
     tagService.getAllTags((tags)=>{
         res.send(tags);
+    });
+}
+
+function getTag(req, res){
+    tagService.getTag(req.params.tag, (tagId) => {
+        res.send(tagId)
     });
 }
 
@@ -46,7 +56,7 @@ function getQTags(req, res){
 }
 
 function criarQTag(req, res){ 
-    tagService.criarQTag(req.params.idquiz, req.body, (result)=>{ 
+    tagService.criarQTag(req.body, (result)=>{ 
         res.send(result); 
     });
 }

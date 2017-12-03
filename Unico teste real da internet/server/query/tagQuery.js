@@ -30,13 +30,14 @@ class TagQuery extends Query {
         this.executeQuery(id_quiz, callback, query);
     }
 
-    criarQTag(id_quiz, id_tag, callback){
-        let qtag = {
-            'id_quiz': id_quiz,
-            'id_tag': id_tag
-        }
-        let query = `inser into quiztags set ?`;
+    criarQTag(qtag, callback){
+        let query = `insert into quiztags set ?`;
         this.executeQuery(qtag, callback, query);
+    }
+
+    getTag(tag, callback){
+        let query = `select id_tag from tag where tag = ?`;
+        this.executeQuery(tag, callback, query);
     }
     
 }
