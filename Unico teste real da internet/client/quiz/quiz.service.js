@@ -9,7 +9,7 @@ function quizService($http, URL, $location) {
     }
 
     function getQuizzes(nPagina){
-        return $http.get(`${url}/quizzes?_page=${nPagina}&_limit=8`);
+        return $http.get(`${url}/quizzes/pagina/${nPagina}`);
     }    
 
     function getAllQuizzes(){
@@ -32,8 +32,6 @@ function quizService($http, URL, $location) {
             "resumo": quizObj.resumo,
             "url_foto": quizObj.url_foto
         }
-        console.log(quiz);
-        console.log(quizObj);
         insertQuiz(quiz).then(
             (response)=>
             {

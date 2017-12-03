@@ -17,9 +17,12 @@ textarea {
     display: flex;
     padding: 0.2rem;
 }
-
 i.fa.fa-certificate {
     font-size: small;
+}
+
+.fa-random{
+    transform: rotate(270deg);
 }
 
 .resposta-li-wrapper {
@@ -133,13 +136,14 @@ i.fa.fa-certificate {
 
 .modalidade {
     color: #365CAB;
-    font-size: 0.7rem;
+    font-size: 1.1rem;
     text-align: center;
 }
 
 .modalidade i{
-    font-size: 1.1rem;
+    font-size: 2rem;
     margin-right: 5px;
+    text-align: left;
 }
 
 .page-div {
@@ -277,11 +281,12 @@ criar-quiz {
     flex-flow: column;
     justify-content: flex-start;
     text-align: center;
-    width: 15%;
+    width: 23%;
     min-height: 60vh;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
     padding: 3px;
+    box-shadow: 8px 8px 5px rgb(150, 150, 150);
 }
 
 .quizBox>div {
@@ -290,6 +295,41 @@ criar-quiz {
     flex-wrap: wrap;
     height: 45vh;
     justify-content: flex-start;
+}
+
+.quizBox>div .modalidade{
+    align-self: flex-end;
+    margin-bottom: 0;
+}
+
+
+.quizBox:hover .resumo{
+    opacity: 1;
+}
+
+.quizBox .resumo{
+    opacity: 0;
+
+    margin-left: 7px;
+    margin-right: 10px;
+    box-shadow: 4px 4px 4px grey;
+    border: 1px rgb(196, 196, 196) solid;
+    background: rgb(255, 255, 255);
+    align-self: center;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    min-height: 12vh;
+    max-width: 85%;
+
+
+    -o-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
 }
 
 .tags{

@@ -18,7 +18,6 @@ router
 
 
 function getQuizPorId(req, res) {
-    console.log(req.params.id);
     quizService.getQuizPorId(req.params.id, (quiz) => {
         res.send(quiz);
     })
