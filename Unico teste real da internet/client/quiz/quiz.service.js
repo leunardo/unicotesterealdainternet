@@ -95,8 +95,8 @@ function quizService($http, URL, tagService, $location) {
     }
 
 
-    function buscarQuizPorTag(query, nPagina){
-        return `${url}/quizzes/tag/${tag}/${nPagina}`; 
+    function buscarQuizPorTag(tagQuery, nPagina){
+        return $http.get(`${url}/quizzes/tag/${JSON.stringify(tagQuery)}/${nPagina}`); 
     }
 
     let resultados = [];

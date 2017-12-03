@@ -1,6 +1,6 @@
 app.controller('perfilController', perfilController);
 
-function perfilController($scope, $routeParams, authService, usuarioService, quizService) {
+function perfilController($scope, $routeParams, authService, usuarioService, quizService, tagService) {
     $scope.checarUser = checarUser;
     $scope.usuario = "";
     $scope.atualizarPerfil = atualizarPerfil;
@@ -9,6 +9,8 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     $scope.nPagina = 1;
     $scope.editarPerfil = editarPerfil;
     $scope.fecharModal = fecharModal;
+    var i = 0;
+    var k = 0;
     getUsuario();
 
     function getUsuario() {
@@ -30,30 +32,74 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     function mostrarQuizzes(quizList){
         if(quizList.data.length > 0){
             $scope.quizzes = quizList.data;
+            getTags();
         }
-        else if ($scope.nPagina!=1){
+        else if($scope.nPagina!=1){
             $scope.nPagina--;
-            alert('Este usuário não possui mais quizzes!');
+            alert('Não existem mais quizzes para carregar.');
         }else if (!checarUser()){
             $scope.mensagem = "Esse usuário ainda não possui quizzes. Incentive-o a criar um!";
         }else{
             $scope.mensagem = "Ei, você ainda não tem nenhum quiz :( Vai deixar todo mundo esperando!? Vamos, faz um! É fácil e divertido!"
         }
     }
+    function getTags(){
+        usuarioService.getUsuarioPorId($scope.quizzes[i].id_usuario).then(pegarQT);
+    }
+
+    function proximo(){
+        i++;
+        k = 0;
+        if($scope.quizzes[$scope.quizzes.length-1].autor == undefined)
+            getTags();
+    }
+
+    function pegarQT(){
+        tagService.getQT($scope.quizzes[i].id_quiz).then(pegarTags);
+    }
+
+    function pegarTags(QTags){
+        if(QTags.data.length > 0)
+            tagService.getTag({
+                "tag": '',
+                "id_tag": QTags.data[k].id_tag
+            }).then(
+                (tagData) => {
+                    if($scope.quizzes[i].tags == undefined)
+                        $scope.quizzes[i].tags = [];
+                    $scope.quizzes[i].tags[k] = tagData.data[0];
+                }
+            ).finally(
+                ()=>{
+                    if(k == QTags.data.length - 1){
+                            proximo();
+                    }else{
+                        k++;
+                        pegarTags(QTags);
+                    }
+                }
+            );
+        else{
+            $scope.quizzes[i].tags = null;
+            proximo();
+        }
+    }
 
     function proximaPagina(){
         $scope.nPagina++;
+        i=0;
         getQuizzesDoUsuario();
 
     }
 
     function retornarPagina(){
         if($scope.nPagina >= 2){
+            i = 0;
             $scope.nPagina--;
             getQuizzesDoUsuario();
         }
     }
-
+    
     function checarUser(){
         if(authService.isLogado()){
             return $scope.usuario.id_usuario === JSON.parse(localStorage.usuario).id_usuario;           

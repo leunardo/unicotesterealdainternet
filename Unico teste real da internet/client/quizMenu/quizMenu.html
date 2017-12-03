@@ -12,9 +12,9 @@
                 </div>
                 <p class = "resumo textBox"> {{quiz.resumo}} </p>                 
                 <p class="autor"> Por: <a ng-href="/#!/perfil/{{quiz.autor.id_usuario}}">{{quiz.autor.nome}}</a> </p>
-                <p class="tags">
-                    <a ng-repeat="tags in quiz.tags" ng-href="/#!/tag/{{tags}}" class="link">
-                        <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
+                <p class = "tags textBox"> 
+                    <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags.tag}}" class = "link">
+                        <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags.tag}}
                     </a>
                 </p>
             </section>

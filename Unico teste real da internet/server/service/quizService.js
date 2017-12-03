@@ -31,8 +31,8 @@ class QuizService {
         this._quizQuery.criarQuiz(quiz, (result) => callback(result));
     }
     
-    buscarQuizPorTag(query, nPagina, callback){
-        this._quizQuery.buscarQuizPorTag(query, nPagina, (result) => callback(result));
+    buscarQuizPorTag(tagQuery, nPagina, callback){
+        this._quizQuery.buscarQuizPorTag(tagQuery, nPagina, (result) => callback(result));
     }
 
     quizzesRespondidos(idUsuario, callback) {

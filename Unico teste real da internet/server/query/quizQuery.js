@@ -29,6 +29,13 @@ class QuizQuery extends Query {
         this.executeQuery(['%'+quizQuery+'%', '%'+quizQuery+'%', (nPagina-1)*8], callback, query);
     }
 
+    buscarQuizPorTag(tagQuery, nPagina, callback){
+        let query = `select * from quiz q inner join quiztags qt
+                     on qt.id_quiz = q.id_quiz inner join tag t
+                     on t.id_tag = qt.id_tag where tag IN (?) limit ?,8`
+        this.executeQuery([tagQuery, (nPagina-1)*8], callback, query);
+    }
+
     criarQuiz(quiz, callback){
         let query = 'insert into quiz set ?';
         this.executeQuery(quiz, callback, query); 

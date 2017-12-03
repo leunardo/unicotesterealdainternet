@@ -6,7 +6,7 @@ const tagService = new TagService();
 
 
 router
-    .route('/tag/:tag/:page')
+    .route('/tag/:tagquery/:page')
         .get(buscarQuizPorTag);
 router
     .route('/tag/')
@@ -26,7 +26,7 @@ router
         .get(getTagsUsuario)
 
 function buscarQuizPorTag(req, res){
-    quizService.buscarQuizPorTag(req.params.tag, req.params.page, (quizzes)=>{
+    quizService.buscarQuizPorTag(JSON.parse(req.params.tagquery), req.params.page, (quizzes)=>{
         res.send(quizzes);
     })
 }
@@ -38,7 +38,7 @@ function getAllTags(req, res){
 }
 
 function getTag(req, res){
-    tagService.getTag(req.params.tag, (tagId) => {
+    tagService.getTag(JSON.parse(req.params.tag), (tagId) => {
         res.send(tagId)
     });
 }

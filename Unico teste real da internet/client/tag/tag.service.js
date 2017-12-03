@@ -8,8 +8,8 @@ function tagService($http, URL) {
         return $http.get(`${url}/quizzes/tag`);
     }
 
-    function getTagID(tag) {
-        return $http.get(`${url}/quizzes/tag/${tag}`)
+    function getTag(tag) {
+        return $http.get(`${url}/quizzes/tag/${JSON.stringify(tag)}`)
     }
 
     function checarTags(tags, qid){
@@ -28,7 +28,6 @@ function tagService($http, URL) {
     }
 
     function relacionarQuizTag(tid, qid){
-        console.log(tid + " " +qid)
         let QTag = {
             'id_tag': tid,
             'id_quiz': qid
@@ -37,7 +36,10 @@ function tagService($http, URL) {
     }
 
     function relacionarQT(tag, qid){
-        getTagID(tag).then((res)=>{
+        getTag({
+            "tag": tag,
+            "id_tag": 0
+        }).then((res)=>{
             let QTag = {
                 'id_tag': res.data[0].id_tag,
                 'id_quiz': qid
@@ -79,6 +81,7 @@ function tagService($http, URL) {
     return {
         getTags: getTags,
         checarTags: checarTags,
-        relacionarQuizTag: relacionarQuizTag
+        getQT: getTagsDoQuiz,
+        getTag: getTag
     }
 }

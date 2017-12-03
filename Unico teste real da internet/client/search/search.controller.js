@@ -8,8 +8,7 @@ function searchHeaderController($scope, $location){
 
     function buscarTag(){
         $scope.buscar = buscarQuizTag;
-        $scope.query = $scope.query.replace(/, /g, '&');
-        $scope.query = $scope.query.replace(/,/g, '&');
+        $scope.query = $scope.query.replace(/, /g, ',');
     }    
 
     function buscarQuiz(query){          
@@ -24,12 +23,13 @@ function searchHeaderController($scope, $location){
     }
 }
 
-function searchController($scope, quizService, usuarioService, $routeParams, $location) {
+function searchController($scope, quizService, usuarioService, $routeParams, $location, tagService) {
     let query = $routeParams.q;
     $scope.proximaPagina = proximaPagina;
     $scope.retornarPagina = retornarPagina;
     $scope.nPagina = 1;
     var i = 0;
+    var k = 0;
     let url = $location.path().split('/')[1];
     getQuizzes();
 
@@ -39,36 +39,84 @@ function searchController($scope, quizService, usuarioService, $routeParams, $lo
             .then(mostrarQuizzes);
         }
         else{
-            quizService.buscarQuizPorTag(query, $scope.nPagina)
+            quizService.buscarQuizPorTag(removerEspacosDasTags(query), $scope.nPagina)
             .then(mostrarQuizzes);
         }
     }
+
+    function removerEspacosDasTags(query) {
+        let tagArray = query.split(',')
+        for(let j = 0; j < tagArray.length; j++){
+            for(let q = 0; q < tagArray[j].length; q++){
+                if(tagArray[j].charAt(q)==" ");
+                else{
+                    tagArray[j] = tagArray[j].substring(q);
+                    break;
+                }
+            }
+        }
+        return tagArray;
+    }
+
     function mostrarQuizzes(quizList){
         if(quizList.data.length > 0){
             $scope.quizzes = quizList.data;
-            getAutor();
+            getAutorETags();
         }
         else if($scope.nPagina!=1){
             $scope.nPagina--;
             alert('Não existem mais quizzes para carregar.');
         }else{
-            $scope.mensagem = "Não possuimos quizzes com a busca/tag inserida, seja o primeiro a criar um!";
+            $scope.mensagem = "Não possuimos nenhum quiz no momento, contribua e faça história criando o primeiro!";
         }
     }
 
-    function getAutor(){
-        usuarioService.getUsuarioPorId($scope.quizzes[i].id_usuario).then(assimilarAutor).finally(proximoAutor);
+    function getAutorETags(){
+        usuarioService.getUsuarioPorId($scope.quizzes[i].id_usuario).then(assimilarAutor).finally(pegarQT);
     }
 
-    function proximoAutor(){
+    function proximo(){
         i++;
+        k = 0;
         if($scope.quizzes[$scope.quizzes.length-1].autor == undefined)
-            getAutor();
+            getAutorETags();
     }
 
 
     function assimilarAutor(user){
         $scope.quizzes[i].autor = user.data[0];
+    }
+
+
+    function pegarQT(){
+        tagService.getQT($scope.quizzes[i].id_quiz).then(pegarTags);
+    }
+
+    function pegarTags(QTags){
+        if(QTags.data.length > 0)
+            tagService.getTag({
+                "tag": '',
+                "id_tag": QTags.data[k].id_tag
+            }).then(
+                (tagData) => {
+                    if($scope.quizzes[i].tags == undefined)
+                        $scope.quizzes[i].tags = [];
+                    $scope.quizzes[i].tags[k] = tagData.data[0];
+                }
+            ).finally(
+                ()=>{
+                    if(k == QTags.data.length - 1){
+                            proximo();
+                    }else{
+                        k++;
+                        pegarTags(QTags);
+                    }
+                }
+            );
+        else{
+            $scope.quizzes[i].tags = null;
+            proximo();
+        }
     }
 
     function proximaPagina(){

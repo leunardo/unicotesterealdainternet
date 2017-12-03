@@ -174,7 +174,7 @@ function criacaoQuizController($scope, authService, $location, quizService) {
     function proximaParte() {
         if ($scope.perguntaForm.$valid&&$scope.parteQuiz==1&&$scope.quiz.modalidade != '') {        
             removerEspacosDasTags()            
-            $scope.quiz.id_modalidade = ($scope.quiz.modalidade == 'generico')? 3: ($scope.quiz.modalidade == 'pontuacao')? 2: 1;
+            $scope.quiz.id_modalidade = ($scope.quiz.modalidade == 'generico')? 2: ($scope.quiz.modalidade == 'pontuacao')? 1: 3;
             $scope.parteQuiz++;
         }
         else if($scope.parteQuiz==2&&$scope.quiz.perguntas.length>6){

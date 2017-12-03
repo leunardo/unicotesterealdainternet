@@ -36,8 +36,16 @@ class TagQuery extends Query {
     }
 
     getTag(tag, callback){
-        let query = `select id_tag from tag where tag = ?`;
-        this.executeQuery(tag, callback, query);
+        let param;
+        let query;
+        if(tag.id_tag == 0){
+            query = `select * from tag where tag = ?`;
+            param = tag.tag;
+        }else{
+            query = `select * from tag where tag.id_tag = ?`;
+            param = tag.id_tag;
+        }
+        this.executeQuery(param, callback, query);
     }
     
 }

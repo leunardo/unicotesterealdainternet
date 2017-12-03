@@ -4,16 +4,16 @@
         <section class="quizBox" ng-repeat="quiz in quizzes track by $index">
             <div>
                 <p class="quiztitle textBox"> <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}}      </a></p>
-                <div class="foto"><a ng-href="/#!/quiz/{{quiz.id_quiz}}"><img ng-src="{{quiz.foto}}"></a></div>
+                <div class="foto"><a ng-href="/#!/quiz/{{quiz.id_quiz}}"><img ng-src="{{quiz.url_foto}}"></a></div>
                 <p ng-if="quiz.id_modalidade=='1'" class = "modalidade textBox"> <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
                 <p ng-if="quiz.id_modalidade=='2'" class = "modalidade textBox"> <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
                 <p ng-if="quiz.id_modalidade=='3'" class = "modalidade textBox"> <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
             </div>
-            <p class="resumo"> {{quiz.resumo}} </p>
+            <p class = "resumo textBox"> {{quiz.resumo}} </p>                 
             <p class="autor"> Por: <a ng-href="/#!/perfil/{{quiz.autor.id_usuario}}">{{quiz.autor.nome}}</a> </p>
-            <p class="tags">
-                <a ng-repeat="tags in quiz.tags" ng-href="/#!/tag/{{tags}}" class="link">
-                    <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
+            <p class = "tags textBox"> 
+                <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags.tag}}" class = "link">
+                    <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags.tag}}
                 </a>
             </p>
         </section>
