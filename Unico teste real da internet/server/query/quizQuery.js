@@ -5,7 +5,7 @@ class QuizQuery extends Query {
     constructor () { super() }
 
     getQuizPorId(id, callback){
-        let query = 'select * from quiz where id_quiz = ?';
+        let query = 'select * from q where q.id_quiz = ?'
         this.executeQuery(id, callback, query);
     }
 
