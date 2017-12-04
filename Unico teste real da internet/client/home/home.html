@@ -86,29 +86,37 @@
             <div class="leftpartRecom recomendacoesC">
                 <h2 ng-show="logged">QUIZZES RECOMENDADOS</h2>
                 <div ng-show="logged" class="FriendRecommendations">
-                    <div id="QuizCarousel" class="carousel slide" data-ride="carousel">
+                    <div id="QuizCarousel" class="carousel slide" data-interval="false">
+                        <ol class="carousel-indicators">
+                            <li data-target="#QuizCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#QuizCarousel" data-slide-to="1"></li>
+                            <li data-target="#QuizCarousel" data-slide-to="2"></li>
+                        </ol>
 
                         <!-- Wrapper for slides -->
 
-                        <div class="carousel-inner">
+                        <div class="carousel-inner carousel-inner-quiz">
                             <div class=" carousel-first-div item active">
                                 <p>pfvr funcionar</p>
                             </div>
                             <section class="friendsR item" ng-repeat="quiz in quizzes">
-                                <p class="quiztitle textBox">
-                                    <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a>
-                                </p>
                                 <div class="foto">
                                     <a ng-href="/#!/quiz/{{quiz.id_quiz}}">
                                         <img ng-src="{{quiz.url_foto}}">
                                     </a>
                                 </div>
+                                <p class="quiztitle textBox">
+                                    <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a>
+                                </p>
                                 <p ng-if="quiz.id_modalidade=='1'" class="modalidade textBox">
-                                    <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
+                                    <i title="Rankeado" class="fa fa-list-ol" aria-hidden="true"></i>
+                                </p>
                                 <p ng-if="quiz.id_modalidade=='2'" class="modalidade textBox">
-                                    <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
+                                    <i title="Genérico" class="fa fa-random" aria-hidden="true"></i>
+                                </p>
                                 <p ng-if="quiz.id_modalidade=='3'" class="modalidade textBox">
-                                    <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
+                                    <i title="Pessoal" class="fa fa-user" aria-hidden="true"></i>
+                                </p>
                                 <p class="resumo textBox"> {{quiz.resumo}} </p>
                                 <p class="autor textBox"> Por:
                                     <a ng-href="/#!/perfil/{{quiz.autor.id}}"> {{quiz.autor.nome}} </a>
@@ -120,23 +128,27 @@
                                 </p>
                             </section>
                         </div>
-
                         <!-- Left and right controls -->
-                        <a class="left carousel-control" href="#QuizCarousel" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                              <a class="right carousel-control" href="#QuizCarousel" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                <span class="sr-only">Next</span>
-                              </a>
+                        <a class="left carousel-control" data-target="#QuizCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" data-target="#QuizCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="rightpartRecom recomendacoesC">
                 <h2 ng-show="logged"> RECOMENDAÇÕES DE AMIZADE </h2>
                 <div class="friendRecommendations" ng-show="logged">
-                    <div id="FriendCarousel" class="carousel slide" data-ride="carousel">
+                    <div id="FriendCarousel" class="carousel slide" data-interval="false">
+                        <ol class="carousel-indicators">
+                            <li data-target="#FriendCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#FriendCarousel" data-slide-to="1"></li>
+                            <li data-target="#FriendCarousel" data-slide-to="2"></li>
+                        </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
@@ -193,11 +205,11 @@
                         </div>
 
                         <!-- Left and right controls -->
-                        <a class="left carousel-control" href="#FriendCarousel" data-slide="prev">
+                        <a class="left carousel-control" data-target="#FriendCarousel" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="right carousel-control" href="#FriendCarousel" data-slide="next">
+                        <a class="right carousel-control" data-target="#FriendCarousel" data-slide="next">
                             <span class="glyphicon glyphicon-chevron-right"></span>
                             <span class="sr-only">Next</span>
                         </a>

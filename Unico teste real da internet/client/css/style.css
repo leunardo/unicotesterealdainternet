@@ -1086,7 +1086,11 @@ filter:alpha(opacity=90);
 .carousel-inner {
     position: relative;
     overflow: hidden;
-    width: 100%
+    width: 100%;
+}
+.carousel-inner-quiz{
+    width:400px!important;
+    height: auto!important; 
 }
 
 .carousel-inner>.item {
@@ -1295,6 +1299,26 @@ filter:alpha(opacity=90);
 
 .carousel-caption .btn {
     text-shadow: none
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto
 }
 
 @media screen and (min-width:768px) {
@@ -2394,6 +2418,7 @@ filter:alpha(opacity=90);
 .recomendacoes{
     display:flex;
     flex-direction:row;
+    margin: 0 0 0 15%;
 }
 .recomendacoesC{
     display: flex;
@@ -2406,11 +2431,14 @@ filter:alpha(opacity=90);
 .leftpartRecom{
     text-align:left;
     align-self: left;
-    margin: 0 5% 0 20%;
+    
 }
 .carousel-first-div{
     width: 128px;
     height: 404px;
+}
+.separador{
+    margin:0 0 0 16%;
 }
 @keyframes abrir-modal {
     from {
