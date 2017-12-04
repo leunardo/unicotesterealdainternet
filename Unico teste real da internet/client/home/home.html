@@ -96,10 +96,7 @@
                         <!-- Wrapper for slides -->
 
                         <div class="carousel-inner carousel-inner-quiz">
-                            <div class=" carousel-first-div item active">
-                                <p>pfvr funcionar</p>
-                            </div>
-                            <section class="friendsR item" ng-repeat="quiz in quizzes">
+                            <section class=" friendsR item" ng-class="{active:!$index}" ng-repeat="quiz in quizzes">
                                 <div class="foto">
                                     <a ng-href="/#!/quiz/{{quiz.id_quiz}}">
                                         <img ng-src="{{quiz.url_foto}}">
