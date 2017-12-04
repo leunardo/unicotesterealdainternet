@@ -161,7 +161,7 @@ i.fa.fa-certificate {
     width: 90vw;
     margin-top: 5vw;
     margin-bottom: 5vw;
-    background: #ECEFF4;
+    background: white;
     border: 1px #DFE0E4 solid;
     border-radius: 5px;
     color: #365CAB;
@@ -211,7 +211,7 @@ criar-quiz {
     width: 40%;
     margin-left: 5%;
     border-radius: 20px;
-    background: rgb(242, 242, 242);
+    background: white;
     box-shadow: 0 0 20px #827d7d;
     margin-right: 5%;
     margin-bottom: 5vw;
@@ -245,7 +245,7 @@ criar-quiz {
 }
 
 .modalidade-box-active {
-    background-color: rgb(222, 222, 222);
+    background-color: white;
     border-radius: 10px;
 }
 
