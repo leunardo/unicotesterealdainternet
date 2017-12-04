@@ -113,3 +113,17 @@ create table friendship(
     foreign key(id_usuario2) references usuario(id_usuario),
     constraint id_friendship unique(id_usuario, id_usuario2)
 );
+
+drop view if exists db_topquizzes.v;
+drop view if exists db_topquizzes.q;
+drop view if exists db_topquizzes.qtq;
+create view v as 
+	select q.id_quiz, q.id_usuario, id_modalidade, titulo, resumo, q.url_foto, nome from
+		usuario u inner join quiz q on q.id_usuario = u.id_usuario;
+create view qtq as 
+	select tag, t.id_tag, qt.id_quiz from quiztags qt inner join tag t on qt.id_tag = t.id_tag order by qt.id_quiz;
+create view q as
+	select v.nome, qtq.tag as tags, v.id_quiz, v.id_usuario, v.id_modalidade, v.titulo, v.resumo, v.url_foto, qtq.id_tag from 
+		v left join
+		qtq
+		on qtq.id_quiz = v.id_quiz;

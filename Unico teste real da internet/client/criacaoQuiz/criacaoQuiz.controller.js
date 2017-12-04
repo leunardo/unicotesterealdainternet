@@ -182,7 +182,7 @@ function criacaoQuizController($scope, authService, $location, quizService) {
             $scope.parteQuiz++;
             $scope.range.max = $scope.quiz.perguntas.length;
         }else if($scope.parteQuiz==2&&$scope.quiz.perguntas.length<=6){
-            alert("Seu quiz precisa ter ao menos 7 perguntas. Você só fez "+$scope.quiz.perguntas.length+" perguntas até agora.");
+            alertify.alert("Seu quiz precisa ter ao menos 7 perguntas. Você só fez "+$scope.quiz.perguntas.length+" perguntas até agora.");
         }
     }
 

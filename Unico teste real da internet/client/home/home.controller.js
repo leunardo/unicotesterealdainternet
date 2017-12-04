@@ -3,9 +3,8 @@ app.controller('homeController', homeController);
 function homeController($scope, quizService, usuarioService, authService, tagService) {  
     $scope.logged = authService.isLogado();
     let quizzes = ["oi"];
-    let i = 0;
-    let k = 0;
     let id = 0;
+    let i = 0;
     let idsUsados = [0];
     let quizData = [];
     getQuizzes();
@@ -26,18 +25,37 @@ function homeController($scope, quizService, usuarioService, authService, tagSer
     }
 
     function quizSorting(){
-        while(contem(id, idsUsados)||id==0){
-            id = Math.floor(Math.random()*(quizData.length)+1);
+        for(var i = 0; i < 4; i++){
+            while(contem(id, idsUsados)||id==0){
+                id = Math.floor(Math.random()*(quizData.length)+1);
+            }
+            idsUsados[i+1] = id;
+            quizService.getQuiz(id).then(mostrarQuiz);  
         }
-        idsUsados[i+1] = id;
-        quizService.getQuiz(id).then(mostrarQuiz).finally(getAutorETags);  
     }
 
     function mostrarQuiz(quiz){
-        quizzes[i] = quiz.data[0];
-        quizzes[i].tags = ["oi"];
+        quizzes[i] = angular.copy(quiz.data[0]);
+        quizzes[i].tags = [];
+        pegarTags(quiz);
+        i++;
+        if(quizzes.length == 4){
+            $scope.quizzes = quizzes;
+        }
     }
 
+    function pegarTags(quiz){
+        if(quiz.data[0].tags != null)
+            for(var k = 0; k < quiz.data.length; k++){
+                quizzes[i].tags[k] = {
+                    "tag": quiz.data[k].tags,
+                    "id_tag": quiz.data[k].id_tag
+                };
+            }
+        else
+            quizzes[i].tags = null;
+    }
+/*
     function getAutorETags(){
         usuarioService.getUsuarioPorId(quizzes[i].id_usuario).then(assimilarAutor).finally(pegarQT);
     }
@@ -84,7 +102,7 @@ function homeController($scope, quizService, usuarioService, authService, tagSer
             quizSorting();
         }
     }
-
+*/
     function contem(id, idsUsados) {
         for (var i = 0; i < idsUsados.length; i++) {
             if (idsUsados[i] === id) {
