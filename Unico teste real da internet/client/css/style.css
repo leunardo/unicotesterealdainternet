@@ -158,9 +158,9 @@ i.fa.fa-certificate {
 .menu-home {
     display: flex;
     flex-direction: column;
-    width: 70vw;
-    margin-top: 15vh;
-    margin-bottom: 15vh;
+    width: 90vw;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
     background: #ECEFF4;
     border: 1px #DFE0E4 solid;
     border-radius: 5px;
