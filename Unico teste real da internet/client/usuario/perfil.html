@@ -1,7 +1,7 @@
 <div class="hero page-div">
     <div class="userDetails">
         <article class="hero-body">
-            <img ng-src="{{usuario.url_foto}}" class="profile-pic img-medium hero-img">
+            <img ng-src="{{usuario.url_foto}}" class="foto-Edicao img-medium hero-img">
             <b class="hero-name">{{usuario.nome}}</b>
         </article>
 
@@ -10,15 +10,20 @@
             <article class="user-descricao">
                 <p class="textBox">{{usuario.descricao}}</p>
                 <div ng-if="checarUser()">
-                    <button class="link" ng-click="editarPerfil()"> <i class="fa fa-pencil"></i></button>
+                    <button class="link user-titulodescricao-button" ng-click="editarPerfil()"> <i class="fa fa-pencil"></i></button>
                     <form class="modal" id="modal">
                         <div class=" modal-edicao">
-                            <a ng-click="fecharModal()" class="link botao-fechar-edicao"> <i class="fa fa-times" aria-hidden="true"></i></a>
                             <img ng-src="{{usuario.url_foto}}" class="foto-Edicao">
-                            <label>Foto de Perfil: <input type="text" class= "form-edicao" ng-model="usuarioCopia.foto"></label>
-                            <label class="texto-edicao-nome">Nome: <input type="text" class="form-edicao" ng-model="usuarioCopia.nome"> </label>
-                            <label>Descrição: <textarea type="text" rows="5" cols="50" class="form-edicao form-edicao-descricao" ng-model="usuarioCopia.descricao" maxlength="500"></textarea></label>
-                            <button ng-click="atualizarPerfil()"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                            <label>Foto de Perfil:</label>
+                            <input type="text" class= "form-edicao aligned-center" ng-model="usuarioCopia.foto">
+                            <label>Nome: </label>
+                            <input type="text" class="form-edicao aligned-center" ng-model="usuarioCopia.nome">
+                            <label>Descrição:</label>
+                            <textarea type="text" rows="1" cols="30" class="form-edicao aligned-center" ng-model="usuarioCopia.descricao" maxlength="500"></textarea>
+                            <div class="display-buttons">
+                            <button class="botao-edicao salvar"ng-click="atualizarPerfil(); fecharModal();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar Alterações</button>
+                            <button class="botao-edicao"ng-click="fecharModal()"class="link">Cancelar</button>
+                                </div>
                         </div>
                     </form>
                 </div>

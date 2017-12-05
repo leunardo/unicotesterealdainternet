@@ -835,7 +835,7 @@ footer article section {
     font-size: 1.1rem;
 }
 
-.user-titulodescricao button {
+.user-titulodescricao-button {
     padding: 0.1rem;
     width: 30px;
     height: 30px;
@@ -1001,8 +1001,8 @@ button.resposta-button-inline {
     height: 80vh;
     animation-name: abrir-modal;
     animation-duration: 0.5s;
+    color:#365CAB;
 }
-
 .foto-Edicao {
     max-height: 50%;
     max-width: 50%;
@@ -1013,11 +1013,33 @@ button.resposta-button-inline {
 }
 
 .form-edicao {
-    margin: 12px;
-    border: 1px solid #bdc7d8;
+    width:50%;
+    margin-top: 12px;
+    margin-bottom:12px;
+    border: 1px solid #133783;
     border-radius: 5px;
+    resize: none;
+    color:#365CAB;;
 }
-
+.display-buttons{
+    display: flex;
+    flex-direction: row;
+    margin-left:10%;
+}
+.botao-edicao{
+    background-color:transparent;
+    color:#365CAB;
+    margin-bottom:10px;
+    border:1px solid #133783;
+    border-radius: 2px;
+    font-size: 1.3rem;
+    padding: 0.2rem;
+    margin-top:10%;
+    margin-left:5%;
+}
+.bota-edicao-salvar{
+    margin-left:20%;
+}
 .botao-fechar-edicao {
     font-size: 1.5rem;
     color: #000000;
@@ -1026,14 +1048,7 @@ button.resposta-button-inline {
     top: 15px;
 }
 
-.texto-edicao-nome {
-    left: 27.1px;
-    position: relative;
-}
 
-.form-edicao-descricao {
-    resize: none
-}
 
 .friendRecommendations {
     display: flex;
@@ -1047,9 +1062,16 @@ button.resposta-button-inline {
     padding: 0.7rem;
     flex-direction: column;
     width: 40%;
-    margin: 50px 100px 50px 100px;
     align-self: center;
+    margin: 50px 0px 50px 0px;
 
+}
+.friendsR-margin{
+    margin-right: 63px;
+    margin-left: 100px;
+}
+.quizR-margin{
+    margin: 50px 0px -65px 140px;
 }
 
 .friendsR img {
@@ -2418,24 +2440,27 @@ filter:alpha(opacity=90);
 .recomendacoes{
     display:flex;
     flex-direction:row;
-    margin: 0 0 0 15%;
+    width:100%;
 }
 .recomendacoesC{
     display: flex;
     flex-direction: column;
+    margin-left:8%;
 }
 .rightpartRecom{
     text-align: right;
     align-self: right;
+    margin-left: 17%;
 }
 .leftpartRecom{
     text-align:left;
     align-self: left;
     
 }
-.separador{
-    margin:0 0 0 16%;
+.tituloRecom{
+margin: 5%;
 }
+
 @keyframes abrir-modal {
     from {
         opacity: 0;

@@ -82,9 +82,9 @@
                             </a>
                         </div>
 -->
-        <section class="recomendacoes">
+        <section class="recomendacoes aligned-center">
             <div class="leftpartRecom recomendacoesC">
-                <h2 ng-show="logged">QUIZZES RECOMENDADOS</h2>
+                <h2 ng-show="logged" class="aligned-center">QUIZZES RECOMENDADOS</h2>
                 <div ng-show="logged" class="FriendRecommendations">
                     <div id="QuizCarousel" class="carousel slide" data-interval="false">
                         <ol class="carousel-indicators">
@@ -96,13 +96,13 @@
                         <!-- Wrapper for slides -->
 
                         <div class="carousel-inner carousel-inner-quiz">
-                            <section class=" friendsR item" ng-class="{active:!$index}" ng-repeat="quiz in quizzes">
+                            <section class=" friendsR quizR-margin item" ng-class="{active:!$index}" ng-repeat="quiz in quizzes">
                                 <div class="foto">
                                     <a ng-href="/#!/quiz/{{quiz.id_quiz}}">
                                         <img ng-src="{{quiz.url_foto}}">
                                     </a>
                                 </div>
-                                <p class="quiztitle textBox">
+                                <p class="quiztitle textBox aligned-center">
                                     <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a>
                                 </p>
                                 <p ng-if="quiz.id_modalidade=='1'" class="modalidade textBox">
@@ -138,7 +138,7 @@
                 </div>
             </div>
             <div class="rightpartRecom recomendacoesC">
-                <h2 ng-show="logged"> RECOMENDAÇÕES DE AMIZADE </h2>
+                <h2 ng-show="logged" class="aligned-center"> RECOMENDAÇÕES DE AMIZADE </h2>
                 <div class="friendRecommendations" ng-show="logged">
                     <div id="FriendCarousel" class="carousel slide" data-interval="false">
                         <ol class="carousel-indicators">
@@ -150,7 +150,7 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <div class="friendsR">
+                                <div class="friendsR friendsR-margin ">
                                     <div>
                                         <a ng-href="/#!/perfil/1">
                                             <img src="https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg">
@@ -167,7 +167,7 @@
                             </div>
 
                             <div class="item">
-                                <div class="friendsR">
+                                <div class="friendsR friendsR-margin">
                                     <div>
                                         <a ng-href="/#!/perfil/1">
                                             <img src="https://gq-images.condecdn.net/image/r7RD3jDb5w5/crop/405/landscape">
@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <div class="friendsR">
+                                <div class="friendsR friendsR-margin">
                                     <div>
                                         <a ng-href="/#!/perfil/1">
                                             <img src="http://static1.squarespace.com/static/58970e4cd1758e28994b5bf8/589711f346c3c4ce3439dd7b/595df3b0d2b8577ba0a4f273/1500495517472/cuckchick.jpg?format=1000w">
