@@ -3,7 +3,8 @@ const QuizService = require('../service/quizService');
 const quizService = new QuizService();
 router
     .route('/:id')
-        .get(getQuizPorId);
+        .get(getQuizPorId)
+        .post(usuarioRespondeu);
 router
     .route('/user/:userid/:page')
         .get(getQuizzesDoUsuario);
@@ -14,8 +15,23 @@ router
 router
     .route('/pagina/:page')
         .get(getQuizzesDaPagina);
+router
+    .route('/:id/usuarios')
+        .get(usuariosQueResponderam);
 
 
+
+function usuariosQueResponderam(req, res) {
+    quizService.usuariosQueResponderam(req.params.id, (usuarios) => {
+        res.send(usuarios);
+    })
+}
+
+function usuarioRespondeu(req, res) {
+    quizService.usuarioRespondeu(req.body, req.params.id, (resposta) => {
+        res.send(resposta);
+    })
+}
 
 function getQuizPorId(req, res) {
     quizService.getQuizPorId(req.params.id, (quiz) => {
