@@ -606,7 +606,7 @@ header {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998', GradientType=0);
     border-bottom: 1px solid #133783;
     justify-content: space-between;
-    box-shadow: 0 -5px 30px 22px rgb(32, 32, 69);
+    box-shadow: 0 -5px 30px 12px rgb(32, 32, 69);
 }
 
 header input:required {
@@ -750,7 +750,7 @@ footer {
     border-top: 1px solid #133783;
     color: white;
     align-self: flex-end;
-    box-shadow: 0 5px 30px 15px rgb(32, 32, 69);
+    box-shadow: 0 5px 30px 12px rgb(32, 32, 69);
 }
 
 footer article {
