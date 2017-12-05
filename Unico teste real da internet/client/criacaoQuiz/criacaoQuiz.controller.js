@@ -26,7 +26,7 @@ app.controller('criacaoQuizController', function (authService, $location, quizSe
             perguntas: [],
             resultado: [],
             tags: [],
-            modalidade: 0
+            modalidade: ''
         };
         this.form.perguntaTemp = {
             pergunta: '',
