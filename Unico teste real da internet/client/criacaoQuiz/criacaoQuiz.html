@@ -1,7 +1,7 @@
-<form novalidate ng-submit='criarPergunta()' name=perguntaForm>
+<ng-form novalidate name=createCtrl.form>
 
-    <div class = "questions">        
-        <criar-quiz parte="{{parteQuiz}}"></criar-quiz>    
-    </div> 
+    <div class="questions">
+        <criar-quiz parte="{{createCtrl.parteQuiz}}"></criar-quiz>
+    </div>
 
-</form>
+</ng-form>

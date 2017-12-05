@@ -1,28 +1,49 @@
 <div class="home-container">
-    
-    <div class="menu-home">
-        <div class = "opcoes">
-            <p> <a ng-href="/#!/criar"> <i class="fa fa-plus" aria-hidden="true"></i> Crie seu próprio Quiz! </a> </p>
-            <p> <a ng-href="/#!/ranking"> <i class="fa fa-list-ol" aria-hidden="true"></i> Veja o ranking! </a> </p>
-            <p> <a ng-href="/#!/quizzes"> <i class="fa fa-list" aria-hidden="true"></i> Encontre seu Quiz ideal! </a> </p>
+    <div class="home-column">
+        <div class="opcoes">
+            <p>
+                <a ng-href="/#!/criar">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Crie seu próprio Quiz! </a>
+            </p>
+            <p>
+                <a ng-href="/#!/ranking">
+                    <i class="fa fa-list-ol" aria-hidden="true"></i> Veja o ranking! </a>
+            </p>
+            <p>
+                <a ng-href="/#!/quizzes">
+                    <i class="fa fa-list" aria-hidden="true"></i> Encontre seu Quiz ideal! </a>
+            </p>
         </div>
-        <h3> QUIZZES ALEATÓRIOS </h3>
-        <div class = "randomQuizzes">
-            <section class = "quizAnchor" ng-repeat="quiz in quizzes">
-                <p class = "quiztitle textBox"> <a ng-href = "/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a> </p>                
-                <div class = "foto"> <a ng-href = "/#!/quiz/{{quiz.id_quiz}}"><img ng-src="{{quiz.url_foto}}"></a></div>
-                <p ng-if="quiz.id_modalidade=='1'" class = "modalidade textBox"> <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
-                <p ng-if="quiz.id_modalidade=='2'" class = "modalidade textBox"> <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
-                <p ng-if="quiz.id_modalidade=='3'" class = "modalidade textBox"> <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
-                <p class = "resumo textBox"> {{quiz.resumo}} </p> 
-                <p class="autor"> Por: <a ng-href="/#!/perfil/{{quiz.id_usuario}}">{{quiz.nome}}</a> </p>
-                <p class = "tags textBox"> 
-                    <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags.tag}}" class = "link">
-                        <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags.tag}}
-                    </a>
-                </p>
-            </section>
+        <div class="menu-home">
+
+            <h3> QUIZZES ALEATÓRIOS </h3>
+            <div class="randomQuizzes">
+                <section class="quizAnchor" ng-repeat="quiz in quizzes">
+                    <p class="quiztitle textBox">
+                        <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a>
+                    </p>
+                    <div class="foto">
+                        <a ng-href="/#!/quiz/{{quiz.id_quiz}}">
+                            <img ng-src="{{quiz.url_foto}}">
+                        </a>
+                    </div>
+                    <p ng-if="quiz.id_modalidade=='1'" class="modalidade textBox">
+                        <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
+                    <p ng-if="quiz.id_modalidade=='2'" class="modalidade textBox">
+                        <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
+                    <p ng-if="quiz.id_modalidade=='3'" class="modalidade textBox">
+                        <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
+                    <p class="resumo textBox"> {{quiz.resumo}} </p>
+                    <p class="autor"> Por:
+                        <a ng-href="/#!/perfil/{{quiz.id_usuario}}">{{quiz.nome}}</a>
+                    </p>
+                    <p class="tags textBox">
+                        <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags.tag}}" class="link">
+                            <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags.tag}}
+                        </a>
+                    </p>
+                </section>
+            </div>
         </div>
     </div>
 </div>
-

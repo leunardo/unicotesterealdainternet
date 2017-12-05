@@ -1,14 +1,14 @@
-app.config(function ($routeProvider){
+app.config(function ($routeProvider) {
     $routeProvider
         .when("/index", {
             controller: "homeController",
             templateUrl: "home/home.html"
-        })        
-        .when("/quiz/:id" , {
+        })
+        .when("/quiz/:id", {
             controller: "quizController",
             templateUrl: "quiz/quiz.html"
         })
-        .when("/resultado" , {
+        .when("/resultado", {
             controller: "resultadoController",
             templateUrl: "resultado/resultado.html"
         })
@@ -18,7 +18,8 @@ app.config(function ($routeProvider){
         })
         .when("/criar", {
             controller: "criacaoQuizController",
-            templateUrl: "criacaoQuiz/criacaoQuiz.html"
+            templateUrl: "criacaoQuiz/criacaoQuiz.html",
+            controllerAs: "createCtrl"
         })
         .when("/quizzes", {
             controller: "quizMenuController",
@@ -36,5 +37,7 @@ app.config(function ($routeProvider){
             controller: "searchController",
             templateUrl: "search/search.html"
         })
-        .otherwise({redirectTo: "/index"});
+        .otherwise({
+            redirectTo: "/index"
+        });
 });
