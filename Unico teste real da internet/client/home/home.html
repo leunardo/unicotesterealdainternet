@@ -45,5 +45,181 @@
                 </section>
             </div>
         </div>
+        <!-- 
+            <div id="myCarousel" class="carousel" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                            </ol>
+    
+    
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="friends" ng-repeat= user in users>
+                                        <div>
+                                            <a ng-href="/#!/perfil/{{usuario.id_usuario}}">
+                                                <img src={{usuario.url_foto}}>
+                                            </a>
+                                        </div>
+                                        <p class="textBox quiztitle link">
+                                            <a ng-href="/#!/perfil/{{usuario.id_usuario}}">{{usuario.nome}}</a>
+                                        </p>
+                                        <button ng-click="adicionarAmigo()" class="link aligned-center">Adicionar amigo
+                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                        </button>
+    
+                                    </div>
+                                </div>
+                            </div>
+    
+                           
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+-->
+        <section class="recomendacoes">
+            <div class="leftpartRecom recomendacoesC">
+                <h2 ng-show="logged">QUIZZES RECOMENDADOS</h2>
+                <div ng-show="logged" class="FriendRecommendations">
+                    <div id="QuizCarousel" class="carousel slide" data-interval="false">
+                        <ol class="carousel-indicators">
+                            <li data-target="#QuizCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#QuizCarousel" data-slide-to="1"></li>
+                            <li data-target="#QuizCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+
+                        <div class="carousel-inner carousel-inner-quiz">
+                            <div class=" carousel-first-div item active">
+                                <p>pfvr funcionar</p>
+                            </div>
+                            <section class="friendsR item" ng-repeat="quiz in quizzes">
+                                <div class="foto">
+                                    <a ng-href="/#!/quiz/{{quiz.id_quiz}}">
+                                        <img ng-src="{{quiz.url_foto}}">
+                                    </a>
+                                </div>
+                                <p class="quiztitle textBox">
+                                    <a ng-href="/#!/quiz/{{quiz.id_quiz}}"> {{quiz.titulo}} </a>
+                                </p>
+                                <p ng-if="quiz.id_modalidade=='1'" class="modalidade textBox">
+                                    <i title="Rankeado" class="fa fa-list-ol" aria-hidden="true"></i>
+                                </p>
+                                <p ng-if="quiz.id_modalidade=='2'" class="modalidade textBox">
+                                    <i title="Genérico" class="fa fa-random" aria-hidden="true"></i>
+                                </p>
+                                <p ng-if="quiz.id_modalidade=='3'" class="modalidade textBox">
+                                    <i title="Pessoal" class="fa fa-user" aria-hidden="true"></i>
+                                </p>
+                                <p class="resumo textBox"> {{quiz.resumo}} </p>
+                                <p class="autor textBox"> Por:
+                                    <a ng-href="/#!/perfil/{{quiz.autor.id}}"> {{quiz.autor.nome}} </a>
+                                </p>
+                                <p class="tags textBox">
+                                    <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class="link">
+                                        <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
+                                    </a>
+                                </p>
+                            </section>
+                        </div>
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" data-target="#QuizCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" data-target="#QuizCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="rightpartRecom recomendacoesC">
+                <h2 ng-show="logged"> RECOMENDAÇÕES DE AMIZADE </h2>
+                <div class="friendRecommendations" ng-show="logged">
+                    <div id="FriendCarousel" class="carousel slide" data-interval="false">
+                        <ol class="carousel-indicators">
+                            <li data-target="#FriendCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#FriendCarousel" data-slide-to="1"></li>
+                            <li data-target="#FriendCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="friendsR">
+                                    <div>
+                                        <a ng-href="/#!/perfil/1">
+                                            <img src="https://www.cleverfiles.com/howto/wp-content/uploads/2016/08/mini.jpg">
+                                        </a>
+                                    </div>
+                                    <p class="textBox quiztitle link">
+                                        <a ng-href="/#!/perfil/1">Usuário Exemplo</a>
+                                    </p>
+                                    <button class="link aligned-center">Adicionar amigo
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="friendsR">
+                                    <div>
+                                        <a ng-href="/#!/perfil/1">
+                                            <img src="https://gq-images.condecdn.net/image/r7RD3jDb5w5/crop/405/landscape">
+                                        </a>
+                                    </div>
+                                    <p class="textBox quiztitle link">
+                                        <a ng-href="/#!/perfil/1">Usuário Exemplo</a>
+                                    </p>
+                                    <button class="link aligned-center">Adicionar amigo
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="friendsR">
+                                    <div>
+                                        <a ng-href="/#!/perfil/1">
+                                            <img src="http://static1.squarespace.com/static/58970e4cd1758e28994b5bf8/589711f346c3c4ce3439dd7b/595df3b0d2b8577ba0a4f273/1500495517472/cuckchick.jpg?format=1000w">
+                                        </a>
+                                    </div>
+                                    <p class="textBox quiztitle link">
+                                        <a ng-href="/#!/perfil/1">Usuário Exemplo</a>
+                                    </p>
+                                    <button class="link aligned-center">Adicionar amigo
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" data-target="#FriendCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" data-target="#FriendCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
+
 </div>

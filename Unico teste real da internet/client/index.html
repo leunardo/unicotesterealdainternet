@@ -2,16 +2,17 @@
 <html lang="pt-br">
 
 <head>
-    <title>Descubra seu QI</title>
+    <title>Quizioteca</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="24339375695-sngstbgelv3cpvvgs96ndoa6n472u3n4.apps.googleusercontent.com">
     <link href="css/style.css" rel="stylesheet">
-
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.10.0/css/alertify.min.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.10.0/css/themes/default.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body ng-app="testeInternet">
@@ -41,7 +42,7 @@
             </div>
             <a href="#" ng-show="logged" class="g-signout2" ng-click="signOut()">Sign out</a>
         </section>
-
+        </div>
     </header>
     <div class="container">
         <ng-view></ng-view>
@@ -60,7 +61,7 @@
             </section>
         </article>
         <section class="copyright">
-            2017 TOPTESTES 2000, All rights reserved.
+            ©2017 TOPTESTES 2000 Inc. All rights reserved.
         </section>
     </footer>
 
