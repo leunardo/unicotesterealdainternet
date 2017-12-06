@@ -1037,7 +1037,7 @@ button.resposta-button-inline {
 }
 
 .createI {
-    width: 40vw;
+    width: 50vw;
     border: 2px solid #133783;
     border-radius: 10px;
     align-self: center;
@@ -1048,7 +1048,7 @@ button.resposta-button-inline {
 
 .TAcreate {
     resize: none;
-    width: 25vw;
+    width: 50vw;
     border: 2px solid #133783;
     border-radius: 10px;
     align-self: center;
