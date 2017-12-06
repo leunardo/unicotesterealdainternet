@@ -130,6 +130,6 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
                 localStorage.usuario = JSON.stringify($scope.usuario);
             }, function erro(error) {
                 console.log(error);
-            });
+            })
     }
 }

@@ -10,7 +10,13 @@ function authController($scope, authService) {
             $scope.logged = authService.isLogado();
             if($scope.logged) 
                 $scope.usuario = JSON.parse(localStorage.usuario);           
-        });
+        }
+    );
+    
+    $scope.$watch("usuario", () => {
+        localStorage.usuario = JSON.stringify($scope.usuario);
+    }, true
+    )
 
     function atualizar(){        
        $scope.logged = !$scope.logged;

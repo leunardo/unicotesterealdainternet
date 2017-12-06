@@ -16,7 +16,7 @@ router
     .route('/pagina/:page')
         .get(getQuizzesDaPagina);
 router
-    .route('/:id/usuarios')
+    .route('/:id/users')
         .get(usuariosQueResponderam);
 
 
