@@ -813,7 +813,9 @@ footer article section {
 
 .hero-name {
     margin-top: 10px;
-    font-size: 180%;
+    font-size: 2rem;
+    display:flex;
+    flex-direction:row;
 }
 
 .hero-body {
@@ -822,6 +824,8 @@ footer article section {
     text-align: center;
     padding: 30px;
     min-height: 13vh;
+    color:#4267B2;
+    
 }
 
 .marginless {
@@ -833,18 +837,18 @@ footer article section {
     margin-left: 16%;
     margin-right: 16%;
     font-size: 1.1rem;
+
 }
 
 .user-titulodescricao-button {
-    padding: 0.1rem;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    padding: 0.2rem;
+    border-radius: 5px;
     background: #ffffff;
     color: #4d68a1;
     cursor: pointer;
-    border: 2px solid #133783;
-    align-self: center;
+    border: 1px solid #133783;
+    margin-left: 5px;
+    
 }
 
 .userDetails {
@@ -856,11 +860,14 @@ footer article section {
     margin-right: 10%;
     padding-bottom: 30px;
     margin-top: 30px;
+    box-shadow: 8px 8px 5px rgb(150, 150, 150);
 }
 
 .user-titulodescricao {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:#365CAB;
 }
 
 .user-quizzes {
@@ -1013,13 +1020,14 @@ button.resposta-button-inline {
 }
 
 .form-edicao {
-    width:50%;
-    margin-top: 12px;
-    margin-bottom:12px;
-    border: 1px solid #133783;
-    border-radius: 5px;
-    resize: none;
-    color:#365CAB;;
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize:none;
+    color:#696969;
 }
 .display-buttons{
     display: flex;
@@ -1028,24 +1036,23 @@ button.resposta-button-inline {
 }
 .botao-edicao{
     background-color:transparent;
-    color:#365CAB;
     margin-bottom:10px;
-    border:1px solid #133783;
+    border:none;
     border-radius: 2px;
     font-size: 1.3rem;
-    padding: 0.2rem;
-    margin-top:10%;
+    padding: 14px 20px;
+    margin-top:5%;
     margin-left:5%;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    
 }
-.bota-edicao-salvar{
-    margin-left:20%;
+.botao-edicao-salvar{
+    background-color: #4CAF50;
 }
-.botao-fechar-edicao {
-    font-size: 1.5rem;
-    color: #000000;
-    position: absolute;
-    left: 20px;
-    top: 15px;
+.botao-edicao-cancelar {
+    background-color:#BE2817;
 }
 
 
