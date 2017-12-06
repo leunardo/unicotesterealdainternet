@@ -1011,8 +1011,8 @@ button.resposta-button-inline {
     color:#365CAB;
 }
 .foto-Edicao {
-    max-height: 50%;
-    max-width: 50%;
+    height: 50%;
+    width: 50%;
     margin: 20px 0 20px 0;
     border-radius: 50%;
     align-self: center;
