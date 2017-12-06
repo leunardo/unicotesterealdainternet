@@ -114,8 +114,11 @@ i.fa.fa-certificate {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d68a1', endColorstr='#3b5998', GradientType=0);
     font-size: 2rem;
     border-radius: 50%;
-    padding: 20px;
+    padding: 0;
+    width: 50px;
+    height: 50px;
     text-align: center;
+    text-decoration: none;
     color: #F6F7F9;
     box-shadow: 0 0 10px 2px grey;
     margin-bottom: 10px;
@@ -1056,6 +1059,15 @@ button.resposta-button-inline {
     flex-direction: column;
     justify-content: space-around;
     margin-bottom: 2vw;
+}
+
+.fa-pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.fa-pagination-icon {
+    align-self: center;
 }
 
 @keyframes abrir-modal {
