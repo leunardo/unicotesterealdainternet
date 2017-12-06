@@ -1,4 +1,4 @@
-app.controller("quizController", quizController);
+app.controller("quizControoller", quizController);
 
 function quizController($scope, quizService, usuarioService, authService, $location, $routeParams) {
     $scope.quiz = [];

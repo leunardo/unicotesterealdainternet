@@ -72,6 +72,14 @@ i.fa.fa-certificate {
     align-self: center;
 }
 
+.quizImage {
+    align-self: center;
+    width: 45vw;
+    height: 30vw;
+    border: 2px solid #133783;
+    border-radius: 20px 20px 20px 20px;
+}
+
 .quizSearch>input {
     border: 2px solid #133783;
     border-radius: 10px;
@@ -502,6 +510,7 @@ criar-quiz {
     justify-content: space-around;
 }
 .justified-text {
+
     display: flex;
     justify-content: space-between;
 }
@@ -676,10 +685,18 @@ header .logo {
 
 .top-part {
     margin: 4px;
+    text-align: center;
+    height: 5vw;
+    font-size: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    color: #133783;
 }
 
 .caixa {
-    padding: 7px;
+    padding: 1vw;
     display: flex;
     width: 80vw;
     min-height: 70vh;
@@ -703,14 +720,23 @@ header .logo {
     flex-direction: column;
 }
 
-.pergunta {
+.informacoes {
+    margin: 2vw;
+    padding: 2vw;
     background: #F6F7F9;
-    border: 2px #DFE0E4;
-    border-radius: 20px;
-    font-size: 1.3rem;
+    border: 2px solid #133783;
+    border-radius: 50px 50px 50px 50px;
+    margin-bottom: 10px;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.informacoes > p {
+    color: #4d68a1;
+    font-size: 1rem;
     text-align: center;
-    color: #365CAB;
-    padding: 5vw;
 }
 
 .top-part button {

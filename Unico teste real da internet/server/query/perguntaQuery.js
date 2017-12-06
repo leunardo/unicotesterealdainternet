@@ -4,9 +4,9 @@ class PerguntaQuery extends Query {
 
     constructor () { super() }
 
-    getPergunta(idPergunta, callback){
-        let query = 'select * from pergunta where id_pergunta = ?';
-        this.executeQuery(idPergunta, callback, query);
+    getPergunta(idPergunta, idQuiz, callback){
+        let query = 'select * from pergunta where nPergunta = ? AND id_quiz = ?';
+        this.executeQuery([idPergunta, idQuiz], callback, query);
     }
 
     criarPergunta(pergunta, callback){

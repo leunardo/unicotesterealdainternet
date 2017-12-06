@@ -1,13 +1,13 @@
 <div class="top-part">
     <div class="pergunta">
-        {{questao.pergunta}}
+        {{pergunta.pergunta}}
     </div>
     <span>
-        <button ng-if = "nPergunta > 0" ng-click="retrocederPergunta()">Questão Anterior</button>
+        <button ng-if = "pergunta > 0" ng-click="retrocederPergunta()">Questão Anterior</button>
     </span>
 </div>
 <div class="respostas">
-    <span ng-repeat="resposta in questao.respostas">
+    <span ng-repeat="resposta in pergunta.respostas">
         <button ng-click="avancarPergunta(resposta.nota)">{{resposta.resposta}}</button> 
         </span>
 </div>

@@ -4,6 +4,14 @@ function quizService($http, URL, tagService, $location) {
     var url = `${URL}`;
     var Pontuacao = 0;
 
+    function getUserQuizzes(id_quiz){
+        return $http.get(`${url}/quizzes/${id_quiz}/users`)
+    }
+
+    function criarRelacaoUsuarioQuiz(id_usuario, id_quiz){
+        return $http.post(`${url}/quizzes/${id_quiz}/`, JSON.stringify(id_quiz))
+    }
+
     function getQuiz(id) {
         return $http.get(`${url}/quizzes/${id}`);
     }
@@ -56,11 +64,10 @@ function quizService($http, URL, tagService, $location) {
             pergunta.descricao = perguntas[i].pergunta;
             pergunta.id_quiz = id_quiz;
             pergunta.nPergunta = i+1;
-            var respostas = perguntas[i].respostas;
             insertPergunta(angular.copy(pergunta)).then(
                 (response)=>
                 {
-                    criarRespostas(response.data.insertId, respostas)
+                    criarRespostas(response.data.insertId, perguntas[response.config.data.nPergunta-1].respostas);
                 }
                 ,(fail) => console.log(fail)
             );
@@ -94,6 +101,13 @@ function quizService($http, URL, tagService, $location) {
         return $http.post(`${url}/quizzes/1/perguntas/1/respostas`, resposta);
     }
 
+    function getPergunta(nPergunta, idQuiz){
+        return $http.get(`${url}/quizzes/${idQuiz}/perguntas/${nPergunta}`);
+    }
+
+    function getRespostas(nPergunta, idQuiz){
+        return $http.get(`${url}/quizzes/${idQuiz}/perguntas/${nPergunta}/respostas`);
+    }
 
     function buscarQuizPorTag(tagQuery, nPagina){
         return $http.get(`${url}/quizzes/tag/${JSON.stringify(tagQuery)}/${nPagina}`); 
@@ -107,6 +121,8 @@ function quizService($http, URL, tagService, $location) {
         getQuizzes: getQuizzes,
         getQuizzesDoUsuario: getQuizzesDoUsuario,
         getAllQuizzes: getAllQuizzes,
+        getPergunta: getPergunta,
+        getRespostas: getRespostas,
         buscarQuiz: buscarQuiz,
         buscarQuizPorTag: buscarQuizPorTag,
         resultados: resultados,

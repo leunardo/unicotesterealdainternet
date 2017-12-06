@@ -3,7 +3,7 @@ const PerguntaService = require('../service/perguntaService');
 const perguntaService = new PerguntaService();
 
 router
-    .route('/:id_quiz/perguntas/:id_pergunta')
+    .route('/:id_quiz/perguntas/:nPergunta')
         .get(getPergunta)
 router
     .route('/:id_quiz/perguntas')
@@ -11,7 +11,7 @@ router
         .post(criarPergunta)
 
 function getPergunta(req, res){
-    perguntaService.getPergunta(req.params.id_pergunta, (pergunta)=>{
+    perguntaService.getPergunta(req.params.nPergunta, req.params.id_quiz, (pergunta)=>{
         res.send(pergunta)
     });
 }
