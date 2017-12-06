@@ -1,19 +1,22 @@
-<div class="top-part">
-    <div class="pergunta">{{quiz.titulo}}</div>
-
-</div>
-
+ 
 <div class="quiz-info">
-    <p class="justified-text">{{quiz.resumo}}</p>
-    <img ng-src="{{quiz.foto}}">
-    <p ng-if="quiz.modalidade==='generica'" class="modalidade textBox"> <i class="fa fa-random" aria-hidden="true"></i> Modalidade: {{quiz.modalidade}} </p>
-    <p ng-if="quiz.modalidade==='pessoal'" class="modalidade textBox"> <i class="fa fa-user" aria-hidden="true"></i> Modalidade: {{quiz.modalidade}} </p>
-    <p ng-if="quiz.modalidade==='pontuacao'" class="modalidade textBox"> <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: {{quiz.modalidade}} </p>
-    <section class="tags">
-        <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class="link">
-            <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
-        </a>
-    </section>
+    <div class="informacoes">
+    <div class="top-part">
+        {{quiz.titulo}}
+    </div>
+        <img ng-src="{{quiz.url_foto}}" class = "quizImage">
+        <p>{{quiz.resumo}}</p>
+            <p ng-if="quiz.id_modalidade=='1'" class="modalidade textBox">
+                <i class="fa fa-user" aria-hidden="true"></i> Modalidade: Pessoal </p>
+            <p ng-if="quiz.id_modalidade=='2'" class="modalidade textBox">
+                <i class="fa fa-list-ol" aria-hidden="true"></i> Modalidade: Rankeado </p>
+            <p ng-if="quiz.id_modalidade=='3'" class="modalidade textBox">
+                <i class="fa fa-random" aria-hidden="true"></i> Modalidade: Genérico </p>
+        <section class="tags">
+            <a ng-repeat="tags in quiz.tags track by $index" ng-href="/#!/tag/{{tags}}" class="link">
+                <i class="fa fa-hashtag" aria-hidden="true"></i>{{tags}}
+            </a>
+        </section>
+    </div>
 </div>
-
 <button class="aligned-center" ng-click="proximaParte()">Responder quiz</button>

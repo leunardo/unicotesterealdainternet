@@ -6,7 +6,8 @@ app.config(function ($routeProvider) {
         })
         .when("/quiz/:id", {
             controller: "quizController",
-            templateUrl: "quiz/quiz.html"
+            templateUrl: "quiz/quiz.html",
+            controllerAs: "quizCtrl"
         })
         .when("/resultado", {
             controller: "resultadoController",

@@ -17,12 +17,11 @@ textarea {
     display: flex;
     padding: 0.2rem;
 }
-
 i.fa.fa-certificate {
     font-size: small;
 }
 
-.fa-random {
+.fa-random{
     transform: rotate(270deg);
 }
 
@@ -52,13 +51,13 @@ i.fa.fa-certificate {
     justify-content: center;
 }
 
-.iconeResposta {
+.iconeResposta{
     color: #ffffff;
     height: 20px;
     width: 20px;
 }
 
-.labelNota {
+.labelNota{
     margin-right: 5px;
 }
 
@@ -71,6 +70,14 @@ i.fa.fa-certificate {
     color: #ffffff;
     font-weight: bolder;
     align-self: center;
+}
+
+.quizImage {
+    align-self: center;
+    width: 45vw;
+    height: 30vw;
+    border: 2px solid #133783;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .quizSearch>input {
@@ -124,14 +131,13 @@ i.fa.fa-certificate {
     margin-bottom: 10px;
 }
 
-.textBox {
+.textBox{
     width: 100%;
 }
 
-* {
+*{
     word-wrap: break-word;
 }
-
 .title {
     text-align: center;
     color: #365CAB;
@@ -146,7 +152,7 @@ i.fa.fa-certificate {
     text-align: center;
 }
 
-.modalidade i {
+.modalidade i{
     font-size: 2rem;
     margin-right: 5px;
     text-align: left;
@@ -190,7 +196,7 @@ i.fa.fa-certificate {
 
 .randomQuizzes {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;    
     text-align: center;
     flex-wrap: wrap;
 }
@@ -227,7 +233,7 @@ criar-quiz {
     margin-bottom: 5vw;
 }
 
-.quizAnchor .quiztitle {
+.quizAnchor .quiztitle{
     margin-bottom: 10px;
     height: 40px;
 }
@@ -272,10 +278,10 @@ criar-quiz {
     opacity: 0;
     margin: 0;
     overflow: hidden;
-    max-height: 0;
+    max-height: 0;    
 }
 
-.modalidade-desc-active {
+.modalidade-desc-active {    
     opacity: 1;
     margin: initial;
     max-height: 1000px;
@@ -321,17 +327,19 @@ criar-quiz {
     justify-content: flex-start;
 }
 
-.quizBox>div .modalidade {
+.quizBox>div .modalidade{
     align-self: flex-end;
     margin-bottom: 0;
 }
 
-.quizBox:hover .resumo {
+
+.quizBox:hover .resumo{
     opacity: 1;
 }
 
-.quizBox .resumo {
+.quizBox .resumo{
     opacity: 0;
+
     margin-left: 7px;
     margin-right: 10px;
     box-shadow: 0 0 20px grey;
@@ -352,7 +360,7 @@ criar-quiz {
     transition: opacity .5s ease-in-out;
 }
 
-.tags {
+.tags{
     font-size: 0.6rem;
     width: 100%;
     display: flex;
@@ -364,9 +372,9 @@ criar-quiz {
     height: 50px;
 }
 
-.tags>a {
+.tags>a{
     background: #C6EFFF;
-    border: #4d68a1 1px solid;
+    border:#4d68a1 1px solid;
     border-radius: 10px;
     padding: 2px;
     margin-right: 5px;
@@ -410,8 +418,8 @@ criar-quiz {
 .resultado-box {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: column;   
+    justify-content: flex-start; 
 }
 
 .resultado-head {
@@ -435,7 +443,7 @@ criar-quiz {
     text-align: center;
 }
 
-.resultadoHead {
+.resultadoHead{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -446,7 +454,7 @@ criar-quiz {
     text-align: center;
     list-style: none;
     color: #365CAB;
-    margin-bottom: 12px;
+     margin-bottom: 12px; 
 }
 
 .pontuacao-resultado {
@@ -461,8 +469,7 @@ criar-quiz {
     justify-content: space-between;
     list-style: none;
 }
-
-.pontuacao-resultado-li>* {
+.pontuacao-resultado-li > * {
     align-self: center;
 }
 
@@ -471,7 +478,7 @@ criar-quiz {
     width: 50px;
 }
 
-.top3Quiz {
+.top3Quiz{
     width: 60%;
     align-self: center;
     text-align: center;
@@ -501,13 +508,12 @@ criar-quiz {
     display: flex;
     justify-content: center;
 }
-
-.flexAround {
+.flexAround{
     display: flex;
     justify-content: space-around;
 }
-
 .justified-text {
+
     display: flex;
     justify-content: space-between;
 }
@@ -515,11 +521,9 @@ criar-quiz {
 .aligned-center {
     align-self: center;
 }
-
-.MEGA {
+.MEGA{
     font-size: 3rem;
 }
-
 .valor {
     margin-left: 5px;
     padding-left: 2px;
@@ -557,8 +561,8 @@ ol .nome {
 
 .ranking-container ol {
     width: 40%;
-    margin-right: 30%;
-    margin-left: 30%;
+    margin-right:30%;
+    margin-left:30%;
     padding: 20px;
     border: 3px solid #4d68a1;
     background: rgb(228, 228, 228);
@@ -598,6 +602,16 @@ a:visited {
     color: #365CAB;
 }
 
+.pergunta {
+    background: #F6F7F9;
+    border: 2px #DFE0E4;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #365CAB;
+    padding: 5vw;
+}
+
 header {
     display: flex;
     padding-top: 10px;
@@ -613,9 +627,9 @@ header {
 }
 
 header input:required {
-    box-shadow: none;
-}
+    box-shadow:none;
 
+}
 header a {
     display: flex;
     align-self: center;
@@ -684,10 +698,22 @@ header .logo {
 
 .top-part {
     margin: 4px;
+    text-align: center;
+    height: 5vw;
+    font-size: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    color: #133783;
+}
+
+.seila {
+    margin: 4px;
 }
 
 .caixa {
-    padding: 7px;
+    padding: 1vw;
     display: flex;
     width: 80vw;
     min-height: 70vh;
@@ -711,14 +737,23 @@ header .logo {
     flex-direction: column;
 }
 
-.pergunta {
+.informacoes {
+    margin: 2vw;
+    padding: 2vw;
     background: #F6F7F9;
-    border: 2px #DFE0E4;
-    border-radius: 20px;
-    font-size: 1.3rem;
+    border: 2px solid #133783;
+    border-radius: 50px 50px 50px 50px;
+    margin-bottom: 10px;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.informacoes > p {
+    color: #4d68a1;
+    font-size: 1rem;
     text-align: center;
-    color: #365CAB;
-    padding: 5vw;
 }
 
 .top-part button {
@@ -833,7 +868,7 @@ footer article section {
     font-size: 1.1rem;
 }
 
-.user-titulodescricao button {
+.user-titulodescricao button{
     padding: 0.1rem;
     width: 30px;
     height: 30px;
@@ -844,8 +879,7 @@ footer article section {
     border: 2px solid #133783;
     align-self: center;
 }
-
-.userDetails {
+.userDetails{
     background: #F6F7F9;
     border: 3px #DFE0E4;
     border-radius: 75px;
@@ -996,7 +1030,7 @@ button.resposta-button-inline {
     padding: 70px 70px 0 70px;
     height: 80vh;
     animation-name: abrir-modal;
-    animation-duration: 0.5s;
+    animation-duration:0.5s;
 }
 
 .foto-Edicao {
@@ -1013,22 +1047,19 @@ button.resposta-button-inline {
     border: 1px solid #bdc7d8;
     border-radius: 5px;
 }
-
-.botao-fechar-edicao {
+.botao-fechar-edicao{
     font-size: 1.5rem;
-    color: #000000;
+    color:#000000;
     position: absolute;
     left: 20px;
     top: 15px;
 }
-
-.texto-edicao-nome {
+.texto-edicao-nome{
     left: 27.1px;
     position: relative;
 }
-
-.form-edicao-descricao {
-    resize: none
+.form-edicao-descricao{
+        resize:none
 }
 
 .createT {
@@ -1181,7 +1212,7 @@ button.resposta-button-inline {
         max-width: 70vw;
     }
     .questions {
-        width: 90vw;
+        width: 90vw;        
         margin: 5%;
         padding: 2%;
     }

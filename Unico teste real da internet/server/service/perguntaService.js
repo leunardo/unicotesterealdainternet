@@ -5,8 +5,8 @@ class perguntaService {
         this._perguntaQuery = new PerguntaQuery();
     }
 
-    getPergunta(idPergunta, callback){
-        this._perguntaQuery.getPergunta(idPergunta, (result) => callback(result))
+    getPergunta(idPergunta, idQuiz, callback){
+        this._perguntaQuery.getPergunta(idPergunta, idQuiz, (result) => callback(result))
     }
 
     getAllPerguntas(idQuiz, callback){

@@ -7,6 +7,14 @@ class QuizService {
         this._quizQuery = new QuizQuery();
     }
 
+    usuariosQueResponderam(id, callback){
+        this._quizQuery.getUsuariosQueResponderam(id, (result) => callback(result));
+    }
+
+    usuarioRespondeu(idUser, idQuiz, callback){
+        this._quizQuery.postUsuarioRespondeu(idUser, idQuiz, (result) => callback(result));
+    }
+
     getQuizPorId(id, callback){
         this._quizQuery.getQuizPorId(id, (result) => callback(result));
     }

@@ -4,6 +4,22 @@ class QuizQuery extends Query {
     
     constructor () { super() }
 
+    getUsuariosQueResponderam(id, callback){
+        let query = `select * from usuario u inner join userquizzes uq on
+                    uq.id_usuario = u.id_usuario inner join quizzes q on
+                    q.id_quiz = uq.id_quiz where id_quiz = ?`;
+        this.executeQuery(id, callback, query);
+    }
+
+    postUsuarioRespondeu(idUser, idQuiz, callback){
+        let userquiz = {
+            "id_usuario": idUser,
+            "id_quiz": idQuiz
+        };
+        let query = `insert into userquizzes set ?`;
+        this.executeQuery(userquiz, callback, query);
+    }
+
     getQuizPorId(id, callback){
         let query = 'select * from q where q.id_quiz = ?'
         this.executeQuery(id, callback, query);

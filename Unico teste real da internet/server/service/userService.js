@@ -34,7 +34,7 @@ class UserService {
         auth.authenticate(token, (payload) => {
             if (user.id_google == payload['sub'])    
                 this._userQuery.atualizarUsuario
-                    (user.nome, user.url_foto, user.descricao, id, 
+                    (user.nome, user.foto, user.descricao, id, 
                         (result) => callback(result));
         })
     }
