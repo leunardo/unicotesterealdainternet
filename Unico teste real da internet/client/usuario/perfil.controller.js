@@ -32,6 +32,7 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     function mostrarQuizzes(quizList){
         if(quizList.data.length > 0){
             $scope.quizzes = quizList.data;
+            console.log($scope.quizzes);
             getTags();
         }
         else if($scope.nPagina!=1){
@@ -50,7 +51,8 @@ function perfilController($scope, $routeParams, authService, usuarioService, qui
     function proximo(){
         i++;
         k = 0;
-        if($scope.quizzes[$scope.quizzes.length-1].autor == undefined)
+
+        if(i < 8)
             getTags();
     }
 
