@@ -599,6 +599,16 @@ a:visited {
     color: #365CAB;
 }
 
+.pergunta {
+    background: #F6F7F9;
+    border: 2px #DFE0E4;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #365CAB;
+    padding: 5vw;
+}
+
 header {
     display: flex;
     padding-top: 10px;
@@ -693,6 +703,10 @@ header .logo {
     justify-content: flex-start;
     padding: 0;
     color: #133783;
+}
+
+.seila {
+    margin: 4px;
 }
 
 .caixa {
